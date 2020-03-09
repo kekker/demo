@@ -1,0 +1,16 @@
+
+node_modules/
+
+build
+public
+
+.idea/
+.cache/
+
+package-lock.json
+
+.npm
+.eslintcache
+.DS_Store
+.editorconfig
+
