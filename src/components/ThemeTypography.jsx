@@ -3,16 +3,31 @@ import Typography from 'typography';
 const typography = new Typography({
   baseFontSize: '18px',
   baseLineHeight: 1.666,
+  googleFonts: [
+    {
+      name: 'Rubik',
+      styles: [
+        '300',
+        '600'
+      ],
+    },
+    {
+      name: 'Heebo',
+      styles: [
+        '800',
+        '900'
+      ]
+    }
+  ],
   headerFontFamily: [
-    'Open Sans',
-    'Avenir Next',
-    'Helvetica Neue',
-    'Segoe UI',
-    'Helvetica',
+    'Heebo',
+    'Roboto',
     'Arial',
     'sans-serif',
   ],
-  bodyFontFamily: ['Open Sans', 'Georgia', 'serif'],
+  headerWeight: '900',
+  bodyFontFamily: ['Rubik', 'Open Sans', 'Arial', 'sans-serif'],
+  bodyWeight: '300'
 });
 
 // Hot reload typography in development.

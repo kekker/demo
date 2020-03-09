@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 
@@ -8,7 +8,8 @@ import Layout from '../components/Layout/Layout';
 import Seo from '../components/SEO/Seo';
 
 // Utils
-import { shorten } from '../utils/truncateStr';
+import shorten from '../utils/truncateStr';
+import ButtonLink from '../components/Button';
 
 const BlogIndex = ({ data }) => {
   const blogTitle = data.site.siteMetadata.title;
@@ -32,9 +33,7 @@ const BlogIndex = ({ data }) => {
                   __html: shorten(post.node.html, 300),
                 }}
               />
-              <Link to={post.node.fields.slug}>
-                <button type="button">Read more</button>
-              </Link>
+              <ButtonLink to={post.node.fields.slug} title="Read More" />
             </div>
           ))}
         </section>

@@ -86,7 +86,7 @@ content/
  - [ ] Add global styles for bold html tags and markdown elements
  - [ ] Add flexible Layout element
  - [ ] Add Header, Footer, Sidebar elements (sidebar lists all pages)
- - [ ] Add reusable small components: Button, Link, etc.
+ - [ ] Add reusable small components: ButtonLink, Link, etc.
  - [ ] Add styles for the components
  
  #### Long-term tasks

@@ -54,9 +54,10 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-typography`,
 			options: {
-				pathToConfigModule: `src/utils/typography`
+				pathToConfigModule: `src/components/ThemeTypography`
 			}
 		},
+    `gatsby-plugin-styled-components`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-sitemap`
