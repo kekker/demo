@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Theme from '../Theme';
 
-const Layout = ({ title, subtitle, children }) => (
+import Theme from '../Theme';
+import MainHeader from '../Header';
+import ContainerContent from '../ContainerContent';
+
+const Layout = ({
+  children, location
+}) => (
   <Theme>
-    <div className="app-container">
-      <header>
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-      </header>
-      <main>{children}</main>
+    <div>
+      <MainHeader location={location} />
+
+      <main>
+        <ContainerContent>{children}</ContainerContent>
+      </main>
       <footer>
         ©
         {new Date().getFullYear()}
@@ -22,8 +27,7 @@ const Layout = ({ title, subtitle, children }) => (
 );
 
 Layout.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
+  location: PropTypes.string,
   children: PropTypes.node,
 };
 

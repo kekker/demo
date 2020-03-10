@@ -3,6 +3,8 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import Text from '../Text/Text';
+
 const Button = styled.button`
   color: ${props => props.theme.colors.primaryText};
   border: 2px solid
@@ -10,25 +12,25 @@ const Button = styled.button`
   background: ${({ isPrimary, theme: { colors } }) => (isPrimary ? colors.primaryBrand : colors.primaryLight)};
 
   margin: 1em;
-  padding: 0.8em 1.2em;
+  font-size: ${props => props.theme.fontSizes[props.size]};
+  padding: 0.1em 0.5em;
   border-radius: 2em;
 `;
 
-const Header = styled.h4`
-  padding: 0;
-  margin: 0;
-  text-transform: uppercase;
-`;
-
-const ButtonLink = ({ title, isPrimary, to }) => (
+const ButtonLink = ({
+  title, isPrimary, to, size
+}) => (
   <Link to={to}>
     <Button isPrimary={isPrimary} type="button">
-      <Header>{title}</Header>
+      <Text isHeadingFont transform="uppercase" size={size}>
+        {title}
+      </Text>
     </Button>
   </Link>
 );
 
 ButtonLink.propTypes = {
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   title: PropTypes.string.isRequired,
   isPrimary: PropTypes.bool,
   to: PropTypes.string.isRequired,
@@ -36,6 +38,7 @@ ButtonLink.propTypes = {
 
 ButtonLink.defaultProps = {
   isPrimary: true,
+  size: 'small',
 };
 
 export default ButtonLink;

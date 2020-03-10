@@ -6,12 +6,13 @@ import PropTypes from 'prop-types';
 // Components
 import Layout from '../components/Layout/Layout';
 import Seo from '../components/SEO/Seo';
+import ButtonLink from '../components/Button';
 
 // Utils
 import shorten from '../utils/truncateStr';
-import ButtonLink from '../components/Button';
 
-const BlogIndex = ({ data }) => {
+
+const BlogIndex = ({ data, location }) => {
   const blogTitle = data.site.siteMetadata.title;
   const authorName = data.site.siteMetadata.author;
   const posts = data.allMarkdownRemark.edges;
@@ -19,12 +20,17 @@ const BlogIndex = ({ data }) => {
   const profilePic = data.profilePic.childImageSharp.fluid;
 
   return (
-    <Layout title={blogTitle} subtitle="Kekker Documentation">
-      <Seo title="All articles" />
+    <Layout
+      location={location}
+      title={blogTitle}
+      subtitle="Kekker Documentation"
+    >
+      <Seo title="Kekker" />
+
       <div className="blog-container">
         <section>
           {posts.map(post => (
-            <div className="post-summary" key={`summary-${post.title}`}>
+            <div className="post-summary">
               <p>{post.node.frontmatter.date}</p>
               <h2>{post.node.frontmatter.title}</h2>
               <div
@@ -49,6 +55,7 @@ const BlogIndex = ({ data }) => {
 
 BlogIndex.propTypes = {
   data: PropTypes.node,
+  location: PropTypes.string
 };
 
 export default BlogIndex;

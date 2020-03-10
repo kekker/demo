@@ -9,9 +9,7 @@ import MarkdownContent from '../components/MarkdownContent/MarkdownContent';
 
 const Docs = ({ data, pageContext }) => {
   const { frontmatter } = data.markdownRemark;
-  const {
-    title, subtitle, description
-  } = frontmatter;
+  const { title, subtitle, description } = frontmatter;
   const post = data.markdownRemark;
   const { previous, next, slug } = pageContext;
 

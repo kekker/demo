@@ -1,33 +1,33 @@
 import Typography from 'typography';
 
+const jsonTheme = require('../../content/theme');
+
+const {
+  headerFontFamily,
+  bodyFontFamily,
+  bodyWeight,
+  headerWeight,
+  baseFontSize,
+  baseLineHeight,
+} = jsonTheme;
+
 const typography = new Typography({
-  baseFontSize: '18px',
-  baseLineHeight: 1.666,
   googleFonts: [
     {
       name: 'Rubik',
-      styles: [
-        '300',
-        '600'
-      ],
+      styles: ['300', '600'],
     },
     {
       name: 'Heebo',
-      styles: [
-        '800',
-        '900'
-      ]
-    }
+      styles: ['800', '900'],
+    },
   ],
-  headerFontFamily: [
-    'Heebo',
-    'Roboto',
-    'Arial',
-    'sans-serif',
-  ],
-  headerWeight: '900',
-  bodyFontFamily: ['Rubik', 'Open Sans', 'Arial', 'sans-serif'],
-  bodyWeight: '300'
+  baseFontSize,
+  baseLineHeight,
+  headerFontFamily,
+  bodyFontFamily,
+  bodyWeight,
+  headerWeight,
 });
 
 // Hot reload typography in development.
