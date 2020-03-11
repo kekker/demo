@@ -9,19 +9,11 @@ const {
   headerWeight,
   baseFontSize,
   baseLineHeight,
+  googleFonts,
 } = jsonTheme;
 
 const typography = new Typography({
-  googleFonts: [
-    {
-      name: 'Rubik',
-      styles: ['300', '600'],
-    },
-    {
-      name: 'Heebo',
-      styles: ['800', '900'],
-    },
-  ],
+  googleFonts,
   baseFontSize,
   baseLineHeight,
   headerFontFamily,

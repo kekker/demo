@@ -6,8 +6,8 @@ import Text from '../Text/Text';
 
 const StyledHeaderLink = styled(Link).attrs(props => ({
   curr_color: props.isActive
-    ? props.theme.colors.invertedText
-    : props.theme.colors.primaryBrand,
+    ? props.theme.colors.primaryBrand
+    : props.theme.colors.invertedText,
 }))`
   color: ${props => props.curr_color};
   display: block;
@@ -42,13 +42,12 @@ const HeaderLink = ({ isActive, title, to }) => (
 
 HeaderLink.propTypes = {
   isActive: PropTypes.bool,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
 };
 
 HeaderLink.defaultProps = {
   isActive: false,
-  title: '',
 };
 
 export default HeaderLink;

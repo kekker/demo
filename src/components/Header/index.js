@@ -1,3 +1,4 @@
-import Header from './Header';
+import ShortHeader from './Header';
+import MainHeader from './MainHeader';
 
-export default Header;
+export { ShortHeader, MainHeader };

@@ -5,28 +5,43 @@ import PropTypes from 'prop-types';
 // Components
 import Layout from '../components/Layout/Layout';
 import Seo from '../components/SEO/Seo';
-import MarkdownContent from '../components/MarkdownContent/MarkdownContent';
+import MarkdownContent from '../components/MarkdownContent';
 
-const Docs = ({ data, pageContext }) => {
+const Docs = ({ data, pageContext, location }) => {
   const { frontmatter } = data.markdownRemark;
   const { title, subtitle, description } = frontmatter;
   const post = data.markdownRemark;
   const { previous, next, slug } = pageContext;
 
   return (
-    <Layout title={title} subtitle={subtitle}>
+    <Layout location={location} title={title} subtitle={subtitle}>
       <Seo
         title={title}
         description={description || post.excerpt}
         slug={slug}
       />
-      <MarkdownContent markdownRemark={post} next={next} previous={previous} />
+
+      <div className="blog-container">
+        <MarkdownContent
+          title={title}
+          description={description}
+          markdownRemark={post}
+          next={next}
+          previous={previous}
+        />
+
+        <aside>
+          <h3>Kekker</h3>
+          <p>Menu will be here</p>
+        </aside>
+      </div>
     </Layout>
   );
 };
 
 Docs.propTypes = {
   data: PropTypes.node,
+  location: PropTypes.string.isRequired,
   pageContext: PropTypes.node,
 };
 

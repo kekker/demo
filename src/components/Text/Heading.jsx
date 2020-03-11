@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const StyledHeading = styled.div`
-  font-weight: ${({ weight, theme }) => (weight || theme.headerWeight)};
+  font-weight: ${({ weight, theme }) => weight || theme.headerWeight};
   ${({ size }) => (size ? `font-size: ${size}` : '')};
-  color: ${({ color, theme }) => (color || theme.colors.primaryText)};
+  color: ${({ color, theme }) => color || theme.colors.primaryText};
   ${({ align }) => (align ? `text-align: ${align}` : '')};
   ${({ lineh }) => (lineh ? `line-height: ${lineh}` : '')};
 `;

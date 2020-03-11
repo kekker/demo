@@ -79,19 +79,20 @@ content/
 
 ---
 #### Developing next steps
- - [ ] Solve 3 remain eslint problems
- - [ ] Configure css-modules for the project
- - [ ] Add a global theme with fonts and colors
- - [ ] Apply a global theme to all elements
+ - [X] Solve 3 remain eslint problems
+ - [X] Configure css-modules for the project
+ - [X] Add a global theme with fonts and colors
+ - [X] Apply a global theme to all elements
  - [ ] Add global styles for bold html tags and markdown elements
- - [ ] Add flexible Layout element
+ - [X] Add flexible Layout element
  - [ ] Add Header, Footer, Sidebar elements (sidebar lists all pages)
- - [ ] Add reusable small components: ButtonLink, Link, etc.
+ - [X] Add reusable small components: ButtonLink, Link, etc.
  - [ ] Add styles for the components
  
  #### Long-term tasks
- - [ ] Configure yml config files to render a valid menu links
+ - [X] Configure yml config files to render a valid menu links
+ - [ ] Configure safe yml load with GraphQl
  - [ ] Add CircleCI to the project
- - [ ] Deploy master branch 
+ - [X] Deploy master branch 
  
     

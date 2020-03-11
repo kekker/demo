@@ -15,11 +15,10 @@ import PropTypes from 'prop-types';
  */
 
 const StyledText = styled.div.attrs(props => ({
-  fontFamilyChoise: props.isHeadingFont ? props.theme.headerWeight
+  fontFamilyChoise: props.isHeadingFont
+    ? props.theme.headerWeight
     : props.theme.bodyWeight,
-  finalWeight: props.weight
-    ? props.weight
-    : props.fontFamilyChoise,
+  finalWeight: props.weight ? props.weight : props.fontFamilyChoise,
   finalSize: props.size
     ? props.theme.fontSizes[props.size]
     : props.theme.baseFontSize,
@@ -31,10 +30,11 @@ const StyledText = styled.div.attrs(props => ({
   font-size: ${({ finalSize }) => finalSize};
   font-family: ${({ finalFont }) => finalFont};
 
-  color: ${({ color, theme }) => (color || theme.colors.primaryText)};
+  color: ${({ color, theme }) => color || theme.colors.primaryText};
 
   text-transform: ${({ transform }) => transform};
   text-decoration: ${({ decoration }) => decoration};
+  line-height: ${({ lineh }) => lineh};
 `;
 
 const Text = ({
@@ -45,6 +45,7 @@ const Text = ({
   weight,
   transform,
   decoration,
+  lineh,
   children,
 }) => (
   <StyledText
@@ -55,6 +56,7 @@ const Text = ({
     weight={weight}
     transform={transform}
     decoration={decoration}
+    lineh={lineh}
   >
     {children}
   </StyledText>
@@ -63,11 +65,12 @@ const Text = ({
 Text.propTypes = {
   isHeadingFont: PropTypes.bool,
   tag: PropTypes.oneOf(['span', 'div']),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['extrasmall', 'small', 'medium', 'large']),
   color: PropTypes.string,
   weight: PropTypes.number,
   transform: PropTypes.string,
   decoration: PropTypes.string,
+  lineh: PropTypes.string,
   children: PropTypes.node,
 };
 
@@ -76,6 +79,7 @@ Text.defaultProps = {
   tag: 'span',
   transform: 'none',
   decoration: 'none',
+  lineh: 'normal',
 };
 
 export default Text;

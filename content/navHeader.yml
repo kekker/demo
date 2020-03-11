@@ -1,10 +1,10 @@
 items:
   - title: Documents
-    to: /docs/getting-started/
+    to: /docs/
     activeSelector: /docs/
   - title: Scenarios
-    to: /
-    activeSelector: /
+    to: /scenarious/
+    activeSelector: /scenarious/
   - title: About
-    to: /about
-    activeSelector: /about
+    to: /about/
+    activeSelector: /about/

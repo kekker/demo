@@ -6,12 +6,16 @@ const FlexDiv = styled.div`
   display: flex;
   height: ${props => props.height};
   width: ${props => props.width};
+
   flex-direction: ${props => props.direction};
   flex-grow: ${props => props.grow};
   flex-shrink: ${props => props.shrink};
   flex-basis: ${props => props.basis};
   justify-content: ${props => props.justify};
   align-items: ${props => props.align};
+  flex-wrap: ${props => props.wrap};
+
+  margin: ${props => props.margin};
 `;
 
 const Flex = ({
@@ -24,6 +28,8 @@ const Flex = ({
   align,
   height,
   width,
+  margin,
+  wrap,
 }) => (
   <FlexDiv
     direction={direction}
@@ -34,6 +40,8 @@ const Flex = ({
     justify={justify}
     align={align}
     width={width}
+    wrap={wrap}
+    margin={margin}
   >
     {children}
   </FlexDiv>
@@ -56,6 +64,8 @@ Flex.propTypes = {
   align: PropTypes.string,
   height: PropTypes.string,
   width: PropTypes.string,
+  margin: PropTypes.string,
+  wrap: PropTypes.string,
 };
 
 Flex.defaultValues = {
@@ -67,6 +77,8 @@ Flex.defaultValues = {
   align: 'flex-start',
   height: '100%',
   width: '100%',
+  wrap: 'nowrap',
+  margin: 'unset',
 };
 
 export default Flex;

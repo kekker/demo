@@ -9,19 +9,24 @@ const Section = styled.section`
   margin-right: auto;
 
   height: ${({ height }) => height};
+  background-color: ${({ bgColor }) => bgColor};
 `;
 
-const ContainerSection = ({ children, height }) => (
-  <Section height={height}>{children}</Section>
+const ContainerSection = ({ children, height, bgColor }) => (
+  <Section height={height} bgColor={bgColor}>
+    {children}
+  </Section>
 );
 
 ContainerSection.propTypes = {
   children: PropTypes.node,
-  height: PropTypes.string
+  height: PropTypes.string,
+  bgColor: PropTypes.string,
 };
 
 ContainerSection.defaultProps = {
   height: '100%',
+  bgColor: 'transparent',
 };
 
 export default ContainerSection;

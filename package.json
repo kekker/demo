@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "author": "Kekker",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.32",
     "gatsby-image": "^2.2.23",
@@ -28,10 +31,7 @@
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "styled-components": "^5.0.1",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75",
-    "typography": "^0.16.19",
-    "typography-theme-fairy-gates": "^0.16.19"
+    "typography": "^0.16.19"
   },
   "devDependencies": {
     "@types/prop-types": "^15.7.3",

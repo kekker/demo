@@ -22,7 +22,7 @@ const ButtonLink = ({
 }) => (
   <Link to={to}>
     <Button isPrimary={isPrimary} type="button">
-      <Text isHeadingFont transform="uppercase" size={size}>
+      <Text weight="800" isHeadingFont transform="uppercase" size={size}>
         {title}
       </Text>
     </Button>
