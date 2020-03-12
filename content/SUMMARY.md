@@ -2,7 +2,7 @@
 
 * [index](README.md)
 
-## /docs/getting-started <a id="getting-started"></a>
+## docs\_getting-started <a id="getting-started"></a>
 
 * [Getting-started](getting-started/getting-started.md)
 
