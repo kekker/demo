@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import Heading from '../Text/Heading';
-import Text from '../Text/Text';
+import Heading from '../TextStyles/Heading';
+import Text from '../TextStyles/Text';
 
 const TitleDiv = styled.div`
   margin-bottom: 1.4em;

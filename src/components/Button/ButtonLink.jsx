@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Text from '../Text/Text';
+import Text from '../TextStyles/Text';
 
 const Button = styled.button`
   color: ${props => props.theme.colors.primaryText};

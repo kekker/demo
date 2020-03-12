@@ -35,6 +35,8 @@ const StyledText = styled.div.attrs(props => ({
   text-transform: ${({ transform }) => transform};
   text-decoration: ${({ decoration }) => decoration};
   line-height: ${({ lineh }) => lineh};
+
+  ${ props => props.as === 'div' ? 'margin-bottom: 0.8em;' : ''};
 `;
 
 const Text = ({

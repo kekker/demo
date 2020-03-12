@@ -8,7 +8,7 @@ import Flex from '../Flex';
 
 import footerNav from '../../../content/footerNav.yml';
 import FooterLink from './FooterLink';
-import Text from '../Text/Text';
+import Text from '../TextStyles/Text';
 import LogoLink from '../Logo';
 import IconLink from '../Icons';
 
@@ -33,7 +33,7 @@ const Footer = ({ theme }) => (
           </Nav>
           <Flex>
             <IconLink type="Facebook" color={theme.colors.invertedText} />
-            <IconLink type="Linkedin" color={theme.colors.invertedText} />
+            <IconLink link_to={'https://www.linkedin.com/company/kekker'} type="Linkedin" color={theme.colors.invertedText} />
             <IconLink type="Instagram" color={theme.colors.invertedText} />
           </Flex>
         </Flex>
