@@ -1,0 +1,49 @@
+{
+  "colors": {
+    "primaryBrand": "#ffde00",
+    "primaryText": "#000000",
+    "invertedText": "#ffffff",
+    "primaryLight": "#ffffff",
+    "primaryDark": "#353434",
+    "secondaryDark": "#535252",
+    "linkColor": "#0e3ca1"
+  },
+  "fontSizes": {
+    "extrasmall": "0.6rem",
+    "small": "0.8rem",
+    "medium": "1.4em",
+    "large": "2em"
+  },
+  "baseFontSize": "18px",
+  "baseLineHeight": 1.666,
+  "headerFontFamily": [
+    "Heebo",
+    "Roboto",
+    "Arial",
+    "sans-serif"
+  ],
+  "headerWeight": "900",
+  "bodyFontFamily": [
+    "Rubik",
+    "Open Sans",
+    "Arial",
+    "sans-serif"
+  ],
+  "bodyWeight": "300",
+  "googleFonts": [
+    {
+      "name": "Rubik",
+      "styles": [
+        "300", "600"
+      ]
+    },
+    {
+      "name": "Heebo",
+      "styles": [
+        "500",
+        "800",
+        "900"
+      ]
+    }
+  ]
+}

@@ -18,7 +18,12 @@ h1 {
 }
 
 a, button {
-  cursor: pointer;
+    cursor: pointer;
+}
+
+a {
+  background-image: none;
+  text-shadow: none;
 }
 
 main {

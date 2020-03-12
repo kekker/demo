@@ -1,55 +1,41 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
 // Components
-import Layout from '../components/Layout/Layout';
 import Seo from '../components/SEO/Seo';
+import { MainHeader } from '../components/Header';
+import ContainerContent from '../components/ContainerContent';
+import Footer from '../components/Footer';
+import Theme from '../components/Theme';
+import ButtonLink from '../components/Button';
 
-// Utils
-import { shorten } from '../utils/truncateStr';
-
-const BlogIndex = ({ data }) => {
+const BlogIndex = ({ data, location }) => {
   const blogTitle = data.site.siteMetadata.title;
-  const authorName = data.site.siteMetadata.author;
-  const posts = data.allMarkdownRemark.edges;
-  const { bio } = data.site.siteMetadata;
-  const profilePic = data.profilePic.childImageSharp.fluid;
+  const { description } = data.site.siteMetadata;
 
   return (
-    <Layout title={blogTitle} subtitle="Kekker Documentation">
-      <Seo title="All articles" />
-      <div className="blog-container">
-        <section>
-          {posts.map(post => (
-            <div className="post-summary" key={`summary-${post.title}`}>
-              <p>{post.node.frontmatter.date}</p>
-              <h2>{post.node.frontmatter.title}</h2>
-              <div
-                className="content"
-                dangerouslySetInnerHTML={{
-                  __html: shorten(post.node.html, 300),
-                }}
-              />
-              <Link to={post.node.fields.slug}>
-                <button type="button">Read more</button>
-              </Link>
-            </div>
-          ))}
-        </section>
-        <aside>
-          <Img fluid={profilePic} alt={`Author ${authorName}`} />
-          <h3>{authorName}</h3>
-          <p>{bio}</p>
-        </aside>
+    <Theme>
+      <div>
+        <Seo title={blogTitle} description={description} />
+        <MainHeader location={location} />
+
+        <main>
+          <ContainerContent>
+            Content soon will be here
+            <ButtonLink to="/docs" title="Go see documents page" />
+          </ContainerContent>
+        </main>
+
+        <Footer />
       </div>
-    </Layout>
+    </Theme>
   );
 };
 
 BlogIndex.propTypes = {
   data: PropTypes.node,
+  location: PropTypes.string,
 };
 
 export default BlogIndex;
@@ -59,31 +45,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
-        bio
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          html
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
-        }
-      }
-    }
-    profilePic: file(absolutePath: { regex: "/kekker.jpg/" }) {
-      childImageSharp {
-        fluid(maxHeight: 300) {
-          ...GatsbyImageSharpFluid
-        }
+        description
       }
     }
   }
