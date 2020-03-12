@@ -1,3 +1,7 @@
+---
+description: Cases
+---
+
 # Cases
 
 ## Decentralized solutions 
