@@ -20,16 +20,8 @@ const DocsList = ({ data, location }) => {
       <div className="blog-container">
         <ContainerContent pleft="0" pright="2em">
           {posts.map(post => (
-            <div className="post-summary">
-              <p>{post.node.frontmatter.date}</p>
-              <h2>{post.node.frontmatter.title}</h2>
-              <div
-                className="content"
-                dangerouslySetInnerHTML={{
-                  __html: shorten(post.node.html, 300),
-                }}
-              />
-              <ButtonLink to={post.node.fields.slug} title="Read More" />
+            <div>
+              <ButtonLink isPrimary={false} to={post.node.fields.slug} title={post.node.fields.slug} />
             </div>
           ))}
         </ContainerContent>
@@ -64,7 +56,7 @@ export default DocsList;
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark {
       edges {
         node {
           excerpt
@@ -73,9 +65,7 @@ export const pageQuery = graphql`
           }
           html
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
-            description
           }
         }
       }
