@@ -2,8 +2,8 @@
 
 * [Initial page](README.md)
 * [about](about/README.md)
-  * [Platform](about/about.md)
-  * [Cases](about/decentralized.md)
+  * [Platform](about/platform.md)
+  * [Cases](about/cases.md)
   * [Benefits](about/benefits.md)
 * [getting-started](getting-started/README.md)
   * [Getting-started](getting-started/getting-started.md)
