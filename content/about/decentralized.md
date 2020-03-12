@@ -1,4 +1,4 @@
-# Decentralized
+# Cases
 
 ## Decentralized solutions 
 
