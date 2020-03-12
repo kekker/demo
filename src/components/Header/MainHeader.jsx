@@ -8,7 +8,7 @@ import BgImage from '../BgImage';
 import ContainerContent from '../ContainerContent';
 import Flex from '../Flex';
 import HeaderNav from './HeaderNav';
-import Heading from '../Text/Heading';
+import Heading from '../TextStyles/Heading';
 import ButtonLink from '../Button';
 
 export const queryMainHeader = graphql`

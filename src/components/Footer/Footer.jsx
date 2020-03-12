@@ -8,7 +8,7 @@ import Flex from '../Flex';
 
 import footerNav from '../../../content/footerNav.yml';
 import FooterLink from './FooterLink';
-import Text from '../Text/Text';
+import Text from '../TextStyles/Text';
 import LogoLink from '../Logo';
 import IconLink from '../Icons';
 

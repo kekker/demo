@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import ContainerContent from '../components/ContainerContent';
 import ButtonLink from '../components/Button';
 import Layout from '../components/Layout';
-import Heading from '../components/Text/Heading';
-import Text from '../components/Text/Text';
+import Heading from '../components/TextStyles/Heading';
+import Text from '../components/TextStyles/Text';
 
 // Utils
 import shorten from '../utils/truncateStr';
