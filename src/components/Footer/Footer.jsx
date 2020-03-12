@@ -33,7 +33,7 @@ const Footer = ({ theme }) => (
           </Nav>
           <Flex>
             <IconLink type="Facebook" color={theme.colors.invertedText} />
-            <IconLink type="Linkedin" color={theme.colors.invertedText} />
+            <IconLink link_to={'https://www.linkedin.com/company/kekker'} type="Linkedin" color={theme.colors.invertedText} />
             <IconLink type="Instagram" color={theme.colors.invertedText} />
           </Flex>
         </Flex>
