@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Text from '../Text/Text';
+import Text from '../TextStyles/Text';
 
 const StyledFooterLink = styled(Link)`
   color: ${props => props.theme.colors.invertedText};

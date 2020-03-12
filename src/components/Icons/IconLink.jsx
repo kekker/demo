@@ -47,8 +47,8 @@ const InlineIcon = ({ type }) => {
   }
 };
 
-const IconLink = ({ type }) => (
-  <StyledIconLink>
+const IconLink = ({ type, link_to }) => (
+  <StyledIconLink to={link_to}>
     <InlineIcon type={type} />
   </StyledIconLink>
 );
