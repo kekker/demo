@@ -31,4 +31,8 @@ Layout.propTypes = {
   description: PropTypes.string,
 };
 
+Layout.defaultProps = {
+  description: ''
+};
+
 export default Layout;
