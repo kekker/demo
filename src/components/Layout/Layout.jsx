@@ -32,7 +32,7 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  description: ''
+  description: '',
 };
 
 export default Layout;

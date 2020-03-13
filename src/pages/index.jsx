@@ -10,8 +10,8 @@ import ContainerContent from '../components/ContainerContent';
 import Footer from '../components/Footer';
 import Theme from '../components/Theme';
 import ButtonLink from '../components/Button';
-import Flex from "../components/Flex";
-import GridItem from "../components/GridItem";
+import Flex from '../components/Flex';
+import GridItem from '../components/GridItem';
 
 // Content
 const jsonContent = require('../../content/home');
@@ -29,17 +29,19 @@ const BlogIndex = ({ data, location }) => {
 
         <main>
           <ContainerContent>
-            <Flex wrap={'wrap'} justify={'space-between'}>
-              { jsonContent.benefits.map( item => (
-                <GridItem cols={jsonContent.benefits.length}
-                          header={item.header}
-                          content={item.content}
-                          link_to={item.link_to}
+            <Flex wrap="wrap" justify="space-between">
+              {jsonContent.benefits.map(item => (
+                <GridItem
+                  cols={jsonContent.benefits.length}
+                  header={item.header}
+                  content={item.content}
+                  link_to={item.link_to}
                 />
               ))}
             </Flex>
-            <Img fluid={data.demoImage.childImageSharp.fluid}
-                 alt={'Demo preview'}
+            <Img
+              fluid={data.demoImage.childImageSharp.fluid}
+              alt="Demo preview"
             />
             Content soon will be here
             <ButtonLink to="/docs" title="Go see documents page" />

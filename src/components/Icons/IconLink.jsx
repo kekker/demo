@@ -47,14 +47,15 @@ const InlineIcon = ({ type }) => {
   }
 };
 
-const IconLink = ({ type, link_to }) => (
-  <StyledIconLink to={link_to}>
+const IconLink = ({ type, linkTo }) => (
+  <StyledIconLink to={linkTo}>
     <InlineIcon type={type} />
   </StyledIconLink>
 );
 
 IconLink.propTypes = {
   type: PropTypes.string.isRequired,
+  linkTo: PropTypes.string
 };
 
 InlineIcon.propTypes = {

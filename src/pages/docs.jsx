@@ -9,9 +9,6 @@ import Layout from '../components/Layout';
 import Heading from '../components/TextStyles/Heading';
 import Text from '../components/TextStyles/Text';
 
-// Utils
-import shorten from '../utils/truncateStr';
-
 const DocsList = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
 
@@ -21,7 +18,11 @@ const DocsList = ({ data, location }) => {
         <ContainerContent pleft="0" pright="2em">
           {posts.map(post => (
             <div>
-              <ButtonLink isPrimary={false} to={post.node.fields.slug} title={post.node.fields.slug} />
+              <ButtonLink
+                isPrimary={false}
+                to={post.node.fields.slug}
+                title={post.node.fields.slug}
+              />
             </div>
           ))}
         </ContainerContent>
@@ -36,7 +37,7 @@ const DocsList = ({ data, location }) => {
                   transform="uppercase"
                   decoration="underline"
                 >
-                  {post.node.frontmatter.title}
+                  {post.node.frontmatter.description}
                 </Text>
               </Heading>
             </Link>
@@ -65,7 +66,7 @@ export const pageQuery = graphql`
           }
           html
           frontmatter {
-            title
+            description
           }
         }
       }
