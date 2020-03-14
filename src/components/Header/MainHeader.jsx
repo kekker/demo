@@ -38,7 +38,7 @@ const MainHeader = ({ location, theme }) => {
             fluid={data.bgImage.childImageSharp.fluid}
             title="Kekker background cover"
           >
-            <ContainerContent>
+            <ContainerContent ptop={'0'}>
               <Flex direction="column" height="100%">
                 <HeaderNav location={location} />
 
