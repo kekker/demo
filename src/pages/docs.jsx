@@ -8,6 +8,7 @@ import ButtonLink from '../components/Button';
 import Layout from '../components/Layout';
 import Heading from '../components/TextStyles/Heading';
 import Text from '../components/TextStyles/Text';
+import MenuLink from "../components/Menu/MenuLink";
 
 const DocsList = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
@@ -29,18 +30,7 @@ const DocsList = ({ data, location }) => {
 
         <aside>
           {posts.map(post => (
-            <Link to={post.node.fields.slug}>
-              <Heading textAlign="left" level={4}>
-                <Text
-                  color="primaryText"
-                  isHeadingFont
-                  fontWeight="800"
-                  textTransform="uppercase"
-                >
-                  {post.node.frontmatter.description}
-                </Text>
-              </Heading>
-            </Link>
+            <MenuLink link={post.node.fields.slug} />
           ))}
         </aside>
       </div>

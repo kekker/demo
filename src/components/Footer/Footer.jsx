@@ -22,8 +22,8 @@ const StyledSocialLink = styled.nav`
   color: ${props => props.theme.colors.invertedText};
 `;
 
-const Footer = ({ theme }) => (
-  <ContainerSection bg={theme.colors.primaryDark} height="100%">
+const Footer = () => (
+  <ContainerSection bg={'primaryDark'} height="100%">
     <ContainerContent pt="4em" pb="5em">
       <Flex flexDirection="column" height="100%">
         <Flex
@@ -68,7 +68,7 @@ const Footer = ({ theme }) => (
           </Flex>
         </Flex>
       </Flex>
-      <Text size="extrasmall" color={theme.colors.invertedText}>
+      <Text size="extrasmall" color={'invertedText'}>
         Copyright ©
         {' '}
         {new Date().getFullYear()}
@@ -84,4 +84,4 @@ Footer.propTypes = {
   theme: PropTypes.node,
 };
 
-export default withTheme(Footer);
+export default Footer;
