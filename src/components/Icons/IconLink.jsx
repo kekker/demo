@@ -55,7 +55,7 @@ const IconLink = ({ type, linkTo }) => (
 
 IconLink.propTypes = {
   type: PropTypes.string.isRequired,
-  linkTo: PropTypes.string
+  linkTo: PropTypes.string,
 };
 
 InlineIcon.propTypes = {

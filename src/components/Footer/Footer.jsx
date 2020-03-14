@@ -10,12 +10,16 @@ import footerNav from '../../../content/footerNav.yml';
 import FooterLink from './FooterLink';
 import Text from '../TextStyles/Text';
 import LogoLink from '../Logo';
-import IconLink from '../Icons';
 
 const Nav = styled.nav`
   max-width: 500px;
   flex: 1 0 70%;
   margin-bottom: 1em;
+`;
+
+const StyledSocialLink = styled.nav`
+  text-decoration: none;
+  color: ${props => props.theme.colors.invertedText};
 `;
 
 const Footer = ({ theme }) => (
@@ -31,14 +35,32 @@ const Footer = ({ theme }) => (
               <FooterLink key={link.title} title={link.title} to={link.to} />
             ))}
           </Nav>
-          <Flex>
-            <IconLink type="Facebook" color={theme.colors.invertedText} />
-            <IconLink
-              link_to="https://www.linkedin.com/company/kekker"
-              type="Linkedin"
-              color={theme.colors.invertedText}
-            />
-            <IconLink type="Instagram" color={theme.colors.invertedText} />
+          <Flex direction="column">
+            <StyledSocialLink to="/" title="Facebook">
+              <Text tag="div" size="small" color="inherit">
+                Facebook
+              </Text>
+            </StyledSocialLink>
+            <StyledSocialLink
+              to="https://www.linkedin.com/company/kekker"
+              title="LinkedIn"
+            >
+              <Text tag="div" size="small" color="inherit">
+                LinkedIn
+              </Text>
+            </StyledSocialLink>
+            <StyledSocialLink to="/" title="Instagram">
+              <Text tag="div" size="small" color="inherit">
+                Instagram
+              </Text>
+            </StyledSocialLink>
+            {/* <IconLink type="Facebook" color={theme.colors.invertedText} /> */}
+            {/* <IconLink */}
+            {/*  link_to="https://www.linkedin.com/company/kekker" */}
+            {/*  type="Linkedin" */}
+            {/*  color={theme.colors.invertedText} */}
+            {/* /> */}
+            {/* <IconLink type="Instagram" color={theme.colors.invertedText} /> */}
           </Flex>
         </Flex>
       </Flex>

@@ -8,6 +8,7 @@ const StyledFooterLink = styled(Link)`
   color: ${props => props.theme.colors.invertedText};
   display: block;
   transition: 'color 0.2s ease-out';
+  width: max-content;
 
   text-decoration: none;
   line-height: 1em;
@@ -23,11 +24,13 @@ const StyledFooterLink = styled(Link)`
 `;
 
 const FooterLink = ({ title, to }) => (
-  <StyledFooterLink title={title} to={to}>
-    <Text isHeadingFont weight={400} color="inherit" size="small">
-      {title}
-    </Text>
-  </StyledFooterLink>
+  <div>
+    <StyledFooterLink title={title} to={to}>
+      <Text isHeadingFont weight={400} color="inherit" size="small">
+        {title}
+      </Text>
+    </StyledFooterLink>
+  </div>
 );
 
 FooterLink.propTypes = {

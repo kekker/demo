@@ -23,52 +23,64 @@ export const queryMainHeader = graphql`
   }
 `;
 
-const MainHeader = ({ location, theme }) => (
-  <StaticQuery
-    query={queryMainHeader}
-    render={data => (
-      <ContainerSection height="100%">
-        <BgImage
-          height="100%"
-          fluid={data.bgImage.childImageSharp.fluid}
-          title="Kekker background cover"
-        >
-          <ContainerContent>
-            <Flex direction="column" height="100%">
-              <HeaderNav location={location} />
+const MainHeader = ({ location, theme }) => {
+  const height = '500px';
+  const mobileHeight = '300px';
 
-              <Flex
-                height="100%"
-                direction="column"
-                justify="center"
-                align="center"
-              >
-                <Heading
-                  weight={800}
-                  color={theme.colors.invertedText}
+  return (
+    <StaticQuery
+      query={queryMainHeader}
+      render={data => (
+        <ContainerSection height={height} mobileHeight={mobileHeight}>
+          <BgImage
+            height={height}
+            mobileHeight={mobileHeight}
+            fluid={data.bgImage.childImageSharp.fluid}
+            title="Kekker background cover"
+          >
+            <ContainerContent>
+              <Flex direction="column" height="100%">
+                <HeaderNav location={location} />
+
+                <Flex
+                  height="100%"
+                  direction="column"
+                  justify="center"
                   align="center"
-                  lineh="1.1em"
                 >
-                  A
-                  {' '}
-                  <span style={{ color: theme.colors.primaryBrand }}>
-                    platform
-                  </span>
-                  {' '}
-                  for building
-                  {' '}
-                  <br />
-                  <span style={{ fontSize: '1.4em' }}>decetralized apps</span>
-                </Heading>
-                <ButtonLink isPrimary={false} to="/" title="Get started" />
+                  <Heading
+                    weight={800}
+                    color={theme.colors.invertedText}
+                    align="center"
+                    lineh="1.1em"
+                    size="h1"
+                  >
+                    A
+                    {' '}
+                    <span style={{ color: theme.colors.primaryBrand }}>
+                      platform
+                    </span>
+                    {' '}
+                    for building
+                    {' '}
+                    <br />
+                    <span style={{ fontSize: '1.4em' }}>decetralized apps</span>
+                  </Heading>
+                  <ButtonLink
+                    size="large"
+                    isPrimary={false}
+                    to="/"
+                    title="Get started"
+                  />
+                </Flex>
               </Flex>
-            </Flex>
-          </ContainerContent>
-        </BgImage>
-      </ContainerSection>
-    )}
-  />
-);
+            </ContainerContent>
+          </BgImage>
+        </ContainerSection>
+      )}
+    />
+  );
+};
 
 MainHeader.propTypes = {
   location: PropTypes.string,

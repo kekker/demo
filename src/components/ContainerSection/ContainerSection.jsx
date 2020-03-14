@@ -10,10 +10,16 @@ const Section = styled.section`
 
   height: ${({ height }) => height};
   background-color: ${({ bgColor }) => bgColor};
+
+  @media screen and and (max-width: 600px) {
+    height: ${({ mobileHeight }) => mobileHeight};
+  }
 `;
 
-const ContainerSection = ({ children, height, bgColor }) => (
-  <Section height={height} bgColor={bgColor}>
+const ContainerSection = ({
+  children, height, mobileHeight, bgColor
+}) => (
+  <Section height={height} mobileHeight={mobileHeight} bgColor={bgColor}>
     {children}
   </Section>
 );
@@ -21,12 +27,14 @@ const ContainerSection = ({ children, height, bgColor }) => (
 ContainerSection.propTypes = {
   children: PropTypes.node,
   height: PropTypes.string,
+  mobileHeight: PropTypes.string,
   bgColor: PropTypes.string,
 };
 
 ContainerSection.defaultProps = {
   height: '100%',
   bgColor: 'transparent',
+  mobileHeight: '100%',
 };
 
 export default ContainerSection;
