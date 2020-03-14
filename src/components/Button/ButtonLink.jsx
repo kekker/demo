@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { variant } from 'styled-system';
 
 import Text from '../TextStyles/Text';
 
@@ -15,6 +16,8 @@ const Button = styled.button`
   font-size: ${props => props.theme.fontSizes[props.size]};
   padding: 0.1em 0.7em;
   border-radius: 2em;
+  
+  variant
 `;
 
 const ButtonLink = ({
@@ -22,7 +25,12 @@ const ButtonLink = ({
 }) => (
   <Link to={to}>
     <Button isPrimary={isPrimary} type="button">
-      <Text weight="800" isHeadingFont transform="uppercase" size={size}>
+      <Text
+        fontSize={{ md: 'large', lg: 'extralarge' }}
+        fontWeight="800"
+        isHeadingFont
+        textTransform="uppercase"
+      >
         {title}
       </Text>
     </Button>

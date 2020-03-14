@@ -27,7 +27,7 @@ const LogoLink = () => (
   <StaticQuery
     query={queryLogo}
     render={data => (
-      <Flex basis="20%">
+      <Flex flexBasis="20%">
         <StyledLogoLink to="/">
           <Img fluid={data.logoImage.childImageSharp.fluid} alt="Kekker logo" />
         </StyledLogoLink>

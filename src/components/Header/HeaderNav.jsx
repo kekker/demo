@@ -21,7 +21,7 @@ const Nav = styled.nav`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100%;
-  
+
   scrollbar-width: none;
   -ms-overflow-style: none;
 
@@ -31,7 +31,12 @@ const Nav = styled.nav`
 `;
 
 const HeaderNav = ({ location }) => (
-  <Flex height="12vh" width="100%" justify="space-between" align="center">
+  <Flex
+    height="12vh"
+    width="100%"
+    justifyContent="space-between"
+    alignItems="center"
+  >
     <LogoLink />
 
     <Nav>

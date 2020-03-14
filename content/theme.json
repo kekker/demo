@@ -9,11 +9,16 @@
     "linkColor": "#0e3ca1"
   },
   "fontSizes": {
-    "extrasmall": "0.6rem",
-    "small": "0.8rem",
-    "medium": "1.4em",
-    "large": "35px",
-    "h1":  "50px"
+    "extrasmall": 12,
+    "small": 14,
+    "medium": 16,
+    "large": 20,
+    "extralarge": 28,
+    "h1": {
+      "sm": 30,
+      "md": 40,
+      "lg": 50
+    }
   },
   "baseFontSize": "18px",
   "baseLineHeight": 1.666,
@@ -46,5 +51,15 @@
         "900"
       ]
     }
+  ],
+  "breakpoints": {
+    "xs": "0",
+    "sm": "600px",
+    "md": "960px",
+    "lg": "1280px",
+    "xl": "1920px"
+  },
+  "space": [
+    0, 4, 8, 16, 32, 64, 128, 256
   ]
 }

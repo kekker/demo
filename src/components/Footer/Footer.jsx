@@ -23,21 +23,25 @@ const StyledSocialLink = styled.nav`
 `;
 
 const Footer = ({ theme }) => (
-  <ContainerSection bgColor={theme.colors.primaryDark} height="100%">
-    <ContainerContent ptop="4em" pbottom="5em">
-      <Flex direction="column" height="100%">
-        <Flex wrap="wrap" justify="space-between" align="center">
+  <ContainerSection bg={theme.colors.primaryDark} height="100%">
+    <ContainerContent pt="4em" pb="5em">
+      <Flex flexDirection="column" height="100%">
+        <Flex
+          flexWrap="wrap"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <LogoLink />
         </Flex>
-        <Flex margin="2.2em 0" justify="space-between" wrap="wrap">
+        <Flex margin="2.2em 0" justifyContent="space-between" flexWrap="wrap">
           <Nav>
             {footerNav.items.map(link => (
               <FooterLink key={link.title} title={link.title} to={link.to} />
             ))}
           </Nav>
-          <Flex direction="column">
+          <Flex flexDirection="column">
             <StyledSocialLink to="/" title="Facebook">
-              <Text tag="div" size="small" color="inherit">
+              <Text tag="div" fontSize="small" color="inherit">
                 Facebook
               </Text>
             </StyledSocialLink>
@@ -45,12 +49,12 @@ const Footer = ({ theme }) => (
               to="https://www.linkedin.com/company/kekker"
               title="LinkedIn"
             >
-              <Text tag="div" size="small" color="inherit">
+              <Text tag="div" fontSize="small" color="inherit">
                 LinkedIn
               </Text>
             </StyledSocialLink>
             <StyledSocialLink to="/" title="Instagram">
-              <Text tag="div" size="small" color="inherit">
+              <Text tag="div" fontSize="small" color="inherit">
                 Instagram
               </Text>
             </StyledSocialLink>
