@@ -1,14 +1,19 @@
 # Table of contents
 
 * [Initial page](README.md)
-* [about](about/README.md)
-  * [Platform](about/platform.md)
-  * [Cases](about/cases.md)
-  * [Benefits](about/benefits.md)
-* [getting-started](getting-started/README.md)
-  * [Getting-started](getting-started/getting-started.md)
-* [api](api/README.md)
-  * [Api](api/untitled.md)
-* [scenarios](scenarios/README.md)
-  * [Shipment](scenarios/shipment.md)
+
+## Docs
+
+* [scenarios](docs/scenarios/README.md)
+  * [Shipment](docs/scenarios/shipment.md)
+* [api](docs/api/README.md)
+  * [Api](docs/api/untitled.md)
+* [getting-started](docs/getting-started/README.md)
+  * [Getting-started](docs/getting-started/getting-started.md)
+
+## About
+
+* [Benefits](about/benefits.md)
+* [Cases](about/cases.md)
+* [Platform](about/platform.md)
 
