@@ -20,7 +20,7 @@ const MarkdownContent = ({
   <section className="posts">
     <TitleDiv>
       <Heading>{title}</Heading>
-      <Text size="medium">{description}</Text>
+      <Text fontSize="medium">{description}</Text>
     </TitleDiv>
 
     <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />

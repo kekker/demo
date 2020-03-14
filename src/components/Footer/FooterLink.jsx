@@ -26,7 +26,7 @@ const StyledFooterLink = styled(Link)`
 const FooterLink = ({ title, to }) => (
   <div>
     <StyledFooterLink title={title} to={to}>
-      <Text isHeadingFont weight={400} color="inherit" size="small">
+      <Text isHeadingFont fontWeight={400} color="inherit" fontSize="small">
         {title}
       </Text>
     </StyledFooterLink>

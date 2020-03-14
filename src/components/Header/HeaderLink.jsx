@@ -12,7 +12,7 @@ const StyledHeaderLink = styled(Link).attrs(props => ({
   color: ${props => props.curr_color};
   display: block;
   transition: 'color 0.2s ease-out';
-  margin-left: ${props => props.theme.fontSizes.small};
+  margin-left: ${props => props.theme.fontSizes.extrasmall}px;
 
   text-decoration: none;
 
@@ -29,11 +29,11 @@ const StyledHeaderLink = styled(Link).attrs(props => ({
 const HeaderLink = ({ isActive, title, to }) => (
   <StyledHeaderLink title={title} isActive={isActive} to={to}>
     <Text
-      weight={800}
+      fontWeight={800}
       color="inherit"
-      transform="uppercase"
+      textTransform="uppercase"
       isHeadingFont
-      size="small"
+      fontSize="small"
     >
       {title}
     </Text>

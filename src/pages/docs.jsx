@@ -15,7 +15,7 @@ const DocsList = ({ data, location }) => {
   return (
     <Layout location={location} title="Docs List" description="Docs List">
       <div className="blog-container">
-        <ContainerContent pleft="0" pright="2em">
+        <ContainerContent pl="0" pr="2em">
           {posts.map(post => (
             <div>
               <ButtonLink
@@ -30,12 +30,12 @@ const DocsList = ({ data, location }) => {
         <aside>
           {posts.map(post => (
             <Link to={post.node.fields.slug}>
-              <Heading align="left" level={4}>
+              <Heading textAlign="left" level={4}>
                 <Text
+                  color="primaryText"
                   isHeadingFont
-                  weight="800"
-                  transform="uppercase"
-                  decoration="underline"
+                  fontWeight="800"
+                  textTransform="uppercase"
                 >
                   {post.node.frontmatter.description}
                 </Text>

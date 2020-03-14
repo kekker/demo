@@ -30,18 +30,23 @@ const BlogIndex = ({ data, location }) => {
         <MainHeader location={location} />
 
         <main>
-          <ContainerContent ptop="75px">
-            <Flex wrap="wrap" justify="space-between">
+          <ContainerContent pt="75px">
+            <Flex
+              flexDirection={{ _: 'column', md: 'row' }}
+              flexWrap="wrap"
+              justifyContent="space-between"
+            >
               {jsonContent.benefits.map(item => (
                 <GridItem
                   cols={jsonContent.benefits.length}
                   header={item.header}
                   content={item.content}
                   linkTo={item.link_to}
+                  mb={{ _: 4, md: 0 }}
                 />
               ))}
             </Flex>
-            <Heading marginTop="1.5em" level={2}>
+            <Heading mt="1.5em" level={2}>
               First steps are simple
             </Heading>
             <Img
@@ -49,10 +54,12 @@ const BlogIndex = ({ data, location }) => {
               alt="Demo preview"
             />
           </ContainerContent>
-          <ContainerSection bgColor="#ffde00">
-            <ContainerContent ptop="3em" pbottom="3em">
-              <Flex direction="column" align="center">
-                <Heading size="h1">Go to getting started tutorial</Heading>
+          <ContainerSection bg="primaryBrand">
+            <ContainerContent pt="3em" pb="3em">
+              <Flex flexDirection="column" alignItems="center">
+                <Heading fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}>
+                  Go to getting started tutorial
+                </Heading>
                 <ButtonLink
                   size="large"
                   isPrimary={false}

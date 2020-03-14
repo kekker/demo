@@ -7,11 +7,11 @@ import Text from '../TextStyles/Text';
 import Flex from '../Flex';
 
 const GridItem = ({
-  cols, header, content, linkTo
+  cols, header, content, linkTo, ...props
 }) => {
   const ifLink = linkTo ? (
     <Link to={linkTo} title="read more">
-      <Text color="inherit" weight={800}>
+      <Text color="inherit" fontWeight={800}>
         read more
       </Text>
     </Link>
@@ -21,11 +21,12 @@ const GridItem = ({
 
   return (
     <Flex
-      direction="column"
-      grow="0"
-      shrink="1"
-      basis={`calc(100% / ${cols} - 30px*2/3)`}
-      wrap="wrap"
+      flexDirection="column"
+      flexGrow="0"
+      flexShrink="1"
+      flexBasis={`calc(100% / ${cols} - 30px*2/3)`}
+      flexWrap="wrap"
+      {...props}
     >
       <Heading align="left" level={2}>
         {header}
