@@ -12,7 +12,8 @@
     "extrasmall": "0.6rem",
     "small": "0.8rem",
     "medium": "1.4em",
-    "large": "2em"
+    "large": "35px",
+    "h1":  "50px"
   },
   "baseFontSize": "18px",
   "baseLineHeight": 1.666,

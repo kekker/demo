@@ -13,7 +13,7 @@ const Button = styled.button`
 
   margin: 1em;
   font-size: ${props => props.theme.fontSizes[props.size]};
-  padding: 0.1em 0.5em;
+  padding: 0.1em 0.7em;
   border-radius: 2em;
 `;
 

@@ -12,6 +12,8 @@ import Theme from '../components/Theme';
 import ButtonLink from '../components/Button';
 import Flex from '../components/Flex';
 import GridItem from '../components/GridItem';
+import ContainerSection from '../components/ContainerSection';
+import Heading from '../components/TextStyles/Heading';
 
 // Content
 const jsonContent = require('../../content/home');
@@ -28,24 +30,37 @@ const BlogIndex = ({ data, location }) => {
         <MainHeader location={location} />
 
         <main>
-          <ContainerContent>
+          <ContainerContent ptop="75px">
             <Flex wrap="wrap" justify="space-between">
               {jsonContent.benefits.map(item => (
                 <GridItem
                   cols={jsonContent.benefits.length}
                   header={item.header}
                   content={item.content}
-                  link_to={item.link_to}
+                  linkTo={item.link_to}
                 />
               ))}
             </Flex>
+            <Heading marginTop="1.5em" level={2}>
+              First steps are simple
+            </Heading>
             <Img
               fluid={data.demoImage.childImageSharp.fluid}
               alt="Demo preview"
             />
-            Content soon will be here
-            <ButtonLink to="/docs" title="Go see documents page" />
           </ContainerContent>
+          <ContainerSection bgColor="#ffde00">
+            <ContainerContent ptop="3em" pbottom="3em">
+              <Flex direction="column" align="center">
+                <Heading size="h1">Go to getting started tutorial</Heading>
+                <ButtonLink
+                  size="large"
+                  isPrimary={false}
+                  title="Get started"
+                />
+              </Flex>
+            </ContainerContent>
+          </ContainerSection>
         </main>
 
         <Footer />
