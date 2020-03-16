@@ -12,5 +12,4 @@
   * [Benefits](../about/benefits.md)
   * [Cases](../about/cases.md)
   * [Platform](../about/platform.md)
-* [Table of contents](../summary.md)
 
