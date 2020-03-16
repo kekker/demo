@@ -7,6 +7,7 @@ const StyledHeading = styled.div`
   ${space};
   ${typography};
   ${color};
+  text-transform: ${({textTransform}) => textTransform};
 `;
 
 const Heading = ({ level, children, ...props }) => (

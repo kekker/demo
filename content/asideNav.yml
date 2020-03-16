@@ -1,0 +1,54 @@
+docs:
+  - header: Get Started
+    items:
+      - title: Getting Started
+        to: /docs/getting-started/getting-started.html
+
+      - title: First Deal
+        to: /docs/getting-started/getting-started.html
+
+      - title: Adding Files
+        to: /docs/getting-started/getting-started.html
+
+  - header: Api
+    items:
+      - title: Authentication
+        to: /docs/api/api.html
+
+      - title: Headers
+        to: /docs/api/api.html
+
+      - title: Status check
+        to: /docs/api/api.html
+
+      - title: Sending files
+        to: /docs/api/api.html
+
+      - title: Transaction
+        to: /docs/api/api.html
+
+  - header: Scenarios
+    items:
+      - title: Getting started
+        to: /docs/scenarios/shipment.html
+
+      - title: Shipment
+        to: /docs/scenarios/shipment.html
+
+      - title: Business Case 1
+        to: /docs/scenarios/shipment.html
+
+      - title: Business Case 1
+        to: /docs/scenarios/shipment.html
+
+about:
+  - header: About
+    items:
+      - title: Benefits
+        to: /about/benefits.html
+
+      - title: Cases
+        to: /about/cases.html
+
+      - title: Platform
+        to: /about/platform.html
