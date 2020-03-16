@@ -1,17 +1,17 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Initial page](gitbookconfs/)
 
 ## About
 
 * [Benefits](about/benefits.md)
 * [Cases](about/cases.md)
 * [Platform](about/platform.md)
-* [Documentation](docs/README.md)
-  * [getting-started](docs/getting-started/README.md)
+* [Documentation](docs/)
+  * [getting-started](docs/getting-started/)
     * [Getting-started](docs/getting-started/getting-started.md)
-  * [api](docs/api/README.md)
+  * [api](docs/api/)
     * [Api](docs/api/api.md)
-  * [scenarios](docs/scenarios/README.md)
+  * [scenarios](docs/scenarios/)
     * [Shipment](docs/scenarios/shipment.md)
 
