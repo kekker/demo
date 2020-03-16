@@ -30,14 +30,15 @@ module.exports = async ({ graphql, actions }) => {
 
     allMarkdown.forEach( edge => {
       const slug = edge.node.fields.slug;
-
-      createPage({
-        path: slug,
-        component: docsTemplate,
-        context: {
-          slug,
-        },
-      });
+      if (!slug.includes('gitbookconfs/')) {
+        createPage({
+          path: slug,
+          component: docsTemplate,
+          context: {
+            slug,
+          },
+        });
+      }
     });
   })
 };

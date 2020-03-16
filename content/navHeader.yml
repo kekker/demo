@@ -3,5 +3,5 @@ items:
     to: /docs/
     activeSelector: /docs/
   - title: About
-    to: /about/about.html
+    to: /about/
     activeSelector: /about/
