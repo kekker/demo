@@ -6,9 +6,8 @@ import PropTypes from 'prop-types';
 import ContainerContent from '../components/ContainerContent';
 import ButtonLink from '../components/Button';
 import Layout from '../components/Layout';
-import Heading from '../components/TextStyles/Heading';
-import Text from '../components/TextStyles/Text';
-import MenuLink from "../components/Menu/MenuLink";
+import SideMenu from "../components/Menu/SideMenu";
+
 
 const DocsList = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
@@ -29,9 +28,7 @@ const DocsList = ({ data, location }) => {
         </ContainerContent>
 
         <aside>
-          {posts.map(post => (
-            <MenuLink link={post.node.fields.slug} />
-          ))}
+         <SideMenu location={location} />
         </aside>
       </div>
     </Layout>

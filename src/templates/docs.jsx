@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Layout from '../components/Layout/Layout';
 import Seo from '../components/SEO/Seo';
 import MarkdownContent from '../components/MarkdownContent';
+import SideMenu from "../components/Menu/SideMenu";
 
 const Docs = ({ data, pageContext, location }) => {
   const { frontmatter } = data.markdownRemark;
@@ -31,8 +32,7 @@ const Docs = ({ data, pageContext, location }) => {
         />
 
         <aside>
-          <h3>Kekker</h3>
-          <p>Menu will be here</p>
+            <SideMenu location={location} />
         </aside>
       </div>
     </Layout>
