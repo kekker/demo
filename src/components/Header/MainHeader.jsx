@@ -65,8 +65,7 @@ const MainHeader = ({ location, theme }) => (
                   <span style={{ fontSize: '1.4em' }}>decetralized apps</span>
                 </Heading>
                 <ButtonLink
-                  size="large"
-                  isPrimary={false}
+                  variant={'primary'}
                   to="/"
                   title="Get started"
                 />
