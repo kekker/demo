@@ -49,7 +49,7 @@ const StyledMenulink = styled(Link)`
 
 const MenuLink = ({ links }) => {
     const mappedLinks = links.map(link => (
-        <StyledMenulink to={link.to}>
+        <StyledMenulink key={link.title} to={link.to}>
             <Text
                 textDecoration={'none'}
                 fontSize={'small'}

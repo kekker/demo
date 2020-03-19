@@ -44,13 +44,13 @@ const HeaderNav = ({ location }) => (
       {navHeader.items.map(link => (
         <HeaderLink
           key={link.title}
-          isActive={location.pathname.includes(link.activeSelector)}
+          isActive={location.includes(link.activeSelector)}
           title={link.title}
           to={link.to}
         />
       ))}
     </Nav>
-    <ButtonLink isPrimary to="#" title="Get an invitation" />
+    <ButtonLink isPrimary to="/" title="Get an invitation" />
   </Flex>
 );
 

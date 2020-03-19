@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location }) => {
       <div>
         <Seo title={blogTitle} description={description} />
 
-        <MainHeader location={location} />
+        <MainHeader location={location.pathname} />
 
         <main>
           <ContainerContent>
@@ -40,6 +40,7 @@ const BlogIndex = ({ data, location }) => {
             >
               {jsonContent.benefits.map(item => (
                 <GridItem
+                    key={'benefits' + item.header}
                   cols={jsonContent.benefits.length}
                   linkTo={item.link_to}
                   mb={{ _: 4, sm: 0 }}
@@ -48,7 +49,7 @@ const BlogIndex = ({ data, location }) => {
                     {item.header}
                   </Heading>
                   {item.content.map(item => (
-                    <Text fontSize={'medium'} tag="div">{item}</Text>
+                    <Text key={'benefitsCont' + item.slice(0, 5)} fontSize={'medium'} tag="div">{item}</Text>
                 ))}
                 </GridItem>
               ))}
@@ -69,6 +70,7 @@ const BlogIndex = ({ data, location }) => {
                   {jsonContent.getStartedButtonSectionHeader}
                 </Heading>
                 <ButtonLink
+                    to={'/'}
                   size="large"
                   isPrimary={false}
                   title="Get started"
@@ -85,8 +87,8 @@ const BlogIndex = ({ data, location }) => {
 };
 
 BlogIndex.propTypes = {
-  data: PropTypes.node,
-  location: PropTypes.string,
+  data: PropTypes.object,
+  location: PropTypes.object,
 };
 
 export default BlogIndex;

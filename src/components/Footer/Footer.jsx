@@ -54,6 +54,7 @@ const Footer = () => {
             <Grid>
               {footerNav.items.map(linkSection => (
                   <FooterLink
+                      key={'footerSection' + linkSection.header}
                       footerColumn={linkSection}
                       count={footerNav.items.length}
                       fontSize={footerFontSize}
@@ -64,7 +65,8 @@ const Footer = () => {
               {footerNav.social.map(socialLink => (
                   <StyledSocialLink
                       to={socialLink.to}
-                      title={socialLink.title}>
+                      title={socialLink.title}
+                      key={'social' + socialLink.title}>
                     <Text
                         fontSize={footerFontSize}
                         color="inherit">

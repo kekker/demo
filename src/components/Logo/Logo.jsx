@@ -10,11 +10,11 @@ const StyledLogoLink = styled(Link)`
   min-width: 100px;
   width: 100%;
   display: block;
+  margin-left: -6%;
 `;
 
 const StyledLogoImg = styled.img`
     margin-bottom: 0;
-    margin-left: -6%;
 `;
 
 

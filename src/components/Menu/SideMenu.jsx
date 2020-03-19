@@ -27,15 +27,15 @@ const MenuHeader = styled(Heading)`
 const SideMenu = ( { location }) => {
     const docsSections = menuObject.docs;
     const aboutSections = menuObject.about;
-    const linkSections = location.pathname.includes('docs/') ?
+    const linkSections = location.includes('docs/') ?
         docsSections : aboutSections;
     return (
         <>
             {linkSections.map(section => (
-                    <>
+                    <React.Fragment key={section.header}>
                         <MenuHeader mb={3} textTransform={'uppercase'} textAlign={'left'} level={4}>{section.header}</MenuHeader>
                         <MenuLink links={section.items}></MenuLink>
-                    </>
+                    </React.Fragment>
                 ))}
         </>
     );

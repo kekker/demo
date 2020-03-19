@@ -25,16 +25,6 @@ const StyledFooterLink = styled(Link)`
   }
 `;
 
-// const FooterLink = ({ title, to }) => (
-//   <div>
-//     <StyledFooterLink title={title} to={to}>
-//       <Text isHeadingFont fontWeight={400} color="inherit" fontSize="small">
-//         {title}
-//       </Text>
-//     </StyledFooterLink>
-//   </div>
-// );
-
 const FooterLink = ({ footerColumn, count, fontSize }) => (
     <GridItem
         cols={count}
@@ -51,6 +41,7 @@ const FooterLink = ({ footerColumn, count, fontSize }) => (
             <StyledFooterLink
                 to={item.to}
                 title={item.title}
+                key={'footer' + item.title}
             >
                 <Text
                     fontWeight={300}
@@ -66,8 +57,9 @@ const FooterLink = ({ footerColumn, count, fontSize }) => (
 
 
 FooterLink.propTypes = {
-  title: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+    footerColumn: PropTypes.object.isRequired,
+    count: PropTypes.number.isRequired,
+    fontSize: PropTypes.string
 };
 
 export default FooterLink;

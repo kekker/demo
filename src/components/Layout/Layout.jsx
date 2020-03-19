@@ -44,7 +44,6 @@ const Layout = ({
     <Seo title={title} description={description} />
     <ShortHeader location={location} />
 
-
       <main>
         <ContainerContent>
             <GridLayout>

@@ -11,7 +11,7 @@ const TitleDiv = styled.div`
 `;
 
 const MarkdownSection = styled.section`
-    max-width: 70%;
+    max-width: 85%;
     
     @media (max-width: ${props => props.theme.breakpoints.sm}) {
         max-width: 100%;
@@ -52,7 +52,7 @@ const MarkdownContent = ({
 );
 
 MarkdownContent.propTypes = {
-  markdownRemark: PropTypes.node.isRequired,
+  markdownRemark: PropTypes.object.isRequired,
   previous: PropTypes.node,
   next: PropTypes.node,
   title: PropTypes.string,

@@ -4,12 +4,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Text from '../TextStyles/Text';
 
-const StyledHeaderLink = styled(Link).attrs(props => ({
-  curr_color: props.isActive
-    ? props.theme.colors.primaryBrand
-    : props.theme.colors.invertedText,
-}))`
-  color: ${props => props.curr_color};
+const StyledHeaderLink = styled(Link)`
+  color: ${props => props.theme.colors[props.color]};
   display: block;
   transition: 'color 0.2s ease-out';
   margin-left: ${props => props.theme.fontSizes.extrasmall}px;
@@ -26,19 +22,24 @@ const StyledHeaderLink = styled(Link).attrs(props => ({
   }
 `;
 
-const HeaderLink = ({ isActive, title, to }) => (
-  <StyledHeaderLink title={title} isActive={isActive} to={to}>
-    <Text
-      fontWeight={800}
-      color="inherit"
-      textTransform="uppercase"
-      isHeadingFont
-      fontSize={'medium'}
-    >
-      {title}
-    </Text>
-  </StyledHeaderLink>
-);
+const HeaderLink = ({ isActive, title, to }) => {
+    const curr_color = isActive
+        ? 'primaryBrand'
+        : 'invertedText';
+    return (
+        <StyledHeaderLink title={title} color={curr_color} to={to}>
+            <Text
+                fontWeight={800}
+                color="inherit"
+                textTransform="uppercase"
+                isHeadingFont
+                fontSize={'medium'}
+            >
+                {title}
+            </Text>
+        </StyledHeaderLink>
+    );
+};
 
 HeaderLink.propTypes = {
   isActive: PropTypes.bool,

@@ -80,7 +80,7 @@ const MainHeader = ({ location, theme }) => (
 
 MainHeader.propTypes = {
   location: PropTypes.string,
-  theme: PropTypes.node,
+  theme: PropTypes.object,
 };
 
 export default withTheme(MainHeader);

@@ -43,9 +43,7 @@ const GridItem = ({
 };
 
 GridItem.propTypes = {
-  cols: PropTypes.number,
-  header: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  cols: PropTypes.number.isRequired,
   linkTo: PropTypes.string,
 };
 

@@ -15,7 +15,7 @@ const Docs = ({ data, pageContext, location }) => {
   const { previous, next, slug } = pageContext;
 
   return (
-    <Layout location={location} title={title} subtitle={subtitle}>
+    <Layout location={location.pathname} title={title} subtitle={subtitle}>
       <Seo
         title={title}
         description={description || post.excerpt}
@@ -34,9 +34,9 @@ const Docs = ({ data, pageContext, location }) => {
 };
 
 Docs.propTypes = {
-  data: PropTypes.node,
-  location: PropTypes.string.isRequired,
-  pageContext: PropTypes.node,
+  data: PropTypes.object,
+  location: PropTypes.object.isRequired,
+  pageContext: PropTypes.object,
 };
 
 export const pageQuery = graphql`
