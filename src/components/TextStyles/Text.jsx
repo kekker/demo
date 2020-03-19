@@ -14,6 +14,7 @@ const StyledText = styled.div.attrs(props => ({
 
   font-family: ${({ finalFont }) => finalFont};
   text-transform: ${({ textTransform }) => textTransform};
+  text-decoration: ${({ textDecoration }) => textDecoration};
 `;
 
 const Text = ({
@@ -32,7 +33,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
   isHeadingFont: false,
-  tag: 'span',
+  tag: 'span'
 };
 
 export default Text;

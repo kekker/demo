@@ -21,6 +21,7 @@ const Nav = styled.nav`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100%;
+  margin-right: 1em;
 
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -43,13 +44,13 @@ const HeaderNav = ({ location }) => (
       {navHeader.items.map(link => (
         <HeaderLink
           key={link.title}
-          isActive={location.pathname.includes(link.activeSelector)}
+          isActive={location.includes(link.activeSelector)}
           title={link.title}
           to={link.to}
         />
       ))}
     </Nav>
-    <ButtonLink isPrimary to="#" title="Get an invitation" />
+    <ButtonLink isPrimary to="/" title="Get an invitation" />
   </Flex>
 );
 

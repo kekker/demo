@@ -45,7 +45,7 @@ const ShortHeader = ({ location }) => (
 );
 
 ShortHeader.propTypes = {
-  location: PropTypes.string,
+  location: PropTypes.string.isRequired,
 };
 
 export default withTheme(ShortHeader);

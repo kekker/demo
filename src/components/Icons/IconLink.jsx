@@ -11,6 +11,7 @@ import {
   Twitter,
   Instagram,
 } from './Icons';
+import Flex from "../Flex";
 
 const StyledIconLink = styled(Link)`
   font-size: 0.8em;
@@ -63,3 +64,12 @@ InlineIcon.propTypes = {
 };
 
 export default IconLink;
+
+// Usage example
+// <IconLink type="Facebook" color={theme.colors.invertedText} />
+// <IconLink
+//   link_to="https://www.linkedin.com/company/kekker"
+//   type="Linkedin"
+//   color={theme.colors.invertedText}
+//  />
+//  <IconLink type="Instagram" color={theme.colors.invertedText} />

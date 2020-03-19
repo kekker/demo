@@ -17,10 +17,10 @@ const ContainerContent = styled.div`
 ContainerContent.defaultProps = {
   height: '100%',
   width: '100%',
-  pt: 4,
-  pb: 4,
-  pl: 4,
-  pr: 4,
+  pt: { _: 4, sm: 6},
+  pb: { _: 4, sm: 6},
+  pl: { _: 4, sm: 6, md: 7},
+  pr: { _: 4, sm: 6, md: 7},
 };
 
 export default withTheme(ContainerContent);

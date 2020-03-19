@@ -36,22 +36,32 @@ const SectionLink = styled(Link)`
 // };
 
 const MenuWrapper = styled.div`
-    margin-left: 20px;
     margin-bottom: 30px;
+`;
+
+const StyledMenulink = styled(Link)`
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: underline;
+    }
 `;
 
 const MenuLink = ({ links }) => {
     const mappedLinks = links.map(link => (
-        <Link to={link.to}>
+        <StyledMenulink key={link.title} to={link.to}>
             <Text
+                textDecoration={'none'}
                 fontSize={'small'}
+                fontWeight={'500'}
                 tag={'div'}
                 color="primaryText"
                 textAlign={'left'}
+                textTransform={'uppercase'}
             >
                 {link.title}
             </Text>
-        </Link> ));
+        </StyledMenulink> ));
 
     return (
         <>

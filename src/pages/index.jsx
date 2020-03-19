@@ -14,6 +14,7 @@ import Flex from '../components/Flex';
 import GridItem from '../components/GridItem';
 import ContainerSection from '../components/ContainerSection';
 import Heading from '../components/TextStyles/Heading';
+import Text from "../components/TextStyles/Text";
 
 // Content
 const jsonContent = require('../../content/home');
@@ -27,40 +28,49 @@ const BlogIndex = ({ data, location }) => {
       <div>
         <Seo title={blogTitle} description={description} />
 
-        <MainHeader location={location} />
+        <MainHeader location={location.pathname} />
 
         <main>
-          <ContainerContent pt="75px">
+          <ContainerContent>
             <Flex
-              flexDirection={{ _: 'column', md: 'row' }}
+              flexDirection={{ _: 'column', sm: 'row' }}
               flexWrap="wrap"
               justifyContent="space-between"
+              mb={{ _: 0, sm: 6}}
             >
               {jsonContent.benefits.map(item => (
                 <GridItem
+                    key={'benefits' + item.header}
                   cols={jsonContent.benefits.length}
-                  header={item.header}
-                  content={item.content}
                   linkTo={item.link_to}
-                  mb={{ _: 4, md: 0 }}
-                />
+                  mb={{ _: 4, sm: 0 }}
+                >
+                  <Heading align="left" level={2}>
+                    {item.header}
+                  </Heading>
+                  {item.content.map(item => (
+                    <Text key={'benefitsCont' + item.slice(0, 5)} fontSize={'medium'} tag="div">{item}</Text>
+                ))}
+                </GridItem>
               ))}
             </Flex>
-            <Heading mt="1.5em" level={2}>
+            <Heading mb={5} level={2}>
               First steps are simple
             </Heading>
-            <Img
-              fluid={data.demoImage.childImageSharp.fluid}
-              alt="Demo preview"
-            />
+            <div style={{
+              backgroundColor: '#eeeeee',
+              height: 500+'px',
+              width: 100 +'%',
+              marginBottom: 75+'px'}}></div>
           </ContainerContent>
           <ContainerSection bg="primaryBrand">
             <ContainerContent pt="3em" pb="3em">
               <Flex flexDirection="column" alignItems="center">
-                <Heading fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}>
-                  Go to getting started tutorial
+                <Heading textAlign={'center'} fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}>
+                  {jsonContent.getStartedButtonSectionHeader}
                 </Heading>
                 <ButtonLink
+                    to={'/'}
                   size="large"
                   isPrimary={false}
                   title="Get started"
@@ -77,8 +87,8 @@ const BlogIndex = ({ data, location }) => {
 };
 
 BlogIndex.propTypes = {
-  data: PropTypes.node,
-  location: PropTypes.string,
+  data: PropTypes.object,
+  location: PropTypes.object,
 };
 
 export default BlogIndex;
@@ -91,12 +101,14 @@ export const pageQuery = graphql`
         description
       }
     }
-    demoImage: file(absolutePath: { regex: "/Demo.png/" }) {
-      childImageSharp {
-        fluid(maxWidth: 1600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
+    
   }
 `;
+
+// demoImage: file(absolutePath: { regex: "/Demo.png/" }) {
+//   childImageSharp {
+//     fluid(maxWidth: 1600) {
+//     ...GatsbyImageSharpFluid
+//     }
+//   }
+// }

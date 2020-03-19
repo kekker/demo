@@ -16,20 +16,19 @@ const Button = styled.button`
     (` border: 2px solid ${colors.primaryLight};
        background: ${colors.primaryLight};
        padding: 0.4em 0.8em;`))};
-       
-  margin: 1em;
+          
   font-size: ${props => props.theme.fontSizes[props.size]};
   border-radius: 2em;
 
 `;
 
 const ButtonLink = ({
-  title, isPrimary, to, size
+  title, isPrimary, to
 }) => (
   <Link to={to}>
     <Button isPrimary={isPrimary} type="button">
       <Text
-        fontSize={{ md: 'medium', lg: 'large' }}
+        fontSize={'medium'}
         fontWeight="800"
         isHeadingFont
         textTransform="uppercase"
