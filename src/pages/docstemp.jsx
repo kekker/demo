@@ -13,7 +13,7 @@ const DocsList = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} title="Docs List" description="Docs List">
+    <Layout location={location.pathname} title="Docs List" description="Docs List">
       <div className="blog-container">
         <ContainerContent pl="0" pr="2em">
           {posts.map(post => (
