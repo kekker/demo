@@ -28,7 +28,7 @@ const DocsList = ({ data, location }) => {
         </ContainerContent>
 
         <aside>
-         <SideMenu location={location} />
+         <SideMenu location={location.pathname} />
         </aside>
       </div>
     </Layout>
