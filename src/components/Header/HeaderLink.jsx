@@ -33,7 +33,7 @@ const HeaderLink = ({ isActive, title, to }) => (
       color="inherit"
       textTransform="uppercase"
       isHeadingFont
-      fontSize="small"
+      fontSize={'medium'}
     >
       {title}
     </Text>

@@ -28,7 +28,7 @@ const ButtonLink = ({
   <Link to={to}>
     <Button isPrimary={isPrimary} type="button">
       <Text
-        fontSize={{ md: 'medium', lg: 'large' }}
+        fontSize={'medium'}
         fontWeight="800"
         isHeadingFont
         textTransform="uppercase"

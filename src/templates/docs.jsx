@@ -22,7 +22,6 @@ const Docs = ({ data, pageContext, location }) => {
         slug={slug}
       />
 
-      <div className="blog-container">
         <MarkdownContent
           title={title}
           description={description}
@@ -30,11 +29,6 @@ const Docs = ({ data, pageContext, location }) => {
           next={next}
           previous={previous}
         />
-
-        <aside>
-            <SideMenu location={location} />
-        </aside>
-      </div>
     </Layout>
   );
 };

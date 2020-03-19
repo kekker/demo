@@ -10,6 +10,14 @@ const TitleDiv = styled.div`
   margin-bottom: 1.4em;
 `;
 
+const MarkdownSection = styled.section`
+    max-width: 70%;
+    
+    @media (max-width: ${props => props.theme.breakpoints.sm}) {
+        max-width: 100%;
+    }
+`;
+
 const MarkdownContent = ({
   markdownRemark,
   title,
@@ -17,34 +25,30 @@ const MarkdownContent = ({
   previous,
   next,
 }) => (
-  <section className="posts">
-    <TitleDiv>
-      <Heading>{title}</Heading>
-      <Text fontSize="medium">{description}</Text>
-    </TitleDiv>
+  <MarkdownSection>
 
     <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-    <ul>
-      <li className="post-navigation">
-        {previous && (
-          <Link to={previous.fields.slug} rel="prev">
-            ←
-            {' '}
-            {previous.frontmatter.title}
-          </Link>
-        )}
-      </li>
-      <li className="post-navigation">
-        {next && (
-          <Link to={next.fields.slug} rel="next">
-            {next.frontmatter.title}
-            {' '}
-            →
-          </Link>
-        )}
-      </li>
-    </ul>
-  </section>
+    {/*<ul>*/}
+    {/*  <li className="post-navigation">*/}
+    {/*    {previous && (*/}
+    {/*      <Link to={previous.fields.slug} rel="prev">*/}
+    {/*        ←*/}
+    {/*        {' '}*/}
+    {/*        {previous.frontmatter.title}*/}
+    {/*      </Link>*/}
+    {/*    )}*/}
+    {/*  </li>*/}
+    {/*  <li className="post-navigation">*/}
+    {/*    {next && (*/}
+    {/*      <Link to={next.fields.slug} rel="next">*/}
+    {/*        {next.frontmatter.title}*/}
+    {/*        {' '}*/}
+    {/*        →*/}
+    {/*      </Link>*/}
+    {/*    )}*/}
+    {/*  </li>*/}
+    {/*</ul>*/}
+  </MarkdownSection>
 );
 
 MarkdownContent.propTypes = {
