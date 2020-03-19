@@ -29,9 +29,9 @@ const MainHeader = ({ location, theme }) => (
   <StaticQuery
     query={queryMainHeader}
     render={data => (
-      <ContainerSection height={{ xs: '300px', md: '500px' }}>
+      <ContainerSection height={{ xs: '400px', md: '500px' }}>
         <BgImage
-          height={{ xs: '300px', md: '500px' }}
+          height={{ xs: '400px', md: '500px' }}
           fluid={data.bgImage.childImageSharp.fluid}
           title="Kekker background cover"
           color="#141414"

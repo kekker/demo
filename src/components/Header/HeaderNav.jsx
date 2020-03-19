@@ -21,6 +21,7 @@ const Nav = styled.nav`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100%;
+  margin-right: 1em;
 
   scrollbar-width: none;
   -ms-overflow-style: none;

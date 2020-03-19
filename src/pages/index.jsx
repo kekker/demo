@@ -31,17 +31,18 @@ const BlogIndex = ({ data, location }) => {
         <MainHeader location={location} />
 
         <main>
-          <ContainerContent pt="75px">
+          <ContainerContent>
             <Flex
               flexDirection={{ _: 'column', sm: 'row' }}
               flexWrap="wrap"
               justifyContent="space-between"
+              mb={{ _: 0, sm: 6}}
             >
               {jsonContent.benefits.map(item => (
                 <GridItem
                   cols={jsonContent.benefits.length}
                   linkTo={item.link_to}
-                  mb={{ _: 4, md: 0 }}
+                  mb={{ _: 4, sm: 0 }}
                 >
                   <Heading align="left" level={2}>
                     {item.header}
@@ -52,7 +53,7 @@ const BlogIndex = ({ data, location }) => {
                 </GridItem>
               ))}
             </Flex>
-            <Heading mt="1.5em" level={2}>
+            <Heading mb={5} level={2}>
               First steps are simple
             </Heading>
             <div style={{

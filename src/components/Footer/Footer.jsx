@@ -35,14 +35,14 @@ const  Grid = styled.div`
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
   margin-top: 50px;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
 `;
 
 const Footer = () => {
   const footerFontSize = 'medium';
   return (
       <ContainerSection bg={'primaryDark'} height="100%">
-        <ContainerContent pt="4em" pb="5em">
+        <ContainerContent>
           <Flex flexDirection="column" height="100%">
             <Flex
                 flexWrap="wrap"
@@ -60,7 +60,7 @@ const Footer = () => {
                   />
               ))}
             </Grid>
-            <Flex mb={3}>
+            <Flex mb={4}>
               {footerNav.social.map(socialLink => (
                   <StyledSocialLink
                       to={socialLink.to}
