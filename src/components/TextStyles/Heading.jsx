@@ -8,6 +8,7 @@ const StyledHeading = styled.div`
   ${typography};
   ${color};
   text-transform: ${({textTransform}) => textTransform};
+
 `;
 
 const Heading = ({ level, children, ...props }) => (
@@ -25,6 +26,7 @@ Heading.defaultProps = {
   level: 1,
   mb: '0.5em',
   fontWeight: 'headerWeight',
+  letterSpacing: '-0.02em'
 };
 
 export default Heading;

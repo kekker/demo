@@ -11,74 +11,81 @@ import FooterLink from './FooterLink';
 import Text from '../TextStyles/Text';
 import LogoLink from '../Logo';
 
-const Nav = styled.nav`
-  max-width: 500px;
-  flex: 1 0 70%;
-  margin-bottom: 1em;
-`;
 
 const StyledSocialLink = styled.nav`
   text-decoration: none;
   color: ${props => props.theme.colors.invertedText};
+  font-weight: 400;
+  
+  &:after {
+    content: '/';
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    font-size: ${props => props.theme.fontSizes.small}px;
+    color: grey;
+  }
+  
+  &:last-child:after {
+    content: '';
+  }
 `;
 
-const Footer = () => (
-  <ContainerSection bg={'primaryDark'} height="100%">
-    <ContainerContent pt="4em" pb="5em">
-      <Flex flexDirection="column" height="100%">
-        <Flex
-          flexWrap="wrap"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <LogoLink />
-        </Flex>
-        <Flex margin="2.2em 0" justifyContent="space-between" flexWrap="wrap">
-          <Nav>
-            {footerNav.items.map(link => (
-              <FooterLink key={link.title} title={link.title} to={link.to} />
-            ))}
-          </Nav>
-          <Flex flexDirection="column">
-            <StyledSocialLink to="/" title="Facebook">
-              <Text tag="div" fontSize="small" color="inherit">
-                Facebook
-              </Text>
-            </StyledSocialLink>
-            <StyledSocialLink
-              to="https://www.linkedin.com/company/kekker"
-              title="LinkedIn"
+const  Grid = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
+  margin-top: 50px;
+  margin-bottom: 16px;
+`;
+
+const Footer = () => {
+  const footerFontSize = 'medium';
+  return (
+      <ContainerSection bg={'primaryDark'} height="100%">
+        <ContainerContent pt="4em" pb="5em">
+          <Flex flexDirection="column" height="100%">
+            <Flex
+                flexWrap="wrap"
+                justifyContent="space-between"
+                alignItems="center"
             >
-              <Text tag="div" fontSize="small" color="inherit">
-                LinkedIn
-              </Text>
-            </StyledSocialLink>
-            <StyledSocialLink to="/" title="Instagram">
-              <Text tag="div" fontSize="small" color="inherit">
-                Instagram
-              </Text>
-            </StyledSocialLink>
-            {/* <IconLink type="Facebook" color={theme.colors.invertedText} /> */}
-            {/* <IconLink */}
-            {/*  link_to="https://www.linkedin.com/company/kekker" */}
-            {/*  type="Linkedin" */}
-            {/*  color={theme.colors.invertedText} */}
-            {/* /> */}
-            {/* <IconLink type="Instagram" color={theme.colors.invertedText} /> */}
+              <LogoLink/>
+            </Flex>
+            <Grid>
+              {footerNav.items.map(linkSection => (
+                  <FooterLink
+                      footerColumn={linkSection}
+                      count={footerNav.items.length}
+                      fontSize={footerFontSize}
+                  />
+              ))}
+            </Grid>
+            <Flex mb={3}>
+              {footerNav.social.map(socialLink => (
+                  <StyledSocialLink
+                      to={socialLink.to}
+                      title={socialLink.title}>
+                    <Text
+                        fontSize={footerFontSize}
+                        color="inherit">
+                      {socialLink.title}
+                    </Text>
+                  </StyledSocialLink>
+              ))}
+            </Flex>
           </Flex>
-        </Flex>
-      </Flex>
-      <Text size="extrasmall" color={'invertedText'}>
-        Copyright ©
-        {' '}
-        {new Date().getFullYear()}
-        {' '}
-        Kekker
-        {' '}
-      </Text>
-    </ContainerContent>
-  </ContainerSection>
-);
+          <Text fontSize={footerFontSize} color={'grey'}>
+            Copyright ©
+            {' '}
+            {new Date().getFullYear()}
+            {' '}
+            Kekker
+            {' '}
+          </Text>
+        </ContainerContent>
+      </ContainerSection>
+  );
+};
 
 Footer.propTypes = {
   theme: PropTypes.node,

@@ -5,37 +5,40 @@ import PropTypes from 'prop-types';
 import Heading from '../TextStyles/Heading';
 import Text from '../TextStyles/Text';
 import Flex from '../Flex';
+import styled from "styled-components";
+
+const StyledGrid = styled(Flex)`
+  &:last-child {
+    padding-right: 0;
+  }
+`;
 
 const GridItem = ({
-  cols, header, content, linkTo, ...props
+  cols, linkTo, children, ...props
 }) => {
   const ifLink = linkTo ? (
     <Link to={linkTo} title="read more">
-      <Text color="inherit" fontWeight={800}>
+      <Text fontSize={'medium'} color="inherit" fontWeight={500}>
         read more
       </Text>
     </Link>
   ) : (
     ''
   );
+  const multiply = `${cols-1}/${cols}`;
 
   return (
-    <Flex
+    <StyledGrid
       flexDirection="column"
       flexGrow="0"
       flexShrink="1"
-      flexBasis={`calc(100% / ${cols} - 30px*2/3)`}
+      flexBasis={`calc(100% / ${cols} - 2em*${multiply})`}
       flexWrap="wrap"
       {...props}
     >
-      <Heading align="left" level={2}>
-        {header}
-      </Heading>
-      {content.map(item => (
-        <Text tag="div">{item}</Text>
-      ))}
+      {children}
       {ifLink}
-    </Flex>
+    </StyledGrid>
   );
 };
 
