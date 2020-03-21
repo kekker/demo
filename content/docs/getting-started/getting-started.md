@@ -44,8 +44,3 @@ The document has moved
 * Добавить путь `<root_path>\bin` в переменную срады `Path`
 * Перезапустить консоль и выполнить команду `curl google.com`.
 
-Описать postman-песочницу
-
-Описание  
-
-
