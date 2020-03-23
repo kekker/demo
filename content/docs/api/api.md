@@ -1,4 +1,4 @@
-# Init Deal
+# Init deal
 
 > **POST** {baseUrl}/api/deals
 
