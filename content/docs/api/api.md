@@ -10,9 +10,9 @@
 | :--- | :--- | :--- |
 | createdeal                                 \(required\) | object | root request object |
 | createdeal.dealUid             \(optional\) | string \($uuid\) | unique identity |
-| createdeal.kind        \(required\) | string \[1-32\] | deal template \(see link deal templates\) |
+| createdeal.kind        \(required\) | string \[1-32\] | deal template \(see [Get deal templates](get-deal-templates.md)\) |
 | createdeal.parties   \(required\) | Array&lt;object&gt; | deal participants |
-| createdeal.parties.key \(required\) | string \[1-32\] | participant key\(see link clients\) |
+| createdeal.parties.key \(required\) | string \[1-32\] | participant key \(see [Get clients](get-clients.md) \) |
 | createdeal.parties.role \(required\) | string \[1-32\] | participant role in accordance to deal template role model |
 | createdeal.parameters \(optional\) | Array&lt;Object&gt; | initial deal parameters \(deal participants can add or change parameters during deal flow\) |
 | createdeal.parameters.key \(required\) | string \[1-32\] | unique parameter name  |
