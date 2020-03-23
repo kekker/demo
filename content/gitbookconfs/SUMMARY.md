@@ -7,6 +7,7 @@
   * [API](../docs/api/README.md)
     * [General](../docs/api/general.md)
     * [Get clients](../docs/api/get-clients.md)
+    * [Get deal templates](../docs/api/get-deal-templates.md)
     * [Init deal](../docs/api/api.md)
     * [Change deal state](../docs/api/change-deal-state.md)
     * [Get deal](../docs/api/get-deal.md)
