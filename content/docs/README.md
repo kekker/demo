@@ -2,7 +2,7 @@
 description: Documentation overview
 ---
 
-# Documentation
+# Docs
 
 This page will have a quick summary of different docs sections. It will describe briefly some features and guides.
 

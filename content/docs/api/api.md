@@ -1,62 +1,81 @@
-# API
+# Init Deal
 
-{% api-method method="get" host="https://api.cakes.com" path="/v1/cakes/:id" %}
-{% api-method-summary %}
-Get Cakes
-{% endapi-method-summary %}
+> **POST** {baseUrl}/api/deals
 
-{% api-method-description %}
-This endpoint allows you to get free cakes.
-{% endapi-method-description %}
+{% tabs %}
+{% tab title="Request" %}
+#### Body
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="string" %}
-ID of the cake to get, for free of course.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| createdeal                                 \(required\) | object | root request object |
+| createdeal.dealUid             \(optional\) | string \($uuid\) | unique identity |
+| createdeal.kind        \(required\) | string \[1-32\] | deal template \(see link deal templates\) |
+| createdeal.parties   \(required\) | Array&lt;object&gt; | deal participants |
+| createdeal.parties.key \(required\) | string \[1-32\] | participant key\(see link clients\) |
+| createdeal.parties.role \(required\) | string \[1-32\] | participant role in accordance to deal template role model |
+| createdeal.parameters \(optional\) | Array&lt;Object&gt; | initial deal parameters \(deal participants can add or change parameters during deal flow\) |
+| createdeal.parameters.key \(required\) | string \[1-32\] | unique parameter name  |
+| createdeal.parameters.value \(required\) | string \[1-32\] | parameter value |
 
-{% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=true %}
-Authentication token to track down who is emptying our stocks.
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+#### Example
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="recipe" type="string" %}
-The API will do its best to find a cake matching the provided recipe.
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="gluten" type="boolean" %}
-Whether the cake should be gluten-free or not.
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-Cake successfully retrieved.
-{% endapi-method-response-example-description %}
-
+```javascript
+{
+  "dealUid": null,
+  "kind": "FirstDeal",
+  "parties": [
+    {
+      "key": "CLIENT2",
+      "role": "Seller"
+    },
+    {
+      "key": "CLIENT1",
+      "role": "Buyer"
+    }
+  ],
+  "parameters": [
+    {
+      "key": "DocNumber",
+      "value": "123"
+    },
+    {
+      "key": "Item",
+      "value": "Pepper"
+    },
+    {
+      "key": "DeliveryDate",
+      "value": "2020-08-08"
+    },
+    {
+      "key": "Quantity",
+      "value": "10"
+    }
+  ],
+}
 ```
-{    "name": "Cake's name",    "recipe": "Cake's recipe name",    "cake": "Binary cake"}
-```
-{% endapi-method-response-example %}
+{% endtab %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-Could not find a cake matching this query.
-{% endapi-method-response-example-description %}
+{% tab title="Response" %}
+{% hint style="success" %}
+200: OK
+{% endhint %}
 
+#### Response model
+
+string \($uuid\)
+
+#### Description
+
+Returns deal unique identity. \(specified in the request or generated\) 
+
+#### Example
+
+```text
+"2adc2d34-3992-4438-81e8-7c535aa38651"
 ```
-{    "message": "Ain't no cake like that."}
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endtab %}
+{% endtabs %}
 
 
 
