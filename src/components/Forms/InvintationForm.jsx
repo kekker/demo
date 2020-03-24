@@ -58,13 +58,15 @@ const InvitationForm  = () => {
         <Formik
             initialValues={initialValues}
             validationSchema={InvitationSchema}
-            onSubmit={values => {
-                // same shape as initial values
-                console.log(values);
-            }}
         >
             { formik => (
-                <Form style={{ marginRight: '2em'}} >
+                <Form
+                    style={{ marginRight: '2em'}}
+                    method="post"
+                    netlify-honeypot="bot-field"
+                    data-netlify="true"
+                >
+                    <input type="hidden" name="bot-field" />>
                     <TextInput
                         label='Your Email'
                         name='email'
