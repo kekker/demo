@@ -9,6 +9,8 @@ import TextInput from "./TextInput";
 import { phoneNumberRegex } from '../../utils/phoneNumberRegex';
 import Button from "../Button/Button";
 import Text from "../TextStyles/Text";
+import {navigate} from "gatsby-link";
+import {encode} from "../../utils/convertObjectToQueryString";
 
 const initialValues = {
     email: '',
@@ -52,15 +54,30 @@ const InvitationSchema = Yup.object().shape({
         .max(300, 'Too Long!'),
 });
 
+const handleSubmit = values => {
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+            "form-name": "Invitation Form",
+            ...values,
+        }),
+    })
+        .then(() => navigate("/"))
+        .catch(error => alert(error));
+};
+
 
 const InvitationForm  = () => {
     return (
         <Formik
             initialValues={initialValues}
             validationSchema={InvitationSchema}
+            onSubmit={handleSubmit}
         >
             { formik => (
                 <Form
+                    name="Invitation Form"
                     style={{ marginRight: '2em'}}
                     method="post"
                     netlify-honeypot="bot-field"
