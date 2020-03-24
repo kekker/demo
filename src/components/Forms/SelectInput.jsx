@@ -29,7 +29,7 @@ const StyledSelect = styled.select`
 `;
 
 
-const Select = ({ label, options, ...props }) => {
+const SelectInput = ({ label, options, ...props }) => {
     const [field, meta] = useField(props);
     console.log(field.value);
     return (
@@ -47,5 +47,5 @@ const Select = ({ label, options, ...props }) => {
     );
 };
 
-export default Select;
+export default SelectInput;
 

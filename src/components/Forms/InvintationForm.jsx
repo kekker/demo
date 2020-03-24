@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { Link } from 'gatsby';
 
 import RichTextInput from "./RichTextinput";
-import Select from "./Select";
+import SelectInput from "./SelectInput";
 import TextInput from "./TextInput";
 import { phoneNumberRegex } from '../../utils/phoneNumberRegex';
 import Button from "../Button/Button";
@@ -66,7 +66,7 @@ const InvitationForm  = () => {
                     netlify-honeypot="bot-field"
                     data-netlify="true"
                 >
-                    <input type="hidden" name="bot-field" />>
+                    <input type="hidden" name="bot-field" />
                     <TextInput
                         label='Your Email'
                         name='email'
@@ -88,7 +88,7 @@ const InvitationForm  = () => {
                         placeholder=''
                         isRequired
                     />
-                    <Select
+                    <SelectInput
                         label='Industry'
                         name='industry'
                         options={industryOptions}
