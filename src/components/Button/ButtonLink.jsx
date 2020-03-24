@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import Text from '../TextStyles/Text';
 
-const Button = styled.button`
+const StyledButton = styled.button`
 
   color: ${props => props.theme.colors.primaryText};
 
@@ -26,7 +26,7 @@ const ButtonLink = ({
   title, isPrimary, to
 }) => (
   <Link to={to}>
-    <Button isPrimary={isPrimary} type="button">
+    <StyledButton isPrimary={isPrimary} type="button">
       <Text
         fontSize={'medium'}
         fontWeight="800"
@@ -35,7 +35,7 @@ const ButtonLink = ({
       >
         {title}
       </Text>
-    </Button>
+    </StyledButton>
   </Link>
 );
 
