@@ -8,7 +8,7 @@ This page will have a quick summary of different docs sections. It will describe
 
 Where to get started: [Get Started](getting-started/getting-started.md)
 
-Where to read about api: [Api](api/)
+Where to read about api: [Api]()
 
 Read our scenarios: [Scenarios](scenarios/)
 
