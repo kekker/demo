@@ -1,20 +1,16 @@
 # About
 
-## Kekker platform 
+## Kekker platform
 
-Kekker is a middleware with a set of DLT/DFS technologies and APIs that lets you build and run decentralized blockchain-powered applications without blockchain expertise.  
+Kekker is a middleware with a set of DLT/DFS technologies and APIs that lets you build and run decentralized blockchain-powered applications without blockchain expertise.
 
+Use Kekker's services to operate your decentralized environment or manage your secured distributed solution network independently
 
-Use Kekker's services to operate your decentralized environment or manage your secured distributed solution network independently  
+## Decentralized solutions
 
+Decentralized applications outperform legacy technology to build solutions like never before, but startups and corporations need to hire expensive expertise to deliver.
 
-## Decentralized solutions 
-
-Decentralized applications outperform legacy technology to build solutions like never before, but startups and corporations need to hire expensive expertise to deliver.  
-  
-
-
-### Supply chain 
+### Supply chain
 
 | Specification | Project | Link | Status |
 | :--- | :--- | :--- | :--- |
@@ -31,7 +27,7 @@ Decentralized applications outperform legacy technology to build solutions like 
 | Provenance | IBM Food Trust | [https://www.ibm.com/blockchain/solutions/food-trust](https://www.ibm.com/blockchain/solutions/food-trust) | Live and running |
 | Provenance | Project Provenance | [https://www.provenance.org/business/platform](https://www.provenance.org/business/platform) | Live and running |
 
-### Trade Finance 
+### Trade Finance
 
 | Open Account, Letter of Credit, KYC | Komgo | [https://komgo.io/](https://komgo.io/) | Live and running |
 | :--- | :--- | :--- | :--- |
@@ -39,7 +35,7 @@ Decentralized applications outperform legacy technology to build solutions like 
 | Open Account, Letter of Credit, KYC | Finacle Trade Connect | [https://www.edgeverve.com/finacle/finacle-trade-connect/](https://www.edgeverve.com/finacle/finacle-trade-connect/) | Piloting |
 | Open Account | Marco Polo | [https://www.marcopolo.finance/](https://www.marcopolo.finance/) | Piloting |
 
-### Insurance 
+### Insurance
 
 | Shipment insurance | Insurwave | [https://insurwave.com/](https://insurwave.com/) | Live and running |
 | :--- | :--- | :--- | :--- |
@@ -51,11 +47,9 @@ Decentralized applications outperform legacy technology to build solutions like 
 | Health Insurance | Fidentiax | [https://www.fidentiax.com/](https://www.fidentiax.com/) | Piloting |
 | Health Insurance | Anthem | [https://www.anthem.com/](https://www.anthem.com/) | Piloting |
 
-## Kekker benefits 
+## Kekker benefits
 
-Kekker allows for 10X faster time-to-market than direct competition, is 100X cheaper/faster than hiring experts and easy to setup and use and no DLT/DFS experience needed!  
+Kekker allows for 10X faster time-to-market than direct competition, is 100X cheaper/faster than hiring experts and easy to setup and use and no DLT/DFS experience needed!
 
-
-Cut your time to market by 6 to 12 months and save hundreds of thousands of dollars in man-hours by focusing on building business applications, not the setup & maintenance of your DLT solution  
-
+Cut your time to market by 6 to 12 months and save hundreds of thousands of dollars in man-hours by focusing on building business applications, not the setup & maintenance of your DLT solution
 
