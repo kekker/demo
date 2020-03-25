@@ -1,0 +1,39 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1",
+    "title": "Kekker API",
+    "description": "Here you will find a list of all API commands. Feel free to test all of them with help of out Demo Stand and Prepared Scenarios"
+  },
+  "paths": {
+    "/api/uid": {
+      "get": {
+        "tags": [ "Service" ],
+        "operationId": "GetUid",
+        "consumes": [],
+        "produces": [ "application/json" ],
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": { "errorMessage": { "type": "string" } }
+    }
+  }
+}

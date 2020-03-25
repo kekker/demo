@@ -1,0 +1,433 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1",
+    "title": "Kekker API",
+    "description": "Here you will find a list of all API commands. Feel free to test all of them with help of out Demo Stand and Prepared Scenarios"
+  },
+  "paths": {
+    "/api/events": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "operationId": "GetEvents",
+        "consumes": [],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "channel",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "eventTypes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "dealKinds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "showSelfCreated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Event"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/events/new": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "operationId": "GetNewEvents",
+        "consumes": [],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "channel",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "eventTypes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "dealKinds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "showSelfCreated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Event"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/events/{eventUid}/ack": {
+      "post": {
+        "tags": [
+          "Event"
+        ],
+        "operationId": "AckEvent",
+        "consumes": [],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "eventUid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": { "errorMessage": { "type": "string" } }
+    },
+    "Event": {
+      "required": [ "$type" ],
+      "type": "object",
+      "properties": {
+        "eventName": { "type": "string" },
+        "eventUid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "dealUid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "active": { "type": "boolean" },
+        "$type": {
+          "default": "Kekker.Deals.Model.Events.Event",
+          "type": "string"
+        }
+      },
+      "discriminator": "$type"
+    },
+    "DealCreatedEvent": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "actor": { "$ref": "#/definitions/Party" },
+            "eventName": { "type": "string" },
+            "eventUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "active": { "type": "boolean" }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.DealCreatedEvent, Kekker.Deals.Model"
+    },
+    "StatusChangedEvent": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "actor": { "$ref": "#/definitions/Party" },
+            "version": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "state": { "type": "string" },
+            "files": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/DealFile" }
+            },
+            "eventName": { "type": "string" },
+            "eventUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "active": { "type": "boolean" }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.StatusChangedEvent, Kekker.Deals.Model"
+    },
+    "ErorrEvent": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": { "type": "string" },
+            "eventName": { "type": "string" },
+            "eventUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "active": { "type": "boolean" }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.ErorrEvent, Kekker.Deals.Model"
+    },
+    "AddDealErrorEvent": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": { "type": "string" },
+            "eventName": { "type": "string" },
+            "eventUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "active": { "type": "boolean" }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.AddDealErrorEvent, Kekker.Deals.Model"
+    },
+    "GetDealErrorEvent": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": { "type": "string" },
+            "eventName": { "type": "string" },
+            "eventUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "active": { "type": "boolean" }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.GetDealErrorEvent, Kekker.Deals.Model"
+    },
+    "SetStatusErrorEvent": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": { "type": "string" },
+            "eventName": { "type": "string" },
+            "eventUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "active": { "type": "boolean" }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.SetStatusErrorEvent, Kekker.Deals.Model"
+    }
+  }
+}
