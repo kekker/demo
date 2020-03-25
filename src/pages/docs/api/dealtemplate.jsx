@@ -7,14 +7,31 @@ import 'swagger-ui-react/swagger-ui.css'
 import ApiLayout from "../../../templates/api";
 const swaggerContent = require('../../../../static/kekkerdemo-dealtemplate');
 
-const DealTemplatePage = ({ location }) => {
 
-    return (
-        <ApiLayout location={location.pathname} title="Api Page" description="Api Page">
-            <SwaggerUI docExpansion='list' spec={swaggerContent}/>
-        </ApiLayout>
-    );
-};
+class DealTemplatePage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            swaggerComponent: ''
+        }
+    }
+
+    componentDidMount() {
+        if (window) {
+            this.setState({
+                swaggerComponent: <SwaggerUI docExpansion='list' spec={swaggerContent}/>
+            })
+        }
+    }
+
+    render() {
+        return (
+            <ApiLayout location={this.props.location.pathname} title="Api Page" description="Api Page">
+                {this.state.swaggerComponent}
+            </ApiLayout>
+        )
+    }
+}
 
 DealTemplatePage.propTypes = {
     location: PropTypes.object,

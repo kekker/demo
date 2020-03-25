@@ -7,15 +7,30 @@ import 'swagger-ui-react/swagger-ui.css'
 import ApiLayout from "../../../templates/api";
 const swaggerContent = require('../../../../static/kekkerdemo-client');
 
+class ClientPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            swaggerComponent: ''
+        }
+    }
 
-const ClientPage = ({ location }) => {
+    componentDidMount() {
+        if (window) {
+            this.setState({
+                swaggerComponent: <SwaggerUI docExpansion='list' spec={swaggerContent}/>
+            })
+        }
+    }
 
-    return (
-        <ApiLayout location={location.pathname} title="Api Page" description="Api Page">
-            <SwaggerUI docExpansion='list' spec={swaggerContent}/>
-        </ApiLayout>
-    );
-};
+    render() {
+        return (
+            <ApiLayout location={this.props.location.pathname} title="Api Page" description="Api Page">
+                {this.state.swaggerComponent}
+            </ApiLayout>
+        )
+    }
+}
 
 ClientPage.propTypes = {
     data: PropTypes.node,

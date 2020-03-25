@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import SwaggerUI from 'swagger-ui-react';
 import 'swagger-ui-react/swagger-ui.css'
@@ -7,15 +7,30 @@ import 'swagger-ui-react/swagger-ui.css'
 import ApiLayout from "../../../templates/api";
 const swaggerContent = require('../../../../static/kekkerdemo');
 
+class ApiPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            swaggerComponent: ''
+        }
+    }
 
-const ApiPage = ({ location }) => {
+    componentDidMount() {
+        if (window) {
+            this.setState({
+                swaggerComponent: <SwaggerUI docExpansion='list' spec={swaggerContent}/>
+            })
+        }
+    }
 
-    return (
-        <ApiLayout location={location.pathname} title="Api Page" description="Api Page">
-            <SwaggerUI docExpansion='list' spec={swaggerContent}/>
-        </ApiLayout>
-    );
-};
+    render() {
+        return (
+            <ApiLayout location={this.props.location.pathname} title="Api Page" description="Api Page">
+                {this.state.swaggerComponent}
+            </ApiLayout>
+        )
+    }
+}
 
 ApiPage.propTypes = {
     data: PropTypes.node,
