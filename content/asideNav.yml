@@ -12,6 +12,9 @@ docs:
 
   - header: Api
     items:
+      - title: All
+        to: /docs/api/apipage
+
       - title: Client
         to: /docs/api/client
 
