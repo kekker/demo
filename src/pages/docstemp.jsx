@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import ContainerContent from '../components/ContainerContent';
 import ButtonLink from '../components/Button';
 import Layout from '../components/Layout';
-import SideMenu from "../components/Menu/SideMenu";
 
 
 const DocsList = ({ data, location }) => {
@@ -14,7 +13,6 @@ const DocsList = ({ data, location }) => {
 
   return (
     <Layout location={location.pathname} title="Docs List" description="Docs List">
-      <div className="blog-container">
         <ContainerContent pl="0" pr="2em">
           {posts.map(post => (
             <div>
@@ -26,11 +24,6 @@ const DocsList = ({ data, location }) => {
             </div>
           ))}
         </ContainerContent>
-
-        <aside>
-         <SideMenu location={location.pathname} />
-        </aside>
-      </div>
     </Layout>
   );
 };

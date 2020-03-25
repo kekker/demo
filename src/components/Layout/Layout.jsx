@@ -47,7 +47,9 @@ const Layout = ({
       <main>
         <ContainerContent>
             <GridLayout>
-            {children}
+                <div>
+                    {children}
+                </div>
             <aside>
                 <GridMenu>
                     <SideMenu location={location} />
