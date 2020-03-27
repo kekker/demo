@@ -1,7 +1,6 @@
-const { API_MESSAGING_AUTH_BASIC_KEY } = process.env;
+const { API_MESSAGING_AUTH_BASIC_KEY, BASE_BACKEND_URL } = process.env;
 const http = require('http');
 
-const baseBackendUrl = 'demoplatform1.kekker.com';
 const messageRoute = '/api/messages';
 
 
@@ -13,7 +12,7 @@ exports.handler  = async (event, context, callback) => {
             "Authorization": "Basic " + API_MESSAGING_AUTH_BASIC_KEY,
     };
     const options = {
-        hostname: baseBackendUrl,
+        hostname: BASE_BACKEND_URL,
         path: messageRoute,
         method: 'POST',
         headers
@@ -42,7 +41,7 @@ exports.handler  = async (event, context, callback) => {
     req.write(payload);
     req.end();
 
-    console.log(payload);
+    console.log('Received submission with data: ', payload);
 
     callback(null, {
         statusCode: 200,
