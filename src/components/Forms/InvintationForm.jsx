@@ -60,11 +60,14 @@ const handleSubmit = values => {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
-                "form-name": "Invitation Form",
+                "form-name": "Sandbox Form",
                 ...values,
             }),
         })
-            .then(() => navigate("/"))
+            .then(() => {
+                console.log('Form Submitted');
+                navigate("/")
+            })
             .catch(error => alert(error));
     } catch (error) {
         console.log(error);
