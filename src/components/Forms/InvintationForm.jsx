@@ -45,12 +45,12 @@ const InvitationSchema = Yup.object().shape({
     phone: Yup.string()
         .matches(phoneNumberRegex, 'Phone number is not valid')
         .required('Required'),
-    industry: Yup.string()
+    occupation: Yup.string()
         .oneOf(
             industryValues,
             'Please select one of specified industry options'
         ),
-    comments: Yup.string()
+    comment: Yup.string()
         .max(300, 'Too Long!'),
 });
 
@@ -110,12 +110,12 @@ const InvitationForm  = () => {
                     />
                     <SelectInput
                         label='Industry'
-                        name='industry'
+                        name='occupation'
                         options={industryOptions}
                     />
                     <RichTextInput
                         label='Comments'
-                        name='comments'
+                        name='comment'
                         type='text'
                         placeholder='Enter comments (optional)'
                     />
