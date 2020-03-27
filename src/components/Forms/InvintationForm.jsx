@@ -68,23 +68,21 @@ const handleSubmit = values => {
             navigate("/")
         })
         .catch(error => alert(error));
+    try{
+        const response = fetch("/.netlify/functions/submission-created", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({
+                "form-name": "Invitation Form",
+                ...values,
+            })
+        });
 
+        console.log('Received Responce from function Submission-Created', response)
 
-    // try{
-    //     const response = fetch("/.netlify/functions/submission-created", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //         body: encode({
-    //             "form-name": "Invitation Form",
-    //             ...values,
-    //         })
-    //     });
-    //
-    //     console.log('Received Responce from function Submission-Created', response)
-    //
-    // } catch(e){
-    //     console.log(e);
-    // }
+    } catch(e){
+        console.log(e);
+    }
 };
 
 
