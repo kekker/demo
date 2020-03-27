@@ -55,16 +55,37 @@ const InvitationSchema = Yup.object().shape({
 });
 
 const handleSubmit = values => {
-    fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-            "form-name": "Invitation Form",
-            ...values,
-        }),
-    })
-        .then(() => navigate("/"))
-        .catch(error => alert(error));
+    try {
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({
+                "form-name": "Invitation Form",
+                ...values,
+            }),
+        })
+            .then(() => navigate("/"))
+            .catch(error => alert(error));
+    } catch (error) {
+        console.log(error);
+    }
+
+
+    // try{
+    //     const response = fetch("/.netlify/functions/submission-created", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //         body: encode({
+    //             "form-name": "Invitation Form",
+    //             ...values,
+    //         })
+    //     });
+    //
+    //     console.log('Received Responce from function Submission-Created', response)
+    //
+    // } catch(e){
+    //     console.log(e);
+    // }
 };
 
 
@@ -82,6 +103,7 @@ const InvitationForm  = () => {
                     method="post"
                     netlify-honeypot="bot-field"
                     data-netlify="true"
+                    data-netlify-recaptcha="true"
                 >
                     <input type="hidden" name="bot-field" />
                     <TextInput
@@ -116,6 +138,7 @@ const InvitationForm  = () => {
                         type='text'
                         placeholder='Enter comments (optional)'
                     />
+                    <div data-netlify-recaptcha="true"></div>
                     <Text marginTop={4} marginBottom={4} tag='div' fontSize='small' color='textLightGrey'>
                         By submitting this form, you confirm that you have read and agree to our
                         {' '}
