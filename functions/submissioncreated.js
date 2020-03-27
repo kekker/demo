@@ -10,17 +10,21 @@ exports.handler  = async (event, context, callback) => {
             Authorization: "Basic " + API_MESSAGING_AUTH_BASIC_KEY,
     };
     console.log('Submission-created lambda triggered');
+    let response;
     try {
-        await BackendFetcher.post('api/messages/', {payload, headers});
-
-        return {
-            statusCode: 200,
-            body: 'Request send'
-        }
+        response = await BackendFetcher.post('api/messages/', {payload, headers});
     } catch (error) {
+        console.log('Error sending form', error);
         return {
-            statusCode: e.code,
-            body: e.message
+            statusCode: e.code || 500,
+            body: JSON.stringify({
+                error: e.message
+            })
         }
+    }
+
+    return {
+        statusCode: 200,
+        body: 'Request send'
     }
 };
