@@ -6,7 +6,7 @@ const messageRoute = '/api/messages';
 
 
 exports.handler  = async (event, context, callback) => {
-    const payload = JSON.parse(event.body).payload;
+    const payload = JSON.stringify(JSON.parse(event.body).payload);
     const headers = {
             "Content-Type": "application/json",
             "Content-Length": payload.length,
@@ -39,7 +39,7 @@ exports.handler  = async (event, context, callback) => {
         console.log('Problem with request:', e.message);
     });
 
-    req.write(JSON.stringify(payload));
+    req.write(payload);
     req.end();
 
     callback(null, {
