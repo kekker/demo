@@ -1,36 +1,9 @@
 const { API_MESSAGING_AUTH_BASIC_KEY } = process.env;
+const https = require('https');
+
 const baseBackendUrl = 'http://demoplatform1.kekker.com';
 const messageRoute = '/api/messages';
 
-class BackendFetcher {
-    static getBackendUrl(url) {
-        return `${baseBackendUrl}${url}`;
-    }
-
-    static setup() {
-        // Get a CSRF Token from a db with Cookies
-    }
-
-    static post(url, params = {}) {
-        const {
-            payload: data,
-            headers,
-            serialize = true,
-        } = params;
-
-        // Get CSRFToken
-        return fetch(this.getBackendUrl(url), {
-            method: 'POST',
-            // credentials: 'include',
-            // mode: 'cors',
-            headers: {
-                ...headers,
-                // 'X-CSRFToken': CSRFToken,
-            },
-            body: serialize ? JSON.stringify({ data }) : data,
-        }).then((response) => response.json())
-    }
-}
 
 exports.handler  = async (event, context, callback) => {
     const payload = JSON.parse(event.body).payload;
@@ -39,22 +12,37 @@ exports.handler  = async (event, context, callback) => {
             "Content-Type": "application/json",
             Authorization: "Basic " + API_MESSAGING_AUTH_BASIC_KEY,
     };
-    console.log('Submission-created lambda triggered');
-    let response;
-    try {
-        response = await BackendFetcher.post('api/messages/', {payload, headers});
-    } catch (error) {
-        console.log('Error sending form', error);
-        return {
-            statusCode: e.code || 500,
-            body: JSON.stringify({
-                error: e.message
-            })
-        }
-    }
+    const options = {
+        hostname: baseBackendUrl,
+        path: messageRoute,
+        port: 443,
+        method: 'POST',
+        headers
+    };
 
-    return {
-        statusCode: 200,
-        body: 'Request send'
-    }
+    let req = https.request(options, (res) => {
+        console.log(`statusCode: ${res.statusCode}`);
+
+        res.setEncoding('utf8');
+
+        res.on('end', function () {
+            callback(null, {
+                statusCode: 200
+            })
+        });
+
+        res.on('data', (d) => {
+            process.stdout.write(d);
+        })
+    });
+    req.on('error', (error) => {
+        console.log('Problem with request:', e.message);
+    });
+
+    req.write(payload);
+    req.end();
+
+    callback(null, {
+        statusCode: 200
+    })
 };
