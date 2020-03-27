@@ -42,6 +42,8 @@ exports.handler  = async (event, context, callback) => {
     req.write(payload);
     req.end();
 
+    console.log(payload);
+
     callback(null, {
         statusCode: 200,
         data: payload
