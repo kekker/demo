@@ -68,21 +68,21 @@ const handleSubmit = values => {
             navigate("/")
         })
         .catch(error => alert(error));
-    try{
-        const response = fetch("/.netlify/functions/submission-created", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({
-                "form-name": "Invitation Form",
-                ...values,
-            })
-        });
-
-        console.log('Received Responce from function Submission-Created', response)
-
-    } catch(e){
-        console.log(e);
-    }
+    // try{
+    //     const response = fetch("/.netlify/functions/submission-created", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //         body: encode({
+    //             "form-name": "Invitation Form",
+    //             ...values,
+    //         })
+    //     });
+    //
+    //     console.log('Received Responce from function Submission-Created', response)
+    //
+    // } catch(e){
+    //     console.log(e);
+    // }
 };
 
 
@@ -100,6 +100,7 @@ const InvitationForm  = () => {
                     method="post"
                     netlify-honeypot="bot-field"
                     data-netlify="true"
+                    data-netlify-recaptcha="true"
                 >
                     <input type="hidden" name="bot-field" />
                     <TextInput
@@ -143,6 +144,7 @@ const InvitationForm  = () => {
                             </Text>
                         </Link>
                     </Text>
+                    <div data-netlify-recaptcha="true"></div>
                     <div>
                         <Button
                             disabled={!(formik.isValid && formik.dirty)}
