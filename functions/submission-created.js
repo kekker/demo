@@ -9,6 +9,7 @@ exports.handler  = function(event, context, callback) {
             "Content-Type": "application/json",
             Authorization: "Basic " + API_MESSAGING_AUTH_BASIC_KEY,
     };
+    console.log('Submission-created lambda triggered');
     BackendFetcher.post('api/messages/', {payload, headers})
         .then((body) => {
             const { data } = body;
