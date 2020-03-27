@@ -8,9 +8,9 @@ const messageRoute = '/api/messages';
 exports.handler  = async (event, context, callback) => {
     const payload = JSON.parse(event.body).payload;
     const headers = {
-            Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: "Basic " + API_MESSAGING_AUTH_BASIC_KEY,
+            "Content-Length": payload.length,
+            "Authorization": "Basic " + API_MESSAGING_AUTH_BASIC_KEY,
     };
     const options = {
         hostname: baseBackendUrl,
@@ -39,7 +39,7 @@ exports.handler  = async (event, context, callback) => {
         console.log('Problem with request:', e.message);
     });
 
-    req.write(payload);
+    req.write(JSON.stringify(payload));
     req.end();
 
     callback(null, {
