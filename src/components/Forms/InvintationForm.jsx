@@ -56,7 +56,7 @@ const InvitationSchema = Yup.object().shape({
 
 const handleSubmit = values => {
     try {
-        fetch("/", {
+         const result = fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
@@ -65,7 +65,7 @@ const handleSubmit = values => {
             }),
         })
             .then(() => {
-                console.log('Form Submitted');
+                console.log('Form Submitted', result);
                 navigate("/")
             })
             .catch(error => alert(error));
