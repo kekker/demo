@@ -6,7 +6,7 @@ const messageRoute = '/api/messages';
 
 
 exports.handler  = async (event, context, callback) => {
-    const payload = JSON.stringify(JSON.parse(event.body).payload);
+    const payload = JSON.stringify(JSON.parse(event.body).payload.data);
     const headers = {
             "Content-Type": "application/json",
             "Content-Length": payload.length,

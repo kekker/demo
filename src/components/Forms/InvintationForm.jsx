@@ -16,8 +16,8 @@ const initialValues = {
     email: '',
     fullName: '',
     phone: '',
-    industry: '', //selected function
-    comments: ''
+    occupation: '', //selected function
+    comment: ''
 };
 
 const industryOptions = [
