@@ -35,8 +35,9 @@ exports.handler  = async (event, context, callback) => {
             process.stdout.write(d);
         })
     });
+
     req.on('error', (error) => {
-        console.log('Problem with request:', e.message);
+        console.log('Problem with request:', error.message);
     });
 
     req.write(payload);
