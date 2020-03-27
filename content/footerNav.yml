@@ -10,7 +10,7 @@ items:
       - title: Adding Files
         to: /docs/getting-started/getting-started.html
 
-  - header: Api
+  - header: API
     items:
       - title: Authentication
         to: /docs/api/api.html
