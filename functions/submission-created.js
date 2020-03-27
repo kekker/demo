@@ -1,7 +1,7 @@
 const { API_MESSAGING_AUTH_BASIC_KEY } = process.env;
-const https = require('https');
+const http = require('http');
 
-const baseBackendUrl = 'http://demoplatform1.kekker.com';
+const baseBackendUrl = 'demoplatform1.kekker.com';
 const messageRoute = '/api/messages';
 
 
@@ -15,12 +15,11 @@ exports.handler  = async (event, context, callback) => {
     const options = {
         hostname: baseBackendUrl,
         path: messageRoute,
-        port: 443,
         method: 'POST',
         headers
     };
 
-    let req = https.request(options, (res) => {
+    let req = http.request(options, (res) => {
         console.log(`statusCode: ${res.statusCode}`);
 
         res.setEncoding('utf8');
