@@ -101,7 +101,7 @@ const InvitationForm  = () => {
         >
             { formik => (
                 <Form
-                    name="Invitation Form"
+                    name="Sandbox Form"
                     style={{ marginRight: '2em'}}
                     method="post"
                     netlify-honeypot="bot-field"
