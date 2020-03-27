@@ -3,9 +3,9 @@
 }
 
 .blog-container section {
-  border-right: 1px solid lightgrey;
   flex: 0 0 65%;
-  padding: 2rem 2rem 0 0;
+  padding:0 0;
+  padding-right: 40px;
 }
 
 .post-summary {

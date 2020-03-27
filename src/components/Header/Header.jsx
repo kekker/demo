@@ -31,9 +31,10 @@ const ShortHeader = ({ location }) => (
           height="12vh"
           fluid={data.bgImage.childImageSharp.fluid}
           title="Kekker background cover"
+          color="#141414"
         >
-          <ContainerContent ptop="0" pbottom="0">
-            <Flex width="100%" align="center" height="100%">
+          <ContainerContent pt="0" pb="0">
+            <Flex width="100%" alignItems="center" height="100%">
               <HeaderNav location={location} />
             </Flex>
           </ContainerContent>
@@ -44,7 +45,7 @@ const ShortHeader = ({ location }) => (
 );
 
 ShortHeader.propTypes = {
-  location: PropTypes.string,
+  location: PropTypes.string.isRequired,
 };
 
 export default withTheme(ShortHeader);

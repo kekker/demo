@@ -1,41 +1,49 @@
 import React from 'react';
-import { Link } from "gatsby";
-import styled from 'styled-components';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import Heading from "../TextStyles/Heading";
-import Text from "../TextStyles/Text";
-import Flex from "../Flex";
+import Text from '../TextStyles/Text';
+import Flex from '../Flex';
+import styled from "styled-components";
 
-const StyledGridItem = styled.div.attrs( props => ({
-  basis: `calc(100% / ${props.cols})`
-}))`
-  flex-basis: ${ props => props.basis};
-  display: flex;
-  flex-wrap: wrap;
+const StyledGrid = styled(Flex)`
+  &:last-child {
+    padding-right: 0;
+  }
 `;
 
-const GridItem = ({ cols, header, content, link_to }) => {
-  const ifLink = link_to ?
-    <Link to={link_to} title={'read more'}><Text color={'inherit'} weight={800}>read more</Text></Link> : '';
+const GridItem = ({
+  cols, linkTo, children, ...props
+}) => {
+  const ifLink = linkTo ? (
+    <Link to={linkTo} title="read more">
+      <Text fontSize={'medium'} color="inherit" fontWeight={500}>
+        read more
+      </Text>
+    </Link>
+  ) : (
+    ''
+  );
+  const multiply = `${cols-1}/${cols}`;
+
   return (
-    <Flex direction={'column'} grow={'0'} shrink={'1'} basis={`calc(100% / ${cols} - 30px*2/3)`}>
-      <Heading align={'left'} level={2}>{header}</Heading>
-      { content.map( item => (
-        <Text tag={'div'}>
-          {item}
-        </Text>
-      ))}
+    <StyledGrid
+      flexDirection="column"
+      flexGrow="0"
+      flexShrink="1"
+      flexBasis={`calc(100% / ${cols} - 2em*${multiply})`}
+      flexWrap="wrap"
+      {...props}
+    >
+      {children}
       {ifLink}
-    </Flex>
+    </StyledGrid>
   );
 };
 
 GridItem.propTypes = {
-  cols: PropTypes.number,
-  header: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  link_to: PropTypes.string
+  cols: PropTypes.number.isRequired,
+  linkTo: PropTypes.string,
 };
 
 GridItem.defaultTypes = {

@@ -14,14 +14,13 @@ const Docs = ({ data, pageContext, location }) => {
   const { previous, next, slug } = pageContext;
 
   return (
-    <Layout location={location} title={title} subtitle={subtitle}>
+    <Layout location={location.pathname} title={title} subtitle={subtitle}>
       <Seo
         title={title}
         description={description || post.excerpt}
         slug={slug}
       />
 
-      <div className="blog-container">
         <MarkdownContent
           title={title}
           description={description}
@@ -29,20 +28,14 @@ const Docs = ({ data, pageContext, location }) => {
           next={next}
           previous={previous}
         />
-
-        <aside>
-          <h3>Kekker</h3>
-          <p>Menu will be here</p>
-        </aside>
-      </div>
     </Layout>
   );
 };
 
 Docs.propTypes = {
-  data: PropTypes.node,
-  location: PropTypes.string.isRequired,
-  pageContext: PropTypes.node,
+  data: PropTypes.object,
+  location: PropTypes.object.isRequired,
+  pageContext: PropTypes.object,
 };
 
 export const pageQuery = graphql`

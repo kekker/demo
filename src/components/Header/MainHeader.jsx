@@ -11,6 +11,7 @@ import HeaderNav from './HeaderNav';
 import Heading from '../TextStyles/Heading';
 import ButtonLink from '../Button';
 
+
 export const queryMainHeader = graphql`
   query {
     bgImage: file(absolutePath: { regex: "/kekker_bg.png/" }) {
@@ -27,27 +28,29 @@ const MainHeader = ({ location, theme }) => (
   <StaticQuery
     query={queryMainHeader}
     render={data => (
-      <ContainerSection height="100%">
+      <ContainerSection height={{ xs: '400px', md: '500px' }}>
         <BgImage
-          height="100%"
+          height={{ xs: '400px', md: '500px' }}
           fluid={data.bgImage.childImageSharp.fluid}
           title="Kekker background cover"
+          color="#141414"
         >
-          <ContainerContent>
-            <Flex direction="column" height="100%">
+          <ContainerContent pt="0">
+            <Flex flexDirection="column" height="100%">
               <HeaderNav location={location} />
 
               <Flex
                 height="100%"
-                direction="column"
-                justify="center"
-                align="center"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
               >
                 <Heading
                   weight={800}
-                  color={theme.colors.invertedText}
-                  align="center"
-                  lineh="1.1em"
+                  color="invertedText"
+                  textAlign="center"
+                  lineHeight="1.1em"
+                  fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}
                 >
                   A
                   {' '}
@@ -60,7 +63,11 @@ const MainHeader = ({ location, theme }) => (
                   <br />
                   <span style={{ fontSize: '1.4em' }}>decetralized apps</span>
                 </Heading>
-                <ButtonLink isPrimary={false} to="/" title="Get started" />
+                <ButtonLink
+                  variant={'primary'}
+                  to="/"
+                  title="Get started"
+                />
               </Flex>
             </Flex>
           </ContainerContent>
@@ -72,7 +79,7 @@ const MainHeader = ({ location, theme }) => (
 
 MainHeader.propTypes = {
   location: PropTypes.string,
-  theme: PropTypes.node,
+  theme: PropTypes.object,
 };
 
 export default withTheme(MainHeader);

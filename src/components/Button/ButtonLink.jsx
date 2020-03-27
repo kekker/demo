@@ -5,27 +5,37 @@ import styled from 'styled-components';
 
 import Text from '../TextStyles/Text';
 
-const Button = styled.button`
-  color: ${props => props.theme.colors.primaryText};
-  border: 2px solid
-    ${({ isPrimary, theme: { colors } }) => (isPrimary ? colors.primaryBrand : colors.primaryLight)};
-  background: ${({ isPrimary, theme: { colors } }) => (isPrimary ? colors.primaryBrand : colors.primaryLight)};
+const StyledButton = styled.button`
 
-  margin: 1em;
+  color: ${props => props.theme.colors.primaryText};
+
+   ${({ isPrimary, theme: { colors } }) => (isPrimary ?
+    (` border: 2px solid ${colors.primaryBrand};
+       background: ${colors.primaryBrand};
+       padding: 0.1em 0.7em;`) : 
+    (` border: 2px solid ${colors.primaryLight};
+       background: ${colors.primaryLight};
+       padding: 0.4em 0.8em;`))};
+          
   font-size: ${props => props.theme.fontSizes[props.size]};
-  padding: 0.1em 0.5em;
   border-radius: 2em;
+
 `;
 
 const ButtonLink = ({
-  title, isPrimary, to, size
+  title, isPrimary, to
 }) => (
   <Link to={to}>
-    <Button isPrimary={isPrimary} type="button">
-      <Text weight="800" isHeadingFont transform="uppercase" size={size}>
+    <StyledButton isPrimary={isPrimary} type="button">
+      <Text
+        fontSize={'medium'}
+        fontWeight="800"
+        isHeadingFont
+        textTransform="uppercase"
+      >
         {title}
       </Text>
-    </Button>
+    </StyledButton>
   </Link>
 );
 
@@ -37,7 +47,7 @@ ButtonLink.propTypes = {
 };
 
 ButtonLink.defaultProps = {
-  isPrimary: true,
+  isPrimary: false,
   size: 'small',
 };
 
