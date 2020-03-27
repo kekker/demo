@@ -43,6 +43,7 @@ exports.handler  = async (event, context, callback) => {
     req.end();
 
     callback(null, {
-        statusCode: 200
+        statusCode: 200,
+        data: payload
     })
 };
