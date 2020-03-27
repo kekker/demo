@@ -64,7 +64,7 @@ const handleSubmit = values => {
         }),
     })
         .then(() => {
-            console.log('Form Submitted');
+            console.log('Form Submitted ');
             navigate("/")
         })
         .catch(error => alert(error));
