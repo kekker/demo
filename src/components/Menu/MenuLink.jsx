@@ -1,12 +1,8 @@
-import Heading from "../TextStyles/Heading";
-import Text from "../TextStyles/Text";
 import {Link} from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-const SectionLink = styled(Link)`
-    color: red;
-`;
+import Text from "../TextStyles/Text";
 
 // const LinkSwitcher = (link, location) => {
 //     if (!link) return;

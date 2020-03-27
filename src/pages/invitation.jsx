@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 // Components
@@ -9,7 +8,7 @@ import Heading from "../components/TextStyles/Heading";
 import Text from "../components/TextStyles/Text";
 
 
-const DocsList = ({ data, location }) => {
+const InvitationPage = ({ location }) => {
 
     return (
         <Layout location={location.pathname} title="Kekker Invitation" description="Kekker Invitation">
@@ -26,9 +25,9 @@ const DocsList = ({ data, location }) => {
     );
 };
 
-DocsList.propTypes = {
+InvitationPage.propTypes = {
     data: PropTypes.node,
     location: PropTypes.string,
 };
 
-export default DocsList;
+export default InvitationPage;

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import PropTypes from 'prop-types';
 import { space, layout } from 'styled-system';
 
 const ContainerContent = styled.div`

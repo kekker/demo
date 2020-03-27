@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Layout from '../components/Layout/Layout';
 import Seo from '../components/SEO/Seo';
 import MarkdownContent from '../components/MarkdownContent';
-import SideMenu from "../components/Menu/SideMenu";
 
 const Docs = ({ data, pageContext, location }) => {
   const { frontmatter } = data.markdownRemark;

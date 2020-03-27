@@ -2,7 +2,6 @@ import Heading from "../TextStyles/Heading";
 import MenuLink from "./MenuLink";
 import React from "react";
 import styled from "styled-components";
-import {Link} from "gatsby";
 
 import HeaderBullet from '../../../static/assets/kekker_menu_bullet.svg';
 
@@ -34,7 +33,7 @@ const SideMenu = ( { location }) => {
             {linkSections.map(section => (
                     <React.Fragment key={section.header}>
                         <MenuHeader mb={3} textTransform={'uppercase'} textAlign={'left'} level={4}>{section.header}</MenuHeader>
-                        <MenuLink links={section.items}></MenuLink>
+                        <MenuLink links={section.items} />
                     </React.Fragment>
                 ))}
         </>

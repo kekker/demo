@@ -19,10 +19,6 @@ const GridLayout = styled.div`
     }
 `;
 
-const GridAll = styled.div`
-    grid-column: 1 / 3;
-`;
-
 const GridMenu = styled.div`
     margin-bottom: ${props => props.theme.space[6]}px;
     margin-top: ${props => props.theme.space[5]}px;

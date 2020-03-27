@@ -9,7 +9,6 @@ description: Cases
 Decentralized applications outperform legacy technology to build solutions like never before, but startups and corporations need to hire expensive expertise to deliver.  
   
 
-
 ### Supply chain 
 
 | Specification | Project | Link | Status |
@@ -46,4 +45,3 @@ Decentralized applications outperform legacy technology to build solutions like 
 | Property and Casualty insurance | Blicico | [https://blicico.com/en/](https://blicico.com/en/) | Piloting |
 | Health Insurance | Fidentiax | [https://www.fidentiax.com/](https://www.fidentiax.com/) | Piloting |
 | Health Insurance | Anthem | [https://www.anthem.com/](https://www.anthem.com/) | Piloting |
-
