@@ -55,23 +55,19 @@ const InvitationSchema = Yup.object().shape({
 });
 
 const handleSubmit = values => {
-    try {
-         const result = fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({
-                "form-name": "Sandbox Form",
-                ...values,
-            }),
+     fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+            "form-name": "Invitation Form",
+            ...values,
+        }),
+    })
+        .then(() => {
+            console.log('Form Submitted', result);
+            navigate("/")
         })
-            .then(() => {
-                console.log('Form Submitted', result);
-                navigate("/")
-            })
-            .catch(error => alert(error));
-    } catch (error) {
-        console.log(error);
-    }
+        .catch(error => alert(error));
 
 
     // try{
@@ -101,7 +97,7 @@ const InvitationForm  = () => {
         >
             { formik => (
                 <Form
-                    name="Sandbox Form"
+                    name="Invitation Form"
                     style={{ marginRight: '2em'}}
                     method="post"
                     netlify-honeypot="bot-field"
