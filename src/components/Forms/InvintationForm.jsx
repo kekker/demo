@@ -100,7 +100,6 @@ const InvitationForm  = () => {
                     method="post"
                     netlify-honeypot="bot-field"
                     data-netlify="true"
-                    data-netlify-recaptcha="true"
                 >
                     <input type="hidden" name="bot-field" />
                     <TextInput
@@ -144,7 +143,6 @@ const InvitationForm  = () => {
                             </Text>
                         </Link>
                     </Text>
-                    <div data-netlify-recaptcha="true"></div>
                     <div>
                         <Button
                             disabled={!(formik.isValid && formik.dirty)}
