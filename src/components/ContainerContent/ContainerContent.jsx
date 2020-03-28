@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import PropTypes from 'prop-types';
 import { space, layout } from 'styled-system';
 
 const ContainerContent = styled.div`
@@ -17,10 +16,10 @@ const ContainerContent = styled.div`
 ContainerContent.defaultProps = {
   height: '100%',
   width: '100%',
-  pt: { _: 4, sm: 6},
-  pb: { _: 4, sm: 6},
-  pl: { _: 4, sm: 6, md: 7},
-  pr: { _: 4, sm: 6, md: 7},
+  pt: { _: 4, sm: 6 },
+  pb: { _: 4, sm: 6 },
+  pl: { _: 4, sm: 6, md: 7 },
+  pr: { _: 4, sm: 6, md: 7 },
 };
 
 export default withTheme(ContainerContent);

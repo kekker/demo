@@ -27,13 +27,13 @@ const Text = ({
 
 Text.propTypes = {
   isHeadingFont: PropTypes.bool,
-  tag: PropTypes.oneOf(['span', 'div']),
+  tag: PropTypes.oneOf(['span', 'div', 'p']),
   children: PropTypes.node,
 };
 
 Text.defaultProps = {
   isHeadingFont: false,
-  tag: 'span'
+  tag: 'span',
 };
 
 export default Text;

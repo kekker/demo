@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import Heading from '../TextStyles/Heading';
+import styled from 'styled-components';
 import Text from '../TextStyles/Text';
 import Flex from '../Flex';
-import styled from "styled-components";
 
 const StyledGrid = styled(Flex)`
   &:last-child {
@@ -18,14 +17,14 @@ const GridItem = ({
 }) => {
   const ifLink = linkTo ? (
     <Link to={linkTo} title="read more">
-      <Text fontSize={'medium'} color="inherit" fontWeight={500}>
+      <Text fontSize="medium" color="inherit" fontWeight={500}>
         read more
       </Text>
     </Link>
   ) : (
     ''
   );
-  const multiply = `${cols-1}/${cols}`;
+  const multiply = `${cols - 1}/${cols}`;
 
   return (
     <StyledGrid

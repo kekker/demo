@@ -22,6 +22,9 @@
       "link_to": "/about/"
     }
   ],
+  "overView": "Fist steps are simple",
   "getStartedButtonSectionHeader":
-          "Create a New Decentralized App in 10 Minutes"
+         "Create a New Decentralized App in 10 Minutes",
+  "getStartedButtonLink":
+          "docs/get-started/get-started.html"
 }

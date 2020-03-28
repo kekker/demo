@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
 
 // Components
 import Seo from '../components/SEO/Seo';
@@ -14,7 +13,7 @@ import Flex from '../components/Flex';
 import GridItem from '../components/GridItem';
 import ContainerSection from '../components/ContainerSection';
 import Heading from '../components/TextStyles/Heading';
-import Text from "../components/TextStyles/Text";
+import Text from '../components/TextStyles/Text';
 
 // Content
 const jsonContent = require('../../content/home');
@@ -36,11 +35,11 @@ const BlogIndex = ({ data, location }) => {
               flexDirection={{ _: 'column', sm: 'row' }}
               flexWrap="wrap"
               justifyContent="space-between"
-              mb={{ _: 0, sm: 6}}
+              mb={{ _: 0, sm: 6 }}
             >
               {jsonContent.benefits.map(item => (
                 <GridItem
-                    key={'benefits' + item.header}
+                  key={`benefits${item.header}`}
                   cols={jsonContent.benefits.length}
                   linkTo={item.link_to}
                   mb={{ _: 4, sm: 0 }}
@@ -48,29 +47,41 @@ const BlogIndex = ({ data, location }) => {
                   <Heading align="left" level={2}>
                     {item.header}
                   </Heading>
-                  {item.content.map(item => (
-                    <Text key={'benefitsCont' + item.slice(0, 5)} fontSize={'medium'} tag="div">{item}</Text>
-                ))}
+                  {item.content.map(benefit => (
+                    <Text
+                      key={`benefitsCont${benefit.slice(0, 5)}`}
+                      fontSize="medium"
+                      tag="div"
+                    >
+                      {benefit}
+                    </Text>
+                  ))}
                 </GridItem>
               ))}
             </Flex>
             <Heading mb={5} level={2}>
-              First steps are simple
+              {jsonContent.overView}
             </Heading>
-            <div style={{
-              backgroundColor: '#eeeeee',
-              height: 500+'px',
-              width: 100 +'%',
-              marginBottom: 75+'px'}}></div>
+            <div
+              style={{
+                backgroundColor: '#eeeeee',
+                height: `${500}px`,
+                width: `${100}%`,
+                marginBottom: `${75}px`,
+              }}
+            />
           </ContainerContent>
           <ContainerSection bg="primaryBrand">
             <ContainerContent pt="3em" pb="3em">
               <Flex flexDirection="column" alignItems="center">
-                <Heading textAlign={'center'} fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}>
+                <Heading
+                  textAlign="center"
+                  fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}
+                >
                   {jsonContent.getStartedButtonSectionHeader}
                 </Heading>
                 <ButtonLink
-                    to={'/'}
+                  to="/"
                   size="large"
                   isPrimary={false}
                   title="Get started"
@@ -101,7 +112,6 @@ export const pageQuery = graphql`
         description
       }
     }
-    
   }
 `;
 

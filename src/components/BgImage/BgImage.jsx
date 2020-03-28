@@ -37,22 +37,17 @@ const Content = styled.div`
 
 const BgImage = ({
   fluid, title, bg, children, ...props
-}) => {
-  return (
-      <Parent bg={bg}>
-        <StyledBgImage fluid={fluid} title={title} bg={bg} {...props} />
-        <Content>{children}</Content>
-      </Parent>
-  );
-};
+}) => (
+  <Parent bg={bg}>
+    <StyledBgImage fluid={fluid} title={title} bg={bg} {...props} />
+    <Content>{children}</Content>
+  </Parent>
+);
 
 BgImage.propTypes = {
   fluid: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  height: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object
-  ]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   mobileHeight: PropTypes.string,
   overlayColor: PropTypes.string,
   children: PropTypes.node,

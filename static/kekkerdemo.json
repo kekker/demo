@@ -1,0 +1,1188 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1",
+    "title": "Kekker.API",
+    "description": "Kekker deals API"
+  },
+  "paths": {
+    "/api/clients": {
+      "get": {
+        "tags": [ "Client" ],
+        "summary": "Get clients list",
+        "operationId": "List",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/Client" }
+            }
+          }
+        }
+      }
+    },
+    "/api/deals": {
+      "get": {
+        "tags": [ "Deal" ],
+        "summary": "Get deals list",
+        "operationId": "GetDeals",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/Deal" }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "Deal" ],
+        "summary": "Create deal with predefined template",
+        "operationId": "CreateDeal",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Create deal command",
+            "required": false,
+            "schema": { "$ref": "#/definitions/CreateDeal" }
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/deals/{uid}": {
+      "get": {
+        "tags": [ "Deal" ],
+        "summary": "Get deal by uuid",
+        "operationId": "GetDeal",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "Unique deal identifier",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/Deal" }
+          }
+        }
+      }
+    },
+    "/api/deals/{uid}/tech": {
+      "get": {
+        "tags": [ "Deal" ],
+        "summary": "Get deal blockchain contract",
+        "operationId": "GetDealTechInfo",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "Unique deal identifier",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": {
+            "description": "Success",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/dealsfree": {
+      "post": {
+        "tags": [ "Deal" ],
+        "summary": "Create deal with free map",
+        "description": "{\r\n   \"key\": \"0e7ad584-7788-4ab1-95a6-ca0a5b444cbb\",\r\n   \"name\": \"Item1\",\r\n   \"isComplete\": true\r\n}",
+        "operationId": "CreateFreeDeal",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Create \"free\" deal command",
+            "required": false,
+            "schema": { "$ref": "#/definitions/CreateFreeDeal" }
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/deals/setstatus": {
+      "post": {
+        "tags": [ "Deal" ],
+        "summary": "Change deal state",
+        "operationId": "SetDealState",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Change deal state command",
+            "required": false,
+            "schema": { "$ref": "#/definitions/SetStatus" }
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": { "description": "Success" }
+        }
+      }
+    },
+    "/api/deals/files": {
+      "post": {
+        "tags": [ "Deal" ],
+        "summary": "Add file",
+        "description": "file size limit: 5mb",
+        "operationId": "AddDealFile",
+        "consumes": [ "application/json", "multipart/form-data" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "DealUid",
+            "in": "formData",
+            "description": "unique deal identity",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "FileKind",
+            "in": "formData",
+            "description": "File purpose",
+            "required": true,
+            "type": "string",
+            "maxLength": 32
+          },
+          {
+            "name": "Recievers",
+            "in": "formData",
+            "description": "List recievers of the file client keys\r\n(empty list indicates that file will will be send all deal parties)",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "formFile",
+            "in": "formData",
+            "description": "The file to upload.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": { "description": "Success" }
+        }
+      }
+    },
+    "/api/deals/{uid}/files/{fileUid}": {
+      "get": {
+        "tags": [ "Deal" ],
+        "summary": "Download deal file",
+        "operationId": "GetDealFile",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/x-binary" ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "Unique deal identifier",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "fileUid",
+            "in": "path",
+            "description": "Unique file identifier",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": { "description": "Success" }
+        }
+      }
+    },
+    "/api/dealtemplates": {
+      "get": {
+        "tags": [ "DealTemplate" ],
+        "summary": "Get deal templates list",
+        "operationId": "GetDealTemplates",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/DealTemplate" }
+            }
+          }
+        }
+      }
+    },
+    "/api/events": {
+      "get": {
+        "tags": [ "Event" ],
+        "summary": "Get all events list",
+        "operationId": "GetEvents",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Page size",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "eventTypes",
+            "in": "query",
+            "description": "Event types filter",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "dealKinds",
+            "in": "query",
+            "description": "Deal kinds filter",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "showSelfCreated",
+            "in": "query",
+            "description": "Show events from current node\r\n            (true - show all, false - incoming only)",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/Event" }
+            }
+          }
+        }
+      }
+    },
+    "/api/events/new": {
+      "get": {
+        "tags": [ "Event" ],
+        "summary": "Get unprocessed events list",
+        "operationId": "GetNewEvents",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Page size",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "eventTypes",
+            "in": "query",
+            "description": "Event types filter",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "dealKinds",
+            "in": "query",
+            "description": "Deal kinds filter",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "showSelfCreated",
+            "in": "query",
+            "description": "Show events from current node\r\n            (true - show all, false - incoming only)",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/Event" }
+            }
+          }
+        }
+      }
+    },
+    "/api/events/{eventUid}/ack": {
+      "post": {
+        "tags": [ "Event" ],
+        "summary": "Acknowledge event",
+        "operationId": "AckEvent",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "eventUid",
+            "in": "path",
+            "description": "Unique event identifier",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "200": { "description": "Success" }
+        }
+      }
+    },
+    "/api/uid": {
+      "get": {
+        "tags": [ "Service" ],
+        "summary": "Create new UUID",
+        "operationId": "GetUid",
+        "consumes": [],
+        "produces": [ "application/json" ],
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": { "$ref": "#/definitions/Error" }
+          },
+          "500": { "description": "Server Error" },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": { "errorMessage": { "type": "string" } }
+    },
+    "Client": {
+      "description": "Client object",
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "Unique identifier for the client",
+          "type": "string"
+        },
+        "data": {
+          "description": "Public client information",
+          "type": "string"
+        }
+      }
+    },
+    "Deal": {
+      "description": "Deal object",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "format": "uuid",
+          "description": "Unique identifier for the deal",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Deal template name",
+          "type": "string"
+        },
+        "status": {
+          "description": "Actual deal state",
+          "type": "string"
+        },
+        "remark": {
+          "description": "The comment accompanying actual state",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "List of deal parameters",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/Parameter" }
+        },
+        "parties": {
+          "description": "List of deal participants",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/Party" }
+        },
+        "files": {
+          "description": "List of deal files",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/DealFile" }
+        },
+        "history": {
+          "description": "History of state changes",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/DealStatus" }
+        },
+        "statusMap": {
+          "description": "Deal state transitions map",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/DealTransition" }
+        }
+      }
+    },
+    "Parameter": {
+      "description": "Parameter object",
+      "required": [ "key", "value" ],
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "Parameter name",
+          "maxLength": 32,
+          "type": "string"
+        },
+        "value": {
+          "description": "Parameter value",
+          "maxLength": 32,
+          "type": "string"
+        }
+      }
+    },
+    "Party": {
+      "description": "Partitcipant object",
+      "required": [ "key", "role" ],
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "Unique identifier for the client",
+          "maxLength": 32,
+          "type": "string"
+        },
+        "role": {
+          "description": "Client role for the current deal",
+          "maxLength": 32,
+          "type": "string"
+        }
+      }
+    },
+    "DealFile": {
+      "description": "Deal file object",
+      "required": [ "fileKind", "state" ],
+      "type": "object",
+      "properties": {
+        "fileUid": {
+          "format": "uuid",
+          "description": "Unique identifier for the file",
+          "type": "string"
+        },
+        "filePath": {
+          "description": "Server side file path (local file path, smb, s3, etc...)",
+          "type": "string"
+        },
+        "fileKind": {
+          "description": "Purpose of the file",
+          "maxLength": 32,
+          "type": "string"
+        },
+        "state": {
+          "description": "Accompanying deal state",
+          "maxLength": 32,
+          "type": "string"
+        },
+        "version": {
+          "format": "int32",
+          "description": "Identifier of state change",
+          "type": "integer"
+        }
+      }
+    },
+    "DealStatus": {
+      "description": "Deal state change object",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "State",
+          "type": "string"
+        },
+        "party": {
+          "$ref": "#/definitions/Party",
+          "description": "Participant who set this state"
+        },
+        "remark": {
+          "description": "Comment for this state",
+          "type": "string"
+        },
+        "version": {
+          "format": "int32",
+          "description": "Identifier of state change",
+          "type": "integer"
+        }
+      }
+    },
+    "DealTransition": {
+      "description": "State transition object",
+      "required": [ "status", "statusNext", "role" ],
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "Source state",
+          "maxLength": 9,
+          "type": "string"
+        },
+        "statusNext": {
+          "description": "Goal state",
+          "maxLength": 9,
+          "type": "string"
+        },
+        "role": {
+          "description": "Role of applying transitions participant",
+          "maxLength": 32,
+          "type": "string"
+        }
+      }
+    },
+    "CreateDeal": {
+      "description": "Crete deal command object",
+      "required": [ "kind", "parties" ],
+      "type": "object",
+      "properties": {
+        "dealUid": {
+          "format": "uuid",
+          "description": "Unique identifier for the deal",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Deal template name",
+          "maxLength": 32,
+          "type": "string"
+        },
+        "parties": {
+          "description": "List of deal participants",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/Party" }
+        },
+        "parameters": {
+          "description": "List of deal parameters",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/Parameter" }
+        }
+      }
+    },
+    "CreateFreeDeal": {
+      "description": "Crete deal command object",
+      "required": [ "parties" ],
+      "type": "object",
+      "properties": {
+        "dealUid": {
+          "format": "uuid",
+          "description": "Unique identifier for the deal",
+          "type": "string"
+        },
+        "parties": {
+          "description": "List of deal participants",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/Party" }
+        },
+        "parameters": {
+          "description": "List of deal parameters",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/Parameter" }
+        },
+        "transitions": {
+          "description": "Deal state transitions map",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/DealTransition" }
+        }
+      }
+    },
+    "SetStatus": {
+      "description": "Set deal state command object",
+      "required": [ "status" ],
+      "type": "object",
+      "properties": {
+        "dealUid": {
+          "format": "uuid",
+          "description": "Unique identifier for the deal",
+          "type": "string"
+        },
+        "status": {
+          "description": "The goal state",
+          "maxLength": 32,
+          "type": "string"
+        },
+        "remark": {
+          "description": "The accompanying comment",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "List of parameters \r\n(parameters can be added or updated, not removed)",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/Parameter" }
+        }
+      }
+    },
+    "DealTemplate": {
+      "description": "Deal template object",
+      "type": "object",
+      "properties": {
+        "dealKind": {
+          "description": "Unique template name",
+          "type": "string"
+        },
+        "uid": {
+          "format": "uuid",
+          "description": "Unique identifier for the template",
+          "type": "string"
+        },
+        "description": {
+          "description": "Business description",
+          "type": "string"
+        },
+        "version": {
+          "description": "Current template version",
+          "type": "string"
+        },
+        "statusMap": {
+          "description": "Role-based state transitions map.\r\n(Empty array indicates that template has no state map restrictions)",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/DealTransition" }
+        }
+      }
+    },
+    "Event": {
+      "description": "Base event object",
+      "required": [ "$type" ],
+      "type": "object",
+      "properties": {
+        "eventName": {
+          "description": "Event name (event type identifier)",
+          "type": "string"
+        },
+        "eventUid": {
+          "format": "uuid",
+          "description": "Unique identifier for the event",
+          "type": "string"
+        },
+        "dealUid": {
+          "format": "uuid",
+          "description": "Unique identifier for the deal",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "description": "UTC event time",
+          "type": "string"
+        },
+        "active": {
+          "description": "Event state indicator\r\n(true - new event, false - already processed)",
+          "type": "boolean"
+        },
+        "$type": {
+          "default": "Kekker.Deals.Model.Events.Event",
+          "type": "string"
+        }
+      },
+      "discriminator": "$type"
+    },
+    "DealCreatedEvent": {
+      "description": "Deal created event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "$ref": "#/definitions/Party",
+              "description": "Participant created the deal"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.DealCreatedEvent, Kekker.Deals.Model"
+    },
+    "StatusChangedEvent": {
+      "description": "Deal state changed event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "$ref": "#/definitions/Party",
+              "description": "Participant who set the state"
+            },
+            "version": {
+              "format": "int32",
+              "description": "Identifier of state change",
+              "type": "integer"
+            },
+            "state": {
+              "description": "State",
+              "type": "string"
+            },
+            "files": {
+              "description": "List of files added with state change",
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/DealFile" }
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.StatusChangedEvent, Kekker.Deals.Model"
+    },
+    "ErorrEvent": {
+      "description": "Error event object",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": {
+              "description": "Error text",
+              "type": "string"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.ErorrEvent, Kekker.Deals.Model"
+    },
+    "AddDealErrorEvent": {
+      "description": "Set state error event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": {
+              "description": "Error text",
+              "type": "string"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.AddDealErrorEvent, Kekker.Deals.Model"
+    },
+    "GetDealErrorEvent": {
+      "description": "Get deal error event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": {
+              "description": "Error text",
+              "type": "string"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.GetDealErrorEvent, Kekker.Deals.Model"
+    },
+    "SetStatusErrorEvent": {
+      "description": "Set state error event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": {
+              "description": "Error text",
+              "type": "string"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.SetStatusErrorEvent, Kekker.Deals.Model"
+    }
+  }
+}

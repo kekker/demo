@@ -12,20 +12,20 @@ docs:
 
   - header: API
     items:
-      - title: Authentication
-        to: /docs/api/api.html
+      - title: Client
+        to: /docs/api/client
 
-      - title: Headers
-        to: /docs/api/api.html
+      - title: Deal
+        to: /docs/api/deal
 
-      - title: Status check
-        to: /docs/api/api.html
+      - title: DealTemplate
+        to: /docs/api/dealtemplate
 
-      - title: Sending files
-        to: /docs/api/api.html
+      - title: Event
+        to: /docs/api/event
 
-      - title: Transaction
-        to: /docs/api/api.html
+      - title: Service
+        to: /docs/api/service
 
   - header: Scenarios
     items:

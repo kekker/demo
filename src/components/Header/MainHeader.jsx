@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
 
-import { fontSize } from 'styled-system';
 import ContainerSection from '../ContainerSection';
 import BgImage from '../BgImage';
 import ContainerContent from '../ContainerContent';
@@ -11,7 +10,6 @@ import Flex from '../Flex';
 import HeaderNav from './HeaderNav';
 import Heading from '../TextStyles/Heading';
 import ButtonLink from '../Button';
-
 
 export const queryMainHeader = graphql`
   query {
@@ -64,11 +62,7 @@ const MainHeader = ({ location, theme }) => (
                   <br />
                   <span style={{ fontSize: '1.4em' }}>decetralized apps</span>
                 </Heading>
-                <ButtonLink
-                  variant={'primary'}
-                  to="/"
-                  title="Get started"
-                />
+                <ButtonLink variant="primary" to="/" title="Get started" />
               </Flex>
             </Flex>
           </ContainerContent>

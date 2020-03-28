@@ -5,37 +5,33 @@ import styled from 'styled-components';
 
 import Text from '../TextStyles/Text';
 
-const Button = styled.button`
-
+const StyledButton = styled.button`
   color: ${props => props.theme.colors.primaryText};
 
-   ${({ isPrimary, theme: { colors } }) => (isPrimary ?
-    (` border: 2px solid ${colors.primaryBrand};
+  ${({ isPrimary, theme: { colors } }) => (isPrimary
+    ? ` border: 2px solid ${colors.primaryBrand};
        background: ${colors.primaryBrand};
-       padding: 0.1em 0.7em;`) : 
-    (` border: 2px solid ${colors.primaryLight};
+       padding: 0.1em 0.7em;`
+    : ` border: 2px solid ${colors.primaryLight};
        background: ${colors.primaryLight};
-       padding: 0.4em 0.8em;`))};
-          
+       padding: 0.4em 0.8em;`)};
+
   font-size: ${props => props.theme.fontSizes[props.size]};
   border-radius: 2em;
-
 `;
 
-const ButtonLink = ({
-  title, isPrimary, to
-}) => (
+const ButtonLink = ({ title, isPrimary, to }) => (
   <Link to={to}>
-    <Button isPrimary={isPrimary} type="button">
+    <StyledButton isPrimary={isPrimary} type="button">
       <Text
-        fontSize={'medium'}
+        fontSize="medium"
         fontWeight="800"
         isHeadingFont
         textTransform="uppercase"
       >
         {title}
       </Text>
-    </Button>
+    </StyledButton>
   </Link>
 );
 

@@ -11,7 +11,6 @@ import {
   Twitter,
   Instagram,
 } from './Icons';
-import Flex from "../Flex";
 
 const StyledIconLink = styled(Link)`
   font-size: 0.8em;

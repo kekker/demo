@@ -1,0 +1,107 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1",
+    "title": "Kekker API",
+    "description": "Here you will find a list of all API commands. Feel free to test all of them with help of out Demo Stand and Prepared Scenarios"
+  },
+  "paths": {
+    "/api/dealtemplates": {
+      "get": {
+        "tags": [
+          "DealTemplate"
+        ],
+        "summary": "Get deal templates list",
+        "operationId": "GetDealTemplates",
+        "consumes": [],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DealTemplate"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": { "errorMessage": { "type": "string" } }
+    },
+    "DealTemplate": {
+      "description": "Deal template object",
+      "type": "object",
+      "properties": {
+        "dealKind": {
+          "description": "Unique template name",
+          "type": "string"
+        },
+        "uid": {
+          "format": "uuid",
+          "description": "Unique identifier for the template",
+          "type": "string"
+        },
+        "description": {
+          "description": "Business description",
+          "type": "string"
+        },
+        "version": {
+          "description": "Current template version",
+          "type": "string"
+        },
+        "statusMap": {
+          "description": "Role-based state transitions map.\r\n(Empty array indicates that template has no state map restrictions)",
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/DealTransition" }
+        }
+      }
+    },
+    "DealTransition": {
+      "description": "State transition object",
+      "required": [ "status", "statusNext", "role" ],
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "Source state",
+          "maxLength": 9,
+          "type": "string"
+        },
+        "statusNext": {
+          "description": "Goal state",
+          "maxLength": 9,
+          "type": "string"
+        },
+        "role": {
+          "description": "Role of applying transitions participant",
+          "maxLength": 32,
+          "type": "string"
+        }
+      }
+    }
+  }
+}
