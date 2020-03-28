@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import styled from "styled-components";
-import {convertThemeFontsToString} from "../../utils/convertThemeFontsToString";
+
+import {convertThemeFontsToString} from "../../../utils/convertThemeFontsToString";
 
 const StyledLabel = styled.label`
     display: block;

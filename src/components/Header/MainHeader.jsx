@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
 
-import { fontSize } from 'styled-system';
 import ContainerSection from '../ContainerSection';
 import BgImage from '../BgImage';
 import ContainerContent from '../ContainerContent';

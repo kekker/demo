@@ -31,7 +31,6 @@ const StyledSelect = styled.select`
 
 const SelectInput = ({ label, options, ...props }) => {
     const [field, meta] = useField(props);
-    console.log(field.value);
     return (
         <>
             <Label isRequired={props.isRequired} label={label} htmlFor={props.id || props.name} />

@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import {convertThemeFontsToString} from "../../utils/convertThemeFontsToString";
-
 
 export const FormError = styled.div`
     margin-top: ${ props => props.theme.space[2]}px;

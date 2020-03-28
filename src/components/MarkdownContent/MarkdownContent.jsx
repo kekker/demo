@@ -1,14 +1,6 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styled from 'styled-components';
-import Heading from '../TextStyles/Heading';
-import Text from '../TextStyles/Text';
-
-const TitleDiv = styled.div`
-  margin-bottom: 1.4em;
-`;
 
 const MarkdownSection = styled.section`
     max-width: 85%;
@@ -20,10 +12,6 @@ const MarkdownSection = styled.section`
 
 const MarkdownContent = ({
   markdownRemark,
-  title,
-  description,
-  previous,
-  next,
 }) => (
   <MarkdownSection>
 

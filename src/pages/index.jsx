@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
 
 // Components
 import Seo from '../components/SEO/Seo';

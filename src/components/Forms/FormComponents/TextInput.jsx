@@ -1,8 +1,9 @@
 import React from "react";
 import {useField} from "formik";
+import styled from "styled-components";
+
 import {FormError} from "./FormError";
 import Label from "./Label";
-import styled from "styled-components";
 
 const StyledInput = styled.input`
     width: 100%;

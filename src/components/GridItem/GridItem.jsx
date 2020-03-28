@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import Heading from '../TextStyles/Heading';
 import Text from '../TextStyles/Text';
 import Flex from '../Flex';
 import styled from "styled-components";

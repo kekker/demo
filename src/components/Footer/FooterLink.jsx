@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Text from '../TextStyles/Text';
-import footerNav from "../../../content/footerNav.yml";
 import GridItem from "../GridItem";
 import Heading from "../TextStyles/Heading";
 

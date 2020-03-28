@@ -12,15 +12,11 @@ import SideMenu from "../Menu/SideMenu";
 const GridLayout = styled.div`
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-gap: 2em;
+    grid-gap: 2.4em;
     
      @media (max-width: ${props => props.theme.breakpoints.sm}) {
         display: block;
     }
-`;
-
-const GridAll = styled.div`
-    grid-column: 1 / 3;
 `;
 
 const GridMenu = styled.div`
