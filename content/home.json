@@ -10,7 +10,7 @@
     {
       "header": "Solutions",
       "content": [
-        "Decentralized applications outperform legacy technology to build solution s like never before, but startups and corporations need to hire expertise to deliver."
+        "Decentralized applications outperform legacy technology to build solution s like never before, but startups and corporations need to hire expensive expertise to deliver."
         ],
       "link_to": "/about/"
     },
@@ -24,7 +24,7 @@
   ],
   "overView": "Fist steps are simple",
   "getStartedButtonSectionHeader":
-          "Go to getting started tutorial",
+         "Create a New Decentralized App in 10 Minutes",
   "getStartedButtonLink":
           "docs/get-started/get-started.html"
 }
