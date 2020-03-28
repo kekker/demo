@@ -1,6 +1,4 @@
-# Getting-started
-
-## Getting Started
+# Getting started
 
 Описать демо стенд
 
