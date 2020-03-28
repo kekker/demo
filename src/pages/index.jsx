@@ -54,7 +54,7 @@ const BlogIndex = ({ data, location }) => {
               ))}
             </Flex>
             <Heading mb={5} level={2}>
-              First steps are simple
+              {jsonContent.overView}
             </Heading>
             <div style={{
               backgroundColor: '#eeeeee',

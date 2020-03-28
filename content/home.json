@@ -22,6 +22,9 @@
       "link_to": "/about/"
     }
   ],
+  "overView": "Fist steps are simple",
   "getStartedButtonSectionHeader":
-          "Go to getting started tutorial"
+          "Go to getting started tutorial",
+  "getStartedButtonLink":
+          "docs/get-started/get-started.html"
 }
