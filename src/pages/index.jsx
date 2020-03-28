@@ -47,13 +47,13 @@ const BlogIndex = ({ data, location }) => {
                   <Heading align="left" level={2}>
                     {item.header}
                   </Heading>
-                  {item.content.map(benefit => (
+                  {item.content.map(benefitString => (
                     <Text
-                      key={`benefitsCont${benefit.slice(0, 5)}`}
+                      key={`benefitsCont${benefitString.slice(0, 5)}`}
                       fontSize="medium"
                       tag="div"
                     >
-                      {benefit}
+                      {benefitString}
                     </Text>
                   ))}
                 </GridItem>
@@ -81,7 +81,7 @@ const BlogIndex = ({ data, location }) => {
                   {jsonContent.getStartedButtonSectionHeader}
                 </Heading>
                 <ButtonLink
-                  to="/"
+                  to={jsonContent.getStartedButtonLink}
                   size="large"
                   isPrimary={false}
                   title="Get started"
