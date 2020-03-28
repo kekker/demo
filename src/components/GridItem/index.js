@@ -1,3 +1,3 @@
-import GridItem from "./GridItem";
+import GridItem from './GridItem';
 
 export default GridItem;

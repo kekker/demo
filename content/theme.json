@@ -6,13 +6,20 @@
     "primaryLight": "#ffffff",
     "primaryDark": "#353434",
     "secondaryDark": "#535252",
-    "linkColor": "#0e3ca1"
+    "linkColor": "#0e3ca1",
+    "textLightGrey": "#9e9e9e"
   },
   "fontSizes": {
-    "extrasmall": "0.6rem",
-    "small": "0.8rem",
-    "medium": "1.4em",
-    "large": "2em"
+    "extrasmall": 12,
+    "small": 14,
+    "medium": 16,
+    "large": 20,
+    "extralarge": 28,
+    "h1": {
+      "sm": 30,
+      "md": 40,
+      "lg": 50
+    }
   },
   "baseFontSize": "18px",
   "baseLineHeight": 1.666,
@@ -34,7 +41,7 @@
     {
       "name": "Rubik",
       "styles": [
-        "300", "600"
+        "300", "400", "600"
       ]
     },
     {
@@ -45,5 +52,23 @@
         "900"
       ]
     }
-  ]
+  ],
+  "breakpoints": {
+    "xs": "0",
+    "sm": "600px",
+    "md": "960px",
+    "lg": "1280px",
+    "xl": "1920px"
+  },
+  "space": [
+    0, 5, 10, 20, 30, 50, 75, 100, 256
+  ],
+  "button" : {
+    "disabledBgColor": "#ececec",
+    "disabledFontColor": "#9e9e9e",
+    "size": {
+      "medium": "0.4em 0.8em",
+      "large": "0.6em 1em"
+    }
+  }
 }

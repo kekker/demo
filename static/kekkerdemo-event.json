@@ -1,0 +1,541 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1",
+    "title": "Kekker API",
+    "description": "Here you will find a list of all API commands. Feel free to test all of them with help of out Demo Stand and Prepared Scenarios"
+  },
+  "paths": {
+    "/api/events": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "Get all events list",
+        "operationId": "GetEvents",
+        "consumes": [],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Page size",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "eventTypes",
+            "in": "query",
+            "description": "Event types filter",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "dealKinds",
+            "in": "query",
+            "description": "Deal kinds filter",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "showSelfCreated",
+            "in": "query",
+            "description": "Show events from current node\r\n            (true - show all, false - incoming only)",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Event"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/events/new": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "Get unprocessed events list",
+        "operationId": "GetNewEvents",
+        "consumes": [],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Page size",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "eventTypes",
+            "in": "query",
+            "description": "Event types filter",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "dealKinds",
+            "in": "query",
+            "description": "Deal kinds filter",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "showSelfCreated",
+            "in": "query",
+            "description": "Show events from current node\r\n            (true - show all, false - incoming only)",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Event"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/events/{eventUid}/ack": {
+      "post": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "Acknowledge event",
+        "operationId": "AckEvent",
+        "consumes": [],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "eventUid",
+            "in": "path",
+            "description": "Unique event identifier",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "channel",
+            "in": "header",
+            "description": "User channel",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": { "errorMessage": { "type": "string" } }
+    },
+    "Event": {
+      "description": "Base event object",
+      "required": [ "$type" ],
+      "type": "object",
+      "properties": {
+        "eventName": {
+          "description": "Event name (event type identifier)",
+          "type": "string"
+        },
+        "eventUid": {
+          "format": "uuid",
+          "description": "Unique identifier for the event",
+          "type": "string"
+        },
+        "dealUid": {
+          "format": "uuid",
+          "description": "Unique identifier for the deal",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "description": "UTC event time",
+          "type": "string"
+        },
+        "active": {
+          "description": "Event state indicator\r\n(true - new event, false - already processed)",
+          "type": "boolean"
+        },
+        "$type": {
+          "default": "Kekker.Deals.Model.Events.Event",
+          "type": "string"
+        }
+      },
+      "discriminator": "$type"
+    },
+    "DealCreatedEvent": {
+      "description": "Deal created event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "$ref": "#/definitions/Party",
+              "description": "Participant created the deal"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.DealCreatedEvent, Kekker.Deals.Model"
+    },
+    "StatusChangedEvent": {
+      "description": "Deal state changed event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "$ref": "#/definitions/Party",
+              "description": "Participant who set the state"
+            },
+            "version": {
+              "format": "int32",
+              "description": "Identifier of state change",
+              "type": "integer"
+            },
+            "state": {
+              "description": "State",
+              "type": "string"
+            },
+            "files": {
+              "description": "List of files added with state change",
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/DealFile" }
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.StatusChangedEvent, Kekker.Deals.Model"
+    },
+    "ErorrEvent": {
+      "description": "Error event object",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": {
+              "description": "Error text",
+              "type": "string"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.ErorrEvent, Kekker.Deals.Model"
+    },
+    "AddDealErrorEvent": {
+      "description": "Set state error event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": {
+              "description": "Error text",
+              "type": "string"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.AddDealErrorEvent, Kekker.Deals.Model"
+    },
+    "GetDealErrorEvent": {
+      "description": "Get deal error event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": {
+              "description": "Error text",
+              "type": "string"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.GetDealErrorEvent, Kekker.Deals.Model"
+    },
+    "SetStatusErrorEvent": {
+      "description": "Set state error event",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/definitions/Event" },
+        {
+          "type": "object",
+          "properties": {
+            "error": {
+              "description": "Error text",
+              "type": "string"
+            },
+            "eventName": {
+              "description": "Event name (event type identifier)",
+              "type": "string"
+            },
+            "eventUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the event",
+              "type": "string"
+            },
+            "dealUid": {
+              "format": "uuid",
+              "description": "Unique identifier for the deal",
+              "type": "string"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "description": "UTC event time",
+              "type": "string"
+            },
+            "active": {
+              "description": "Event state indicator\r\n(true - new event, false - already processed)",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {},
+      "discriminator": "$type",
+      "x-ms-discriminator-value": "Kekker.Deals.Model.Events.SetStatusErrorEvent, Kekker.Deals.Model"
+    }
+  }
+}

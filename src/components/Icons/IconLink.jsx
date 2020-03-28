@@ -47,14 +47,15 @@ const InlineIcon = ({ type }) => {
   }
 };
 
-const IconLink = ({ type, link_to }) => (
-  <StyledIconLink to={link_to}>
+const IconLink = ({ type, linkTo }) => (
+  <StyledIconLink to={linkTo}>
     <InlineIcon type={type} />
   </StyledIconLink>
 );
 
 IconLink.propTypes = {
   type: PropTypes.string.isRequired,
+  linkTo: PropTypes.string,
 };
 
 InlineIcon.propTypes = {
@@ -62,3 +63,12 @@ InlineIcon.propTypes = {
 };
 
 export default IconLink;
+
+// Usage example
+// <IconLink type="Facebook" color={theme.colors.invertedText} />
+// <IconLink
+//   link_to="https://www.linkedin.com/company/kekker"
+//   type="Linkedin"
+//   color={theme.colors.invertedText}
+//  />
+//  <IconLink type="Instagram" color={theme.colors.invertedText} />

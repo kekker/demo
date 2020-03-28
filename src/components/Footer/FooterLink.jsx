@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Text from '../TextStyles/Text';
+import GridItem from '../GridItem';
+import Heading from '../TextStyles/Heading';
 
 const StyledFooterLink = styled(Link)`
   color: ${props => props.theme.colors.invertedText};
@@ -10,7 +12,7 @@ const StyledFooterLink = styled(Link)`
   transition: 'color 0.2s ease-out';
 
   text-decoration: none;
-  line-height: 1em;
+  line-height: 1.3em;
 
   &:focus {
     outline: 0;
@@ -22,17 +24,29 @@ const StyledFooterLink = styled(Link)`
   }
 `;
 
-const FooterLink = ({ title, to }) => (
-  <StyledFooterLink title={title} to={to}>
-    <Text isHeadingFont weight={400} color="inherit" size="small">
-      {title}
-    </Text>
-  </StyledFooterLink>
+const FooterLink = ({ footerColumn, count, fontSize }) => (
+  <GridItem cols={count} header={footerColumn.header}>
+    <Heading level={4} color="invertedText" letterSpacing={0}>
+      {footerColumn.header}
+    </Heading>
+    {footerColumn.items.map(item => (
+      <StyledFooterLink
+        to={item.to}
+        title={item.title}
+        key={`footer${item.title}`}
+      >
+        <Text fontWeight={300} color="inherit" fontSize={fontSize}>
+          {item.title}
+        </Text>
+      </StyledFooterLink>
+    ))}
+  </GridItem>
 );
 
 FooterLink.propTypes = {
-  title: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  footerColumn: PropTypes.object.isRequired,
+  count: PropTypes.number.isRequired,
+  fontSize: PropTypes.string,
 };
 
 export default FooterLink;
