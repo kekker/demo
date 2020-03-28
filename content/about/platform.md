@@ -11,7 +11,5 @@ Kekker is a middleware with a set of DLT/DFS technologies and APIs that lets you
 
 Use Kekker's services to operate your decentralized environment or manage your secured distributed solution network independently
 
-{% page-ref page="cases.md" %}
-
 
 
