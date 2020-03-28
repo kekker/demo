@@ -2,9 +2,8 @@
 description: Cases
 ---
 
-# Cases
+# Solutions
 
-## Decentralized solutions 
 
 Decentralized applications outperform legacy technology to build solutions like never before, but startups and corporations need to hire expensive expertise to deliver.  
   
