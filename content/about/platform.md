@@ -1,6 +1,8 @@
 ---
 description: A Kekker platform description
-next: Solutions
+next: /about/solutions.html
+prev: /about/benefits.html
+
 ---
 
 # Platform
