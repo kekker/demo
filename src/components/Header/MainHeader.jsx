@@ -11,6 +11,8 @@ import HeaderNav from './HeaderNav';
 import Heading from '../TextStyles/Heading';
 import ButtonLink from '../Button';
 
+const jsonContent = require('../../../content/home');
+
 export const queryMainHeader = graphql`
   query {
     bgImage: file(absolutePath: { regex: "/kekker_bg.png/" }) {
@@ -62,7 +64,7 @@ const MainHeader = ({ location, theme }) => (
                   <br />
                   <span style={{ fontSize: '1.4em' }}>decetralized apps</span>
                 </Heading>
-                <ButtonLink variant="primary" to="/" title="Get started" />
+                <ButtonLink variant="primary" to={jsonContent.getStartedButtonLink} title="Get started" />
               </Flex>
             </Flex>
           </ContainerContent>
