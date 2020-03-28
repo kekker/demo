@@ -21,13 +21,13 @@ const Docs = ({ data, pageContext, location }) => {
         slug={slug}
       />
 
-        <MarkdownContent
-          title={title}
-          description={description}
-          markdownRemark={post}
-          next={next}
-          previous={previous}
-        />
+      <MarkdownContent
+        title={title}
+        description={description}
+        markdownRemark={post}
+        next={next}
+        previous={previous}
+      />
     </Layout>
   );
 };

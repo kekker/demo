@@ -33,7 +33,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
   isHeadingFont: false,
-  tag: 'span'
+  tag: 'span',
 };
 
 export default Text;

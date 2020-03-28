@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link} from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Flex from '../Flex';
 
@@ -14,16 +14,15 @@ const StyledLogoLink = styled(Link)`
 `;
 
 const StyledLogoImg = styled.img`
-    margin-bottom: 0;
+  margin-bottom: 0;
 `;
 
-
 const LogoLink = () => (
-      <Flex flexBasis="20%">
-        <StyledLogoLink to="/">
-          <StyledLogoImg src={logoSvg} alt="Kekker logo" />
-        </StyledLogoLink>
-      </Flex>
+  <Flex flexBasis="20%">
+    <StyledLogoLink to="/">
+      <StyledLogoImg src={logoSvg} alt="Kekker logo" />
+    </StyledLogoLink>
+  </Flex>
 );
 
 export default LogoLink;

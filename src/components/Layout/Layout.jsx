@@ -7,31 +7,31 @@ import ContainerContent from '../ContainerContent';
 import Footer from '../Footer';
 import { ShortHeader } from '../Header';
 import Seo from '../SEO';
-import SideMenu from "../Menu/SideMenu";
+import SideMenu from '../Menu/SideMenu';
 
 const GridLayout = styled.div`
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-gap: 2.4em;
-    
-     @media (max-width: ${props => props.theme.breakpoints.sm}) {
-        display: block;
-    }
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 2.4em;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    display: block;
+  }
 `;
 
 const GridMenu = styled.div`
-    margin-bottom: ${props => props.theme.space[6]}px;
-    margin-top: ${props => props.theme.space[5]}px;
-    white-space: nowrap;
-    
-    @media (min-height: 300px) {
-        position: sticky;
-        top: ${props => props.theme.space[6]}px;;
-    }
-    
-     @media (max-width: ${props => props.theme.breakpoints.sm}) {
-        display: none;
-    }
+  margin-bottom: ${props => props.theme.space[6]}px;
+  margin-top: ${props => props.theme.space[5]}px;
+  white-space: nowrap;
+
+  @media (min-height: 300px) {
+    position: sticky;
+    top: ${props => props.theme.space[6]}px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    display: none;
+  }
 `;
 
 const Layout = ({
@@ -41,23 +41,20 @@ const Layout = ({
     <Seo title={title} description={description} />
     <ShortHeader location={location} />
 
-      <main>
-        <ContainerContent>
-            <GridLayout>
-                <div>
-                    {children}
-                </div>
-            <aside>
-                <GridMenu>
-                    <SideMenu location={location} />
-                </GridMenu>
-            </aside>
-            </GridLayout>
-        </ContainerContent>
-      </main>
+    <main>
+      <ContainerContent>
+        <GridLayout>
+          <div>{children}</div>
+          <aside>
+            <GridMenu>
+              <SideMenu location={location} />
+            </GridMenu>
+          </aside>
+        </GridLayout>
+      </ContainerContent>
+    </main>
 
-
-      <Footer />
+    <Footer />
   </Theme>
 );
 

@@ -23,22 +23,20 @@ const StyledHeaderLink = styled(Link)`
 `;
 
 const HeaderLink = ({ isActive, title, to }) => {
-    const curr_color = isActive
-        ? 'primaryBrand'
-        : 'invertedText';
-    return (
-        <StyledHeaderLink title={title} color={curr_color} to={to}>
-            <Text
-                fontWeight={800}
-                color="inherit"
-                textTransform="uppercase"
-                isHeadingFont
-                fontSize={'medium'}
-            >
-                {title}
-            </Text>
-        </StyledHeaderLink>
-    );
+  const curr_color = isActive ? 'primaryBrand' : 'invertedText';
+  return (
+    <StyledHeaderLink title={title} color={curr_color} to={to}>
+      <Text
+        fontWeight={800}
+        color="inherit"
+        textTransform="uppercase"
+        isHeadingFont
+        fontSize="medium"
+      >
+        {title}
+      </Text>
+    </StyledHeaderLink>
+  );
 };
 
 HeaderLink.propTypes = {

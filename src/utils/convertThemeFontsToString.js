@@ -1,3 +1,1 @@
-export const convertThemeFontsToString = fontFamilyArray => {
-    return `'${fontFamilyArray.join("', '")}'`
-};
+export const convertThemeFontsToString = fontFamilyArray => `'${fontFamilyArray.join("', '")}'`;
