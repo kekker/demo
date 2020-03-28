@@ -1,5 +1,6 @@
 ---
 description: Benefits
+next: Platform
 ---
 
 # Benefits
