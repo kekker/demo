@@ -1,5 +1,6 @@
 ---
 description: A Kekker platform description
+next: Solutions
 ---
 
 # Platform
