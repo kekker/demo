@@ -3,7 +3,7 @@
   "info": {
     "version": "1",
     "title": "Kekker API",
-    "description": "Here you will find a list of all API commands. Feel free to test all of them with help of out Demo Stand and Prepared Scenarios"
+    "description": "Here you will find a list of all API commands. Feel free to test all of them with help of our Demo Stand and Prepared Scenarios"
   },
   "paths": {
     "/api/clients": {
@@ -11,11 +11,13 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get clients list",
         "operationId": "List",
-        "consumes": [],
+        "consumes": [
+          "application/json"
+        ],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [],
         "responses": {
@@ -55,12 +57,15 @@
       }
     },
     "Client": {
+      "description": "Client object",
       "type": "object",
       "properties": {
         "key": {
+          "description": "Unique identifier for the client",
           "type": "string"
         },
         "data": {
+          "description": "Public client information",
           "type": "string"
         }
       }

@@ -11,6 +11,7 @@
         "tags": [
           "DealTemplate"
         ],
+        "summary": "Get deal templates list",
         "operationId": "GetDealTemplates",
         "consumes": [],
         "produces": [
@@ -52,16 +53,28 @@
       "properties": { "errorMessage": { "type": "string" } }
     },
     "DealTemplate": {
+      "description": "Deal template object",
       "type": "object",
       "properties": {
-        "dealKind": { "type": "string" },
-        "uid": {
-          "format": "uuid",
+        "dealKind": {
+          "description": "Unique template name",
           "type": "string"
         },
-        "description": { "type": "string" },
-        "version": { "type": "string" },
+        "uid": {
+          "format": "uuid",
+          "description": "Unique identifier for the template",
+          "type": "string"
+        },
+        "description": {
+          "description": "Business description",
+          "type": "string"
+        },
+        "version": {
+          "description": "Current template version",
+          "type": "string"
+        },
         "statusMap": {
+          "description": "Role-based state transitions map.\r\n(Empty array indicates that template has no state map restrictions)",
           "uniqueItems": false,
           "type": "array",
           "items": { "$ref": "#/definitions/DealTransition" }
@@ -69,18 +82,22 @@
       }
     },
     "DealTransition": {
+      "description": "State transition object",
       "required": [ "status", "statusNext", "role" ],
       "type": "object",
       "properties": {
         "status": {
+          "description": "Source state",
           "maxLength": 9,
           "type": "string"
         },
         "statusNext": {
+          "description": "Goal state",
           "maxLength": 9,
           "type": "string"
         },
         "role": {
+          "description": "Role of applying transitions participant",
           "maxLength": 32,
           "type": "string"
         }

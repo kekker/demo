@@ -9,6 +9,7 @@
     "/api/uid": {
       "get": {
         "tags": [ "Service" ],
+        "summary": "Create new UUID",
         "operationId": "GetUid",
         "consumes": [],
         "produces": [ "application/json" ],
