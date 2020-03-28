@@ -1,0 +1,74 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1",
+    "title": "Kekker API",
+    "description": "Here you will find a list of all API commands. Feel free to test all of them with help of our Demo Stand and Prepared Scenarios"
+  },
+  "paths": {
+    "/api/clients": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Get clients list",
+        "operationId": "List",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Client"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "errorMessage": {
+          "type": "string"
+        }
+      }
+    },
+    "Client": {
+      "description": "Client object",
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "Unique identifier for the client",
+          "type": "string"
+        },
+        "data": {
+          "description": "Public client information",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
