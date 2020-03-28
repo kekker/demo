@@ -44,11 +44,13 @@ docs:
 about:
   - header: About
     items:
+      - title: Platform
+        to: /about/platform.html
+        
+      - title: Cases
+        to: /about/cases.html
+        
       - title: Benefits
         to: /about/benefits.html
 
-      - title: Cases
-        to: /about/cases.html
 
-      - title: Platform
-        to: /about/platform.html
