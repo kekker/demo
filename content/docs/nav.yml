@@ -5,6 +5,12 @@
 
 - header: API
   items:
+    - title: Authorization
+      to: /docs/api/authorization.html
+
+    - title: Errors
+      to: /docs/api/errors.html
+
     - title: Client
       to: /docs/api/client
 
