@@ -35,7 +35,7 @@ const GridMenu = styled.div`
 `;
 
 const Layout = ({
-  children, location, title, description
+  children, location, title, description, sideMenu
 }) => (
   <Theme>
     <Seo title={title} description={description} />
@@ -47,7 +47,10 @@ const Layout = ({
           <div>{children}</div>
           <aside>
             <GridMenu>
-              <SideMenu location={location} />
+              <SideMenu
+                  location={location}
+                  section={sideMenu}
+              />
             </GridMenu>
           </aside>
         </GridLayout>
@@ -63,6 +66,7 @@ Layout.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string,
+  sideMenu: PropTypes.string
 };
 
 Layout.defaultProps = {

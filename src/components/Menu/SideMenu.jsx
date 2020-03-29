@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import Heading from '../TextStyles/Heading';
 import MenuLink from './MenuLink';
 
@@ -23,12 +25,20 @@ const MenuHeader = styled(Heading)`
   }
 `;
 
-const SideMenu = ({ location }) => {
+const SideMenu = ({ location, section }) => {
   const docsSections = menuObject.docs;
   const aboutSections = menuObject.about;
-  const linkSections = location.includes('docs/')
-    ? docsSections
-    : aboutSections;
+  let linkSections;
+  if (section) {
+    linkSections = section.includes('docs')
+        ? docsSections
+        : aboutSections;
+  } else {
+    linkSections = location.includes('docs/')
+        ? docsSections
+        : aboutSections;
+  }
+
   return (
     <>
       {linkSections.map(section => (
@@ -46,6 +56,14 @@ const SideMenu = ({ location }) => {
       ))}
     </>
   );
+};
+
+SideMenu.propTypes = {
+  location: PropTypes.string.isRequired,
+  section: PropTypes.oneOf([
+      'docs',
+      'about'
+  ])
 };
 
 export default SideMenu;
