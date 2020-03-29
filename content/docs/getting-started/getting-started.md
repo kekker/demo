@@ -4,7 +4,7 @@ description: Getting Started Kekker overview
 next: shipment
 ---
 
-# Getting Started
+# Getting started
 
 Описать демо стенд
 
