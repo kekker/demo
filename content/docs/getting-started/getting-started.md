@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 description: Getting Started Kekker overview
-next: shipment scenario
+next: shipment
 ---
 
 # Getting Started

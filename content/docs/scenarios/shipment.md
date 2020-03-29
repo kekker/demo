@@ -1,5 +1,5 @@
 ---
-title: Shipment Scenario
+title: Shipment
 description: Kekker scenario demonstrating delivery of goods
 prev: getting started
 ---

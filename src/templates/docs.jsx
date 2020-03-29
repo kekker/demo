@@ -7,26 +7,29 @@ import Layout from '../components/Layout/Layout';
 import Seo from '../components/SEO/Seo';
 import MarkdownContent from '../components/MarkdownContent';
 
+import {listDocsLinks, listAboutLinks} from "../utils/getLinkLists";
+
 const Docs = ({ data, pageContext, location }) => {
   const { frontmatter } = data.markdownRemark;
-  const { title, subtitle, description } = frontmatter;
-  const post = data.markdownRemark;
-  const { previous, next, slug } = pageContext;
+  const { title, description } = frontmatter;
+  const content = data.markdownRemark;
+  const { slug } = pageContext;
+
+  const listItems = slug.includes('docs')
+      ? listDocsLinks
+      : listAboutLinks;
 
   return (
-    <Layout location={location.pathname} title={title} subtitle={subtitle}>
+    <Layout location={location.pathname} title={title} description={description}>
       <Seo
-        title={title}
+        title={`${title} - Kekker`}
         description={description || post.excerpt}
         slug={slug}
       />
 
       <MarkdownContent
-        title={title}
-        description={description}
-        markdownRemark={post}
-        next={next}
-        previous={previous}
+        markdownRemark={content}
+        listItems={listItems}
       />
     </Layout>
   );
@@ -44,6 +47,9 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        description
+        next
+        prev
       }
       fields {
         slug
