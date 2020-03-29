@@ -1,3 +1,9 @@
+---
+title: Getting Started
+description: Getting Started Kekker overview
+next: shipment
+---
+
 # Getting started
 
 Описать демо стенд

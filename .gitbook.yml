@@ -1,5 +1,0 @@
-root: ./content/
-
-structure:  
-    readme: ./gitbookconfs/README.md
-    summary: ./gitbookconfs/SUMMARY.md

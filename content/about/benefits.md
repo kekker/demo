@@ -1,11 +1,11 @@
 ---
-description: Benefits
-next: Platform
+title: Benefits
+description: Kekker benefits faster time to market cheaper
+next: platform
+prev: solutions
 ---
 
 # Benefits
-
-## Kekker benefits 
 
 Kekker allows for 10X faster time-to-market than direct competition, is 100X cheaper/faster than hiring experts and easy to setup and use and no DLT/DFS experience needed!  
 

@@ -1,0 +1,26 @@
+- header: Get Started
+  items:
+    - title: Getting Started
+      to: /docs/getting-started/getting-started.html
+
+- header: API
+  items:
+    - title: Client
+      to: /docs/api/client
+
+    - title: Deal
+      to: /docs/api/deal
+
+    - title: DealTemplate
+      to: /docs/api/dealtemplate
+
+    - title: Event
+      to: /docs/api/event
+
+    - title: Service
+      to: /docs/api/service
+
+- header: Scenarios
+  items:
+    - title: Shipment
+      to: /docs/scenarios/shipment.html

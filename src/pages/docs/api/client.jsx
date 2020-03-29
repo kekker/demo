@@ -33,8 +33,8 @@ class ClientPage extends React.Component {
     return (
       <ApiLayout
         location={location.pathname}
-        title="Api Page"
-        description="Api Page"
+        title="Api Client - Kekker"
+        description="Client request for Kekker API"
       >
         {swaggerComponent}
       </ApiLayout>

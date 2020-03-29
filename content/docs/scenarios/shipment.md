@@ -1,3 +1,9 @@
+---
+title: Shipment
+description: Kekker scenario demonstrating delivery of goods
+prev: getting started
+---
+
 # Shipment
 
 ## Сценарий поставки товара \(создание сделки и изменение ее состояния\)

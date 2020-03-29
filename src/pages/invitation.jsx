@@ -12,6 +12,7 @@ const InvitationPage = ({ location }) => (
     location={location.pathname}
     title="Kekker Invitation"
     description="Kekker Invitation"
+    sideMenu={'docs'}
   >
     <Heading level={1}>Get access to Sandbox</Heading>
     <div style={{ maxWidth: '600px' }}>

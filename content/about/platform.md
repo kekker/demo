@@ -1,13 +1,11 @@
 ---
+title: Platform
 description: A Kekker platform description
-next: /about/solutions.html
-prev: /about/benefits.html
-
+next: solutions
+prev: benefits
 ---
 
 # Platform
-
-## Kekker platform 
 
 Kekker is a middleware with a set of DLT/DFS technologies and APIs that lets you build and run decentralized blockchain-powered applications without blockchain expertise.  
 

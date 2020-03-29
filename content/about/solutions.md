@@ -1,13 +1,14 @@
 ---
-description: Cases
+title: Solutions
+description: Decentralized solutions
+next: benefits
+prev: platform
 ---
 
-# Solutions
-
+# Decentralized solutions 
 
 Decentralized applications outperform legacy technology to build solutions like never before, but startups and corporations need to hire expensive expertise to deliver.  
   
-
 ### Supply chain 
 
 | Specification | Project | Link | Status |

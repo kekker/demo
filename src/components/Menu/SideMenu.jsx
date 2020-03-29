@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import Heading from '../TextStyles/Heading';
 import MenuLink from './MenuLink';
 
 import HeaderBullet from '../../../static/assets/kekker_menu_bullet.svg';
 
-const menuObject = require('../../../content/asideNav.yml');
+import { listDocsLinks, listAboutLinks} from "../../utils/getLinkLists";
 
 const MenuHeader = styled(Heading)`
   position: relative;
@@ -23,12 +25,18 @@ const MenuHeader = styled(Heading)`
   }
 `;
 
-const SideMenu = ({ location }) => {
-  const docsSections = menuObject.docs;
-  const aboutSections = menuObject.about;
-  const linkSections = location.includes('docs/')
-    ? docsSections
-    : aboutSections;
+const SideMenu = ({ location, section }) => {
+  let linkSections;
+  if (section) {
+    linkSections = section.includes('docs')
+        ? listDocsLinks
+        : listAboutLinks;
+  } else {
+    linkSections = location.includes('docs/')
+        ? listDocsLinks
+        : listAboutLinks;
+  }
+
   return (
     <>
       {linkSections.map(section => (
@@ -46,6 +54,14 @@ const SideMenu = ({ location }) => {
       ))}
     </>
   );
+};
+
+SideMenu.propTypes = {
+  location: PropTypes.string.isRequired,
+  section: PropTypes.oneOf([
+      'docs',
+      'about'
+  ])
 };
 
 export default SideMenu;
