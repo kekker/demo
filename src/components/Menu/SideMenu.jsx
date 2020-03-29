@@ -7,7 +7,7 @@ import MenuLink from './MenuLink';
 
 import HeaderBullet from '../../../static/assets/kekker_menu_bullet.svg';
 
-const menuObject = require('../../../content/asideNav.yml');
+import { listDocsLinks, listAboutLinks} from "../../utils/getLinkLists";
 
 const MenuHeader = styled(Heading)`
   position: relative;
@@ -26,17 +26,15 @@ const MenuHeader = styled(Heading)`
 `;
 
 const SideMenu = ({ location, section }) => {
-  const docsSections = menuObject.docs;
-  const aboutSections = menuObject.about;
   let linkSections;
   if (section) {
     linkSections = section.includes('docs')
-        ? docsSections
-        : aboutSections;
+        ? listDocsLinks
+        : listAboutLinks;
   } else {
     linkSections = location.includes('docs/')
-        ? docsSections
-        : aboutSections;
+        ? listDocsLinks
+        : listAboutLinks;
   }
 
   return (
