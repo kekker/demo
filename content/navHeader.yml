@@ -1,6 +1,6 @@
 items:
   - title: Docs
-    to: /docs/getting-started/getting-started.html
+    to: /docs/getting-started/get-started.html
     activeSelector: /docs/
 
   - title: About

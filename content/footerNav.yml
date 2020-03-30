@@ -1,8 +1,8 @@
 items:
   - header: Get Started
     items:
-      - title: Getting Started
-        to: /docs/getting-started/getting-started.html
+      - title: Get Started
+        to: /docs/getting-started/get-started.html
 
   - header: API
     items:
@@ -29,8 +29,8 @@ items:
 
   - header: Scenarios
     items:
-      - title: Shipment
-        to: /docs/scenarios/shipment.html
+      - title: Purchase Order
+        to: /docs/scenarios/purchase-order.html
 
   - header: About
     items:
