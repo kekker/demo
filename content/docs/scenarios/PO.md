@@ -1,5 +1,5 @@
 ---
-title: PO
+title: Purchase Order
 description: Issue, adjust and submit a Purchase Order
 prev: get started
 ---
