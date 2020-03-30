@@ -1,6 +1,6 @@
 - header: Get Started
   items:
-    - title: Getting Started
+    - title: Get Started
       to: /docs/getting-started/get-started.html
 
 - header: API

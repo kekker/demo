@@ -1,7 +1,7 @@
 ---
 title: Get Started
 description: Get Started - a quickstart to Kekker platform
-next: PO
+next: Purchase Order
 ---
 
 # Get started
