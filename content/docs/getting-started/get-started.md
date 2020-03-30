@@ -7,10 +7,10 @@ next: PO
 # Get started
 
 * We have prepared some use cases for you to assess the platform
-* Each case contains a business description and a script consisting of a sequence API calls. 
-You can download the script or run it on the website.
-* Cases are presented in order of increasing complexity and each subsequent case demonstrates platform's new features.
-* You are free to use scripts as is or make changes to them based on your requirements. In addition, you can create your own transition maps as per your business processes.
+* Each case contains a business description and a script consisting of a sequence API calls
+You can download the script or run it on the website
+* Cases are presented in order of increasing complexity and each subsequent case demonstrates platform's new features
+* You are free to use scripts as is or make changes to them based on your requirements. In addition, you can create your own transition maps as per your business processes
 
 ### Sandbox
 
@@ -34,8 +34,8 @@ The clusters interact with each other via a dedicated trunk private Ethereum net
 ### Sandbox access
 
 After filling in the registration form you will receive email to the specified email address with the sanbox access information:
-* UID ChannelID is necessary for working with the sandbox and should be provided each time you access the http methods;
-* Login, password and their base64 form (Authentication header);
+* UID ChannelID is necessary for working with the sandbox and should be provided each time you access the http methods
+* Login, password and their base64 form (Authentication header)
 * A file with settings to run test Postman script
 
 ### Tools needed for sandbox
@@ -60,9 +60,9 @@ If you are a Linux user the cURL tool must be installed on your machine along wi
 If this is not the case or you want to update the tool check the distributions and installation instructions at [https://curl.haxx.se/download.html†(https://curl.haxx.se/download. html)
 
 If you are a Windows user please follow these simple steps:
-* Download the app from [https://curl.haxx.se/windows/](https://curl.haxx.se/windows/);
-* Unzip the downloaded archive to any directory `<root_path>`;
-* Install certificate `<root_path>\bin\curl-ca-bundle.crt` to your local storage;
+* Download the app from [https://curl.haxx.se/windows/](https://curl.haxx.se/windows/)
+* Unzip the downloaded archive to any directory `<root_path>`
+* Install certificate `<root_path>\bin\curl-ca-bundle.crt` to your local storage
 * Add path `<root_path>\bin` to the `Path`variable
-* Restart your command-line tool and run `curl google.com`.
+* Restart your command-line tool and run `curl google.com`
 
