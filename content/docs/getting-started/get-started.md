@@ -27,8 +27,6 @@ The public cluster is based on an Ethereum testnet Rinkeby (see link in a new ta
 pubdemoclient1.kekker.com
 pubdemoclient2.kekker.com
 
-![](https://lh6.googleusercontent.com/dPJFHMSUSl-6EMBplN0oFG0nBDXeKqLCj37LeqCPx5iXBfZ_4JeoT-CiU3sbXXnfBo9xh-Dj2BrgiFqX72HQ7SmB8omD9yKJzGkyMjpsuLirrqQZdwcPJWSif1SeJMlVQ_2D4cKj)
-
 The clusters interact with each other via a dedicated trunk private Ethereum network.
 
 ### Sandbox access
