@@ -13,9 +13,15 @@ const GridLayout = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-gap: 2.4em;
+  
+  min-height: calc(100vh - 145px);
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: block;
+  }
+  
+  @media (min-width: ${props => props.theme.breakpoints.sm}) {
+    min-height: calc(100vh - 170px);
   }
 `;
 
@@ -42,7 +48,7 @@ const Layout = ({
     <ShortHeader location={location} />
 
     <main>
-      <ContainerContent>
+      <ContainerContent mb={0} pb={0}>
         <GridLayout>
           <div>{children}</div>
           <aside>

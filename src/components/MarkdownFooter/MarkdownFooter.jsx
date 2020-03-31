@@ -6,52 +6,25 @@ import Flex from "../Flex";
 import Text from "../TextStyles/Text";
 import Heading from "../TextStyles/Heading";
 
-import prevArrow from "../../../static/assets/kekker-arrow.svg";
+import prevArrow from "../../../static/assets/kekker_arrow_2.svg";
 
-const NextDiv = styled.div`
-  position: relative;
-  
-  text-align: end;
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -27px;
-    right: -55px;
-    width: 60px;
-    background-size: 60px 120px;
-    height: 120px;
-    background-image: url(${prevArrow});
-  }
-  
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    margin-top: 2em;
-  }
+const NextImg = styled.img`
+    height: 170px;
+    margin-bottom: 0;
 `;
 
-const PrevDiv = styled.div`
-  position: relative;
-  
-  text-align: end;
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -27px;
-    left: -55px;
-    width: 60px;
-    background-size: 60px 120px;
-    height: 120px;
+const PrevImg = styled.img`
+    height: 170px;
+    margin-bottom: 0;
+    
     transform: scale(-1, 1);
-    background-image: url(${prevArrow});
-  }
 `;
 
 const StyledLink = styled(Link)`
     color: black;
     text-decoration: none;
+    
+    line-height: 1.6em;
     
     &:hover {
         text-decoration: underline;
@@ -63,34 +36,63 @@ const StyledLink = styled(Link)`
 `;
 
 const MarkdownFooter = ({ next, prev }) => (
-    <Flex mt={6} justifyContent={{_: 'center', sm: 'flex-end'}} alignItems={'center'} flexDirection={{_ : 'column', sm: 'row'}}>
+    <Flex
+        justifyContent={{_: 'center', sm: 'flex-end'}}
+        alignItems={'center'}
+        flexDirection={{_ : 'column', sm: 'row'}}>
       {prev && (
-        <>
-          <Flex
-              flexGrow={1}
-              alignItems='flex-start'
-              flexDirection='column'
-          >
-            <PrevDiv>
-              <Text fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Previous Page</Text>
-              <StyledLink to={prev.to} rel="prev">
-                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{prev.title}</Text>
-              </StyledLink>
-            </PrevDiv>
-          </Flex>
-        </>
+          <>
+            <Flex
+                ml={'-20px'}
+                flexBasis={'50%'}
+                flexGrow={1}
+                alignItems='flex-start'>
+              <PrevImg src={prevArrow} />
+              <Flex
+                  height={'170px'}
+                  flexDirection='column'
+                  flexGrow={1}
+                  alignItems='flex-start'
+                  justifyContent='center'
+              >
+                <div style={{textAlign: 'start', marginLeft: '-40px'}}>
+                  <Text fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Previous Page</Text>
+                  <StyledLink to={prev.to} rel="prev">
+                    <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{prev.title}</Text>
+                  </StyledLink>
+                </div>
+              </Flex>
+            </Flex>
+          </>
       )}
+        {prev && next && (
+            <div style={{height: '65%', width: '2px', backgroundColor: '#ececec'}}></div>
+        )}
       {next && (
-        <>
-          <Flex flexDirection='column'>
-            <NextDiv>
-              <Text fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Next Page</Text>
-              <StyledLink to={next.to} rel="next">
-                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{next.title}</Text>
-              </StyledLink>
-            </NextDiv>
-          </Flex>
-        </>
+          <>
+            <Flex
+                flexBasis={'50%'}
+                flexGrow={1}
+                alignItems='flex-end'
+                mr={'-20px'}
+            >
+              <Flex
+                  height={'170px'}
+                  flexDirection='column'
+                  flexGrow={1}
+                  alignItems='flex-end'
+                  justifyContent='center'
+              >
+                <div style={{textAlign: 'end', marginRight: '-40px'}}>
+                  <Text fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Next Page</Text>
+                  <StyledLink to={next.to} rel="next">
+                    <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{next.title}</Text>
+                  </StyledLink>
+                </div>
+              </Flex>
+                <NextImg src={prevArrow} />
+            </Flex>
+          </>
       )}
     </Flex>
 );
