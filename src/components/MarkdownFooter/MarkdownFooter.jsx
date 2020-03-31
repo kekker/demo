@@ -24,6 +24,10 @@ const NextDiv = styled.div`
     height: 120px;
     background-image: url(${prevArrow});
   }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    margin-top: 2em;
+  }
 `;
 
 const PrevDiv = styled.div`
@@ -59,7 +63,7 @@ const StyledLink = styled(Link)`
 `;
 
 const MarkdownFooter = ({ next, prev }) => (
-    <Flex mt={6} justifyContent={'flex-end'}>
+    <Flex mt={6} justifyContent={{_: 'center', sm: 'flex-end'}} alignItems={'center'} flexDirection={{_ : 'column', sm: 'row'}}>
       {prev && (
         <>
           <Flex
@@ -70,7 +74,7 @@ const MarkdownFooter = ({ next, prev }) => (
             <PrevDiv>
               <Text fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Previous Page</Text>
               <StyledLink to={prev.to} rel="prev">
-                  <Text isHeadingFont fontWeight={800} fontSize={'h1.sm'}>{prev.title}</Text>
+                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{prev.title}</Text>
               </StyledLink>
             </PrevDiv>
           </Flex>
@@ -78,11 +82,11 @@ const MarkdownFooter = ({ next, prev }) => (
       )}
       {next && (
         <>
-          <Flex flexDirection='column' justifyContent={'flex-end'}>
+          <Flex flexDirection='column'>
             <NextDiv>
               <Text fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Next Page</Text>
               <StyledLink to={next.to} rel="next">
-                  <Text isHeadingFont fontWeight={800} fontSize={'h1.sm'}>{next.title}</Text>
+                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{next.title}</Text>
               </StyledLink>
             </NextDiv>
           </Flex>
