@@ -34,7 +34,7 @@ p:not(:last-child) {
 }
 
 main {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 300px);
 }
 
 footer {

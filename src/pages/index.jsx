@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
 // Components
 import Seo from '../components/SEO/Seo';
@@ -14,6 +15,14 @@ import GridItem from '../components/GridItem';
 import ContainerSection from '../components/ContainerSection';
 import Heading from '../components/TextStyles/Heading';
 import Text from '../components/TextStyles/Text';
+import styled from "styled-components";
+
+const StyledImage = styled(Img)`
+  background-color: #eeeeee;
+  height: 500px;
+  width: 100%;
+  margin-bottom: 75px;
+`;
 
 // Content
 const jsonContent = require('../../content/home');
@@ -21,6 +30,9 @@ const jsonContent = require('../../content/home');
 const BlogIndex = ({ data, location }) => {
   const blogTitle = data.site.siteMetadata.title;
   const { description } = data.site.siteMetadata;
+
+  const { mainImage } = data;
+  console.log(mainImage);
 
   return (
     <Theme>
@@ -62,14 +74,15 @@ const BlogIndex = ({ data, location }) => {
             <Heading mb={5} level={2}>
               {jsonContent.overView}
             </Heading>
-            <div
-              style={{
-                backgroundColor: '#eeeeee',
-                height: `${500}px`,
-                width: `${100}%`,
-                marginBottom: `${75}px`,
-              }}
-            />
+            {/*<div*/}
+            {/*  style={{*/}
+            {/*    backgroundColor: '#eeeeee',*/}
+            {/*    height: `${500}px`,*/}
+            {/*    width: `${100}%`,*/}
+            {/*    marginBottom: `${75}px`,*/}
+            {/*  }}*/}
+            {/*/>*/}
+            <StyledImage fluid={mainImage.childImageSharp.fluid} title='Kekker Platform overview' />
           </ContainerContent>
           <ContainerSection bg="primaryBrand">
             <ContainerContent pt="3em" pb="3em">
@@ -112,13 +125,14 @@ export const pageQuery = graphql`
         description
       }
     }
+    mainImage: file(absolutePath: { regex: "/main-page.png/" }) {
+        childImageSharp {
+            fluid(maxWidth: 1600) {
+                ...GatsbyImageSharpFluid
+            }
+        }
+    }  
   }
 `;
 
-// demoImage: file(absolutePath: { regex: "/Demo.png/" }) {
-//   childImageSharp {
-//     fluid(maxWidth: 1600) {
-//     ...GatsbyImageSharpFluid
-//     }
-//   }
-// }
+
