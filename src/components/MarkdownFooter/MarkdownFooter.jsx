@@ -9,15 +9,31 @@ import Heading from "../TextStyles/Heading";
 import prevArrow from "../../../static/assets/kekker_arrow_2.svg";
 
 const NextImg = styled.img`
-    height: 170px;
+    height: 120px;
     margin-bottom: 0;
+    
+  @media (min-width: ${props => props.theme.breakpoints.sm}) {
+    height: 140px;
+  }
+  
+  @media (min-width: ${props => props.theme.breakpoints.md}) {
+    height: 170px;
+  }
 `;
 
 const PrevImg = styled.img`
-    height: 170px;
+    height: 120px;
     margin-bottom: 0;
     
     transform: scale(-1, 1);
+
+  @media (min-width: ${props => props.theme.breakpoints.sm}) {
+    height: 140px;
+  }
+  
+  @media (min-width: ${props => props.theme.breakpoints.md}) {
+    height: 170px;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -37,9 +53,9 @@ const StyledLink = styled(Link)`
 
 const MarkdownFooter = ({ next, prev }) => (
     <Flex
-        justifyContent={{_: 'center', sm: 'flex-end'}}
+        justifyContent={{_: 'center', md: 'flex-end'}}
         alignItems={'center'}
-        flexDirection={{_ : 'column', sm: 'row'}}>
+        flexDirection={{_ : 'column', md: 'row'}}>
       {prev && (
           <>
             <Flex
@@ -49,7 +65,7 @@ const MarkdownFooter = ({ next, prev }) => (
                 alignItems='flex-start'>
               <PrevImg src={prevArrow} />
               <Flex
-                  height={'170px'}
+                  height={{_: '120px', sm: '140px', md: '170px'}}
                   flexDirection='column'
                   flexGrow={1}
                   alignItems='flex-start'
@@ -77,7 +93,7 @@ const MarkdownFooter = ({ next, prev }) => (
                 mr={'-20px'}
             >
               <Flex
-                  height={'170px'}
+                  height={{_: '120px', sm: '140px', md: '170px'}}
                   flexDirection='column'
                   flexGrow={1}
                   alignItems='flex-end'

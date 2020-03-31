@@ -10,7 +10,7 @@ import Text from '../components/TextStyles/Text';
 const InvitationPage = ({ location }) => (
   <Layout
     location={location.pathname}
-    title="Kekker Invitation"
+    title="Sandbox - Kekker"
     description="Kekker Invitation"
     sideMenu={'docs'}
   >

@@ -14,13 +14,13 @@ const GridLayout = styled.div`
   grid-template-columns: 3fr 1fr;
   grid-gap: 2.4em;
   
-  min-height: calc(100vh - 145px);
+  min-height: calc(100vh - 135px);
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: block;
   }
   
-  @media (min-width: ${props => props.theme.breakpoints.sm}) {
+  @media (min-width: ${props => props.theme.breakpoints.md}) {
     min-height: calc(100vh - 170px);
   }
 `;
