@@ -51,7 +51,7 @@ Seller makes adjustments (if allowed to) and accepts the purchase order (it beco
 
 For more information about authorization, visit [API: Authorization Page](/docs/api/authorization.html)
 
-If you run into any error, visit [API: Errors Page ](/docs/api/errors)
+If you run into any error, visit [API: Errors Page ](/docs/api/errors.html)
 
 ## 1. Create a Deal
 
