@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import MarkdownFooter from "../MarkdownFooter";
 
 const MarkdownSection = styled.section`
-  max-width: 85%;
+  max-width: 90%;
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     max-width: 100%;
