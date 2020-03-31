@@ -11,7 +11,7 @@ import FooterLink from './FooterLink';
 import Text from '../TextStyles/Text';
 import LogoLink from '../Logo';
 
-const StyledSocialLink = styled.nav`
+const StyledSocialLink = styled.a`
   text-decoration: none;
   color: ${props => props.theme.colors.invertedText};
   font-weight: 400;
@@ -63,8 +63,9 @@ const Footer = () => {
           <Flex mb={4}>
             {footerNav.social.map(socialLink => (
               <StyledSocialLink
-                to={socialLink.to}
+                href={socialLink.to}
                 title={socialLink.title}
+                target="_blank"
                 key={`social${socialLink.title}`}
               >
                 <Text fontSize={footerFontSize} color="inherit">

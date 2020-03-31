@@ -32,8 +32,8 @@ class EventPage extends React.Component {
     return (
       <ApiLayout
         location={location.pathname}
-        title="Api Page"
-        description="Api Page"
+        title="Api Event - Kekker"
+        description="Event request for Kekker API"
       >
         {swaggerComponent}
       </ApiLayout>

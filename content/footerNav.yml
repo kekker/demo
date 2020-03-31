@@ -1,64 +1,49 @@
 items:
   - header: Get Started
     items:
-      - title: Getting Started
-        to: /docs/getting-started/getting-started.html
-
-      - title: First Deal
-        to: /docs/getting-started/getting-started.html
-
-      - title: Adding Files
-        to: /docs/getting-started/getting-started.html
+      - title: Get Started
+        to: /docs/getting-started/get-started.html
 
   - header: API
     items:
-      - title: Authentication
-        to: /docs/api/api.html
+      - title: Authorization
+        to: /docs/api/authorization.html
 
-      - title: Headers
-        to: /docs/api/api.html
+      - title: Errors
+        to: /docs/api/errors.html
 
-      - title: Status check
-        to: /docs/api/api.html
+      - title: Client
+        to: /docs/api/client
 
-      - title: Sending files
-        to: /docs/api/api.html
+      - title: Deal
+        to: /docs/api/deal
 
-      - title: Transaction
-        to: /docs/api/api.html
+      - title: DealTemplate
+        to: /docs/api/dealtemplate
+
+      - title: Event
+        to: /docs/api/event
+
+      - title: Service
+        to: /docs/api/service
 
   - header: Scenarios
     items:
-      - title: Getting started
-        to: /docs/scenarios/shipment.html
-
-      - title: Shipment
-        to: /docs/scenarios/shipment.html
-
-      - title: Business Case 1
-        to: /docs/scenarios/shipment.html
-
-      - title: Business Case 2
-        to: /docs/scenarios/shipment.html
+      - title: Purchase Order
+        to: /docs/scenarios/purchase-order.html
 
   - header: About
     items:
-      - title: Benefits
-        to: /about/benefits.html
-
-      - title: Cases
-        to: /about/cases.html
-
       - title: Platform
         to: /about/platform.html
 
-social:
-  - title: Facebook
-    to: /
+      - title: Solutions
+        to: /about/solutions.html
 
+      - title: Benefits
+        to: /about/benefits.html
+
+social:
   - title: LinkedIn
     to: https://www.linkedin.com/company/kekker
-
-  - title: Instagram
-    to: /
 

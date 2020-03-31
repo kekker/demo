@@ -4,12 +4,6 @@ docs:
       - title: Getting Started
         to: /docs/getting-started/getting-started.html
 
-      - title: First Deal
-        to: /docs/getting-started/getting-started.html
-
-      - title: Adding Files
-        to: /docs/getting-started/getting-started.html
-
   - header: API
     items:
       - title: Client
@@ -29,26 +23,18 @@ docs:
 
   - header: Scenarios
     items:
-      - title: Getting started
-        to: /docs/scenarios/shipment.html
-
       - title: Shipment
-        to: /docs/scenarios/shipment.html
-
-      - title: Business Case 1
-        to: /docs/scenarios/shipment.html
-
-      - title: Business Case 2
         to: /docs/scenarios/shipment.html
 
 about:
   - header: About
     items:
+      - title: Platform
+        to: /about/platform.html
+
+      - title: Solutions
+        to: /about/solutions.html
+
       - title: Benefits
         to: /about/benefits.html
 
-      - title: Cases
-        to: /about/cases.html
-
-      - title: Platform
-        to: /about/platform.html

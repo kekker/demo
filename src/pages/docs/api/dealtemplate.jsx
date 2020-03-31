@@ -33,8 +33,8 @@ class DealTemplatePage extends React.Component {
     return (
       <ApiLayout
         location={location.pathname}
-        title="Api Page"
-        description="Api Page"
+        title="Api DealTemplate - Kekker"
+        description="DealTemplate request for Kekker API"
       >
         {swaggerComponent}
       </ApiLayout>

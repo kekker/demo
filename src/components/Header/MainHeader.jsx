@@ -62,7 +62,7 @@ const MainHeader = ({ location, theme }) => (
                   for building
                   {' '}
                   <br />
-                  <span style={{ fontSize: '1.4em' }}>decetralized apps</span>
+                  <span style={{ fontSize: '1.4em' }}>decentralized apps</span>
                 </Heading>
                 <ButtonLink variant="primary" to={jsonContent.getStartedButtonLink} title="Get started" />
               </Flex>

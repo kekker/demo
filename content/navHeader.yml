@@ -1,7 +1,8 @@
 items:
   - title: Docs
-    to: /docs/
+    to: /docs/getting-started/get-started.html
     activeSelector: /docs/
+
   - title: About
-    to: /about/
+    to: /about/platform.html
     activeSelector: /about/

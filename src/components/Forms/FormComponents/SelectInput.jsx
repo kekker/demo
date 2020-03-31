@@ -14,6 +14,7 @@ const StyledSelect = styled.select`
   font-family: 'Courier';
   border: 1px solid lightgrey;
   text-transform: uppercase;
+  background-color: white;
 
   color: ${props => (props.value === '' ? 'grey' : 'black')};
 

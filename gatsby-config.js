@@ -7,20 +7,20 @@ module.exports = {
 		siteUrl: `localhost:8000`
 	},
 	plugins: [
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Kekker Documentation`,
-        short_name: `Kekker`,
-        start_url: `/`,
-        description: `Documentation for new Kekker Platform`,
-        lang: `en`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
-        display: `standalone`,
-        icon: `static/assets/kekker-flavicon.png`
-      }
-    },
+		{
+		  resolve: `gatsby-plugin-manifest`,
+		  options: {
+			name: `Kekker Documentation`,
+			short_name: `Kekker`,
+			start_url: `/`,
+			description: `Documentation for new Kekker Platform`,
+			lang: `en`,
+			background_color: `#f7f0eb`,
+			theme_color: `#a2466c`,
+			display: `standalone`,
+			icon: `static/assets/kekker-flavicon.png`
+		  }
+		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -40,12 +40,12 @@ module.exports = {
 				plugins: [
 					`gatsby-remark-prismjs`,
 					`gatsby-remark-smartypants`,
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 800,
-            },
-          },
+					{
+            			resolve: `gatsby-remark-images`,
+            			options: {
+              				maxWidth: 800,
+            			},
+          			},
 				]
 			}
 		},
@@ -57,7 +57,7 @@ module.exports = {
 				pathToConfigModule: `src/components/ThemeTypography`
 			}
 		},
-    `gatsby-plugin-styled-components`,
+    	`gatsby-plugin-styled-components`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-sitemap`
