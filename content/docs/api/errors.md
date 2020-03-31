@@ -12,13 +12,13 @@ The results of calls to Api methods can be divided by status codes of http respo
 * **400** - bad request. The answer body is as follows:
 ```json
 {
-"ErrorMessage":"description of error"
+    "ErrorMessage":"description of error"
 }
 ```
 * **500** - internal error. Always returns:
 ```json
 {
-"ErrorMessage":"Internal error"
+    "ErrorMessage":"Internal error"
 }
 ```
 * **401** - authorization error. The body of the answer may appear in any shape.
