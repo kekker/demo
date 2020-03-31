@@ -56,7 +56,7 @@ const BlogIndex = ({ data, location }) => {
                   linkTo={item.link_to}
                   mb={{ _: 4, sm: 0 }}
                 >
-                  <Heading align="left" level={2}>
+                  <Heading mb={2} align="left" level={2}>
                     {item.header}
                   </Heading>
                   {item.content.map(benefitString => (
@@ -89,7 +89,7 @@ const BlogIndex = ({ data, location }) => {
               <Flex flexDirection="column" alignItems="center">
                 <Heading
                   textAlign="center"
-                  fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}
+                  fontSize={{ xs: 'h1.sm', sm: 'h1.md' }}
                 >
                   {jsonContent.getStartedButtonSectionHeader}
                 </Heading>
