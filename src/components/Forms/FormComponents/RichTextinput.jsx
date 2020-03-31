@@ -9,11 +9,12 @@ const StyledRichInput = styled.textarea`
   width: 100%;
   max-width: 600px;
   height: 150px;
+  padding: 8px 13px;
 
   border: 1px solid lightgrey;
   font-family: 'Courier';
   text-transform: uppercase;
-  padding: 8px 13px;
+  font-size: ${props => props.theme.fontSizes['medium']}px;
 `;
 
 const RichTextInput = ({ label, ...props }) => {

@@ -174,7 +174,7 @@ class InvitationForm extends React.Component {
               <div>
                 <Button
                   disabled={!(formik.isValid && formik.dirty) || loading}
-                  size="large"
+                  size="medium+"
                   title={loading ? 'Loading...' : 'Submit Request'}
                   type="submit"
                 />
