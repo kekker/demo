@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: `Kekker`,
+		title: `Kekker - a platform for building decentralized apps`,
 		author: `Kekker`,
 		bio: ``,
 		description: `Documentation for new Kekker Platform`,
