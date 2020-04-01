@@ -9,11 +9,11 @@ import Heading from "../TextStyles/Heading";
 import prevArrow from "../../../static/assets/kekker_arrow_2.svg";
 
 const NextImg = styled.img`
-    height: 120px;
+    height: 80px;
     margin-bottom: 0;
     
   @media (min-width: ${props => props.theme.breakpoints.sm}) {
-    height: 140px;
+    height: 100px;
   }
   
   @media (min-width: ${props => props.theme.breakpoints.md}) {
@@ -22,13 +22,13 @@ const NextImg = styled.img`
 `;
 
 const PrevImg = styled.img`
-    height: 120px;
+    height: 80px;
     margin-bottom: 0;
     
     transform: scale(-1, 1);
 
   @media (min-width: ${props => props.theme.breakpoints.sm}) {
-    height: 140px;
+    height: 100px;
   }
   
   @media (min-width: ${props => props.theme.breakpoints.md}) {
@@ -36,49 +36,77 @@ const PrevImg = styled.img`
   }
 `;
 
+const TestDisappear = styled(Text)`
+    display: block;
+    
+    @media (max-width: ${props => props.theme.breakpoints.md}) {
+        display: none;
+    } 
+`;
+
 const StyledLink = styled(Link)`
+    display: block;
+    flex-basis: 50%;
+    flex-grow: 1;
     color: black;
     text-decoration: none;
     
     line-height: 1.6em;
     
-    &:hover {
+    &:hover span {
         text-decoration: underline;
     }
     
-    &:focus {
+    &:focus span {
         text-decoration: underline;
     }
 `;
 
+const DivResponsiveMarginLeft = styled.div`
+    margin-left: -40px;
+    @media (max-width: ${props => props.theme.breakpoints.md}) {
+        margin-left: -20px;
+    } 
+`;
+
+const DivResponsiveMarginRight = styled.div`
+    margin-right: -40px;
+    @media (max-width: ${props => props.theme.breakpoints.md}) {
+        margin-right: -20px;
+    } 
+`;
+
+const FlexWithBorder = styled(Flex)`
+    ${({ next, prev }) => next && prev ? `border-top: 1px solid black;` : ''}
+`;
+
 const MarkdownFooter = ({ next, prev }) => (
-    <Flex
+    <FlexWithBorder
+        next={next}
+        prev={prev}
         justifyContent={{_: 'center', md: 'flex-end'}}
-        alignItems={'center'}
-        flexDirection={{_ : 'column', md: 'row'}}>
+        alignItems={'center'}>
       {prev && (
           <>
+          <StyledLink to={prev.to} rel="prev" >
             <Flex
                 ml={'-20px'}
-                flexBasis={'50%'}
-                flexGrow={1}
                 alignItems='flex-start'>
               <PrevImg src={prevArrow} />
               <Flex
-                  height={{_: '120px', sm: '140px', md: '170px'}}
+                  height={{_: '80px', sm: '100px', md: '170px'}}
                   flexDirection='column'
                   flexGrow={1}
                   alignItems='flex-start'
                   justifyContent='center'
               >
-                <div style={{textAlign: 'start', marginLeft: '-40px'}}>
-                  <Text fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Previous Page</Text>
-                  <StyledLink to={prev.to} rel="prev">
-                    <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{prev.title}</Text>
-                  </StyledLink>
-                </div>
+                <DivResponsiveMarginLeft style={{textAlign: 'start'}}>
+                  <TestDisappear fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Previous Page</TestDisappear>
+                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{prev.title}</Text>
+                </DivResponsiveMarginLeft>
               </Flex>
             </Flex>
+          </StyledLink>
           </>
       )}
         {prev && next && (
@@ -86,31 +114,29 @@ const MarkdownFooter = ({ next, prev }) => (
         )}
       {next && (
           <>
+          <StyledLink to={next.to} rel="next">
             <Flex
-                flexBasis={'50%'}
-                flexGrow={1}
                 alignItems='flex-end'
                 mr={'-20px'}
             >
               <Flex
-                  height={{_: '120px', sm: '140px', md: '170px'}}
+                  height={{_: '80px', sm: '100px', md: '170px'}}
                   flexDirection='column'
                   flexGrow={1}
                   alignItems='flex-end'
                   justifyContent='center'
               >
-                <div style={{textAlign: 'end', marginRight: '-40px'}}>
-                  <Text fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Next Page</Text>
-                  <StyledLink to={next.to} rel="next">
+                <DivResponsiveMarginRight style={{textAlign: 'end'}}>
+                  <TestDisappear fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Next Page</TestDisappear>
                     <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{next.title}</Text>
-                  </StyledLink>
-                </div>
+                </DivResponsiveMarginRight>
               </Flex>
                 <NextImg src={prevArrow} />
             </Flex>
+          </StyledLink>
           </>
       )}
-    </Flex>
+    </FlexWithBorder>
 );
 
 export default MarkdownFooter;

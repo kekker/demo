@@ -13,13 +13,20 @@ header {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 50px;
+  letter-spacing: -0.02em;
   margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 40px;
+  }
 }
 
 h3 {
   margin-top: 20px;
-  margin-bottop: 15px;
+  margin-bottom: 15px;
 }
 
 h4 {
