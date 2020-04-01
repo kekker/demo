@@ -1,6 +1,6 @@
 ---
 title: Get Started
-description: Get Started - a quickstart to Kekker platform
+description: Get Started - a quickstart to Kekker Platform
 next: Main Concepts
 ---
 

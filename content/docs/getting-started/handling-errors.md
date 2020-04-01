@@ -2,6 +2,7 @@
 title: Handling Errors
 description: Handling errors from Kekker API requests
 next: Purchase Order
+prev: Authorization
 ---
 
 # Handling Errors

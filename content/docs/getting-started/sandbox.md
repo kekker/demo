@@ -1,7 +1,8 @@
 ---
 title: Sandbox
-description: Kekker's Sandbox overview
+description: Kekker Sandbox overview
 next: Authorization
+prev: Main Concepts
 ---
 
 # Sandbox
