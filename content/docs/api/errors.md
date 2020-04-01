@@ -1,5 +1,5 @@
 ---
-title: Errors
+title: API Errors
 description: Handling errors from Kekker API requests
 ---
 

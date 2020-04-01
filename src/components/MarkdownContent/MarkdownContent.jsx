@@ -6,9 +6,7 @@ import MarkdownFooter from "../MarkdownFooter";
 import Flex from "../Flex";
 
 const MarkdownSection = styled.section`
-  max-width: 90%;
-  min-height: calc(100vh - 300px);
-  
+  height: 100%;
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     max-width: 100%;
@@ -32,9 +30,8 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
 
     return (
         <MarkdownSection>
-          <Flex minHeight={'calc(100vh - 300px)'} flexDirection={'column'} justifyContent={'space-between'}>
+          <Flex minHeight={{_: 'calc(100vh - 100px)', sm: 'unset'}} height={'100%'} flexDirection={'column'} justifyContent={'space-between'}>
             <div dangerouslySetInnerHTML={{__html: markdownRemark.html}}/>
-            <div style={{flexGrow: 1}}></div>
             <MarkdownFooter prev={prevPage} next={nextPage} />
           </Flex>
         </MarkdownSection>

@@ -1,5 +1,5 @@
 ---
-title: Authorization
+title: API Authorization
 description: Authorization for Kekker API
 ---
 
@@ -7,7 +7,7 @@ description: Authorization for Kekker API
 
 In order to perform actions with the Kekker platform API, you need to add an authorization header to all your requests. 
 We use **Basic Authorization**, which is a string in the form of:
-```shell script
+```shell
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 `Basic` word is followed by a BASE64 string constructed from your `login:password`.
