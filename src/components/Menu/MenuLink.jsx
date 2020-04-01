@@ -48,7 +48,7 @@ const MenuLink = ({ links }) => {
     <StyledMenulink key={link.title} to={link.to}>
       <Text
         textDecoration="none"
-        fontSize="small"
+        fontSize="medium"
         fontWeight="500"
         tag="div"
         color="primaryText"

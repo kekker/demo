@@ -32,8 +32,7 @@ const StyledSocialLink = styled.a`
 const Grid = styled.div`
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  margin-top: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   margin-bottom: 30px;
 `;
 
@@ -43,13 +42,13 @@ const Footer = () => {
     <ContainerSection bg="primaryDark" height="100%">
       <ContainerContent>
         <Flex flexDirection="column" height="100%">
-          <Flex
-            flexWrap="wrap"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <LogoLink />
-          </Flex>
+          {/*<Flex*/}
+          {/*  flexWrap="wrap"*/}
+          {/*  justifyContent="space-between"*/}
+          {/*  alignItems="center"*/}
+          {/*>*/}
+          {/*  <LogoLink />*/}
+          {/*</Flex>*/}
           <Grid>
             {footerNav.items.map(linkSection => (
               <FooterLink

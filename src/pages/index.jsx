@@ -19,9 +19,8 @@ import styled from "styled-components";
 
 const StyledImage = styled(Img)`
   background-color: #eeeeee;
-  height: 500px;
+  height: 100%;
   width: 100%;
-  margin-bottom: 75px;
 `;
 
 // Content
@@ -56,7 +55,7 @@ const BlogIndex = ({ data, location }) => {
                   linkTo={item.link_to}
                   mb={{ _: 4, sm: 0 }}
                 >
-                  <Heading align="left" level={2}>
+                  <Heading mb={2} align="left" level={2}>
                     {item.header}
                   </Heading>
                   {item.content.map(benefitString => (
@@ -71,7 +70,7 @@ const BlogIndex = ({ data, location }) => {
                 </GridItem>
               ))}
             </Flex>
-            <Heading mb={5} level={2}>
+            <Heading mb={'25px'} level={2}>
               {jsonContent.overView}
             </Heading>
             {/*<div*/}
@@ -85,13 +84,13 @@ const BlogIndex = ({ data, location }) => {
             <StyledImage fluid={mainImage.childImageSharp.fluid} title='Kekker Platform overview' />
           </ContainerContent>
           <ContainerSection bg="primaryBrand">
-            <ContainerContent pt="3em" pb="3em">
+            <ContainerContent>
               <Flex flexDirection="column" alignItems="center">
                 <Heading
                   textAlign="center"
-                  fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}
+                  fontSize={{ xs: 'h1.sm', sm: 'h1.md' }}
                 >
-                  {jsonContent.getStartedButtonSectionHeader}
+                  Create a Decentralized App <br /> in 10 Minutes
                 </Heading>
                 <ButtonLink
                   to={jsonContent.getStartedButtonLink}

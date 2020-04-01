@@ -13,7 +13,20 @@ header {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 h4 {
@@ -30,11 +43,11 @@ a {
 }
 
 p:not(:last-child) {
-  margin-bottom: 1em;
+  margin-bottom: 10px;
 }
 
 main {
-  min-height: calc(100vh - 300px);
+  min-height: calc(100vh - 70px);
 }
 
 footer {

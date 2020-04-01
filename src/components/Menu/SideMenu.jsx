@@ -46,6 +46,7 @@ const SideMenu = ({ location, section }) => {
             textTransform="uppercase"
             textAlign="left"
             level={4}
+            fontSize='22px'
           >
             {section.header}
           </MenuHeader>
