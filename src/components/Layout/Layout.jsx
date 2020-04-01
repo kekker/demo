@@ -20,7 +20,7 @@ const GridLayout = styled.div`
     display: block;
   }
   
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
     min-height: calc(100vh - 170px);
   }
 `;

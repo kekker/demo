@@ -19,7 +19,7 @@ import styled from "styled-components";
 
 const StyledImage = styled(Img)`
   background-color: #eeeeee;
-  height: 500px;
+  height: 100%;
   width: 100%;
 `;
 
