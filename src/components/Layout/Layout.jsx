@@ -12,16 +12,16 @@ import SideMenu from '../Menu/SideMenu';
 const GridLayout = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-gap: 2.4em;
+  grid-gap: 5em;
   
   min-height: calc(100vh - 145px);
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     display: block;
   }
   
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    min-height: calc(100vh - 170px);
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    min-height: calc(100vh - 100px);
   }
 `;
 
@@ -35,20 +35,20 @@ const GridMenu = styled.div`
     top: ${props => props.theme.space[6]}px;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     display: none;
   }
 `;
 
 const Layout = ({
-  children, location, title, description, sideMenu
+  children, location, title, description, sideMenu, pb
 }) => (
   <Theme>
     <Seo title={title} description={description} />
     <ShortHeader location={location} />
 
     <main>
-      <ContainerContent mb={0} pb={0}>
+      <ContainerContent mb={0} pb={pb ? pb : 0}>
         <GridLayout>
           <div>{children}</div>
           <aside>

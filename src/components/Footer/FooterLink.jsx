@@ -26,7 +26,7 @@ const StyledFooterLink = styled(Link)`
 
 const FooterLink = ({ footerColumn, count, fontSize }) => (
   <GridItem cols={count} header={footerColumn.header}>
-    <Heading mb={2} level={4} color="invertedText" letterSpacing={0}>
+    <Heading mb={2} level={4} fontSize={'20px'} color="invertedText" letterSpacing={0}>
       {footerColumn.header}
     </Heading>
     {footerColumn.items.map(item => (

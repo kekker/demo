@@ -1,9 +1,11 @@
 ---
-title: Errors
+title: Handling Errors
 description: Handling errors from Kekker API requests
+next: Purchase Order
+prev: Authorization
 ---
 
-# Errors
+# Handling Errors
 
 You may receive several answers on your requests from the Kekker Platform API. 
 The results of calls to Api methods can be divided by status codes of http response:

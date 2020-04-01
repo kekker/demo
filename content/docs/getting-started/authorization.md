@@ -1,6 +1,8 @@
 ---
 title: Authorization
-description: Authorization for Kekker API
+description: Authorization for Kekker Sandbox
+next: Handling Errors
+prev: Sandbox
 ---
 
 # Authorization

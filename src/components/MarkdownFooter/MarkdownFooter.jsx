@@ -77,7 +77,21 @@ const DivResponsiveMarginRight = styled.div`
 `;
 
 const FlexWithBorder = styled(Flex)`
-    ${({ next, prev }) => next && prev ? `border-top: 1px solid black;` : ''}
+    ${({ next, prev }) => next && prev ? `border-top: 1px solid #ececec;` : ''}
+`;
+
+const BorderDiv = styled.div`
+    width: 1px;
+    background-color: #ececec;
+    height: 60px;
+    
+      @media (min-width: ${props => props.theme.breakpoints.sm}) {
+        height: 70px;
+      }
+      
+      @media (min-width: ${props => props.theme.breakpoints.md}) {
+        height: 140px;
+      }
 `;
 
 const MarkdownFooter = ({ next, prev }) => (
@@ -90,7 +104,6 @@ const MarkdownFooter = ({ next, prev }) => (
           <>
           <StyledLink to={prev.to} rel="prev" >
             <Flex
-                ml={'-20px'}
                 alignItems='flex-start'>
               <PrevImg src={prevArrow} />
               <Flex
@@ -102,7 +115,7 @@ const MarkdownFooter = ({ next, prev }) => (
               >
                 <DivResponsiveMarginLeft style={{textAlign: 'start'}}>
                   <TestDisappear fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Previous Page</TestDisappear>
-                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{prev.title}</Text>
+                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'large', md: 'h1.sm'}}>{prev.title}</Text>
                 </DivResponsiveMarginLeft>
               </Flex>
             </Flex>
@@ -110,14 +123,13 @@ const MarkdownFooter = ({ next, prev }) => (
           </>
       )}
         {prev && next && (
-            <div style={{height: '65%', width: '2px', backgroundColor: '#ececec'}}></div>
+            <BorderDiv></BorderDiv>
         )}
       {next && (
           <>
           <StyledLink to={next.to} rel="next">
             <Flex
                 alignItems='flex-end'
-                mr={'-20px'}
             >
               <Flex
                   height={{_: '80px', sm: '100px', md: '170px'}}
@@ -128,7 +140,9 @@ const MarkdownFooter = ({ next, prev }) => (
               >
                 <DivResponsiveMarginRight style={{textAlign: 'end'}}>
                   <TestDisappear fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Next Page</TestDisappear>
-                    <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'h1.sm'}}>{next.title}</Text>
+                    <Text
+                        isHeadingFont
+                        fontWeight={800} fontSize={{_: 'extralarge', sm:'large', md: 'h1.sm'}}>{next.title}</Text>
                 </DivResponsiveMarginRight>
               </Flex>
                 <NextImg src={prevArrow} />

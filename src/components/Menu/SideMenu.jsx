@@ -16,7 +16,7 @@ const MenuHeader = styled(Heading)`
     content: '';
     display: block;
     position: absolute;
-    top: -12px;
+    top: -8px;
     left: -34px;
     width: 40px;
     background-size: 40px 40px;
@@ -42,7 +42,7 @@ const SideMenu = ({ location, section }) => {
       {linkSections.map(section => (
         <React.Fragment key={section.header}>
           <MenuHeader
-            mb={3}
+            mb={2}
             textTransform="uppercase"
             textAlign="left"
             level={4}

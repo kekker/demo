@@ -1,10 +1,10 @@
 ---
 title: Purchase Order
 description: Issue, adjust and submit a Purchase Order
-prev: get started
+prev: Handling Errors
 ---
 
-# Issue, adjust and submit a Purchase Order.
+# Issue, adjust and submit a Purchase Order
 
 This case is conducted in a **Private Ethereum network (PrivEth)**.
 The case demonstrates the distribution of a transaction among nodes and switching the status of a transaction.
@@ -49,9 +49,9 @@ Seller makes adjustments (if allowed to) and accepts the purchase order (it beco
 >
 > In queries in the headers *CHANNEL*, *AUHORIZATION* you must use the personal identifier you received during registration. This will allow not to interfere with the simultaneous work of several users, as well as facilitate the work of the Technical Support service if you have any questions. The query examples use the personal identifier Demo.
 
-For more information about authorization, visit [API: Authorization Page](/docs/api/authorization.html)
+For more information about authorization, visit [API: Authorization Page](/docs/getting-started/authorization.html)
 
-If you run into any error, visit [API: Errors Page ](/docs/api/errors.html)
+If you run into any error, visit [API: Errors Page ](/docs/getting-started/errors.html)
 
 ## 1. Create a Deal
 
@@ -95,7 +95,8 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
 
 #### Call example
 ```shell
-curl --request POST 'http://democlient1.kekker.com/api/deals' 
+curl --request POST 
+'http://democlient1.kekker.com/api/deals' 
 --header 'Content-Type: application/json' 
 --header 'Channel: {CHANNEL}' 
 --header '{AUTHORIZATION}' 
@@ -154,7 +155,8 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 'http://democlient1.kekker.com/api/deals/setstatus' 
+curl --request POST 
+'http://democlient1.kekker.com/api/deals/setstatus' 
 --header 'Content-Type: application/json' 
 --header 'Channel: {CHANNEL}' 
 --header '{AUTHORIZATION}' 
@@ -180,7 +182,8 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 #### Call example (the node URL is different)
 
 ```shell
-curl --request GET 'http://democlient2.kekker.com/api/deals/{UID}
+curl --request GET 
+'http://democlient2.kekker.com/api/deals/{UID}
 --header 'Accept: application/json' 
 --header 'Channel: {CHANNEL}' 
 --header '{AUTHORIZATION}' 
@@ -189,7 +192,7 @@ curl --request GET 'http://democlient2.kekker.com/api/deals/{UID}
 #### Response example (check status and parameters)
 ```json
 {
-    "uid": "2adc2d34-3992-4438-81e8-7c535aa38651",
+    "uid": "{UID}",
     "kind": "FirstDeal",
     "status": "Issued___",
     "remark": "1",
@@ -262,7 +265,8 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 'http://democlient2.kekker.com/api/deals/setstatus' 
+curl --request POST 
+'http://democlient2.kekker.com/api/deals/setstatus' 
 --header 'Content-Type: application/json' 
 --header 'Channel: {CHANNEL}' 
 --header '{AUTHORIZATION}'  
@@ -297,7 +301,8 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 #### Call example
 ```shell
-curl --request GET 'http://democlient1.kekker.com/api/deals/{UID}
+curl --request GET 
+'http://democlient1.kekker.com/api/deals/{UID}
 --header 'Accept: application/json' 
 --header 'Channel: {CHANNEL}' 
 --header '{AUTHORIZATION}'
@@ -306,7 +311,7 @@ curl --request GET 'http://democlient1.kekker.com/api/deals/{UID}
 #### Response example
 ```json
 {
-    "uid": "2adc2d34-3992-4438-81e8-7c535aa38651",
+    "uid": "{UID}",
     "kind": "FirstDeal",
     "status": "Adjusted_",
     "remark": "2",
@@ -383,13 +388,14 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 'http://democlient1.kekker.com/api/deals/setstatus' 
+curl --request POST 
+'http://democlient1.kekker.com/api/deals/setstatus' 
 --header 'Content-Type: application/json' 
 --header 'Channel: {CHANNEL}' 
 --header '{AUTHORIZATION}'  
 --header 'Accept: application/json' 
 --data-raw '{
-  "dealUid": "856b6bb4-3a72-4e81-b34d-33966e46b268",
+  "dealUid": "{UID}",
   "status": "Ordered__",
   "remark": null,
   "parameters": []
