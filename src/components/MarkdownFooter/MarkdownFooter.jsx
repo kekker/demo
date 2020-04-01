@@ -77,7 +77,21 @@ const DivResponsiveMarginRight = styled.div`
 `;
 
 const FlexWithBorder = styled(Flex)`
-    ${({ next, prev }) => next && prev ? `border-top: 1px solid black;` : ''}
+    ${({ next, prev }) => next && prev ? `border-top: 1px solid #ececec;` : ''}
+`;
+
+const BorderDiv = styled.div`
+    width: 1px;
+    background-color: #ececec;
+    height: 60px;
+    
+      @media (min-width: ${props => props.theme.breakpoints.sm}) {
+        height: 70px;
+      }
+      
+      @media (min-width: ${props => props.theme.breakpoints.md}) {
+        height: 140px;
+      }
 `;
 
 const MarkdownFooter = ({ next, prev }) => (
@@ -109,7 +123,7 @@ const MarkdownFooter = ({ next, prev }) => (
           </>
       )}
         {prev && next && (
-            <div style={{height: '65%', width: '2px', backgroundColor: '#ececec'}}></div>
+            <BorderDiv></BorderDiv>
         )}
       {next && (
           <>
