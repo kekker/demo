@@ -4,7 +4,7 @@ description: Issue, adjust and submit a Purchase Order
 prev: get started
 ---
 
-# Issue, adjust and submit a Purchase Order.
+# Issue, adjust and submit a Purchase Order
 
 This case is conducted in a **Private Ethereum network (PrivEth)**.
 The case demonstrates the distribution of a transaction among nodes and switching the status of a transaction.
@@ -95,7 +95,8 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
 
 #### Call example
 ```shell
-curl --request POST 'http://democlient1.kekker.com/api/deals' 
+curl --request POST 
+'http://democlient1.kekker.com/api/deals' 
 --header 'Content-Type: application/json' 
 --header 'Channel: Demo' 
 --header 'Authorization: Basic S2Vra2VyVXNlcjp6RGZqbTMz' 
@@ -154,7 +155,8 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 'http://democlient1.kekker.com/api/deals/setstatus' 
+curl --request POST 
+'http://democlient1.kekker.com/api/deals/setstatus' 
 --header 'Content-Type: application/json' 
 --header 'Channel: Demo' 
 --header 'Accept: application/json' 
@@ -180,7 +182,8 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 #### Call example (the node URL is different)
 
 ```shell
-curl --request GET 'http://democlient2.kekker.com/api/deals/{UID}
+curl --request GET 
+'http://democlient2.kekker.com/api/deals/{UID}
 --header 'Channel: Demo'
 --header 'Accept: application/json' 
 --header 'Authorization: Basic S2Vra2VyVXNlcjp6RGZqbTMz' 
@@ -262,7 +265,8 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 'http://democlient2.kekker.com/api/deals/setstatus' 
+curl --request POST 
+'http://democlient2.kekker.com/api/deals/setstatus' 
 --header 'Content-Type: application/json' 
 --header 'Channel: Demo' 
 --header 'Accept: application/json' 
@@ -296,7 +300,8 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 #### Call example
 ```shell
-curl --request GET 'http://democlient1.kekker.com/api/deals/{UID}
+curl --request GET 
+'http://democlient1.kekker.com/api/deals/{UID}
 --header 'Channel: Demo'
 --header 'Accept: application/json' 
 --header 'Authorization: Basic S2Vra2VyVXNlcjp6RGZqbTMz' 
@@ -382,7 +387,8 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 'http://democlient1.kekker.com/api/deals/setstatus' 
+curl --request POST 
+'http://democlient1.kekker.com/api/deals/setstatus' 
 --header 'Content-Type: application/json' 
 --header 'Channel: Demo' 
 --header 'Accept: application/json' 

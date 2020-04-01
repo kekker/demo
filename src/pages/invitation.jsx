@@ -13,8 +13,9 @@ const InvitationPage = ({ location }) => (
     title="Invite - Kekker"
     description="Kekker Invitation"
     sideMenu={'docs'}
+    pb={{_: 4, sm: 6}}
   >
-    <Heading fontSize={'h1.lg'} level={1}>Get access to Sandbox</Heading>
+    <Heading mb={3} fontSize={{_: 'h1.sm', sm: 'h1.md', md: 'h1.lg'}} level={1}>Get access to Sandbox</Heading>
     <div style={{ maxWidth: '600px' }}>
       <Text mb={2} tag="p">
         We've prepared the Sandbox so that you can try out powerful features

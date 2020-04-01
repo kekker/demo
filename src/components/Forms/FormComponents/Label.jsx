@@ -6,7 +6,7 @@ import { convertThemeFontsToString } from '../../../utils/convertThemeFontsToStr
 
 const StyledLabel = styled.label`
   display: block;
-  margin-top: ${props => props.theme.space[4]}px;
+  margin-top: ${props => props.theme.space[3]}px;
   margin-bottom: ${props => props.theme.space[2]}px;
 
   font-size: ${props => props.theme.fontSizes['medium']}px;

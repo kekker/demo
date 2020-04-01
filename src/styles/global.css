@@ -18,9 +18,15 @@ h1 {
   margin-bottom: 20px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 960px) {
   h1 {
     font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 30px;
   }
 }
 
@@ -64,8 +70,8 @@ blockquote {
   padding: 20px 45px 20px 26px;
   margin-bottom: 30px;
   margin-top: 20px;
-  margin-left: -30px;
-  margin-right: -30px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 blockquote > p:not(:last-child) {
