@@ -41,7 +41,7 @@ const BlogIndex = ({ data, location }) => {
         <MainHeader location={location.pathname} />
 
         <main>
-          <ContainerContent>
+          <ContainerContent pb={{_: 4, sm: 6}}>
             <Flex
               flexDirection={{ _: 'column', sm: 'row' }}
               flexWrap="wrap"
@@ -84,7 +84,7 @@ const BlogIndex = ({ data, location }) => {
             <StyledImage fluid={mainImage.childImageSharp.fluid} title='Kekker Platform overview' />
           </ContainerContent>
           <ContainerSection bg="primaryBrand">
-            <ContainerContent>
+            <ContainerContent pb={{_: 4, sm: 6}}>
               <Flex flexDirection="column" alignItems="center">
                 <Heading
                   textAlign="center"
