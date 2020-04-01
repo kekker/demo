@@ -1,7 +1,7 @@
 ---
 title: Purchase Order
 description: Issue, adjust and submit a Purchase Order
-prev: get started
+prev: Handling Errors
 ---
 
 # Issue, adjust and submit a Purchase Order
