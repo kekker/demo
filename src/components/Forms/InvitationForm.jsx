@@ -108,10 +108,10 @@ class InvitationForm extends React.Component {
           {formik => (
             <Form
               name="Invitation Form"
-              style={{ marginRight: '2em' }}
               method="post"
               netlify-honeypot="bot-field"
               data-netlify="true"
+              style={{marginBottom: 0}}
             >
               <input type="hidden" name="bot-field" />
               <TextInput
@@ -148,8 +148,8 @@ class InvitationForm extends React.Component {
                 placeholder="Enter comments (optional)"
               />
               <Text
-                marginTop={4}
-                marginBottom={4}
+                marginTop={3}
+                marginBottom={3}
                 tag="div"
                 fontSize="small"
                 color="textLightGrey"
@@ -174,7 +174,7 @@ class InvitationForm extends React.Component {
               <div>
                 <Button
                   disabled={!(formik.isValid && formik.dirty) || loading}
-                  size="large"
+                  size="medium+"
                   title={loading ? 'Loading...' : 'Submit Request'}
                   type="submit"
                 />

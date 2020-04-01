@@ -32,7 +32,7 @@ class ServicePage extends React.Component {
     return (
       <ApiLayout
         location={location.pathname}
-        title="Api Service - Kekker"
+        title="API Service - Kekker"
         description="Service request for Kekker API"
       >
         {swaggerComponent}

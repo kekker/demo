@@ -34,7 +34,7 @@ class DealPage extends React.Component {
     return (
       <ApiLayout
         location={location.pathname}
-        title="Api Deal - Kekker"
+        title="API Deal - Kekker"
         description="Deal request for Kekker API"
       >
         {swaggerComponent}

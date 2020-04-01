@@ -4,7 +4,7 @@
     "primaryText": "#000000",
     "invertedText": "#ffffff",
     "primaryLight": "#ffffff",
-    "primaryDark": "#353434",
+    "primaryDark": "#1d1d1d",
     "secondaryDark": "#535252",
     "linkColor": "#0e3ca1",
     "textLightGrey": "#9e9e9e"
@@ -13,6 +13,7 @@
     "extrasmall": 12,
     "small": 14,
     "medium": 16,
+    "medium+": 18,
     "large": 20,
     "extralarge": 28,
     "h1": {
@@ -68,6 +69,7 @@
     "disabledFontColor": "#9e9e9e",
     "size": {
       "medium": "0.4em 0.8em",
+      "medium+": "0.4em 0.8em",
       "large": "0.6em 1em"
     }
   }

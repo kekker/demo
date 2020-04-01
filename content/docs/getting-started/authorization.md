@@ -1,5 +1,5 @@
 ---
-title: Authorization
+title: API Authorization
 description: Authorization for Kekker API
 next: Handling Errors
 ---
