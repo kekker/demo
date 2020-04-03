@@ -32,7 +32,7 @@ After filling in the registration form you will receive an email to the specifie
 ### Tools needed for sandbox
 
 Feel free to use your favorite HTTP request tools to access the Sandbox services. We recommend using the cURL command-line tool for transferring data using various protocols. 
-Launch your command-line processor and run `curl google.com`. If you see the HTML code:
+Launch your command-line processor and run `curl google.com`. If you see the following HTML code you have the cURL command-line tool on your machine and can execute scripts for the Sandbox:
 
 ```html
 <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -42,7 +42,6 @@ The document has moved
 <A HREF="http://www.google.com/">here</A>.
 </BODY></HTML>
 ```
-you have the cURL command-line tool on your machine and can execute scripts for the Sandbox.
 
 
 ### Description
