@@ -20,19 +20,19 @@ The public cluster is based on an Ethereum testnet Rinkeby (see link in a new ta
 * `pubdemoclient1.kekker.com`
 * `pubdemoclient2.kekker.com`
 
-The clusters interact with each other via a dedicated trunk private Ethereum network.
+The clusters interact with each other via a dedicated trunk network.
 
 ### Sandbox access
 
-After filling in the registration form you will receive email to the specified email address with the sanbox access information:
-* UID ChannelID is necessary for working with the sandbox and should be provided each time you access the http methods
-* Login, password and their base64 form (Authentication header)
+After filling in the registration form you will receive an email to the specified email address with the Sanbox access information:
+* Your UID CHANNELID is necessary for working with the Sandbox and should be provided each time you access the HTTP methods
+* Your login, password and their base64 form (Authentication header)
 * A file with settings to run test Postman script
 
 ### Tools needed for sandbox
 
-Feel free to use your favorite http request tools to access the sandbox services. We recommend using the curl command-line tool for transferring data using various protocols. 
-Launch your command-line processor and run `curl google.com`. If you see the html code:
+Feel free to use your favorite HTTP request tools to access the Sandbox services. We recommend using the cURL command-line tool for transferring data using various protocols. 
+Launch your command-line processor and run `curl google.com`. If you see the following HTML code you have the cURL command-line tool on your machine and can execute scripts for the Sandbox:
 
 ```html
 <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -42,7 +42,6 @@ The document has moved
 <A HREF="http://www.google.com/">here</A>.
 </BODY></HTML>
 ```
-you have the curl command-line tool on your machine and can execute scripts for the sandbox.
 
 
 ### Description
