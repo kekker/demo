@@ -7,8 +7,8 @@ prev: Handling Errors
 # Issue, adjust and submit a Purchase Order
 
 This case is conducted in a **Private Ethereum network (PrivEth)**.
-The case demonstrates the distribution of a transaction among nodes and switching the status of a transaction.
-It uses a predefined smart contract with FirstDeal transaction type.
+This case demonstrates the distribution of a transaction among nodes and switching the status of a transaction.
+It uses a predefined smart contract with the FirstDeal transaction type.
 
 ### Transaction parties
 Buyer: `node PrivEth-1`
@@ -18,13 +18,13 @@ Seller: `node PrivEth-2`
 ### Scenario overview
 
 **Buyer** issues a Purchase Order to the outside **Seller**, initiating the sales transaction. 
-**Buyer** provides the Purchase Order optional information:
+**Buyer** provides the Purchase Order with the following information:
 * Number of the Purchase Order
 * Items being purchased 
 * Delivery date 
 * Quantity
-and other the payment terms, ship-to address, invoicing instructions and the name of the purchasing office. 
-Seller makes adjustments (if allowed to) and accepts the purchase order (it becomes a binding contract on both the buyer and seller).
+and other payment terms, ship-to address, invoicing instructions and the name of the purchasing office. 
+Seller makes adjustments (if allowed to) and accepts the purchase order (it becomes a binding contract on both buyer and seller).
 
 ### Status transition map (non-controlled)
 * Created
