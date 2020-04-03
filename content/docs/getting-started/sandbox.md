@@ -20,11 +20,11 @@ The public cluster is based on an Ethereum testnet Rinkeby (see link in a new ta
 * `pubdemoclient1.kekker.com`
 * `pubdemoclient2.kekker.com`
 
-The clusters interact with each other via a dedicated trunk private Ethereum network.
+The clusters interact with each other via a dedicated trunk network.
 
 ### Sandbox access
 
-After filling in the registration form you will receive an email to the specified email address with the sanbox access information:
+After filling in the registration form you will receive an email to the specified email address with the Sanbox access information:
 * Your UID CHANNELID is necessary for working with the Sandbox and should be provided each time you access the HTTP methods
 * Your login, password and their base64 form (Authentication header)
 * A file with settings to run test Postman script
