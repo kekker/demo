@@ -8,7 +8,7 @@ prev: Get Started
 # Main Concepts
 
 
-## Deal: a general transaction 
+## Deal: a General Transaction 
 
 We use an abstraction called *Deal* to pass information between parties. For any given business scenario you set the Deal participants, roles, scenario steps and step-by-step transition map. We then apply universal rules to translate the Deal into DLT operations, pass it to the recipient and represent back in a structured Deal logic on a recipient’s side. 
 
@@ -23,7 +23,7 @@ A Deal is literally an underlying operation abstraction which facilitates any gi
 
 Basic operational abstraction is what developers of specific services hosted on the Platform operate on. Since the versatility, flexibility, and functional completeness of this abstraction largely determines the speed and efficiency of developing appropriate services, which in turn allows developers to speed up the process of providing new and more attractive services to end users.
 
-## Transport function
+## Transport Function
 
 The objective of the Platform, as a transport system, is the reliable delivery of the transaction and all its changes between the transaction participants based on the following conditions:
 * Completeness and integrity of information
