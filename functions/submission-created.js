@@ -18,7 +18,7 @@ exports.handler  = async (event, context, callback) => {
 
     const headers = {
             "Content-Type": "application/json",
-            "Content-Length": dataForSending.length,
+            "Content-Length": Buffer.byteLength(dataForSending),
             "Authorization": "Basic " + API_MESSAGING_AUTH_BASIC_KEY,
     };
 
@@ -32,7 +32,7 @@ exports.handler  = async (event, context, callback) => {
     console.log("Received submission from ");
     console.log(`Ip: ${ip}, User Agent: ${user_agent}`);
     console.log(`With payload: ${dataForSending}`);
-    console.log('Content-Length: ',  dataForSending.length);
+    console.log('Content-Length: ',  Buffer.byteLength(dataForSending));
 
     let req = http.request(options, (res) => {
         console.log(`statusCode: ${res.statusCode}`);
