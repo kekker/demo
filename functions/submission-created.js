@@ -32,6 +32,7 @@ exports.handler  = async (event, context, callback) => {
     console.log("Received submission from ");
     console.log(`Ip: ${ip}, User Agent: ${user_agent}`);
     console.log(`With payload: ${dataForSending}`);
+    console.log('Content-Length: ',  dataForSending.length);
 
     let req = http.request(options, (res) => {
         console.log(`statusCode: ${res.statusCode}`);
