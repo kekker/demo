@@ -1,2 +1,9 @@
 [build]
   functions = "functions"
+
+[[redirects]]
+  from = "/demo"
+  to = "/docs/getting-started/get-started.html"
+  status = 301
+  force = true
+  
