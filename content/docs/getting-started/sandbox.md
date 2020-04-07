@@ -29,7 +29,9 @@ After filling in the registration form you will receive an email to the specifie
 * Your login, password and their base64 form (Authentication header)
 * A file with settings to run test Postman script
 
-### Tools needed for sandbox
+## Tools for Sandbox
+
+You can simply use requests examples from scenario description. All you need is to fill in your Channel (from the Sandobx registration email) and add Authorization to requests headers.
 
 Feel free to use your favorite HTTP request tools to access the Sandbox services. We recommend using the cURL command-line tool for transferring data using various protocols. 
 Launch your command-line processor and run `curl google.com`. If you see the following HTML code you have the cURL command-line tool on your machine and can execute scripts for the Sandbox:
@@ -43,11 +45,7 @@ The document has moved
 </BODY></HTML>
 ```
 
-
-### Description
-
-If you are a Linux user the cURL tool must be installed on your machine along with the operating system. 
-If this is not the case or you want to update the tool check the distributions and installation instructions at [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html)
+### Windows
 
 If you are a Windows user please follow these simple steps:
 * Download the app from [https://curl.haxx.se/windows/](https://curl.haxx.se/windows/)
@@ -56,4 +54,8 @@ If you are a Windows user please follow these simple steps:
 * Add path `<root_path>\bin` to the `Path`variable
 * Restart your command-line tool and run `curl google.com`
 
+### Linux
+
+If you are a Linux user the cURL tool must be installed on your machine along with the operating system. 
+If this is not the case or you want to update the tool check the distributions and installation instructions at [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html)
 
