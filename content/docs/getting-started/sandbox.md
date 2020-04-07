@@ -31,6 +31,18 @@ After filling in the registration form you will receive an email to the specifie
 
 # Tools for Sandbox
 
+## Postman
+
+Postman is a handy tool to run API commands in a user-friendly interface. 
+To open Postman click Run in Postman on top of the scenario description page. 
+
+In Postman you will see pre-configured collection of API calls for Basic Scenario
+
+To set up your individual parameters click Edit on Purchase Order collection
+
+Go to Variables tab and fill in Login, Password and Channel from email. Click Update.
+
+
 ## cURL
 
 You can simply use requests examples from scenario description. All you need is to fill in your Channel (from the Sandobx registration email) and add Authorization to requests headers.
@@ -61,13 +73,3 @@ If you are a Windows user please follow these simple steps:
 If you are a Linux user the cURL tool must be installed on your machine along with the operating system. 
 If this is not the case or you want to update the tool check the distributions and installation instructions at [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html)
 
-## Postman
-
-Postman is a handy tool to run API commands in a user-friendly interface. 
-To open Postman click Run in Postman on top of the scenario description page. 
-
-In Postman you will see pre-configured collection of API calls for Basic Scenario
-
-To set up your individual parameters click Edit on Purchase Order collection
-
-Go to Variables tab and fill in Login, Password and Channel from email. Click Update.
