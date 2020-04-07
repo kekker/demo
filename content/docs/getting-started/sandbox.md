@@ -29,7 +29,7 @@ After filling in the registration form you will receive an email to the specifie
 * Your login, password and their base64 form (Authentication header)
 * A file with settings to run test Postman script
 
-# Tools for Sandbox
+# Tools
 
 ## Postman
 
