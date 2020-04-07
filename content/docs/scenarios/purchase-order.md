@@ -33,12 +33,12 @@ Seller makes adjustments (if allowed to) and accepts the purchase order (it beco
 * Ordered
 
 ### The script consists of the following sequential steps:
-1. At **PrivEth-1** node create a Deal with the following attributes: *DocNumber=123, Item=Pepper, DeliveryDate=2020-08-08, Quantity=10*
-2. At **PrivEth-1** node change the Deal status to *Issued*
-3. Make sure on **PrivEth-2** node the Deal status is *Issued*
-4. At **PrivEth-2** node change the Deal status to *Adjusted*, add attribute *PaymentDate=2020-01-02* and change attribute *DeliveryDate=2020-08-09*
-5. Make sure at **PrivEth-1** node the Deal status is *Adjusted*
-6. At **PrivEth-1** node change the Deal status to *Ordered*
+1. At **Buyer** node create a Deal with the following attributes: *DocNumber=123, Item=Pepper, DeliveryDate=2020-08-08, Quantity=10*
+2. At **Buyer** node change the Deal status to *Issued*
+3. Make sure on **Seller** node the Deal status is *Issued*
+4. At **Seller** node change the Deal status to *Adjusted*, add attribute *PaymentDate=2020-01-02* and change attribute *DeliveryDate=2020-08-09*
+5. Make sure at **Buyer** node the Deal status is *Adjusted*
+6. At **Buyer** node change the Deal status to *Ordered*
 
 ### Pre-adjustment
 > **Attention!** 
@@ -139,7 +139,7 @@ curl --request POST
 If everything is fine you'll receive response code `200`. The Deal identifier is in the response body [UID]. Save it and add to further requests.
 
 
-## 2. At PrivEth-1 node change the Deal status to Issued
+## 2. At Buyer node change the Deal status to Issued
 
 Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new Deal status is indicated as the request data. In our case:
 
@@ -147,7 +147,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```json
 {
   "dealUid": "{UID}",
-  "status": "Issued___",
+  "status": "Issued",
   "remark": null,
   "parameters": []
 }
@@ -162,7 +162,7 @@ curl --request POST
 --header '{AUTHORIZATION}' 
 --data-raw '{
   "dealUid": "{UID}",
-  "status": "Issued___",
+  "status": "Issued",
   "remark": null,
   "parameters": []
 }'
@@ -172,7 +172,7 @@ curl --request POST
 
 If all is well, the response code is `200`. The response body is empty.
 
-## 3. Make sure on PrivEth-2 node the Deal status is Issued
+## 3. Make sure on Seller node the Deal status is Issued
 Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 > **Attention!** 
@@ -194,7 +194,7 @@ curl --request GET
 {
     "uid": "{UID}",
     "kind": "FirstDeal",
-    "status": "Issued___",
+    "status": "Issued",
     "remark": "1",
     "parameters": [
         {
@@ -227,7 +227,7 @@ curl --request GET
     "files": [],
     "history": [
         {
-            "status": "Issued___",
+            "status": "Issued",
             "party": {
                 "key": "CLIENT1",
                 "role": "Buyer"
@@ -240,7 +240,7 @@ curl --request GET
 }
 ```
 
-## 4. At PrivEth-2 node change the Deal status to Adjusted, add attribute PaymentDate and change attribute DeliveryDate
+## 4. At Seller node change the Deal status to Adjusted, add attribute PaymentDate and change attribute DeliveryDate
 
 Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new transaction status is indicated as the request data. In our case:
 
@@ -248,7 +248,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```json
 {
   "dealUid": "{UID}",
-  "status": "Adjusted_",
+  "status": "Adjusted",
   "remark": "2",
   "parameters": [
   	{
@@ -273,7 +273,7 @@ curl --request POST
 --header 'Accept: application/json' 
 --data-raw '{
   "dealUid": {UID},
-  "status": "Adjusted_",
+  "status": "Adjusted",
   "remark": null,
   "parameters": [
   	{
@@ -292,7 +292,7 @@ curl --request POST
 
 If all is well, the response code is `200`. The response body is empty.
 
-## 5. Make sure at PrivEth-1 node the Deal status is Adjusted
+## 5. Make sure at Buyer node the Deal status is Adjusted
 Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 > **Attention!**
@@ -313,7 +313,7 @@ curl --request GET
 {
     "uid": "{UID}",
     "kind": "FirstDeal",
-    "status": "Adjusted_",
+    "status": "Adjusted",
     "remark": "2",
     "parameters": [
         {
@@ -350,7 +350,7 @@ curl --request GET
     "files": [],
     "history": [
         {
-            "status": "Issued___",
+            "status": "Issued",
             "party": {
                 "key": "CLIENT1",
                 "role": "Buyer"
@@ -359,7 +359,7 @@ curl --request GET
             "version": 2
         },
         {
-            "status": "Adjusted_",
+            "status": "Adjusted",
             "party": {
                 "key": "CLIENT2",
                 "role": "Seller"
@@ -372,7 +372,7 @@ curl --request GET
 }
 ```
 
-## 6. At PrivEth-1 node change the Deal status to Ordered
+## 6. At Buyer node change the Deal status to Ordered
 
 Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new transaction status is indicated as the request data. In our case:
 
@@ -380,7 +380,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```json
 {
   "dealUid": {UID},
-  "status": "Ordered__",
+  "status": "Ordered",
   "remark": null,
   "parameters": []
 }
@@ -396,7 +396,7 @@ curl --request POST
 --header 'Accept: application/json' 
 --data-raw '{
   "dealUid": "{UID}",
-  "status": "Ordered__",
+  "status": "Ordered",
   "remark": null,
   "parameters": []
 }'
