@@ -14,10 +14,13 @@ import ErrorFormMessage from './FormMessages/ErrorFormMessage';
 import { phoneNumberRegex } from '../../utils/phoneNumberRegex';
 import { encode } from '../../utils/convertObjectToQueryString';
 
+import libphonenumber from 'google-libphonenumber';
+
+
 const initialValues = {
   email: '',
   fullName: '',
-  phone: '',
+  phone: '+',
   occupation: '',
   comment: '',
 };
@@ -32,6 +35,24 @@ const industryOptions = [
 
 const industryValues = industryOptions.reduce((prev, current) => [...prev, current.value], []);
 
+const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance();
+
+Yup.addMethod(Yup.string, 'phone', function () {
+  return this.test({
+    name: 'phone',
+    exclusive: true,
+    message: 'Must be a phone number',
+    test: (value) => {
+      try {
+        const phone = phoneUtil.parse(value);
+        return phoneUtil.isValidNumber(phone)
+      } catch (e) {
+        return false
+      }
+    }
+  })
+});
+
 const InvitationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email')
@@ -41,7 +62,8 @@ const InvitationSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   phone: Yup.string()
-    .matches(phoneNumberRegex, 'Phone number is not valid')
+    //.matches(phoneNumberRegex, 'Phone number is not valid')
+    .phone()
     .required('Required'),
   occupation: Yup.string().oneOf(
     industryValues,
