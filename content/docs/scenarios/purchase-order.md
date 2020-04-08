@@ -95,43 +95,45 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
 
 #### Call example
 ```shell
-curl --request POST 
-'http://democlient1.kekker.com/api/deals' 
---header 'Content-Type: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}' 
---data-raw '{
-  "dealUid": null,
-  "kind": "FirstDeal",
-  "parties": [
-    {
-      "key": "CLIENT1",
-      "role": "Buyer"
-    },
-    {
-      "key": "CLIENT2",
-      "role": "Seller"
-    }
-  ],
-  "parameters": [
-    {
-      "key": "DocNumber",
-      "value": "123"
-    },
-    {
-      "key": "Item",
-      "value": "Pepper"
-    },
-    {
-      "key": "DeliveryDate",
-      "value": "2020-08-08"
-    },
-    {
-      "key": "Quantity",
-      "value": "10"
-    }
-  ]
-}'
+curl 
+-X POST "http://democlient1.kekker.com/api/deals" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Content-Type: application/json" 
+-H "Authorization: {AUTHORIZATION}" 
+-d "
+{ 
+  \"dealUid\": null, 
+  \"kind\": \"FirstDeal\", 
+  \"parties\": [ 
+      { 
+        \"key\": \"CLIENT2\",
+        \"role\": \"Seller\" 
+      }, 
+      { 
+        \"key\": \"CLIENT1\", 
+        \"role\": \"Buyer\" 
+      } 
+   ], 
+  \"parameters\": [ 
+      { 
+        \"key\": \"DocNumber\", 
+        \"value\": \"123\" 
+      }, 
+      { 
+        \"key\": \"Item\", 
+        \"value\": \"Pepper\" 
+      }, 
+      { 
+        \"key\": \"DeliveryDate\",
+        \"value\": \"2020-08-08\" 
+      }, 
+      { 
+        \"key\": \"Quantity\", 
+        \"value\": \"10\" 
+      } 
+    ]
+}"
 ```
 
 #### Response example
@@ -155,17 +157,19 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 
-'http://democlient1.kekker.com/api/deals/setstatus' 
---header 'Content-Type: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}' 
---data-raw '{
-  "dealUid": "{UID}",
-  "status": "Issued",
-  "remark": null,
-  "parameters": []
-}'
+curl 
+-X POST "http://democlient1.kekker.com/api/deals/setstatus" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Content-Type: application/json" 
+-H "Authorization: {AUTHORIZATION}" 
+-d "
+{
+  \"dealUid\": \"{UID}\",
+  \"status\": \"Issued\",
+  \"remark\": null,
+  \"parameters\": []
+}"
 ```
 
 #### Response example
@@ -182,11 +186,11 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 #### Call example (the node URL is different)
 
 ```shell
-curl --request GET 
-'http://democlient2.kekker.com/api/deals/{UID}
---header 'Accept: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}' 
+curl 
+-X GET "http://democlient2.kekker.com/api/deals/{UID}" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Authorization: {AUTHORIZATION}"
 ```
 
 #### Response example (check status and parameters)
@@ -265,27 +269,28 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 
-'http://democlient2.kekker.com/api/deals/setstatus' 
---header 'Content-Type: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}'  
---header 'Accept: application/json' 
---data-raw '{
-  "dealUid": {UID},
-  "status": "Adjusted",
-  "remark": null,
-  "parameters": [
+curl 
+-X POST "http://democlient2.kekker.com/api/deals/setstatus" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Content-Type: application/json" 
+-H "Authorization: {AUTHORIZATION}" 
+-d "
+{
+  \"dealUid\": \"{UID}\",
+  \"status\": \"Adjusted\",
+  \"remark\": null,
+  \"parameters\": [
   	{
-      "key": "PaymentDate",
-      "value": "2020-01-02"
+      \"key\": \"PaymentDate\",
+      \"value\": \"2020-01-02\"
     },
     {
-      "key": "DeliveryDate",
-      "value": "2020-08-09"
+      \"key\": \"DeliveryDate\",
+      \"value\": \"2020-08-09\"
     }
   	]
-}'
+}"
 ```
 
 #### Response example
@@ -301,11 +306,11 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 #### Call example
 ```shell
-curl --request GET 
-'http://democlient1.kekker.com/api/deals/{UID}
---header 'Accept: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}'
+curl 
+-X GET "http://democlient1.kekker.com/api/deals/{UID}" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Authorization: {AUTHORIZATION}"
 ```
 
 #### Response example
@@ -388,18 +393,19 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```shell
-curl --request POST 
-'http://democlient1.kekker.com/api/deals/setstatus' 
---header 'Content-Type: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}'  
---header 'Accept: application/json' 
---data-raw '{
-  "dealUid": "{UID}",
-  "status": "Ordered",
-  "remark": null,
-  "parameters": []
-}'
+curl 
+-X POST "http://democlient1.kekker.com/api/deals/setstatus" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Content-Type: application/json" 
+-H "Authorization: {AUTHORIZATION}" 
+-d "
+{
+  \"dealUid\": \"{UID}\",
+  \"status\": \"Ordered\",
+  \"remark\": null,
+  \"parameters\": []
+}"
 ```
 
 #### Response example
