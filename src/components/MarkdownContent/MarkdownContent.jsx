@@ -30,7 +30,7 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
 
     return (
         <MarkdownSection>
-          <Flex minHeight={{_: 'calc(100vh - 100px)', sm: 'unset'}} height={'100%'} flexDirection={'column'} justifyContent={'space-between'}>
+          <Flex height={'100%'} flexDirection={'column'} justifyContent={'space-between'}>
             <div dangerouslySetInnerHTML={{__html: markdownRemark.html}}/>
             <MarkdownFooter prev={prevPage} next={nextPage} />
           </Flex>

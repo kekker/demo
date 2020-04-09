@@ -14,20 +14,20 @@ const GridLayout = styled.div`
   grid-template-columns: 3fr 1fr;
   grid-gap: 5em;
   
-  min-height: calc(100vh - 145px);
+  min-height: calc(100vh - 177px);
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    display: block;
+    grid-template-columns: 1fr;
   }
   
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    min-height: calc(100vh - 100px);
+   @media (max-width: ${props => props.theme.breakpoints.sm}) {
+      min-height: calc(100vh - 132px);
   }
 `;
 
-const GridMenu = styled.div`
+const GridMenu = styled.aside`
   margin-bottom: ${props => props.theme.space[6]}px;
-  margin-top: ${props => props.theme.space[5]}px;
+  margin-top: ${props => props.theme.space[6]}px;
   white-space: nowrap;
 
   @media (min-height: 300px) {
@@ -45,23 +45,24 @@ const Layout = ({
 }) => (
   <Theme>
     <Seo title={title} description={description} />
-    <ShortHeader location={location} />
 
-    <main>
-      <ContainerContent mb={0} pb={pb ? pb : 0}>
-        <GridLayout>
-          <div>{children}</div>
-          <aside>
-            <GridMenu>
-              <SideMenu
-                  location={location}
-                  section={sideMenu}
-              />
-            </GridMenu>
-          </aside>
-        </GridLayout>
-      </ContainerContent>
-    </main>
+    <div style={{minHeight: '100vh'}}>
+        <ShortHeader location={location} />
+
+        <main>
+            <ContainerContent mb={0} pb={pb ? pb : 0}>
+                <GridLayout>
+                    {children}
+                    <GridMenu>
+                        <SideMenu
+                            location={location}
+                            section={sideMenu}
+                        />
+                    </GridMenu>
+                </GridLayout>
+            </ContainerContent>
+        </main>
+    </div>
 
     <Footer />
   </Theme>

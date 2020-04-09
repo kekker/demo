@@ -115,7 +115,7 @@ const MarkdownFooter = ({ next, prev }) => (
               >
                 <DivResponsiveMarginLeft style={{textAlign: 'start'}}>
                   <TestDisappear fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Previous Page</TestDisappear>
-                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', sm:'large', md: 'h1.sm'}}>{prev.title}</Text>
+                  <Text isHeadingFont fontWeight={800} fontSize={{_: 'extralarge', md: 'h1.sm'}}>{prev.title}</Text>
                 </DivResponsiveMarginLeft>
               </Flex>
             </Flex>
@@ -142,7 +142,7 @@ const MarkdownFooter = ({ next, prev }) => (
                   <TestDisappear fontSize='small' fontWeight={400} textTransform='uppercase' mb={0} pb={0} tag={'div'}>Next Page</TestDisappear>
                     <Text
                         isHeadingFont
-                        fontWeight={800} fontSize={{_: 'extralarge', sm:'large', md: 'h1.sm'}}>{next.title}</Text>
+                        fontWeight={800} fontSize={{_: 'extralarge', md: 'h1.sm'}}>{next.title}</Text>
                 </DivResponsiveMarginRight>
               </Flex>
                 <NextImg src={prevArrow} />
