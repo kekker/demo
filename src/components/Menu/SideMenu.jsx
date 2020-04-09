@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import Heading from '../TextStyles/Heading';
-import MenuLink from './MenuLink';
+import MenuLinks from './MenuLinks';
 
 import HeaderBullet from '../../../static/assets/kekker_menu_bullet.svg';
 
@@ -50,7 +50,7 @@ const SideMenu = ({ location, section }) => {
           >
             {section.header}
           </MenuHeader>
-          <MenuLink links={section.items} />
+          <MenuLinks location={location} links={section.items} />
         </React.Fragment>
       ))}
     </>

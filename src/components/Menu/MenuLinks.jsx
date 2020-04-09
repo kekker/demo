@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Text from '../TextStyles/Text';
+import getPageTitleFromPathname from "../../utils/getPageTitleFromPathname";
 
 // const LinkSwitcher = (link, location) => {
 //     if (!link) return;
@@ -35,7 +36,7 @@ const MenuWrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-const StyledMenulink = styled(Link)`
+const StyledMenuLink = styled(Link)`
   text-decoration: none;
 
   &:hover {
@@ -43,22 +44,29 @@ const StyledMenulink = styled(Link)`
   }
 `;
 
-const MenuLink = ({ links }) => {
-  const mappedLinks = links.map(link => (
-    <StyledMenulink key={link.title} to={link.to}>
-      <Text
-        textDecoration="none"
-        fontSize="medium"
-        fontWeight="500"
-        tag="div"
-        color="primaryText"
-        textAlign="left"
-        textTransform="uppercase"
-      >
-        {link.title}
-      </Text>
-    </StyledMenulink>
-  ));
+const MenuLinks = ({ links, location }) => {
+  const mappedLinks = links.map(link => {
+
+      const currentPageLinkTitle = getPageTitleFromPathname(location);
+
+      const isActive = currentPageLinkTitle === link.title.toLowerCase();
+
+      return (
+          <StyledMenuLink key={link.title} to={link.to}>
+              <Text
+                  textDecoration={ isActive ? "underline" : "none"}
+                  fontSize="medium"
+                  fontWeight="500"
+                  tag="div"
+                  color="primaryText"
+                  textAlign="left"
+                  textTransform="uppercase"
+              >
+                  {link.title}
+              </Text>
+          </StyledMenuLink>
+      )
+  });
 
   return (
     <>
@@ -67,4 +75,4 @@ const MenuLink = ({ links }) => {
   );
 };
 
-export default MenuLink;
+export default MenuLinks;
