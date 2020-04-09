@@ -1,3 +1,8 @@
 .gatsby-highlight {
     margin-bottom: 2em;
 }
+
+.gatsby-highlight-code-line:after{
+    content: "";
+    display: block;
+}

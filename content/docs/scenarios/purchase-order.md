@@ -94,7 +94,7 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
 ```
 
 #### Call example
-```shell
+```bash{1-100}
 curl --request POST 
 'http://democlient1.kekker.com/api/deals' 
 --header 'Content-Type: application/json' 
@@ -154,7 +154,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```
 
 #### Call example
-```shell
+```bash{1-100}
 curl --request POST 
 'http://democlient1.kekker.com/api/deals/setstatus' 
 --header 'Content-Type: application/json' 
@@ -181,9 +181,9 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 #### Call example (the node URL is different)
 
-```shell
+```bash{1-100}
 curl --request GET 
-'http://democlient2.kekker.com/api/deals/{UID}
+'http://democlient2.kekker.com/api/deals/{UID}'
 --header 'Accept: application/json' 
 --header 'Channel: {CHANNEL}' 
 --header '{AUTHORIZATION}' 
@@ -264,7 +264,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```
 
 #### Call example
-```shell
+```bash{1-100}
 curl --request POST 
 'http://democlient2.kekker.com/api/deals/setstatus' 
 --header 'Content-Type: application/json' 
@@ -300,12 +300,12 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 > Wait for 2 minutes after step [4] before executing these queries
 
 #### Call example
-```shell
-curl --request GET 
-'http://democlient1.kekker.com/api/deals/{UID}
+```bash{1-100}
+curl --request GET
+'http://democlient1.kekker.com/api/deals/{UID}' 
 --header 'Accept: application/json' 
 --header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}'
+--header '{AUTHORIZATION}' 
 ```
 
 #### Response example
@@ -387,19 +387,19 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```
 
 #### Call example
-```shell
-curl --request POST 
-'http://democlient1.kekker.com/api/deals/setstatus' 
---header 'Content-Type: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}'  
---header 'Accept: application/json' 
+```bash{1-100}
+curl --request POST
+'http://democlient1.kekker.com/api/deals/setstatus'
+--header 'Content-Type: application/json'
+--header 'Channel: {CHANNEL}'
+--header '{AUTHORIZATION}'
+--header 'Accept: application/json'
 --data-raw '{
   "dealUid": "{UID}",
   "status": "Ordered__",
   "remark": null,
   "parameters": []
-}'
+ }'
 ```
 
 #### Response example
