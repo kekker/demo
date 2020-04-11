@@ -25,14 +25,14 @@ const GridLayout = styled.div`
   }
 `;
 
-const GridMenu = styled.aside`
+const GridMenu = styled.div`
   margin-bottom: ${props => props.theme.space[6]}px;
-  margin-top: ${props => props.theme.space[6]}px;
+  margin-top: ${props => props.theme.space[3]}px;
   white-space: nowrap;
 
   @media (min-height: 300px) {
     position: sticky;
-    top: ${props => props.theme.space[6]}px;
+    top: calc(10vh + ${props => props.theme.space[7]}px);
   }
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
@@ -46,19 +46,21 @@ const Layout = ({
   <Theme>
     <Seo title={title} description={description} />
 
-    <div style={{minHeight: '100vh'}}>
+    <div style={{minHeight: '90vh'}}>
         <ShortHeader location={location} />
 
         <main>
-            <ContainerContent mb={0} pb={pb ? pb : 0}>
+            <ContainerContent mt='10vh' mb={0} pb={pb ? pb : 0}>
                 <GridLayout>
                     {children}
-                    <GridMenu>
-                        <SideMenu
-                            location={location}
-                            section={sideMenu}
-                        />
-                    </GridMenu>
+                    <aside>
+                        <GridMenu>
+                            <SideMenu
+                                location={location}
+                                section={sideMenu}
+                            />
+                        </GridMenu>
+                    </aside>
                 </GridLayout>
             </ContainerContent>
         </main>

@@ -1,8 +1,10 @@
 .gatsby-highlight {
     margin-bottom: 2em;
+    max-width: 90vw;
 }
 
 .gatsby-highlight-code-line:after{
     content: "";
     display: block;
+    height: 0;
 }

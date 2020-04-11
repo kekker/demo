@@ -33,7 +33,7 @@ const Nav = styled.nav`
 
 const HeaderNav = ({ location }) => (
   <Flex
-    height="12vh"
+    height="10vh"
     width="100%"
     justifyContent="space-between"
     alignItems="center"
@@ -50,7 +50,7 @@ const HeaderNav = ({ location }) => (
         />
       ))}
     </Nav>
-    <ButtonLink isPrimary to="/invitation" title="Sandbox" />
+    <ButtonLink isPrimary to="/invitation" title="Sandbox Access" />
   </Flex>
 );
 

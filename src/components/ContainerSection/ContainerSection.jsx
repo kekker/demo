@@ -13,7 +13,7 @@ const ContainerSection = styled.section`
 
 ContainerSection.defaultProps = {
   height: '100%',
-  bgColor: 'transparent',
+  bg: 'transparent',
   mobileHeight: '100%',
 };
 

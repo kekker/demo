@@ -15,7 +15,7 @@ const jsonContent = require('../../../content/home');
 
 export const queryMainHeader = graphql`
   query {
-    bgImage: file(absolutePath: { regex: "/kekker_bg.png/" }) {
+    bgImage: file(absolutePath: { regex: "/kekker_mainpage_bg2.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 1600) {
           ...GatsbyImageSharpFluid
@@ -29,7 +29,20 @@ const MainHeader = ({ location, theme }) => (
   <StaticQuery
     query={queryMainHeader}
     render={data => (
-      <ContainerSection height={{ xs: '400px', md: '500px' }}>
+        <>
+            <ContainerSection
+                width='100vw'
+                height='10vh'
+                bg='#000000'
+                style={{position: 'fixed', top: '0', left: '0', zIndex: 1}}
+            >
+                <ContainerContent pt="0" pb="0">
+                    <Flex width="100%" alignItems="center" height="100%">
+                        <HeaderNav location={location} />
+                    </Flex>
+                </ContainerContent>
+            </ContainerSection>
+      <ContainerSection pt='10vh' height={{ xs: 'calc(10vh + 400px)', md: 'calc(10vh + 500px)' }}>
         <BgImage
           height={{ xs: '400px', md: '500px' }}
           fluid={data.bgImage.childImageSharp.fluid}
@@ -38,8 +51,6 @@ const MainHeader = ({ location, theme }) => (
         >
           <ContainerContent pt="0">
             <Flex flexDirection="column" height="100%">
-              <HeaderNav location={location} />
-
               <Flex
                 height="100%"
                 flexDirection="column"
@@ -47,11 +58,12 @@ const MainHeader = ({ location, theme }) => (
                 alignItems="center"
               >
                 <Heading
-                  weight={800}
+                  fontWeight={300}
+                  letterSpacing='-0.04em'
                   color="invertedText"
                   textAlign="center"
                   lineHeight="1.1em"
-                  fontSize={{ xs: 'h1.sm', sm: 'h1.md', lg: 'h1.lg' }}
+                  fontSize={{ xs: 'h1.sm', sm: 'h1.md', md: 'h1.lg', lg: 'h1.extralg' }}
                 >
                   A
                   {' '}
@@ -62,14 +74,17 @@ const MainHeader = ({ location, theme }) => (
                   for building
                   {' '}
                   <br />
-                  <span style={{ fontSize: '1.4em' }}>decentralized apps</span>
+                  <span style={{ fontSize: '1.4em', letterSpacing:'-0.04em', fontWeight: '600' }}>
+                      decentralized apps
+                  </span>
                 </Heading>
-                <ButtonLink variant="primary" to={jsonContent.getStartedButtonLink} title="Get started" />
+                <ButtonLink size='large' variant="primary" to={jsonContent.getStartedButtonLink} title="Get started" />
               </Flex>
             </Flex>
           </ContainerContent>
         </BgImage>
       </ContainerSection>
+            </>
     )}
   />
 );
