@@ -11,8 +11,7 @@ const StyledButton = styled.button`
 
   ${({ isPrimary, theme: { colors } }) => (isPrimary
     ? ` border: 2px solid ${colors.primaryBrand};
-       background: ${colors.primaryBrand};
-       padding: 0.1em 0.7em;`
+       background: ${colors.primaryBrand};`
     : ` border: 2px solid ${colors.primaryLight};
        background: ${colors.primaryLight};`)};
 
@@ -20,11 +19,11 @@ const StyledButton = styled.button`
   border-radius: 2em;
 `;
 
-const ButtonLink = ({size, title, isPrimary, to }) => (
+const ButtonLink = ({size, fontSize, title, isPrimary, to }) => (
   <Link to={to}>
     <StyledButton size={size} isPrimary={isPrimary} type="button">
       <Text
-        fontSize={size}
+        fontSize={fontSize}
         fontWeight="900"
         isHeadingFont
         textTransform="uppercase"
@@ -45,6 +44,7 @@ ButtonLink.propTypes = {
 ButtonLink.defaultProps = {
   isPrimary: false,
   size: 'medium',
+  fontSize: 'medium'
 };
 
 export default ButtonLink;

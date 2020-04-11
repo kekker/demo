@@ -78,7 +78,12 @@ const MainHeader = ({ location, theme }) => (
                       decentralized apps
                   </span>
                 </Heading>
-                <ButtonLink size='large' variant="primary" to={jsonContent.getStartedButtonLink} title="Get started" />
+                <ButtonLink
+                    size="large"
+                    fontSize='large'
+                    to={jsonContent.getStartedButtonLink}
+                    title="Get started"
+                />
               </Flex>
             </Flex>
           </ContainerContent>

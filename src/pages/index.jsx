@@ -16,11 +16,11 @@ import ContainerSection from '../components/ContainerSection';
 import Heading from '../components/TextStyles/Heading';
 import Text from '../components/TextStyles/Text';
 import styled from "styled-components";
+import BgImage from "../components/BgImage";
 
 const StyledImage = styled(Img)`
-  background-color: #eeeeee;
-  height: 100%;
-  width: 100%;
+  width: 120%;
+  margin-top: -40px;
 `;
 
 // Content
@@ -30,8 +30,12 @@ const BlogIndex = ({ data, location }) => {
   const blogTitle = data.site.siteMetadata.title;
   const { description } = data.site.siteMetadata;
 
-  const { mainImage } = data;
-  console.log(mainImage);
+  const {
+    platformBgImage,
+    platformImage,
+    sandboxBgImage,
+    sandboxImage
+  } = data;
 
   return (
     <Theme>
@@ -41,7 +45,7 @@ const BlogIndex = ({ data, location }) => {
         <MainHeader location={location.pathname} />
 
         <main>
-          <ContainerContent pb={{_: 4, sm: 6}}>
+          <ContainerContent pb={3}>
             <Flex
               flexDirection={{ _: 'column', sm: 'row' }}
               flexWrap="wrap"
@@ -71,31 +75,68 @@ const BlogIndex = ({ data, location }) => {
               ))}
             </Flex>
             <Heading mb={'25px'} level={2}>
-              {jsonContent.overView}
+              {jsonContent.KekkerPlatformSectionHeader}
             </Heading>
-            {/*<div*/}
-            {/*  style={{*/}
-            {/*    backgroundColor: '#eeeeee',*/}
-            {/*    height: `${500}px`,*/}
-            {/*    width: `${100}%`,*/}
-            {/*    marginBottom: `${75}px`,*/}
-            {/*  }}*/}
-            {/*/>*/}
-            <StyledImage fluid={mainImage.childImageSharp.fluid} title='Kekker Platform overview' />
           </ContainerContent>
-          <ContainerSection bg="primaryBrand">
+
+          <ContainerSection width='100%' height={{_: '350px', sm: '100%'}} maxHeight='650px'>
+            <BgImage
+                maxHeight='650px'
+                height={{_: '350px', sm: '100%'}}
+                fluid={platformBgImage.childImageSharp.fluid}
+                title="Kekker Platform section background cover"
+                color="#FFFFFF"
+            >
+              <ContainerContent pt="1em" pb='1em'>
+                <Flex width='100%' height='100%' justifyContent='center' alignItems='center'>
+                  <StyledImage fluid={platformImage.childImageSharp.fluid} title='Kekker Platform overview' />
+                </Flex>
+              </ContainerContent>
+            </BgImage>
+          </ContainerSection>
+
+          <ContainerSection
+              width='100%'
+              height={{_: '500px', sm: '700px', md: '800px', lg: '900px'}}>
+            <BgImage
+                height={{_: '500px', sm: '700px', md: '800px', lg: '900px'}}
+                fluid={sandboxBgImage.childImageSharp.fluid}
+                title="Kekker Platform section background cover"
+                color="#FFFFFF"
+            >
+              <ContainerContent>
+                <Heading mb='0' level={2} color='invertedText'>
+                  {jsonContent.KekkerSandboxSectionHeader}
+                </Heading>
+                <Flex width='100%' height='100%' justifyContent='center' alignItems='center'>
+                  <StyledImage fluid={sandboxImage.childImageSharp.fluid} title='Kekker Platform overview' />
+                </Flex>
+              </ContainerContent>
+            </BgImage>
+          </ContainerSection>
+
+          <ContainerSection bg="#FFFFFF">
             <ContainerContent pb={{_: 4, sm: 6}}>
               <Flex flexDirection="column" alignItems="center">
                 <Heading
-                  textAlign="center"
-                  fontSize={{ xs: 'h1.sm', sm: 'h1.md' }}
+                    fontWeight={600}
+                    letterSpacing='-0.04em'
+                    color="primaryText"
+                    textAlign="center"
+                    lineHeight="1.1em"
+                    fontSize={{ xs: 'h1.sm', sm: 'h1.md', md: 'h1.lg', lg: 'h1.extralg' }}
                 >
-                  Create a Decentralized App <br /> in 10 Minutes
+                  Create a Decentralized App
+                  <br />
+                  <span style={{ letterSpacing:'-0.04em', fontWeight: '300' }}>
+                    in 10 Minutes
+                  </span>
                 </Heading>
                 <ButtonLink
                   to={jsonContent.getStartedButtonLink}
                   size="large"
-                  isPrimary={false}
+                  fontSize='large'
+                  isPrimary
                   title="Get started"
                 />
               </Flex>
@@ -124,13 +165,34 @@ export const pageQuery = graphql`
         description
       }
     }
-    mainImage: file(absolutePath: { regex: "/main-page.png/" }) {
+    platformBgImage: file(absolutePath: { regex: "/kekker_mainpage_platform_background_v1.jpg/" }) {
         childImageSharp {
             fluid(maxWidth: 1600) {
                 ...GatsbyImageSharpFluid
             }
         }
-    }  
+    }
+    platformImage: file(absolutePath: { regex: "/kekker_mainpage_platform_v1.png/" }) {
+      childImageSharp {
+        fluid(maxWidth: 1600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    sandboxBgImage: file(absolutePath: { regex: "/kekker_mainpage_bg2.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 1600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    sandboxImage: file(absolutePath: { regex: "/kekker_mainpage_sandbox.png/" }) {
+      childImageSharp {
+        fluid(maxWidth: 1600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `;
 

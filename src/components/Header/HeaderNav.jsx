@@ -50,7 +50,9 @@ const HeaderNav = ({ location }) => (
         />
       ))}
     </Nav>
-    <ButtonLink isPrimary to="/invitation" title="Sandbox Access" />
+    <ButtonLink
+        size="small"
+        fontSize='medium'  isPrimary to="/invitation" title="Sandbox Access" />
   </Flex>
 );
 
