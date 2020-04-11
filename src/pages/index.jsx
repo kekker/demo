@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
+import ImageZoom from 'react-medium-image-zoom';
 
 // Components
 import Seo from '../components/SEO/Seo';
@@ -19,8 +20,8 @@ import styled from "styled-components";
 import BgImage from "../components/BgImage";
 
 const StyledImage = styled(Img)`
-  width: 120%;
-  margin-top: -40px;
+  width: 100%;
+  margin-bottom: 0;
 `;
 
 // Content
@@ -79,17 +80,28 @@ const BlogIndex = ({ data, location }) => {
             </Heading>
           </ContainerContent>
 
-          <ContainerSection width='100%' height={{_: '350px', sm: '100%'}} maxHeight='650px'>
+          <ContainerSection
+              width='100%'
+              height='60vw'
+              maxHeight='650px'>
             <BgImage
                 maxHeight='650px'
-                height={{_: '350px', sm: '100%'}}
+                height='60vw'
                 fluid={platformBgImage.childImageSharp.fluid}
                 title="Kekker Platform section background cover"
                 color="#FFFFFF"
             >
-              <ContainerContent pt="1em" pb='1em'>
-                <Flex width='100%' height='100%' justifyContent='center' alignItems='center'>
-                  <StyledImage fluid={platformImage.childImageSharp.fluid} title='Kekker Platform overview' />
+              <ContainerContent pb='1em'>
+                <Flex
+                    mt='-35px'
+                    width='100%'
+                    height='100%'
+                    justifyContent='center'
+                    alignItems='center'
+                >
+                  <ImageZoom wrapStyle={{ width: '900px'}}>
+                    <StyledImage fluid={platformImage.childImageSharp.fluid} title='Kekker Platform overview' />
+                  </ImageZoom>
                 </Flex>
               </ContainerContent>
             </BgImage>
@@ -97,9 +109,11 @@ const BlogIndex = ({ data, location }) => {
 
           <ContainerSection
               width='100%'
-              height={{_: '500px', sm: '700px', md: '800px', lg: '900px'}}>
+              maxHeight={{ md: '900px', lg: '950px'}}
+              height='90vw'>
             <BgImage
-                height={{_: '500px', sm: '700px', md: '800px', lg: '900px'}}
+                maxHeight={{ md: '900px', lg: '950px'}}
+                height='90vw'
                 fluid={sandboxBgImage.childImageSharp.fluid}
                 title="Kekker Platform section background cover"
                 color="#FFFFFF"
@@ -109,7 +123,13 @@ const BlogIndex = ({ data, location }) => {
                   {jsonContent.KekkerSandboxSectionHeader}
                 </Heading>
                 <Flex width='100%' height='100%' justifyContent='center' alignItems='center'>
-                  <StyledImage fluid={sandboxImage.childImageSharp.fluid} title='Kekker Platform overview' />
+                  <ImageZoom
+                      wrapStyle={{ width: '1200px'}}
+                      overlayBgColorEnd='#000000'
+                      overlayBgColorStart='#000000'
+                  >
+                    <StyledImage fluid={sandboxImage.childImageSharp.fluid} title='Kekker Sandbox overview' />
+                  </ImageZoom>
                 </Flex>
               </ContainerContent>
             </BgImage>

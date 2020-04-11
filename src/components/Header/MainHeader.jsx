@@ -47,7 +47,7 @@ const MainHeader = ({ location, theme }) => (
           height={{ xs: '400px', md: '500px' }}
           fluid={data.bgImage.childImageSharp.fluid}
           title="Kekker background cover"
-          color="#141414"
+          color="#000000"
         >
           <ContainerContent pt="0">
             <Flex flexDirection="column" height="100%">
