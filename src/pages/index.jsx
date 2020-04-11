@@ -83,24 +83,26 @@ const BlogIndex = ({ data, location }) => {
           <ContainerSection
               width='100%'
               height='60vw'
-              maxHeight='650px'>
+              maxHeight='700px'>
             <BgImage
-                maxHeight='650px'
+                maxHeight='700px'
                 height='60vw'
                 fluid={platformBgImage.childImageSharp.fluid}
                 title="Kekker Platform section background cover"
                 color="#FFFFFF"
             >
-              <ContainerContent pb='1em'>
+              <ContainerContent pt={{_: 5, sm: 6}} pb={{_: 4, sm: 6}}>
                 <Flex
-                    mt='-35px'
+                    mt='-50px'
                     width='100%'
                     height='100%'
                     justifyContent='center'
                     alignItems='center'
                 >
-                  <ImageZoom wrapStyle={{ width: '900px'}}>
-                    <StyledImage fluid={platformImage.childImageSharp.fluid} title='Kekker Platform overview' />
+                  <ImageZoom>
+                    <StyledImage
+                        fluid={platformImage.childImageSharp.fluid}
+                        title='Kekker Platform overview' />
                   </ImageZoom>
                 </Flex>
               </ContainerContent>
