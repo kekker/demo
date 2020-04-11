@@ -35,12 +35,20 @@ Feel free to use your favorite http request tools to access the sandbox services
 Launch your command-line processor and run `curl google.com`. If you see the html code:
 
 ```html
-<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
-<TITLE>301 Moved</TITLE></HEAD><BODY>
-<H1>301 Moved</H1>
-The document has moved
-<A HREF="http://www.google.com/">here</A>.
-</BODY></HTML>
+<HTML>
+    <HEAD>
+    <meta http-equiv="content-type" 
+          content="text/html;charset=utf-8">
+    <TITLE>301 Moved</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>301 Moved</H1>
+        The document has moved
+        <A HREF="http://www.google.com/">
+            here
+        </A>
+    </BODY>
+</HTML>
 ```
 you have the curl command-line tool on your machine and can execute scripts for the sandbox.
 

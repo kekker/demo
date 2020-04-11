@@ -91,9 +91,8 @@ const BlogIndex = ({ data, location }) => {
                 title="Kekker Platform section background cover"
                 color="#FFFFFF"
             >
-              <ContainerContent pt={{_: 5, sm: 6}} pb={{_: 4, sm: 6}}>
+              <ContainerContent pt={{_: 2, sm: 0}} pb={{_: 2, sm: 0}}>
                 <Flex
-                    mt='-50px'
                     width='100%'
                     height='100%'
                     justifyContent='center'
@@ -126,7 +125,6 @@ const BlogIndex = ({ data, location }) => {
                 </Heading>
                 <Flex width='100%' height='100%' justifyContent='center' alignItems='center'>
                   <ImageZoom
-                      wrapStyle={{ width: '1200px'}}
                       overlayBgColorEnd='#000000'
                       overlayBgColorStart='#000000'
                   >
