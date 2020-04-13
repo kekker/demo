@@ -27,9 +27,11 @@ const ShortHeader = ({ location }) => (
     query={queryShortHeader}
     render={data => (
       <ContainerSection
-          width='100vw'
-          height='10vh'
-          style={{position: 'fixed', top: '0', left: '0', zIndex: 1}}
+        width="100vw"
+        height="10vh"
+        style={{
+          position: 'fixed', top: '0', left: '0', zIndex: 1
+        }}
       >
         <BgImage
           height="10vh"

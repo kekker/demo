@@ -7,7 +7,7 @@ import MenuLinks from './MenuLinks';
 
 import HeaderBullet from '../../../static/assets/kekker_menu_bullet.svg';
 
-import { listDocsLinks, listAboutLinks} from "../../utils/getLinkLists";
+import { listDocsLinks, listAboutLinks } from '../../utils/getLinkLists';
 
 const MenuHeader = styled(Heading)`
   position: relative;
@@ -28,13 +28,9 @@ const MenuHeader = styled(Heading)`
 const SideMenu = ({ location, section }) => {
   let linkSections;
   if (section) {
-    linkSections = section.includes('docs')
-        ? listDocsLinks
-        : listAboutLinks;
+    linkSections = section.includes('docs') ? listDocsLinks : listAboutLinks;
   } else {
-    linkSections = location.includes('docs/')
-        ? listDocsLinks
-        : listAboutLinks;
+    linkSections = location.includes('docs/') ? listDocsLinks : listAboutLinks;
   }
 
   return (
@@ -46,7 +42,7 @@ const SideMenu = ({ location, section }) => {
             textTransform="uppercase"
             textAlign="left"
             level={4}
-            fontSize='22px'
+            fontSize="22px"
           >
             {section.header}
           </MenuHeader>
@@ -59,10 +55,7 @@ const SideMenu = ({ location, section }) => {
 
 SideMenu.propTypes = {
   location: PropTypes.string.isRequired,
-  section: PropTypes.oneOf([
-      'docs',
-      'about'
-  ])
+  section: PropTypes.oneOf(['docs', 'about']),
 };
 
 export default SideMenu;

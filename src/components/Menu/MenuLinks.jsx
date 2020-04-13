@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Text from '../TextStyles/Text';
-import getPageTitleFromPathname from "../../utils/getPageTitleFromPathname";
+import getPageTitleFromPathname from '../../utils/getPageTitleFromPathname';
 
 // const LinkSwitcher = (link, location) => {
 //     if (!link) return;
@@ -46,26 +46,25 @@ const StyledMenuLink = styled(Link)`
 
 const MenuLinks = ({ links, location }) => {
   const mappedLinks = links.map(link => {
+    const currentPageLinkTitle = getPageTitleFromPathname(location);
 
-      const currentPageLinkTitle = getPageTitleFromPathname(location);
+    const isActive = currentPageLinkTitle === link.title.toLowerCase();
 
-      const isActive = currentPageLinkTitle === link.title.toLowerCase();
-
-      return (
-          <StyledMenuLink key={link.title} to={link.to}>
-              <Text
-                  textDecoration={ isActive ? "underline" : "none"}
-                  fontSize="medium"
-                  fontWeight="500"
-                  tag="div"
-                  color="primaryText"
-                  textAlign="left"
-                  textTransform="uppercase"
-              >
-                  {link.title}
-              </Text>
-          </StyledMenuLink>
-      )
+    return (
+      <StyledMenuLink key={link.title} to={link.to}>
+        <Text
+          textDecoration={isActive ? 'underline' : 'none'}
+          fontSize="medium"
+          fontWeight="500"
+          tag="div"
+          color="primaryText"
+          textAlign="left"
+          textTransform="uppercase"
+        >
+          {link.title}
+        </Text>
+      </StyledMenuLink>
+    );
   });
 
   return (

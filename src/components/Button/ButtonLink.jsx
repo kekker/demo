@@ -19,7 +19,9 @@ const StyledButton = styled.button`
   border-radius: 2em;
 `;
 
-const ButtonLink = ({size, fontSize, title, isPrimary, to }) => (
+const ButtonLink = ({
+  size, fontSize, title, isPrimary, to
+}) => (
   <Link to={to}>
     <StyledButton size={size} isPrimary={isPrimary} type="button">
       <Text
@@ -44,7 +46,7 @@ ButtonLink.propTypes = {
 ButtonLink.defaultProps = {
   isPrimary: false,
   size: 'medium',
-  fontSize: 'medium'
+  fontSize: 'medium',
 };
 
 export default ButtonLink;

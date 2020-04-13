@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'gatsby';
 
+import libphonenumber from 'google-libphonenumber';
 import RichTextInput from './FormComponents/RichTextinput';
 import SelectInput from './FormComponents/SelectInput';
 import TextInput from './FormComponents/TextInput';
@@ -13,8 +14,6 @@ import ErrorFormMessage from './FormMessages/ErrorFormMessage';
 
 import { phoneNumberRegex } from '../../utils/phoneNumberRegex';
 import { encode } from '../../utils/convertObjectToQueryString';
-
-import libphonenumber from 'google-libphonenumber';
 
 
 const initialValues = {
@@ -33,7 +32,10 @@ const industryOptions = [
   { value: 'other', text: 'Other' },
 ];
 
-const industryValues = industryOptions.reduce((prev, current) => [...prev, current.value], []);
+const industryValues = industryOptions.reduce(
+  (prev, current) => [...prev, current.value],
+  [],
+);
 
 const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance();
 
@@ -42,15 +44,15 @@ Yup.addMethod(Yup.string, 'phone', function () {
     name: 'phone',
     exclusive: true,
     message: 'Must be a phone number',
-    test: (value) => {
+    test: value => {
       try {
         const phone = phoneUtil.parse(value);
-        return phoneUtil.isValidNumber(phone)
+        return phoneUtil.isValidNumber(phone);
       } catch (e) {
-        return false
+        return false;
       }
-    }
-  })
+    },
+  });
 });
 
 const InvitationSchema = Yup.object().shape({
@@ -62,7 +64,7 @@ const InvitationSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   phone: Yup.string()
-    //.matches(phoneNumberRegex, 'Phone number is not valid')
+    // .matches(phoneNumberRegex, 'Phone number is not valid')
     .phone()
     .required('Required'),
   occupation: Yup.string().oneOf(
@@ -133,7 +135,7 @@ class InvitationForm extends React.Component {
               method="post"
               netlify-honeypot="bot-field"
               data-netlify="true"
-              style={{marginBottom: 0}}
+              style={{ marginBottom: 0 }}
             >
               <input type="hidden" name="bot-field" />
               <TextInput
