@@ -22,6 +22,16 @@ The public cluster is based on an Ethereum testnet Rinkeby (see link in a new ta
 
 The clusters interact with each other via a dedicated trunk private Ethereum network.
 
+### Differences from production environment
+The Sandbox contains only test data and is completely separate from your production account.
+
+All API endpoints have a base URL of [https://democlient1.kekker.com/](https://democlient1.kekker.com/) instead of [https://api.kekker.com/](https://api.kekker.com/)
+
+> Real commercial data should never be used in the Sandbox.
+
+### Transactions behavior in Private and Public Networks
+Unlike transactions in Private Networks, which are processed within a few minutes, transactions in Public Networks may require up to **15 minutes** until they are processed.
+
 ### Sandbox access
 
 After filling in the registration form you will receive email to the specified email address with the sanbox access information:
