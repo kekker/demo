@@ -14,7 +14,6 @@ This case is conducted in a **Private Ethereum network (PrivEth)**.
 This case demonstrates the distribution of a transaction among nodes and switching the status of a transaction.
 It uses a predefined smart contract with the FirstDeal transaction type.
 
-
 ### How to start
 
 We offer two ways to run Basic Scenario:
@@ -23,6 +22,7 @@ We offer two ways to run Basic Scenario:
 
 
 ### Transaction parties
+
 Buyer: `node PrivEth-1`
 
 Seller: `node PrivEth-2`
@@ -39,7 +39,6 @@ Seller: `node PrivEth-2`
 and other payment terms, ship-to address, invoicing instructions and the name of the purchasing office. 
 Seller makes adjustments (if allowed to) and accepts the purchase order (it becomes a binding contract on both buyer and seller).
 
-
 ### Status transition map (non-controlled)
 * Created
 * Issued
@@ -48,12 +47,12 @@ Seller makes adjustments (if allowed to) and accepts the purchase order (it beco
 
 
 ### The script consists of the following sequential steps:
-1. At **PrivEth-1** node create a Deal with the following attributes: *DocNumber=123, Item=Pepper, DeliveryDate=2020-08-08, Quantity=10*
-2. At **PrivEth-1** node change the Deal status to *Issued*
-3. Make sure on **PrivEth-2** node the Deal status is *Issued*
-4. At **PrivEth-2** node change the Deal status to *Adjusted*, add attribute *PaymentDate=2020-01-02* and change attribute *DeliveryDate=2020-08-09*
-5. Make sure at **PrivEth-1** node the Deal status is *Adjusted*
-6. At **PrivEth-1** node change the Deal status to *Ordered*
+1. At **Buyer** node create a Deal with the following attributes: *DocNumber=123, Item=Pepper, DeliveryDate=2020-08-08, Quantity=10*
+2. At **Buyer** node change the Deal status to *Issued*
+3. Make sure on **Seller** node the Deal status is *Issued*
+4. At **Seller** node change the Deal status to *Adjusted*, add attribute *PaymentDate=2020-01-02* and change attribute *DeliveryDate=2020-08-09*
+5. Make sure at **Buyer** node the Deal status is *Adjusted*
+6. At **Buyer** node change the Deal status to *Ordered*
 
 ### Pre-adjustment
 > **Attention!** 
@@ -110,43 +109,45 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
 
 #### Call example
 ```bash{1-100}
-curl --request POST 
-'http://democlient1.kekker.com/api/deals' 
---header 'Content-Type: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}' 
---data-raw '{
-  "dealUid": null,
-  "kind": "FirstDeal",
-  "parties": [
-    {
-      "key": "CLIENT1",
-      "role": "Buyer"
-    },
-    {
-      "key": "CLIENT2",
-      "role": "Seller"
-    }
-  ],
-  "parameters": [
-    {
-      "key": "DocNumber",
-      "value": "123"
-    },
-    {
-      "key": "Item",
-      "value": "Pepper"
-    },
-    {
-      "key": "DeliveryDate",
-      "value": "2020-08-08"
-    },
-    {
-      "key": "Quantity",
-      "value": "10"
-    }
-  ]
-}'
+curl 
+-X POST "http://democlient1.kekker.com/api/deals" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Content-Type: application/json" 
+-H "Authorization: {AUTHORIZATION}" 
+-d "
+{ 
+  \"dealUid\": null, 
+  \"kind\": \"FirstDeal\", 
+  \"parties\": [ 
+      { 
+        \"key\": \"CLIENT2\",
+        \"role\": \"Seller\" 
+      }, 
+      { 
+        \"key\": \"CLIENT1\", 
+        \"role\": \"Buyer\" 
+      } 
+   ], 
+  \"parameters\": [ 
+      { 
+        \"key\": \"DocNumber\", 
+        \"value\": \"123\" 
+      }, 
+      { 
+        \"key\": \"Item\", 
+        \"value\": \"Pepper\" 
+      }, 
+      { 
+        \"key\": \"DeliveryDate\",
+        \"value\": \"2020-08-08\" 
+      }, 
+      { 
+        \"key\": \"Quantity\", 
+        \"value\": \"10\" 
+      } 
+    ]
+}"
 ```
 
 #### Response example
@@ -154,7 +155,7 @@ curl --request POST
 If everything is fine you'll receive response code `200`. The Deal identifier is in the response body [UID]. Save it and add to further requests.
 
 
-## 2. At PrivEth-1 node change the Deal status to Issued
+## 2. At Buyer node change the Deal status to Issued
 
 Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new Deal status is indicated as the request data. In our case:
 
@@ -162,7 +163,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```json
 {
   "dealUid": "{UID}",
-  "status": "Issued___",
+  "status": "Issued",
   "remark": null,
   "parameters": []
 }
@@ -170,24 +171,26 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```bash{1-100}
-curl --request POST 
-'http://democlient1.kekker.com/api/deals/setstatus' 
---header 'Content-Type: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}' 
---data-raw '{
-  "dealUid": "{UID}",
-  "status": "Issued___",
-  "remark": null,
-  "parameters": []
-}'
+curl 
+-X POST "http://democlient1.kekker.com/api/deals/setstatus" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Content-Type: application/json" 
+-H "Authorization: {AUTHORIZATION}" 
+-d "
+{
+  \"dealUid\": \"{UID}\",
+  \"status\": \"Issued\",
+  \"remark\": null,
+  \"parameters\": []
+}"
 ```
 
 #### Response example
 
 If all is well, the response code is `200`. The response body is empty.
 
-## 3. Make sure on PrivEth-2 node the Deal status is Issued
+## 3. Make sure on Seller node the Deal status is Issued
 Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 > **Attention!** 
@@ -197,11 +200,11 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 #### Call example (the node URL is different)
 
 ```bash{1-100}
-curl --request GET 
-'http://democlient2.kekker.com/api/deals/{UID}'
---header 'Accept: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}' 
+curl 
+-X GET "http://democlient2.kekker.com/api/deals/{UID}" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Authorization: {AUTHORIZATION}"
 ```
 
 #### Response example (check status and parameters)
@@ -209,7 +212,7 @@ curl --request GET
 {
     "uid": "{UID}",
     "kind": "FirstDeal",
-    "status": "Issued___",
+    "status": "Issued",
     "remark": "1",
     "parameters": [
         {
@@ -242,7 +245,7 @@ curl --request GET
     "files": [],
     "history": [
         {
-            "status": "Issued___",
+            "status": "Issued",
             "party": {
                 "key": "CLIENT1",
                 "role": "Buyer"
@@ -255,7 +258,7 @@ curl --request GET
 }
 ```
 
-## 4. At PrivEth-2 node change the Deal status to Adjusted, add attribute PaymentDate and change attribute DeliveryDate
+## 4. At Seller node change the Deal status to Adjusted, add attribute PaymentDate and change attribute DeliveryDate
 
 Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new transaction status is indicated as the request data. In our case:
 
@@ -263,7 +266,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```json
 {
   "dealUid": "{UID}",
-  "status": "Adjusted_",
+  "status": "Adjusted",
   "remark": "2",
   "parameters": [
   	{
@@ -280,34 +283,35 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```bash{1-100}
-curl --request POST 
-'http://democlient2.kekker.com/api/deals/setstatus' 
---header 'Content-Type: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}'  
---header 'Accept: application/json' 
---data-raw '{
-  "dealUid": {UID},
-  "status": "Adjusted_",
-  "remark": null,
-  "parameters": [
+curl 
+-X POST "http://democlient2.kekker.com/api/deals/setstatus" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Content-Type: application/json" 
+-H "Authorization: {AUTHORIZATION}" 
+-d "
+{
+  \"dealUid\": \"{UID}\",
+  \"status\": \"Adjusted\",
+  \"remark\": null,
+  \"parameters\": [
   	{
-      "key": "PaymentDate",
-      "value": "2020-01-02"
+      \"key\": \"PaymentDate\",
+      \"value\": \"2020-01-02\"
     },
     {
-      "key": "DeliveryDate",
-      "value": "2020-08-09"
+      \"key\": \"DeliveryDate\",
+      \"value\": \"2020-08-09\"
     }
   	]
-}'
+}"
 ```
 
 #### Response example
 
 If all is well, the response code is `200`. The response body is empty.
 
-## 5. Make sure at PrivEth-1 node the Deal status is Adjusted
+## 5. Make sure at Buyer node the Deal status is Adjusted
 Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 > **Attention!**
@@ -316,11 +320,11 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 #### Call example
 ```bash{1-100}
-curl --request GET
-'http://democlient1.kekker.com/api/deals/{UID}' 
---header 'Accept: application/json' 
---header 'Channel: {CHANNEL}' 
---header '{AUTHORIZATION}' 
+curl 
+-X GET "http://democlient1.kekker.com/api/deals/{UID}" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Authorization: {AUTHORIZATION}"
 ```
 
 #### Response example
@@ -328,7 +332,7 @@ curl --request GET
 {
     "uid": "{UID}",
     "kind": "FirstDeal",
-    "status": "Adjusted_",
+    "status": "Adjusted",
     "remark": "2",
     "parameters": [
         {
@@ -365,7 +369,7 @@ curl --request GET
     "files": [],
     "history": [
         {
-            "status": "Issued___",
+            "status": "Issued",
             "party": {
                 "key": "CLIENT1",
                 "role": "Buyer"
@@ -374,7 +378,7 @@ curl --request GET
             "version": 2
         },
         {
-            "status": "Adjusted_",
+            "status": "Adjusted",
             "party": {
                 "key": "CLIENT2",
                 "role": "Seller"
@@ -387,7 +391,7 @@ curl --request GET
 }
 ```
 
-## 6. At PrivEth-1 node change the Deal status to Ordered
+## 6. At Buyer node change the Deal status to Ordered
 
 Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new transaction status is indicated as the request data. In our case:
 
@@ -395,7 +399,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```json
 {
   "dealUid": {UID},
-  "status": "Ordered__",
+  "status": "Ordered",
   "remark": null,
   "parameters": []
 }
@@ -403,18 +407,19 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 
 #### Call example
 ```bash{1-100}
-curl --request POST
-'http://democlient1.kekker.com/api/deals/setstatus'
---header 'Content-Type: application/json'
---header 'Channel: {CHANNEL}'
---header '{AUTHORIZATION}'
---header 'Accept: application/json'
---data-raw '{
-  "dealUid": "{UID}",
-  "status": "Ordered__",
-  "remark": null,
-  "parameters": []
- }'
+curl 
+-X POST "http://democlient1.kekker.com/api/deals/setstatus" 
+-H "Accept: application/json" 
+-H "Channel: {CHANNEL}" 
+-H "Content-Type: application/json" 
+-H "Authorization: {AUTHORIZATION}" 
+-d "
+{
+  \"dealUid\": \"{UID}\",
+  \"status\": \"Ordered\",
+  \"remark\": null,
+  \"parameters\": []
+}"
 ```
 
 #### Response example

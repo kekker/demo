@@ -46,7 +46,7 @@ After filling in the registration form you will receive an email to the specifie
 Postman is a handy tool to run API commands in a user-friendly interface. 
 To open Postman click Run in Postman on top of the scenario description page. 
 
-In Postman you will see pre-configured collection of API calls for Basic Scenario
+In Postman you will see pre-configured collection of API calls for Basic Deal scenario
 
 To set up your individual parameters click Edit on Purchase Order collection
 
