@@ -7,7 +7,7 @@ prev: Handling Errors
 
 # "Hello, World!"
 ___
-## "Basic Deal" scenario shows the simplest case of a transaction among nodes.
+## Basic Deal scenario shows the simplest case of a transaction among nodes.
 
 The participant called Sender initiates deal at the first node. 
 The second participant called Receiver detects deal initiating at the other node.  
