@@ -1,19 +1,32 @@
 ---
 title: Purchase Order
 description: Issue, adjust and submit a Purchase Order
-prev: Handling Errors
+prev: Basic Deal
 ---
 
 # Issue, adjust and submit a Purchase Order
+
+Here we will practice with a simple Deal for two parties. You will learn how to create Deal, switch Deal steps and how the information will spread between parties. 
+
+On each step you will send API commands exactly as the participants would. For this case we keep a private blockchain network. Each party has its own node. In real life these would be nodes of decentralised apps (e.g. cargo tracking platform).
 
 This case is conducted in a **Private Ethereum network (PrivEth)**.
 This case demonstrates the distribution of a transaction among nodes and switching the status of a transaction.
 It uses a predefined smart contract with the FirstDeal transaction type.
 
+### How to start
+
+We offer two ways to run Basic Scenario:
+* Easy-to-use pre-configured set of API calls in [Postman](/docs/api/authorization.html)
+* Any [cURL](/docs/api/authorization.html) command-line tool for IT-savvy users
+
+
 ### Transaction parties
+
 Buyer: `node PrivEth-1`
 
 Seller: `node PrivEth-2`
+
 
 ### Scenario overview
 
@@ -31,6 +44,7 @@ Seller makes adjustments (if allowed to) and accepts the purchase order (it beco
 * Issued
 * Adjusted
 * Ordered
+
 
 ### The script consists of the following sequential steps:
 1. At **Buyer** node create a Deal with the following attributes: *DocNumber=123, Item=Pepper, DeliveryDate=2020-08-08, Quantity=10*
@@ -94,7 +108,7 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
 ```
 
 #### Call example
-```shell
+```bash{1-100}
 curl 
 -X POST "http://democlient1.kekker.com/api/deals" 
 -H "Accept: application/json" 
@@ -156,7 +170,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```
 
 #### Call example
-```shell
+```bash{1-100}
 curl 
 -X POST "http://democlient1.kekker.com/api/deals/setstatus" 
 -H "Accept: application/json" 
@@ -185,7 +199,7 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 #### Call example (the node URL is different)
 
-```shell
+```bash{1-100}
 curl 
 -X GET "http://democlient2.kekker.com/api/deals/{UID}" 
 -H "Accept: application/json" 
@@ -268,7 +282,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```
 
 #### Call example
-```shell
+```bash{1-100}
 curl 
 -X POST "http://democlient2.kekker.com/api/deals/setstatus" 
 -H "Accept: application/json" 
@@ -305,7 +319,7 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 > Wait for 2 minutes after step [4] before executing these queries
 
 #### Call example
-```shell
+```bash{1-100}
 curl 
 -X GET "http://democlient1.kekker.com/api/deals/{UID}" 
 -H "Accept: application/json" 
@@ -392,7 +406,7 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 ```
 
 #### Call example
-```shell
+```bash{1-100}
 curl 
 -X POST "http://democlient1.kekker.com/api/deals/setstatus" 
 -H "Accept: application/json" 

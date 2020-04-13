@@ -1,3 +1,19 @@
 .gatsby-highlight {
     margin-bottom: 2em;
+    max-width: 90vw;
+}
+
+.gatsby-highlight-code-line:after{
+    content: "";
+    display: block;
+    height: 0;
+}
+
+[data-rmiz-wrap="visible"] {
+    height: 100%;
+    width: 100%;
+}
+
+[data-rmiz-btn-open] {
+    top: -40px !important;
 }

@@ -7,25 +7,26 @@ import Text from '../TextStyles/Text';
 
 const StyledButton = styled.button`
   color: ${props => props.theme.colors.primaryText};
+  padding: ${props => props.theme.button.size[props.size]};
 
   ${({ isPrimary, theme: { colors } }) => (isPrimary
     ? ` border: 2px solid ${colors.primaryBrand};
-       background: ${colors.primaryBrand};
-       padding: 0.1em 0.7em;`
+       background: ${colors.primaryBrand};`
     : ` border: 2px solid ${colors.primaryLight};
-       background: ${colors.primaryLight};
-       padding: 0.4em 0.8em;`)};
+       background: ${colors.primaryLight};`)};
 
   font-size: ${props => props.theme.fontSizes[props.size]};
   border-radius: 2em;
 `;
 
-const ButtonLink = ({ title, isPrimary, to }) => (
+const ButtonLink = ({
+  size, fontSize, title, isPrimary, to
+}) => (
   <Link to={to}>
-    <StyledButton isPrimary={isPrimary} type="button">
+    <StyledButton size={size} isPrimary={isPrimary} type="button">
       <Text
-        fontSize="medium"
-        fontWeight="800"
+        fontSize={fontSize}
+        fontWeight="900"
         isHeadingFont
         textTransform="uppercase"
       >
@@ -36,7 +37,7 @@ const ButtonLink = ({ title, isPrimary, to }) => (
 );
 
 ButtonLink.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'extralarge']),
   title: PropTypes.string.isRequired,
   isPrimary: PropTypes.bool,
   to: PropTypes.string.isRequired,
@@ -44,7 +45,8 @@ ButtonLink.propTypes = {
 
 ButtonLink.defaultProps = {
   isPrimary: false,
-  size: 'small',
+  size: 'medium',
+  fontSize: 'medium',
 };
 
 export default ButtonLink;

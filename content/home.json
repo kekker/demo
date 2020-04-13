@@ -22,7 +22,8 @@
       "link_to": "/about/benefits.html"
     }
   ],
-  "overView": "Platform at a Glance",
+  "KekkerPlatformSectionHeader": "Kekker Platform at a Glance",
+  "KekkerSandboxSectionHeader": "Kekker Sandbox at a Glance",
   "getStartedButtonSectionHeader":
          "Create a Decentralized App in 10 Minutes",
   "getStartedButtonLink":

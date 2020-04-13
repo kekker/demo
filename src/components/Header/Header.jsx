@@ -12,9 +12,9 @@ import HeaderNav from './HeaderNav';
 
 export const queryShortHeader = graphql`
   query {
-    bgImage: file(absolutePath: { regex: "/kekker_bg.png/" }) {
+    bgImage: file(absolutePath: { regex: "/kekker_mainpage_bg2.jpg/" }) {
       childImageSharp {
-        fluid(maxWidth: 1600) {
+        fluid(maxWidth: 1600, maxHeight: 400) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -26,9 +26,15 @@ const ShortHeader = ({ location }) => (
   <StaticQuery
     query={queryShortHeader}
     render={data => (
-      <ContainerSection>
+      <ContainerSection
+        width="100vw"
+        height="10vh"
+        style={{
+          position: 'fixed', top: '0', left: '0', zIndex: 1
+        }}
+      >
         <BgImage
-          height="12vh"
+          height="10vh"
           fluid={data.bgImage.childImageSharp.fluid}
           title="Kekker background cover"
           color="#141414"

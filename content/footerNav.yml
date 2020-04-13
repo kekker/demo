@@ -35,6 +35,9 @@ items:
 
   - header: Scenarios
     items:
+      - title: Basic Deal
+        to: /docs/scenarios/basic-deal.html
+
       - title: Purchase Order
         to: /docs/scenarios/purchase-order.html
 
