@@ -70,22 +70,22 @@ curl
 -H "Channel: {CHANNEL}" 
 -H "Content-Type: application/json" 
 -H "Authorization: {AUTHORIZATION}" 
--d '
+-d "
 {
-  "dealUid": null,
-  "kind": "FirstDeal",
-  "parties": [
+  \"dealUid\": null,
+  \"kind\": "FirstDeal",
+  \"parties\": [
     {
-      "key": "CLIENT1",
-      "role": "Sender"
+      \"key\": \"CLIENT1\",
+      \"role\": \"Sender\"
     },
     {
-      "key": "CLIENT2",
-      "role": "Reciever"
+      \"key\": \"CLIENT2\",
+      \"role\": \"Reciever\"
     }
   ],
-  "status": "Created"
-}'
+  \"status\": \"Created\"
+}"
 ```
 
 #### Response example
