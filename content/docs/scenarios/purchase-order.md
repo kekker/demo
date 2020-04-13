@@ -6,31 +6,46 @@ prev: Basic Deal
 
 # Issue, adjust and submit a Purchase Order
 
+Here we will practice with a simple Deal for two parties. You will learn how to create Deal, switch Deal steps and how the information will spread between parties. 
+
+On each step you will send API commands exactly as the participants would. For this case we keep a private blockchain network. Each party has its own node. In real life these would be nodes of decentralised apps (e.g. cargo tracking platform).
+
 This case is conducted in a **Private Ethereum network (PrivEth)**.
-The case demonstrates the distribution of a transaction among nodes and switching the status of a transaction.
-It uses a predefined smart contract with FirstDeal transaction type.
+This case demonstrates the distribution of a transaction among nodes and switching the status of a transaction.
+It uses a predefined smart contract with the FirstDeal transaction type.
+
+
+### How to start
+
+We offer two ways to run Basic Scenario:
+* Easy-to-use pre-configured set of API calls in [Postman](/docs/api/authorization.html)
+* Any [cURL](/docs/api/authorization.html) command-line tool for IT-savvy users
+
 
 ### Transaction parties
 Buyer: `node PrivEth-1`
 
 Seller: `node PrivEth-2`
 
+
 ### Scenario overview
 
 **Buyer** issues a Purchase Order to the outside **Seller**, initiating the sales transaction. 
-**Buyer** provides the Purchase Order optional information:
+**Buyer** provides the Purchase Order with the following information:
 * Number of the Purchase Order
 * Items being purchased 
 * Delivery date 
 * Quantity
-and other the payment terms, ship-to address, invoicing instructions and the name of the purchasing office. 
-Seller makes adjustments (if allowed to) and accepts the purchase order (it becomes a binding contract on both the buyer and seller).
+and other payment terms, ship-to address, invoicing instructions and the name of the purchasing office. 
+Seller makes adjustments (if allowed to) and accepts the purchase order (it becomes a binding contract on both buyer and seller).
+
 
 ### Status transition map (non-controlled)
 * Created
 * Issued
 * Adjusted
 * Ordered
+
 
 ### The script consists of the following sequential steps:
 1. At **PrivEth-1** node create a Deal with the following attributes: *DocNumber=123, Item=Pepper, DeliveryDate=2020-08-08, Quantity=10*

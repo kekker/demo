@@ -20,7 +20,7 @@ The public cluster is based on an Ethereum testnet Rinkeby (see link in a new ta
 * `pubdemoclient1.kekker.com`
 * `pubdemoclient2.kekker.com`
 
-The clusters interact with each other via a dedicated trunk private Ethereum network.
+The clusters interact with each other via a dedicated trunk network.
 
 ### Differences from production environment
 The Sandbox contains only test data and is completely separate from your production account.
@@ -34,15 +34,31 @@ Unlike transactions in Private Networks, which are processed within a few minute
 
 ### Sandbox access
 
-After filling in the registration form you will receive email to the specified email address with the sanbox access information:
-* UID ChannelID is necessary for working with the sandbox and should be provided each time you access the http methods
-* Login, password and their base64 form (Authentication header)
+After filling in the registration form you will receive an email to the specified email address with the Sanbox access information:
+* Your UID CHANNELID is necessary for working with the Sandbox and should be provided each time you access the HTTP methods
+* Your login, password and their base64 form (Authentication header)
 * A file with settings to run test Postman script
 
-### Tools needed for sandbox
+# Tools
 
-Feel free to use your favorite http request tools to access the sandbox services. We recommend using the curl command-line tool for transferring data using various protocols. 
-Launch your command-line processor and run `curl google.com`. If you see the html code:
+## Postman
+
+Postman is a handy tool to run API commands in a user-friendly interface. 
+To open Postman click Run in Postman on top of the scenario description page. 
+
+In Postman you will see pre-configured collection of API calls for Basic Scenario
+
+To set up your individual parameters click Edit on Purchase Order collection
+
+Go to Variables tab and fill in Login, Password and Channel from email. Click Update.
+
+
+## cURL
+
+You can simply use requests examples from scenario description. All you need is to fill in your Channel (from the Sandobx registration email) and add Authorization to requests headers.
+
+Feel free to use your favorite HTTP request tools to access the Sandbox services. We recommend using the cURL command-line tool for transferring data using various protocols. 
+Launch your command-line processor and run `curl google.com`. If you see the following HTML code you have the cURL command-line tool on your machine and can execute scripts for the Sandbox:
 
 ```html
 <HTML>
@@ -60,13 +76,8 @@ Launch your command-line processor and run `curl google.com`. If you see the htm
     </BODY>
 </HTML>
 ```
-you have the curl command-line tool on your machine and can execute scripts for the sandbox.
 
-
-### Description
-
-If you are a Linux user the cURL tool must be installed on your machine along with the operating system. 
-If this is not the case or you want to update the tool check the distributions and installation instructions at [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html)
+### Windows
 
 If you are a Windows user please follow these simple steps:
 * Download the app from [https://curl.haxx.se/windows/](https://curl.haxx.se/windows/)
@@ -75,4 +86,8 @@ If you are a Windows user please follow these simple steps:
 * Add path `<root_path>\bin` to the `Path`variable
 * Restart your command-line tool and run `curl google.com`
 
+### Linux
+
+If you are a Linux user the cURL tool must be installed on your machine along with the operating system. 
+If this is not the case or you want to update the tool check the distributions and installation instructions at [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html)
 
