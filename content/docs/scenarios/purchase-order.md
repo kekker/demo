@@ -1,7 +1,7 @@
 ---
 title: Purchase Order
 description: Issue, adjust and submit a Purchase Order
-prev: Handling Errors
+prev: Basic Deal
 ---
 
 # Issue, adjust and submit a Purchase Order
