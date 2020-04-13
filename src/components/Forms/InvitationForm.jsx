@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'gatsby';
 
-import libphonenumber from 'google-libphonenumber';
+// import libphonenumber from 'google-libphonenumber';
 import RichTextInput from './FormComponents/RichTextinput';
 import SelectInput from './FormComponents/SelectInput';
 import TextInput from './FormComponents/TextInput';
@@ -12,7 +12,7 @@ import Text from '../TextStyles/Text';
 import SuccessfulFormMessage from './FormMessages/SuccessfulFormMessage';
 import ErrorFormMessage from './FormMessages/ErrorFormMessage';
 
-import { phoneNumberRegex } from '../../utils/phoneNumberRegex';
+//import { phoneNumberRegex } from '../../utils/phoneNumberRegex';
 import { encode } from '../../utils/convertObjectToQueryString';
 import ContainerContent from "../ContainerContent/ContainerContent";
 
@@ -20,7 +20,7 @@ import ContainerContent from "../ContainerContent/ContainerContent";
 const initialValues = {
   email: '',
   fullName: '',
-  phone: '+',
+  phone: '',
   occupation: '',
   comment: '',
 };
@@ -38,23 +38,23 @@ const industryValues = industryOptions.reduce(
   [],
 );
 
-const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance();
-
-Yup.addMethod(Yup.string, 'phone', function () {
-  return this.test({
-    name: 'phone',
-    exclusive: true,
-    message: 'Must be a phone number',
-    test: value => {
-      try {
-        const phone = phoneUtil.parse(value);
-        return phoneUtil.isValidNumber(phone);
-      } catch (e) {
-        return false;
-      }
-    },
-  });
-});
+// const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance();
+//
+// Yup.addMethod(Yup.string, 'phone', function () {
+//   return this.test({
+//     name: 'phone',
+//     exclusive: true,
+//     message: 'Must be a phone number',
+//     test: value => {
+//       try {
+//         const phone = phoneUtil.parse(value);
+//         return phoneUtil.isValidNumber(phone);
+//       } catch (e) {
+//         return false;
+//       }
+//     },
+//   });
+// });
 
 const InvitationSchema = Yup.object().shape({
   email: Yup.string()
@@ -65,8 +65,8 @@ const InvitationSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   phone: Yup.string()
-    // .matches(phoneNumberRegex, 'Phone number is not valid')
-    .phone()
+    //.matches(phoneNumberRegex, 'Phone number is not valid')
+    //.phone()
     .required('Required'),
   occupation: Yup.string().oneOf(
     industryValues,
