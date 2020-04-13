@@ -7,7 +7,7 @@ import Layout from '../components/Layout/Layout';
 import Seo from '../components/SEO/Seo';
 import MarkdownContent from '../components/MarkdownContent';
 
-import {listDocsLinks, listAboutLinks} from "../utils/getLinkLists";
+import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
 
 const Docs = ({ data, pageContext, location }) => {
   const { frontmatter } = data.markdownRemark;
@@ -15,22 +15,21 @@ const Docs = ({ data, pageContext, location }) => {
   const content = data.markdownRemark;
   const { slug } = pageContext;
 
-  const listItems = slug.includes('docs')
-      ? listDocsLinks
-      : listAboutLinks;
+  const listItems = slug.includes('docs') ? listDocsLinks : listAboutLinks;
 
   return (
-    <Layout location={location.pathname} title={title} description={description}>
+    <Layout
+      location={location.pathname}
+      title={title}
+      description={description}
+    >
       <Seo
         title={`${title} - Kekker`}
         description={description || post.excerpt}
         slug={slug}
       />
 
-      <MarkdownContent
-        markdownRemark={content}
-        listItems={listItems}
-      />
+      <MarkdownContent markdownRemark={content} listItems={listItems} />
     </Layout>
   );
 };

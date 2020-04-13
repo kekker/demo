@@ -40,15 +40,15 @@ const Footer = () => {
   const footerFontSize = 'medium';
   return (
     <ContainerSection bg="primaryDark" height="100%">
-      <ContainerContent>
+      <ContainerContent pb={{ _: 4, sm: 6 }}>
         <Flex flexDirection="column" height="100%">
-          {/*<Flex*/}
-          {/*  flexWrap="wrap"*/}
-          {/*  justifyContent="space-between"*/}
-          {/*  alignItems="center"*/}
-          {/*>*/}
-          {/*  <LogoLink />*/}
-          {/*</Flex>*/}
+          {/* <Flex */}
+          {/*  flexWrap="wrap" */}
+          {/*  justifyContent="space-between" */}
+          {/*  alignItems="center" */}
+          {/* > */}
+          {/*  <LogoLink /> */}
+          {/* </Flex> */}
           <Grid>
             {footerNav.items.map(linkSection => (
               <FooterLink

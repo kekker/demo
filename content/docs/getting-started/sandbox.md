@@ -22,6 +22,16 @@ The public cluster is based on an Ethereum testnet Rinkeby (see link in a new ta
 
 The clusters interact with each other via a dedicated trunk network.
 
+### Differences from production environment
+The Sandbox contains only test data and is completely separate from your production account.
+
+All API endpoints have a base URL of [https://democlient1.kekker.com/](https://democlient1.kekker.com/) instead of [https://api.kekker.com/](https://api.kekker.com/)
+
+> Real commercial data should never be used in the Sandbox.
+
+### Transactions behavior in Private and Public Networks
+Unlike transactions in Private Networks, which are processed within a few minutes, transactions in Public Networks may require up to **15 minutes** until they are processed.
+
 ### Sandbox access
 
 After filling in the registration form you will receive an email to the specified email address with the Sanbox access information:
@@ -51,12 +61,20 @@ Feel free to use your favorite HTTP request tools to access the Sandbox services
 Launch your command-line processor and run `curl google.com`. If you see the following HTML code you have the cURL command-line tool on your machine and can execute scripts for the Sandbox:
 
 ```html
-<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
-<TITLE>301 Moved</TITLE></HEAD><BODY>
-<H1>301 Moved</H1>
-The document has moved
-<A HREF="http://www.google.com/">here</A>.
-</BODY></HTML>
+<HTML>
+    <HEAD>
+    <meta http-equiv="content-type" 
+          content="text/html;charset=utf-8">
+    <TITLE>301 Moved</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>301 Moved</H1>
+        The document has moved
+        <A HREF="http://www.google.com/">
+            here
+        </A>
+    </BODY>
+</HTML>
 ```
 
 ### Windows

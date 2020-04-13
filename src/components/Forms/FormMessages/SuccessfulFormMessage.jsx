@@ -25,12 +25,7 @@ const SuccessfulFormMessage = () => (
       <StyledArrowIconDiv>
         <StyledArrowIcon src={arrowSvg} alt="Arrow Icon" />
       </StyledArrowIconDiv>
-      <Text
-        tag="div"
-        isHeadingFont
-        textTransform="uppercase"
-        fontWeight={600}
-      >
+      <Text tag="div" isHeadingFont textTransform="uppercase" fontWeight={600}>
         Thank you for your request.
         {' '}
         <br />

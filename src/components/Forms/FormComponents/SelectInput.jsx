@@ -12,7 +12,7 @@ const StyledSelect = styled.select`
   padding: 8px 13px;
 
   font-family: 'Courier';
-  font-size: ${props => props.theme.fontSizes['medium']}px;
+  font-size: ${props => props.theme.fontSizes.medium}px;
   border: 1px solid lightgrey;
   text-transform: uppercase;
   background-color: white;
@@ -21,7 +21,7 @@ const StyledSelect = styled.select`
 
   & > option {
     color: black;
-    font-size: ${props => props.theme.fontSizes['medium']}px;
+    font-size: ${props => props.theme.fontSizes.medium}px;
   }
 
   & > option:first-child {

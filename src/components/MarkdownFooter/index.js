@@ -1,3 +1,3 @@
-import MarkdownFooter from "./MarkdownFooter";
+import MarkdownFooter from './MarkdownFooter';
 
 export default MarkdownFooter;
