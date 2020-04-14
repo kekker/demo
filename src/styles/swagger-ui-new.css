@@ -9513,12 +9513,18 @@ main {
     margin-bottom: 2em
 }
 
+.swagger-ui .parameters-col_description input {
+    display: none;
+}
+
 .swagger-ui .parameters-col_description input[type=text] {
+    display: none;
     width: 100%;
     max-width: 340px
 }
 
 .swagger-ui .parameters-col_description select {
+    display: none;
     border-width: 1px
 }
 
@@ -9526,8 +9532,6 @@ main {
     font-size: 16px;
     font-weight: 400;
     margin-right: .75em;
-    
-    color: #000000
 }
 
 .swagger-ui .parameter__name.required {
