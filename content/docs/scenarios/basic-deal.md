@@ -55,7 +55,7 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
     },
     {
       "key": "CLIENT2",
-      "role": "Reciever"
+      "role": "Receiver"
     }
   ],
   "status": "Created"
@@ -73,7 +73,7 @@ curl
 -d "
 {
   \"dealUid\": null,
-  \"kind\": "FirstDeal",
+  \"kind\": \"FirstDeal\",
   \"parties\": [
     {
       \"key\": \"CLIENT1\",
@@ -81,7 +81,7 @@ curl
     },
     {
       \"key\": \"CLIENT2\",
-      \"role\": \"Reciever\"
+      \"role\": \"Receiver\"
     }
   ],
   \"status\": \"Created\"
@@ -90,9 +90,9 @@ curl
 
 #### Response example
 
-If everything is fine you'll receive response code `200`. The Deal identifier is in the response body [UID]. Save it and add to further requests.
+If everything is fine you'll receive the Deal identifier [UID] in the response body . Save it and add to further requests.
 
-## 2. Make sure at `Reciever` node the Deal status is Created
+## 2. Make sure at `Receiver` node the Deal status is Created
 Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 > **Attention!** 
@@ -124,7 +124,7 @@ curl
         },
         {
             "key": "CLIENT2",
-            "role": "Reciever"
+            "role": "Receiver"
         }
     ],
     "files": [],
@@ -142,3 +142,7 @@ curl
     "statusMap": []
 }
 ```
+Check the Deal status equals `Created`
+> **Attention!** 
+>
+> If incorrect repeat the second request after a while
