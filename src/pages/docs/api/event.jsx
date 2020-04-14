@@ -7,6 +7,7 @@ import '../../../styles/swagger-ui-new.css';
 // Components
 import ApiLayout from '../../../templates/api';
 import MarkdownFooter from "../../../components/MarkdownFooter";
+import SandboxPromoSection from "../../../components/SandboxPromoSection";
 
 const swaggerContent = require('../../../../static/kekkerdemo-event');
 
@@ -49,6 +50,7 @@ class EventPage extends React.Component {
         description="Event request for Kekker API"
       >
         {swaggerComponent}
+        <SandboxPromoSection/>
         <MarkdownFooter next={next} prev={prev} />
       </ApiLayout>
     );

@@ -7,6 +7,7 @@ import '../../../styles/swagger-ui-new.css';
 // Components
 import Layout from "../../../components/Layout";
 import MarkdownFooter from "../../../components/MarkdownFooter";
+import SandboxPromoSection from "../../../components/SandboxPromoSection";
 
 const swaggerContent = require('../../../../static/kekkerdemo-deal');
 
@@ -49,6 +50,7 @@ class DealPage extends React.Component {
         description="Deal request for Kekker API"
       >
         {swaggerComponent}
+        <SandboxPromoSection/>
         <MarkdownFooter next={next} prev={prev} />
       </Layout>
     );

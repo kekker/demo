@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { space, layout } from 'styled-system';
 
-const StyledContainerContent = styled.div`
+const StyledContainerContent = styled.div.attrs(props => ({
+  pb: props.pb && props.pb === 'normal'
+      ? {_: 4, sm: 6}
+      : props.pb
+}))`
   display: block;
 
   ${space};
@@ -14,10 +18,6 @@ const StyledContainerContent = styled.div`
 `;
 
 const ContainerContent = ({children, ...props}) => {
-  if (props.pb && props.pb === 'normal') {
-    props.pb = {_: 4, sm: 6};
-  }
-
   return (
       <StyledContainerContent {...props}>
         {children}

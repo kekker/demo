@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import MarkdownFooter from '../MarkdownFooter';
 import Flex from '../Flex';
+import SandboxPromoSection from "../SandboxPromoSection";
 
 const MarkdownSection = styled.section`
   height: 100%;
@@ -37,6 +38,7 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
         justifyContent="space-between"
       >
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        <SandboxPromoSection/>
         <MarkdownFooter prev={prevPage} next={nextPage} />
       </Flex>
     </MarkdownSection>

@@ -7,6 +7,7 @@ import '../../../styles/swagger-ui-new.css';
 // Components
 import Layout from '../../../components/Layout';
 import MarkdownFooter from "../../../components/MarkdownFooter";
+import SandboxPromoSection from "../../../components/SandboxPromoSection";
 
 const swaggerContent = require('../../../../static/kekkerdemo-client');
 
@@ -44,6 +45,7 @@ class ClientPage extends React.Component {
         description="Client request for Kekker API"
       >
         {swaggerComponent}
+        <SandboxPromoSection/>
         <MarkdownFooter next={next} />
       </Layout>
     );

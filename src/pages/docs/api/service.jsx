@@ -7,6 +7,7 @@ import '../../../styles/swagger-ui-new.css';
 // Components
 import ApiLayout from '../../../templates/api';
 import MarkdownFooter from "../../../components/MarkdownFooter";
+import SandboxPromoSection from "../../../components/SandboxPromoSection";
 
 const swaggerContent = require('../../../../static/kekkerdemo-service');
 
@@ -44,6 +45,7 @@ class ServicePage extends React.Component {
         description="Service request for Kekker API"
       >
         {swaggerComponent}
+        <SandboxPromoSection/>
         <MarkdownFooter prev={prev} />
       </ApiLayout>
     );
