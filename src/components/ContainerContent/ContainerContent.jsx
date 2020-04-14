@@ -1,8 +1,8 @@
 import React from 'react';
-import styled, { withTheme } from 'styled-components';
+import styled from 'styled-components';
 import { space, layout } from 'styled-system';
 
-const ContainerContent = styled.div`
+const StyledContainerContent = styled.div`
   display: block;
 
   ${space};
@@ -13,6 +13,19 @@ const ContainerContent = styled.div`
   max-width: 1200px;
 `;
 
+const ContainerContent = ({children, ...props}) => {
+  if (props.pb && props.pb === 'normal') {
+    props.pb = {_: 4, sm: 6};
+  }
+
+  return (
+      <StyledContainerContent {...props}>
+        {children}
+      </StyledContainerContent>
+  )
+};
+
+
 ContainerContent.defaultProps = {
   height: '100%',
   width: '100%',
@@ -22,4 +35,4 @@ ContainerContent.defaultProps = {
   pr: { _: 4, sm: 6, md: 7 },
 };
 
-export default withTheme(ContainerContent);
+export default ContainerContent;

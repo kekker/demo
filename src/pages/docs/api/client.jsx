@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwaggerUI from 'swagger-ui-react';
-import '../../../styles/swagger-ui.css';
+
+import '../../../styles/swagger-ui-new.css';
 
 // Components
-import ApiLayout from '../../../templates/api';
+import Layout from '../../../components/Layout';
 
 const swaggerContent = require('../../../../static/kekkerdemo-client');
 
@@ -31,13 +32,14 @@ class ClientPage extends React.Component {
     const { swaggerComponent } = this.state;
 
     return (
-      <ApiLayout
+      <Layout
         location={location.pathname}
         title="API Client - Kekker"
         description="Client request for Kekker API"
+        pb='normal'
       >
         {swaggerComponent}
-      </ApiLayout>
+      </Layout>
     );
   }
 }
