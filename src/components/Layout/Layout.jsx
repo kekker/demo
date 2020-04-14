@@ -54,7 +54,9 @@ const Layout = ({
       <main>
         <ContainerContent mt="10vh" mb={0} pb={pb || 0}>
           <GridLayout>
-            {children}
+            <div>
+              {children}
+            </div>
             <ResponsiveAside>
               <GridMenu>
                 <SideMenu location={location} section={sideMenu} />

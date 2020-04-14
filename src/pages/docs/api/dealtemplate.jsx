@@ -6,6 +6,7 @@ import '../../../styles/swagger-ui-new.css';
 
 // Components
 import ApiLayout from '../../../templates/api';
+import MarkdownFooter from "../../../components/MarkdownFooter";
 
 const swaggerContent = require('../../../../static/kekkerdemo-dealtemplate');
 
@@ -31,6 +32,16 @@ class DealTemplatePage extends React.Component {
     const { location } = this.props;
     const { swaggerComponent } = this.state;
 
+    const next = {
+      to: '/docs/api/event',
+      title: 'Event Request'
+    };
+
+    const prev = {
+      to: '/docs/api/deal',
+      title: 'Deal Request'
+    };
+
     return (
       <ApiLayout
         location={location.pathname}
@@ -38,6 +49,7 @@ class DealTemplatePage extends React.Component {
         description="DealTemplate request for Kekker API"
       >
         {swaggerComponent}
+        <MarkdownFooter next={next} prev={prev} />
       </ApiLayout>
     );
   }

@@ -6,6 +6,7 @@ import '../../../styles/swagger-ui-new.css';
 
 // Components
 import Layout from '../../../components/Layout';
+import MarkdownFooter from "../../../components/MarkdownFooter";
 
 const swaggerContent = require('../../../../static/kekkerdemo-client');
 
@@ -31,14 +32,19 @@ class ClientPage extends React.Component {
     const { location } = this.props;
     const { swaggerComponent } = this.state;
 
+    const next = {
+      to: '/docs/api/deal',
+      title: 'Deal Request'
+    };
+
     return (
       <Layout
         location={location.pathname}
         title="API Client - Kekker"
         description="Client request for Kekker API"
-        pb='normal'
       >
         {swaggerComponent}
+        <MarkdownFooter next={next} />
       </Layout>
     );
   }
