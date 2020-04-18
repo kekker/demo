@@ -41,7 +41,7 @@ const BlogIndex = ({ data, location }) => {
 
         <MainHeader location={location.pathname} />
 
-        <main>
+        <main style={{ marginTop: 0}}>
           <ContainerContent pb={3}>
             <Flex
               flexDirection={{ _: 'column', sm: 'row' }}

@@ -1,6 +1,14 @@
 .gatsby-highlight {
     margin-bottom: 2em;
-    max-width: 90vw;
+    max-width: 55vw;
+    /*max-width: 70%;*/
+    /*width: 90%;*/
+}
+
+@media (max-width: 980px) {
+    .gatsby-highlight {
+        max-width: 90vw;
+    }
 }
 
 .gatsby-highlight-code-line:after{

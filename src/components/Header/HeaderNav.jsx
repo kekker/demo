@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, {withTheme} from 'styled-components';
 import HeaderLink from './HeaderLink';
 import ButtonLink from '../Button';
 import Flex from '../Flex';
@@ -31,9 +31,9 @@ const Nav = styled.nav`
   }
 `;
 
-const HeaderNav = ({ location }) => (
+const HeaderNav = ({ location, theme }) => (
   <Flex
-    height="10vh"
+    height={theme.layout.menuHeight}
     width="100%"
     justifyContent="space-between"
     alignItems="center"
@@ -60,7 +60,7 @@ const HeaderNav = ({ location }) => (
   </Flex>
 );
 
-export default HeaderNav;
+export default withTheme(HeaderNav);
 
 HeaderNav.propTypes = {
   location: PropTypes.string.isRequired,

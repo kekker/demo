@@ -14,7 +14,7 @@ const StyledContainerContent = styled.div.attrs(props => ({
 
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px;
+  max-width: ${(props) => props.theme.layout.containerMaxWidth};
 `;
 
 const ContainerContent = ({children, ...props}) => {

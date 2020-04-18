@@ -66,6 +66,14 @@
   "space": [
     0, 5, 10, 20, 30, 50, 75, 100, 256
   ],
+  "layout": {
+    "containerMaxWidth": "1200px",
+    "menuHeight": "10vh",
+    "indexHeaderSectionHeight": {
+      "xs": "400px",
+      "md": "500px"
+    }
+  },
   "button" : {
     "disabledBgColor": "#ececec",
     "disabledFontColor": "#9e9e9e",

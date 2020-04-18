@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import Text from '../TextStyles/Text';
 
 const StyledHeaderLink = styled(Link)`
-  color: ${props => props.theme.colors[props.color]};
   display: block;
-  transition: 'color 0.2s ease-out';
   margin-left: ${props => props.theme.fontSizes.extrasmall}px;
-
+  
+  color: ${props => props.theme.colors[props.color]};
+  transition: 'color 0.2s ease-out';
   text-decoration: none;
 
   &:focus {
