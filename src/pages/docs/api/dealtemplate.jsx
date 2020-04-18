@@ -5,7 +5,7 @@ import SwaggerUI from 'swagger-ui-react';
 import '../../../styles/swagger-ui-new.css';
 
 // Components
-import ApiLayout from '../../../templates/api';
+import Layout from '../../../components/Layout';
 import MarkdownFooter from "../../../components/MarkdownFooter";
 import SandboxPromoSection from "../../../components/SandboxPromoSection";
 
@@ -44,7 +44,7 @@ class DealTemplatePage extends React.Component {
     };
 
     return (
-      <ApiLayout
+      <Layout
         location={location.pathname}
         title="API DealTemplate - Kekker"
         description="DealTemplate request for Kekker API"
@@ -52,7 +52,7 @@ class DealTemplatePage extends React.Component {
         {swaggerComponent}
         <SandboxPromoSection/>
         <MarkdownFooter next={next} prev={prev} />
-      </ApiLayout>
+      </Layout>
     );
   }
 }

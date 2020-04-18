@@ -5,7 +5,7 @@ import SwaggerUI from 'swagger-ui-react';
 import '../../../styles/swagger-ui-new.css';
 
 // Components
-import ApiLayout from '../../../templates/api';
+import Layout from "../../../components/Layout";
 import MarkdownFooter from "../../../components/MarkdownFooter";
 import SandboxPromoSection from "../../../components/SandboxPromoSection";
 
@@ -39,7 +39,7 @@ class ServicePage extends React.Component {
     };
 
     return (
-      <ApiLayout
+      <Layout
         location={location.pathname}
         title="API Service - Kekker"
         description="Service request for Kekker API"
@@ -47,7 +47,7 @@ class ServicePage extends React.Component {
         {swaggerComponent}
         <SandboxPromoSection/>
         <MarkdownFooter prev={prev} />
-      </ApiLayout>
+      </Layout>
     );
   }
 }
