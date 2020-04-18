@@ -9,7 +9,7 @@ import Flex from "../Flex";
 
 
 const SandboxPromoSection = () => (
-    <ContainerSection>
+    <ContainerSection height={'unset'}>
         <hr style={{ marginBottom: 0}} />
         <ContainerContent pb={{_: 4, sm: 5}} pt={{_: 4, sm: 4}}>
             <Flex flexDirection="column" alignItems="center">
