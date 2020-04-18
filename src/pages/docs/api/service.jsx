@@ -35,7 +35,7 @@ class ServicePage extends React.Component {
 
     const prev = {
       to: 'docs/api/event',
-      title: 'Event Request'
+      title: 'API: Event'
     };
 
     return (

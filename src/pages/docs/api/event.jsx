@@ -35,12 +35,12 @@ class EventPage extends React.Component {
 
     const next = {
       to: '/docs/api/service',
-      title: 'Service Request'
+      title: 'API: Service'
     };
 
     const prev = {
       to: '/docs/api/dealtemplate',
-      title: 'DealTemplate Request'
+      title: 'API: DealTemplate'
     };
 
     return (

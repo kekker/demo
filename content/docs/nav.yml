@@ -9,12 +9,6 @@
     - title: Sandbox
       to: /docs/getting-started/sandbox.html
 
-    - title: Authorization
-      to: /docs/getting-started/authorization.html
-
-    - title: Handling Errors
-      to: /docs/getting-started/handling-errors.html
-
 - header: Scenarios
   items:
     - title: Basic Deal
@@ -25,6 +19,12 @@
 
 - header: API
   items:
+    - title: Authorization
+      to: /docs/api/authorization.html
+
+    - title: Handling Errors
+      to: /docs/api/handling-errors.html
+
     - title: Client
       to: /docs/api/client
 

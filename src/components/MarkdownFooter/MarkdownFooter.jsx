@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import Flex from '../Flex';
 import Text from '../TextStyles/Text';
-import Heading from '../TextStyles/Heading';
 
 import prevArrow from '../../../static/assets/kekker_arrow_2.svg';
 
@@ -94,7 +93,7 @@ const BorderDiv = styled.div`
   }
 `;
 
-const MarkdownFooter = ({ next, prev }) => (
+const MarkdownFooter = ({ next, prev, next_title, prev_title }) => (
   <FlexWithBorder
     next={next}
     prev={prev}
@@ -127,9 +126,9 @@ const MarkdownFooter = ({ next, prev }) => (
                 <Text
                   isHeadingFont
                   fontWeight={800}
-                  fontSize={{ _: 'extralarge', md: 'h1.sm' }}
+                  fontSize={{ _: 'large', sm: 'extralarge', md: 'h1.sm' }}
                 >
-                  {prev.title}
+                  {prev_title ? prev_title : prev.title}
                 </Text>
               </DivResponsiveMarginLeft>
             </Flex>
@@ -163,9 +162,9 @@ const MarkdownFooter = ({ next, prev }) => (
                 <Text
                   isHeadingFont
                   fontWeight={800}
-                  fontSize={{ _: 'extralarge', md: 'h1.sm' }}
+                  fontSize={{ _: 'large', sm: 'extralarge', md: 'h1.sm' }}
                 >
-                  {next.title}
+                  {next_title ? next_title : next.title}
                 </Text>
               </DivResponsiveMarginRight>
             </Flex>

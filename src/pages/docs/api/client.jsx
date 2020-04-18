@@ -33,9 +33,14 @@ class ClientPage extends React.Component {
     const { location } = this.props;
     const { swaggerComponent } = this.state;
 
+    const prev = {
+      to: '/docs/api/handling-errors.html',
+      title: 'Handling Errors'
+    };
+
     const next = {
       to: '/docs/api/deal',
-      title: 'Deal Request'
+      title: 'API: Deal'
     };
 
     return (
@@ -46,7 +51,7 @@ class ClientPage extends React.Component {
       >
         {swaggerComponent}
         <SandboxPromoSection/>
-        <MarkdownFooter next={next} />
+        <MarkdownFooter next={next} prev={prev}/>
       </Layout>
     );
   }

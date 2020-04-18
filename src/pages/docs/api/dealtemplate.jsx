@@ -35,12 +35,12 @@ class DealTemplatePage extends React.Component {
 
     const next = {
       to: '/docs/api/event',
-      title: 'Event Request'
+      title: 'API: Event'
     };
 
     const prev = {
       to: '/docs/api/deal',
-      title: 'Deal Request'
+      title: 'API: Deal'
     };
 
     return (

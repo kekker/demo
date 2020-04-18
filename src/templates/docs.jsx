@@ -43,6 +43,8 @@ export const pageQuery = graphql`
         description
         next
         prev
+        next_title
+        prev_title
       }
       fields {
         slug
