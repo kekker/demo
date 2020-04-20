@@ -77,7 +77,7 @@ const BlogIndex = ({ data, location }) => {
                   Platform
                 </Heading>
                 <Text tag="p">
-                  Kekker is middleware with a set of DLT/DFS technologies and APIs that <strong> lets you build and run decentralized blockchain-powered applications </strong> without blockchain expertise.
+                  Kekker is middleware with a set of DLT/DFS technologies and APIs that lets you  build and run decentralized blockchain-powered applications without blockchain expertise .
                 </Text>
                 <Text tag='p'>
                   Use Kekker’s services to operate your decentralized environment or manage your secured distributed solution network independently.
@@ -91,12 +91,12 @@ const BlogIndex = ({ data, location }) => {
                   Sandbox
                 </Heading>
                 <Text tag="p">
-                  Kekker Sandbox is free and  <strong> provides a unique opportunity to build a prototype </strong> or MVP on any of the popular blockchains.
+                  Kekker Sandbox is free and allows you to create a prototype or MVP on any of the popular blockchains.
+                  Don't worry about infrastructure - just start building your decentralized application right now.
+                  Yes, that's right - the Sandbox is free!
                 </Text>
                 <Text tag={'p'}>
-                  Don’t bother about infrastructure - just start building your decentralized application right away.
-                  <strong> Yes, that’s right - the sandbox is free! </strong>
-                  At any time you can transfer your decentralized application to your own infrastructure or entrust us with hosting and support customized for your needs.
+                  Transfer your decentralized application to your own infrastructure at any time or entrust us with hosting and support tailored to your needs.
                 </Text>
               </GridItem>
               <GridItem
@@ -107,10 +107,10 @@ const BlogIndex = ({ data, location }) => {
                   Benefits
                 </Heading>
                 <Text tag="p">
-                  Kekker allows for <strong> 10X faster time-to-market than direct competition, is 100X cheaper/faster </strong> than hiring experts and is easy to setup and use and no DLT/DFS experience needed!
+                  Kekker allows for  10X faster time-to-market  than direct competition, is  100X cheaper/faster  than hiring experts and is  easy to setup and use and no DLT/DFS experience needed! 
                 </Text>
                 <Text tag={'p'}>
-                  Cut your time to market by 6 to 18 months and save hundreds of thousands of dollars in man-hours by focusing on building business applications, not the setup & maintenance of your DLT solution.
+                  Cut your time to market by 6 to 18 months and  save hundreds of thousands of dollars  in man-hours by focusing on  building business applications,  not the setup & maintenance of your DLT solution.
                 </Text>
               </GridItem>
             </Flex>
