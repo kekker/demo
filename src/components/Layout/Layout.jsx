@@ -13,8 +13,6 @@ const GridLayout = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-gap: 5em;
-  
-  margin-top: ${({theme}) => theme.layout.menuHeight};
 
   min-height: calc(100vh - ${({theme}) => theme.layout.menuHeight} 
                          - ${({theme}) => theme.space[6]}px);
@@ -24,8 +22,7 @@ const GridLayout = styled.div`
   }
 
   @media (max-width: ${({theme}) => theme.breakpoints.sm}) {
-    min-height: calc(100vh - ${({theme}) => theme.layout.menuHeight} 
-                           - ${({theme}) => theme.space[4]}px);
+    min-height: unset;
   }
 `;
 
@@ -57,7 +54,7 @@ const Layout = ({
       <ShortHeader location={location} />
 
       <main>
-        <ContainerContent mb={0} pb={pb || 0}>
+        <ContainerContent mb={0} pb={pb || 0} mt={'10vh'}>
           <GridLayout>
             <div>
               {children}

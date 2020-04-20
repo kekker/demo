@@ -33,7 +33,7 @@
   ],
   "headerWeight": "900",
   "bodyFontFamily": [
-    "Rubik",
+    "Heebo",
     "Open Sans",
     "Arial",
     "sans-serif"
@@ -41,16 +41,12 @@
   "bodyWeight": "300",
   "googleFonts": [
     {
-      "name": "Rubik",
-      "styles": [
-        "300", "400", "600"
-      ]
-    },
-    {
       "name": "Heebo",
       "styles": [
         "300",
+        "400",
         "500",
+        "600",
         "800",
         "900"
       ]

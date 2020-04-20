@@ -14,6 +14,34 @@ const MarkdownSection = styled.section`
   }
 `;
 
+const MarkdownRawContent = styled.div`
+  margin-bottom: ${({theme}) => theme.space[6]}px;
+  
+  & > p:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > ol > li:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > ol:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > ul > li:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > ul:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > blockquote:last-child {
+    margin-bottom: 0;
+  }
+`;
+
 const getPageByTitle = (sectionList, templateTitle) => {
   if (!templateTitle) {
     return null;
@@ -37,13 +65,16 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
         flexDirection="column"
         justifyContent="space-between"
       >
-        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-        <SandboxPromoSection/>
-        <MarkdownFooter
-            next_title={next_title}
-            prev_title={prev_title}
-            prev={prevPage}
-            next={nextPage} />
+        <MarkdownRawContent dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        <div>
+          <SandboxPromoSection/>
+          <MarkdownFooter
+              next_title={next_title}
+              prev_title={prev_title}
+              prev={prevPage}
+              next={nextPage}
+          />
+        </div>
       </Flex>
     </MarkdownSection>
   );

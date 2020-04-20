@@ -9264,7 +9264,7 @@
 }
 
 .swagger-ui section.models {
-    margin: 30px 0;
+    margin: 30px 0 75px;
     border: 1px solid rgba(59, 65, 81, .3);
     border-radius: 4px
 }
