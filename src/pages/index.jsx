@@ -42,81 +42,58 @@ const BlogIndex = ({ data, location }) => {
         <MainHeader location={location.pathname} />
 
         <main style={{ marginTop: 0}}>
-          <ContainerContent pb={3}>
+          <ContainerContent>
             <Flex
               flexDirection={{ _: 'column', sm: 'row' }}
               flexWrap="wrap"
               justifyContent="space-between"
-              mb={{ _: 0, sm: 6 }}
             >
-              {/*{benefits.map(item => (*/}
-              {/*  <GridItem*/}
-              {/*    key={`benefits${item.header}`}*/}
-              {/*    cols={jsonContent.benefits.length}*/}
-              {/*    mb={{ _: 4, sm: 0 }}*/}
-              {/*  >*/}
-              {/*    <Heading mb={2} align="left" level={2}>*/}
-              {/*      {item.header}*/}
-              {/*    </Heading>*/}
-              {/*    {item.content.map(benefitString => (*/}
-              {/*      <Text*/}
-              {/*        key={`benefitsCont${benefitString.slice(0, 5)}`}*/}
-              {/*        fontSize="medium"*/}
-              {/*        tag="div"*/}
-              {/*      >*/}
-              {/*        {benefitString}*/}
-              {/*      </Text>*/}
-              {/*    ))}*/}
-              {/*  </GridItem>*/}
-
               <GridItem
                   cols={3}
                   mb={{ _: 4, sm: 0 }}
               >
                 <Heading mt={0} mb={2} align="left" level={2}>
-                  Platform
+                  Fast
                 </Heading>
-                <Text tag="p">
-                  Kekker is middleware with a set of DLT/DFS technologies and APIs that <strong> lets you build and run decentralized blockchain-powered applications </strong> without blockchain expertise.
-                </Text>
-                <Text tag='p'>
-                  Use Kekker’s services to operate your decentralized environment or manage your secured distributed solution network independently.
-                </Text>
-              </GridItem>
-              <GridItem
-                  cols={3}
-                  mb={{ _: 4, sm: 0 }}
-              >
-                <Heading mt={0} mb={2} align="left" level={2}>
-                  Sandbox
-                </Heading>
-                <Text tag="p">
-                  Kekker Sandbox is free and  <strong> provides a unique opportunity to build a prototype </strong> or MVP on any of the popular blockchains.
-                </Text>
-                <Text tag={'p'}>
-                  Don’t bother about infrastructure - just start building your decentralized application right away.
-                  <strong> Yes, that’s right - the sandbox is free! </strong>
-                  At any time you can transfer your decentralized application to your own infrastructure or entrust us with hosting and support customized for your needs.
-                </Text>
-              </GridItem>
-              <GridItem
-                  cols={3}
-                  mb={{ _: 4, sm: 0 }}
-              >
-                <Heading mt={0} mb={2} align="left" level={2}>
-                  Benefits
-                </Heading>
-                <Text tag="p">
-                  Kekker allows for <strong> 10X faster time-to-market than direct competition, is 100X cheaper/faster </strong> than hiring experts and is easy to setup and use and no DLT/DFS experience needed!
-                </Text>
                 <Text tag={'p'}>
                   Cut your time to market by 6 to 18 months and save hundreds of thousands of dollars in man-hours by focusing on building business applications, not the setup & maintenance of your DLT solution.
                 </Text>
               </GridItem>
+              <GridItem
+                  cols={3}
+                  mb={{ _: 4, sm: 0 }}
+              >
+                <Heading mt={0} mb={2} align="left" level={2}>
+                  Flexible
+                </Heading>
+                <Text tag={'p'}>
+                  Choose DLT/DFS stack (Ethereum, Hyperledger or other) and a set of cryptography tools to meet your business, legal and regulatory requirements
+                </Text>
+              </GridItem>
+              <GridItem
+                  cols={3}
+                  mb={{ _: 4, sm: 0 }}
+              >
+                <Heading mt={0} mb={2} align="left" level={2}>
+                  Scalable
+                </Heading>
+                <Text tag={'p'}>
+                  Cluster solutions to meet organizational and functional business requirements for different geographical, functional and technological networks
+                </Text>
+              </GridItem>
             </Flex>
-            <Heading mb="25px" level={2}>
+          </ContainerContent>
+
+          <ContainerContent>
+            <Heading level={2} mb={3}>
               {jsonContent.KekkerPlatformSectionHeader}
             </Heading>
+            <Text tag="p" style={{ maxWidth:'700px'}}>
+              Kekker is middleware with a set of DLT/DFS technologies and APIs that <strong> lets you build and run decentralized blockchain-powered applications </strong> without blockchain expertise.
+            </Text>
+            <Text tag='p' style={{ maxWidth:'700px'}}>
+              Use Kekker’s services to operate your decentralized environment or manage your secured distributed solution network independently.
+            </Text>
           </ContainerContent>
 
           <ContainerSection width="100%" height="60vw" maxHeight="700px">
@@ -143,6 +120,22 @@ const BlogIndex = ({ data, location }) => {
             </BgImage>
           </ContainerSection>
 
+          <ContainerSection bg={'#000000'} color={'#FFFFFF'}>
+            <ContainerContent>
+              <Heading level={2} mb={3}>
+                {jsonContent.KekkerSandboxSectionHeader}
+              </Heading>
+              <Text tag="p" style={{ maxWidth:'700px'}}>
+                Kekker Sandbox is free and  <strong> provides a unique opportunity to build a prototype </strong> or MVP on any of the popular blockchains.
+              </Text>
+              <Text tag={'p'} mb={0} style={{ maxWidth:'700px'}}>
+                Don’t bother about infrastructure - just start building your decentralized application right away.
+                <strong> Yes, that’s right - the sandbox is free! </strong>
+                At any time you can transfer your decentralized application to your own infrastructure or entrust us with hosting and support customized for your needs.
+              </Text>
+            </ContainerContent>
+          </ContainerSection>
+
           <ContainerSection
             width="100%"
             maxHeight={{ md: '900px', lg: '1000px' }}
@@ -156,9 +149,6 @@ const BlogIndex = ({ data, location }) => {
               color="#FFFFFF"
             >
               <ContainerContent>
-                <Heading mb="0" level={2} color="invertedText">
-                  {jsonContent.KekkerSandboxSectionHeader}
-                </Heading>
                 <Flex
                   width="100%"
                   height="100%"

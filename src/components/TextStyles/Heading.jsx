@@ -22,6 +22,7 @@ Heading.propTypes = {
 };
 
 Heading.defaultProps = {
+  mt: 0,
   level: 1,
   fontWeight: 'headerWeight',
   letterSpacing: '-0.02em',
