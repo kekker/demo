@@ -14,7 +14,11 @@ import {
 //   faHeart, faLink, faBars, faTimes,
 // } from '@fortawesome/free-solid-svg-icons';
 
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import {
+  faAngleDown,
+  faAngleUp,
+  faBars
+} from '@fortawesome/free-solid-svg-icons';
 
 const FontAwesomeIcon = styled(Base)`
   ${props => (props.color ? `color: ${props.color}` : '')};
@@ -28,6 +32,7 @@ const Twitter = () => <FontAwesomeIcon icon={faTwitter} />;
 const Instagram = () => <FontAwesomeIcon icon={faInstagram} />;
 const AngleDown = () => <FontAwesomeIcon icon={faAngleDown} />;
 const AngleUp = () => <FontAwesomeIcon icon={faAngleUp} />;
+const Bars = () => <FontAwesomeIcon icon={faBars} />;
 // const Envelope = props => <FontAwesomeIcon {...props} icon={faEnvelope} />;
 // const Heart = props => <FontAwesomeIcon {...props} icon={faHeart} />;
 // const FaLink = props => <FontAwesomeIcon {...props} icon={faLink} />;
@@ -42,7 +47,8 @@ export {
   Twitter,
   Instagram,
   AngleDown,
-  AngleUp
+  AngleUp,
+  Bars
   // Envelope,
   // Heart,
   // FaLink,

@@ -1,7 +1,7 @@
 import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme } from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 
 import ContainerSection from '../ContainerSection';
 import BgImage from '../BgImage';
@@ -10,6 +10,7 @@ import Flex from '../Flex';
 import HeaderNav from './HeaderNav';
 import Heading from '../TextStyles/Heading';
 import ButtonLink from '../Button';
+import LogoLink from "../Logo";
 
 const jsonContent = require('../../../content/home');
 
@@ -24,6 +25,18 @@ export const queryMainHeader = graphql`
     }
   }
 `;
+
+const LogoLinkWrapper = styled.div`
+  display: block;
+  margin-bottom: 20px;
+  margin-top: -40px;
+  
+  @media (min-width: 700px) {
+    display: none;
+  }
+
+`;
+
 
 const MainHeader = ({ location, theme }) => (
   <StaticQuery
@@ -68,6 +81,10 @@ const MainHeader = ({ location, theme }) => (
                   justifyContent="center"
                   alignItems="center"
                 >
+                  <LogoLinkWrapper>
+                    <LogoLink/>
+                  </LogoLinkWrapper>
+
                   <Heading
                     fontWeight={300}
                     letterSpacing="-0.04em"

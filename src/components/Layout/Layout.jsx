@@ -17,7 +17,7 @@ const GridLayout = styled.div`
   min-height: calc(100vh - ${({theme}) => theme.layout.menuHeight} 
                          - ${({theme}) => theme.space[6]}px);
 
-  @media (max-width: ${({theme}) => theme.breakpoints.md}) {
+  @media (max-width: 700px) {
     grid-template-columns: 1fr;
   }
 
@@ -39,7 +39,7 @@ const GridMenu = styled.div`
 `;
 
 const ResponsiveAside = styled.aside`
-  @media (max-width: ${({theme}) => theme.breakpoints.md}) {
+  @media (max-width: 700px) {
     display: none;
   }
 `;

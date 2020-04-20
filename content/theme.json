@@ -66,7 +66,7 @@
     "containerMaxWidth": "1200px",
     "menuHeight": "10vh",
     "indexHeaderSectionHeight": {
-      "xs": "400px",
+      "xs": "350px",
       "md": "500px"
     }
   },

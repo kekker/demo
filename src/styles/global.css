@@ -90,6 +90,12 @@ li:before {
   content: '—';
 }
 
+button,
+button:active,
+button:focus {
+  outline: none !important;
+}
+
 /* ***********************************
 MEDIA QUERIES
 *********************************** */
