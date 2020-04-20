@@ -53,7 +53,6 @@ const BlogIndex = ({ data, location }) => {
                 <GridItem
                   key={`benefits${item.header}`}
                   cols={jsonContent.benefits.length}
-                  linkTo={item.link_to}
                   mb={{ _: 4, sm: 0 }}
                 >
                   <Heading mb={2} align="left" level={2}>
