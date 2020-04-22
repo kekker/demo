@@ -7,10 +7,11 @@ import Flex from '../Flex';
 
 import navHeader from '../../../content/navHeader.yml';
 import LogoLink from '../Logo';
-import {Bars} from "../Icons/Icons";
+import {Bars, Close} from "../Icons/Icons";
 import ContainerContent from "../ContainerContent";
 import ContainerSection from "../ContainerSection";
-import Text from "../TextStyles/Text";
+import footerNav from "../../../content/footerNav.yml";
+import FooterLink from "../Footer/FooterLink";
 
 const Nav = styled.nav`
   display: flex;
@@ -33,9 +34,7 @@ const Nav = styled.nav`
   &::-webkit-scrollbar: {
     display: 'none';
   }
-`;
-
-const LogoLinkWrapper = styled(Flex)`
+  
   @media (max-width: 700px) {
     display: none;
   }
@@ -46,6 +45,7 @@ const BurgerLinkWrapper = styled(Flex)`
   
   @media (max-width: 700px) {
     display: flex;
+    margin-right: 20px;
   }
 `;
 
@@ -60,24 +60,33 @@ const StyledBurgerButton = styled.button`
 `;
 
 const StyledDropdownSection = styled.div`
-  height: ${({isExpanded}) => isExpanded ? '300px' : 0};
+  max-height: ${({isExpanded}) => isExpanded ? '1000px' : 0};
   position: absolute;
   left: -30px;
+  right: -30px;
   
-  -moz-transition: height .5s;
-  -ms-transition: height .5s;
-  -o-transition: height .5s;
-  -webkit-transition: height .5s;
-  transition: height .5s;
+  -moz-transition: max-height .5s;
+  -ms-transition: max-height .5s;
+  -o-transition: max-height .5s;
+  -webkit-transition: max-height .5s;
+  transition: max-height .5s;
   overflow: hidden;
   
   @media (min-width: 600px) {
     left: -75px;
+    right: -75px;
   }
   
   @media (min-width: 700px) {
     display: none;
   }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-bottom: 30px;
 `;
 
 class HeaderNav extends React.Component {
@@ -102,10 +111,19 @@ class HeaderNav extends React.Component {
     const DropDownMenu = (
         <StyledDropdownSection isExpanded={isExpanded}>
           <ContainerSection bg={'#000000'}>
-            <ContainerContent>
-              <Text color={'#FFFFFF'}>
-                Menu will be here soon!
-              </Text>
+            <ContainerContent pt={3} pb={{ _: 4, sm: 6 }}>
+              <Flex flexDirection="column" height="100%">
+                <Grid>
+                  {footerNav.items.map(linkSection => (
+                      <FooterLink
+                          key={`headerSection${linkSection.header}`}
+                          footerColumn={linkSection}
+                          count={footerNav.items.length}
+                          fontSize='medium'
+                      />
+                  ))}
+                </Grid>
+              </Flex>
             </ContainerContent>
           </ContainerSection>
         </StyledDropdownSection>
@@ -119,15 +137,22 @@ class HeaderNav extends React.Component {
             justifyContent="space-between"
             alignItems="center"
         >
-          <LogoLinkWrapper flexBasis="200px" height='100%' alignItems='center'>
-            <LogoLink/>
-          </LogoLinkWrapper>
 
-          <BurgerLinkWrapper height='100%' alignItems='center'>
-            <StyledBurgerButton onClick={this.handleExpansion}>
-              <Bars/>
-            </StyledBurgerButton>
-          </BurgerLinkWrapper>
+          <Flex height='100%'>
+            <BurgerLinkWrapper width='30px' height='100%' alignItems='center'>
+              <StyledBurgerButton onClick={this.handleExpansion}>
+                { isExpanded ? <Close /> : <Bars/>}
+              </StyledBurgerButton>
+            </BurgerLinkWrapper>
+
+            <Flex
+                flexBasis="200px"
+                height='100%'
+                alignItems='center'
+            >
+              <LogoLink/>
+            </Flex>
+          </Flex>
 
           <Nav>
             {navHeader.items.map(link => (

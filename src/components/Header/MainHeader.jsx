@@ -81,10 +81,6 @@ const MainHeader = ({ location, theme }) => (
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <LogoLinkWrapper>
-                    <LogoLink/>
-                  </LogoLinkWrapper>
-
                   <Heading
                     fontWeight={300}
                     letterSpacing="-0.04em"

@@ -8,15 +8,19 @@ import logoSvg from '../../../static/assets/kekker_logo.svg';
 const StyledLogoLink = styled(Link)`
   width: 100%;
   padding: 0;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const StyledLogoImg = styled.img`
   margin-bottom: 0;
-  margin-top: 0;
-  margin-left: -13px;
+  margin-top: -2%;
+  margin-left: -6%;
   
   width: 200px;
-  height: 45px;
+  height: 100%;
   min-width: 100px;
 `;
 

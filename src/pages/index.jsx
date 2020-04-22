@@ -21,6 +21,7 @@ import BgImage from '../components/BgImage';
 const StyledImage = styled(Img)`
   width: 100%;
   margin-bottom: 0;
+  margin-top: -50px;
 `;
 
 // Content
@@ -31,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
   const { description } = data.site.siteMetadata;
 
   const {
-    platformBgImage, platformImage, sandboxBgImage, sandboxImage
+    platformImage, sandboxImage
   } = data;
 
   return (
@@ -42,137 +43,87 @@ const BlogIndex = ({ data, location }) => {
         <MainHeader location={location.pathname} />
 
         <main style={{ marginTop: 0}}>
-          <ContainerContent pb={3}>
+
+          <ContainerContent>
             <Flex
               flexDirection={{ _: 'column', sm: 'row' }}
               flexWrap="wrap"
               justifyContent="space-between"
               mb={{ _: 0, sm: 6 }}
             >
-              {/*{benefits.map(item => (*/}
-              {/*  <GridItem*/}
-              {/*    key={`benefits${item.header}`}*/}
-              {/*    cols={jsonContent.benefits.length}*/}
-              {/*    mb={{ _: 4, sm: 0 }}*/}
-              {/*  >*/}
-              {/*    <Heading mb={2} align="left" level={2}>*/}
-              {/*      {item.header}*/}
-              {/*    </Heading>*/}
-              {/*    {item.content.map(benefitString => (*/}
-              {/*      <Text*/}
-              {/*        key={`benefitsCont${benefitString.slice(0, 5)}`}*/}
-              {/*        fontSize="medium"*/}
-              {/*        tag="div"*/}
-              {/*      >*/}
-              {/*        {benefitString}*/}
-              {/*      </Text>*/}
-              {/*    ))}*/}
-              {/*  </GridItem>*/}
-
-              <GridItem
-                  cols={3}
+              { jsonContent.benefits.map(item => (
+                <GridItem
+                  key={`benefits${item.header}`}
+                  cols={jsonContent.benefits.length}
                   mb={{ _: 4, sm: 0 }}
-              >
-                <Heading mt={0} mb={2} align="left" level={2}>
-                  Platform
-                </Heading>
-                <Text tag="p">
-                  Kekker is middleware with a set of DLT/DFS technologies and APIs that lets you  build and run decentralized blockchain-powered applications without blockchain expertise .
-                </Text>
-                <Text tag='p'>
-                  Use Kekker’s services to operate your decentralized environment or manage your secured distributed solution network independently.
-                </Text>
-              </GridItem>
-              <GridItem
-                  cols={3}
-                  mb={{ _: 4, sm: 0 }}
-              >
-                <Heading mt={0} mb={2} align="left" level={2}>
-                  Sandbox
-                </Heading>
-                <Text tag="p">
-                  Kekker Sandbox is free and allows you to create a prototype or MVP on any of the popular blockchains.
-                  Don't worry about infrastructure - just start building your decentralized application right now.
-                  Yes, that's right - the Sandbox is free!
-                </Text>
-                <Text tag={'p'}>
-                  Transfer your decentralized application to your own infrastructure at any time or entrust us with hosting and support tailored to your needs.
-                </Text>
-              </GridItem>
-              <GridItem
-                  cols={3}
-                  mb={{ _: 4, sm: 0 }}
-              >
-                <Heading mt={0} mb={2} align="left" level={2}>
-                  Benefits
-                </Heading>
-                <Text tag="p">
-                  Kekker allows for  10X faster time-to-market  than direct competition, is  100X cheaper/faster  than hiring experts and is  easy to setup and use and no DLT/DFS experience needed! 
-                </Text>
-                <Text tag={'p'}>
-                  Cut your time to market by 6 to 18 months and  save hundreds of thousands of dollars  in man-hours by focusing on  building business applications,  not the setup & maintenance of your DLT solution.
-                </Text>
-              </GridItem>
+                >
+                  <Heading mb={2} align="left" level={2}>
+                    {item.header}
+                  </Heading>
+                  {item.content.map(benefitString => (
+                    <Text
+                      key={`benefitsCont${benefitString.slice(0, 5)}`}
+                      fontSize="medium"
+                      tag="div"
+                    >
+                      {benefitString}
+                    </Text>
+                  ))}
+                </GridItem>
+              ))}
             </Flex>
-            <Heading mb="25px" level={2}>
-              {jsonContent.KekkerPlatformSectionHeader}
-            </Heading>
+
+            <hr style={{ marginBottom: 0, backgroundColor: 'hsla(0,0%,0%,0.4)'}}/>
           </ContainerContent>
 
-          <ContainerSection width="100%" height="60vw" maxHeight="700px">
-            <BgImage
-              maxHeight="700px"
-              height="60vw"
-              fluid={platformBgImage.childImageSharp.fluid}
-              title="Kekker Platform section background cover"
-              color="#FFFFFF"
-            >
-              <ContainerContent pt={{ _: 2, sm: 0 }} pb={{ _: 2, sm: 0 }}>
-                <Flex
-                  width="100%"
-                  height="100%"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <StyledImage
-                    fluid={platformImage.childImageSharp.fluid}
-                    title="Kekker Platform overview"
-                  />
-                </Flex>
-              </ContainerContent>
-            </BgImage>
+          <ContainerSection width="100%">
+            <ContainerContent>
+              <Heading mb="25px" mt={0} level={2}>
+                {jsonContent.KekkerPlatformSectionHeader}
+              </Heading>
+              <div style={{ maxWidth: '600px'}}>
+                { jsonContent.KekkerPlatformSectionContent.map(paragraph => (
+                    <Text
+                        key={`platformCont${paragraph.slice(0, 5)}`}
+                        fontSize="medium"
+                        tag="p"
+                    >
+                      { paragraph }
+                    </Text>
+                ))}
+              </div>
+              <StyledImage
+                  fluid={platformImage.childImageSharp.fluid}
+                  title="Kekker Platform overview"
+              />
+            </ContainerContent>
           </ContainerSection>
 
           <ContainerSection
-            width="100%"
-            maxHeight={{ md: '900px', lg: '1000px' }}
-            height="90vw"
+              width="100%"
+              bg='#000000'
+              color='#FFFFFF'
           >
-            <BgImage
-              maxHeight={{ md: '900px', lg: '1000px' }}
-              height="90vw"
-              fluid={sandboxBgImage.childImageSharp.fluid}
-              title="Kekker Platform section background cover"
-              color="#FFFFFF"
-            >
-              <ContainerContent>
-                <Heading mb="0" level={2} color="invertedText">
-                  {jsonContent.KekkerSandboxSectionHeader}
-                </Heading>
-                <Flex
-                  width="100%"
-                  height="100%"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <StyledImage
-                    style={{ marginTop: '-70px'}}
-                    fluid={sandboxImage.childImageSharp.fluid}
-                    title="Kekker Sandbox overview"
-                  />
-                </Flex>
-              </ContainerContent>
-            </BgImage>
+            <ContainerContent>
+              <Heading mb="25px" mt={0} level={2}>
+                {jsonContent.KekkerSandboxSectionHeader}
+              </Heading>
+              <div style={{ maxWidth: '600px'}}>
+                { jsonContent.KekkerSandboxSectionContent.map(paragraph => (
+                    <Text
+                        key={`sandboxCont${paragraph.slice(0, 5)}`}
+                        fontSize="medium"
+                        tag="p"
+                    >
+                      { paragraph }
+                    </Text>
+                ))}
+              </div>
+              <StyledImage
+                  fluid={sandboxImage.childImageSharp.fluid}
+                  title="Kekker Sandbox overview"
+              />
+            </ContainerContent>
           </ContainerSection>
 
           <ContainerSection bg="#FFFFFF">
@@ -230,25 +181,9 @@ export const pageQuery = graphql`
         description
       }
     }
-    platformBgImage: file(
-      absolutePath: { regex: "/kekker_mainpage_platform_background_v1.jpg/" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     platformImage: file(
-      absolutePath: { regex: "/kekker_mainpage_platform_v1.png/" }
+      absolutePath: { regex: "/kekker_mainpage_platform_v3.png/" }
     ) {
-      childImageSharp {
-        fluid(maxWidth: 1600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    sandboxBgImage: file(absolutePath: { regex: "/kekker_mainpage_bg2.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 1600) {
           ...GatsbyImageSharpFluid
