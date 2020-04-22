@@ -55,7 +55,7 @@ const StyledBurgerButton = styled.button`
   background-color: transparent;
   
   color: ${({theme}) => theme.colors.invertedText};
-  font-size: 24px;
+  font-size: 20px;
   line-height: 20px;
 `;
 
@@ -168,6 +168,7 @@ class HeaderNav extends React.Component {
               size="small"
               fontSize="medium"
               isPrimary
+              isShrinking
               to="/invitation"
               title="Sandbox Access"
           />

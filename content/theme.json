@@ -13,6 +13,7 @@
     "extrasmall": 12,
     "small": 14,
     "medium": 16,
+    "medium_": 17,
     "medium+": 18,
     "large": 20,
     "extralarge": 28,
@@ -20,7 +21,7 @@
       "sm": 30,
       "md": 40,
       "lg": 50,
-      "extralg": 60
+      "extralg": 50
     }
   },
   "baseFontSize": "18px",

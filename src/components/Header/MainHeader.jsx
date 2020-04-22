@@ -115,7 +115,7 @@ const MainHeader = ({ location, theme }) => (
                   </Heading>
                   <ButtonLink
                     size="large"
-                    fontSize="large"
+                    fontSize="medium_"
                     to={jsonContent.getStartedButtonLink}
                     title="Get started"
                   />

@@ -16,7 +16,6 @@ import GridItem from '../components/GridItem';
 import ContainerSection from '../components/ContainerSection';
 import Heading from '../components/TextStyles/Heading';
 import Text from '../components/TextStyles/Text';
-import BgImage from '../components/BgImage';
 
 const StyledImage = styled(Img)`
   width: 100%;
@@ -151,7 +150,7 @@ const BlogIndex = ({ data, location }) => {
                 <ButtonLink
                   to={jsonContent.getStartedButtonLink}
                   size="large"
-                  fontSize="large"
+                  fontSize="medium_"
                   isPrimary
                   title="Get started"
                 />
