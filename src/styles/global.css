@@ -15,7 +15,6 @@ header {
 h1 {
   font-size: 50px;
   letter-spacing: -0.02em;
-  margin-bottom: 20px;
 }
 
 @media (max-width: 960px) {
@@ -30,13 +29,9 @@ h1 {
   }
 }
 
-h3 {
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
-
-h4 {
-  margin-bottom: 0.8em;
+h2, h3, h4, h5, h6 {
+  margin-top: 1.4em;
+  margin-bottom: 0.4em;
 }
 
 a, button {
@@ -69,14 +64,36 @@ blockquote {
   border-left-width: 9px;
   border-left-style: solid;
   padding: 20px 45px 20px 26px;
-  margin-bottom: 30px;
-  margin-top: 20px;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 20px 0 30px;
 }
 
 blockquote > p:not(:last-child) {
   margin-bottom: 0;
+}
+
+ul {
+  margin-left: 30px;
+}
+
+li {
+  list-style-type: none;
+  position: relative;
+}
+
+li:before {
+  position: absolute;
+  left: -30px;
+  top: 13px;
+  font-size: 26px;
+  line-height: 5px;
+  font-weight: 400;
+  content: '—';
+}
+
+button,
+button:active,
+button:focus {
+  outline: none !important;
 }
 
 /* ***********************************

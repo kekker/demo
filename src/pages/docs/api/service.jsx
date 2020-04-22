@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwaggerUI from 'swagger-ui-react';
-import 'swagger-ui-react/swagger-ui.css';
+
+import '../../../styles/swagger-ui-new.css';
 
 // Components
-import ApiLayout from '../../../templates/api';
+import Layout from "../../../components/Layout";
+import MarkdownFooter from "../../../components/MarkdownFooter";
+import SandboxPromoSection from "../../../components/SandboxPromoSection";
 
 const swaggerContent = require('../../../../static/kekkerdemo-service');
 
@@ -29,14 +32,22 @@ class ServicePage extends React.Component {
   render() {
     const { location } = this.props;
     const { swaggerComponent } = this.state;
+
+    const prev = {
+      to: 'docs/api/event',
+      title: 'API: Event'
+    };
+
     return (
-      <ApiLayout
+      <Layout
         location={location.pathname}
         title="API Service - Kekker"
         description="Service request for Kekker API"
       >
         {swaggerComponent}
-      </ApiLayout>
+        <SandboxPromoSection/>
+        <MarkdownFooter prev={prev} />
+      </Layout>
     );
   }
 }

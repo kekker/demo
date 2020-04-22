@@ -21,7 +21,7 @@ const StyledArrowIcon = styled.img`
 
 const SuccessfulFormMessage = () => (
   <>
-    <Flex alignItems="center" mb={2} mt={2}>
+    <Flex alignItems="center">
       <StyledArrowIconDiv>
         <StyledArrowIcon src={arrowSvg} alt="Arrow Icon" />
       </StyledArrowIconDiv>

@@ -9,10 +9,17 @@ import {
   faTwitter,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
-// import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 // import {
 //   faHeart, faLink, faBars, faTimes,
 // } from '@fortawesome/free-solid-svg-icons';
+
+import {
+  faAngleDown,
+  faAngleUp,
+  faBars,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons';
 
 const FontAwesomeIcon = styled(Base)`
   ${props => (props.color ? `color: ${props.color}` : '')};
@@ -24,6 +31,10 @@ const Linkedin = () => <FontAwesomeIcon icon={faLinkedin} />;
 const Skype = () => <FontAwesomeIcon icon={faSkype} />;
 const Twitter = () => <FontAwesomeIcon icon={faTwitter} />;
 const Instagram = () => <FontAwesomeIcon icon={faInstagram} />;
+const AngleDown = () => <FontAwesomeIcon icon={faAngleDown} />;
+const AngleUp = () => <FontAwesomeIcon icon={faAngleUp} />;
+const Bars = () => <FontAwesomeIcon icon={faBars} />;
+const Close = () => <FontAwesomeIcon icon={faTimes} />;
 // const Envelope = props => <FontAwesomeIcon {...props} icon={faEnvelope} />;
 // const Heart = props => <FontAwesomeIcon {...props} icon={faHeart} />;
 // const FaLink = props => <FontAwesomeIcon {...props} icon={faLink} />;
@@ -37,6 +48,10 @@ export {
   Skype,
   Twitter,
   Instagram,
+  AngleDown,
+  AngleUp,
+  Bars,
+  Close
   // Envelope,
   // Heart,
   // FaLink,

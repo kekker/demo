@@ -2,7 +2,7 @@
 title: Basic Deal
 description: Hello World Kekker Scenario example
 next: Purchase Order
-prev: Handling Errors
+prev: Sandbox
 ---
 
 # "Hello, World!"

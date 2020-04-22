@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 import Flex from '../Flex';
 import Text from '../TextStyles/Text';
-import Heading from '../TextStyles/Heading';
 
 import prevArrow from '../../../static/assets/kekker_arrow_2.svg';
 
 const NextImg = styled.img`
   height: 80px;
   margin-bottom: 0;
+  margin-right: -14px;
 
   @media (min-width: ${props => props.theme.breakpoints.sm}) {
     height: 100px;
@@ -18,12 +18,14 @@ const NextImg = styled.img`
 
   @media (min-width: ${props => props.theme.breakpoints.md}) {
     height: 170px;
+    margin-right: -24px;
   }
 `;
 
 const PrevImg = styled.img`
   height: 80px;
   margin-bottom: 0;
+  margin-left: -12px;
 
   transform: scale(-1, 1);
 
@@ -33,6 +35,7 @@ const PrevImg = styled.img`
 
   @media (min-width: ${props => props.theme.breakpoints.md}) {
     height: 170px;
+    margin-left: -22px;
   }
 `;
 
@@ -77,16 +80,18 @@ const DivResponsiveMarginRight = styled.div`
 `;
 
 const FlexWithBorder = styled(Flex)`
-  ${({ next, prev }) => (next && prev ? 'border-top: 1px solid #ececec;' : '')}
+  ${({ next, prev }) => (next || prev ? 'border-top: 1px solid hsla(0,0%,0%,0.2);;' : '')}
 `;
 
 const BorderDiv = styled.div`
   width: 1px;
-  background-color: #ececec;
+  background-color: hsla(0,0%,0%,0.2);
+  display: none;
   height: 60px;
 
   @media (min-width: ${props => props.theme.breakpoints.sm}) {
     height: 70px;
+    display: block;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.md}) {
@@ -94,7 +99,7 @@ const BorderDiv = styled.div`
   }
 `;
 
-const MarkdownFooter = ({ next, prev }) => (
+const MarkdownFooter = ({ next, prev, next_title, prev_title }) => (
   <FlexWithBorder
     next={next}
     prev={prev}
@@ -127,9 +132,9 @@ const MarkdownFooter = ({ next, prev }) => (
                 <Text
                   isHeadingFont
                   fontWeight={800}
-                  fontSize={{ _: 'extralarge', md: 'h1.sm' }}
+                  fontSize={{ _: '17px', sm: 'extralarge', md: 'h1.sm' }}
                 >
-                  {prev.title}
+                  {prev_title ? prev_title : prev.title}
                 </Text>
               </DivResponsiveMarginLeft>
             </Flex>
@@ -163,9 +168,9 @@ const MarkdownFooter = ({ next, prev }) => (
                 <Text
                   isHeadingFont
                   fontWeight={800}
-                  fontSize={{ _: 'extralarge', md: 'h1.sm' }}
+                  fontSize={{ _: '17px', sm: 'extralarge', md: 'h1.sm' }}
                 >
-                  {next.title}
+                  {next_title ? next_title : next.title}
                 </Text>
               </DivResponsiveMarginRight>
             </Flex>

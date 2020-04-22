@@ -1,0 +1,137 @@
+[
+  {
+    "title": "Supply Chain",
+    "items": [
+      {
+        "title": "Open Trade Blockchain (OTB)",
+        "link": "https://otb.globaletrade.services/mainpage",
+        "specification": "Shipping and Tracking"
+      },
+      {
+        "title": "Tradelens",
+        "link": "https://www.tradelens.com/",
+        "specification": "Shipping and Tracking"
+      },
+      {
+        "title": "Vakt",
+        "link": "https://www.vakt.com/",
+        "specification": "Shipping and Tracking, Digitization of trade documents"
+      },
+      {
+        "title": "CamelONE",
+        "link": "https://www.vcargocloud.com/our-solutions/our-platform/",
+        "specification": "Shipping and Tracking"
+      },
+      {
+        "title": "Wave",
+        "link": "http://www.wavebl.com/",
+        "specification": "Digitization of trade documents"
+      },
+      {
+        "title": "CargoX",
+        "link": "https://cargox.io/",
+        "specification": "Digitization of trade documents"
+      },
+      {
+        "title": "eCOM Asia",
+        "link": "https://www.ecomasialtd.com/",
+        "specification" : "Digitization of trade documents "
+      },
+      {
+        "title": "essDOCS",
+        "link": "https://www.essdocs.com/",
+        "specification" : "Digitization of trade documents"
+      },
+      {
+        "title": "Bolero",
+        "link": "http://www.bolero.net/",
+        "specification" : "Digitization of trade documents"
+      },
+      {
+        "title": "Tracr",
+        "link": "https://www.tracr.com/",
+        "specification" : "Provenance"
+      },
+      {
+        "title": "IBM Food Trust",
+        "link": "https://www.ibm.com/blockchain/solutions/food-trust",
+        "specification" : "Provenance"
+      },
+      {
+        "title": "Project Provenance",
+        "link": "https://www.provenance.org/business/platform",
+        "specification" : "Provenance"
+      }
+    ]
+  },
+  {
+    "title": "Trade Finance",
+    "items": [
+      {
+        "title": "Komgo",
+        "link": "https://komgo.io/",
+        "specification" : "Open Account, Letter of Credit, KYC"
+      },
+      {
+        "title": "We.Trade",
+        "link": "https://we-trade.com/",
+        "specification" : "Open Account"
+      },
+      {
+        "title": "Finacle Trade Connect",
+        "link": "https://www.edgeverve.com/finacle/finacle-trade-connect/",
+        "specification" : "Open Account, Letter of Credit, KYC"
+      },
+      {
+        "title": "Marco Polo",
+        "link": "https://www.marcopolo.finance/",
+        "specification" : "Open Account"
+      }
+    ]
+  },
+  {
+    "title": "Insurance",
+    "items": [
+      {
+        "title": "Insurwave",
+        "link": "https://insurwave.com/",
+        "specification" : "Shipment insurance"
+      },
+      {
+        "title": "Lemonade",
+        "link": "https://www.lemonade.com/",
+        "specification" : "Home and Renters Insurance"
+      },
+      {
+        "title": "Midas",
+        "link": "https://www.hkfi.org.hk/midas/",
+        "specification" : "Motor Insurance"
+      },
+      {
+        "title": "Etherisc",
+        "link": "https://etherisc.com/",
+        "specification" : "Flight delay insurance"
+      },
+      {
+        "title": "Teambrella",
+        "link": "https://teambrella.com/about?locale=en",
+        "specification" : "Property and Casualty insurance"
+      },
+      {
+        "title": "Blicico",
+        "link": "https://blicico.com/en/",
+        "specification" : "Property and Casualty insurance"
+      },
+      {
+        "title": "Fidentiax",
+        "link": "https://www.fidentiax.com/",
+        "specification" : "Health Insurance"
+      },
+      {
+        "title": "Anthem",
+        "link": "https://www.anthem.com/",
+        "specification" : "Health Insurance"
+      }
+    ]
+  }
+]

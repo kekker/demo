@@ -17,13 +17,22 @@ const StyledButton = styled.button`
 
   font-size: ${props => props.theme.fontSizes[props.size]};
   border-radius: 2em;
+  
+  @media (max-width: 480px) {
+    ${({ isShrinking }) => isShrinking ? 'padding: 0.05em 0.3em;' : ''}
+  }
 `;
 
 const ButtonLink = ({
-  size, fontSize, title, isPrimary, to
+  size, fontSize, title, isPrimary, isShrinking, to
 }) => (
-  <Link to={to}>
-    <StyledButton size={size} isPrimary={isPrimary} type="button">
+  <Link to={to} style={{ flexShrink: 0}}>
+    <StyledButton
+        size={size}
+        isShrinking={isShrinking}
+        isPrimary={isPrimary}
+        type="button"
+    >
       <Text
         fontSize={fontSize}
         fontWeight="900"
@@ -40,11 +49,13 @@ ButtonLink.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large', 'extralarge']),
   title: PropTypes.string.isRequired,
   isPrimary: PropTypes.bool,
+  isShrinking: PropTypes.bool,
   to: PropTypes.string.isRequired,
 };
 
 ButtonLink.defaultProps = {
   isPrimary: false,
+  isShrinking: false,
   size: 'medium',
   fontSize: 'medium',
 };

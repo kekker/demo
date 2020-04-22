@@ -1,7 +1,7 @@
 ---
 title: Sandbox
 description: Kekker Sandbox overview
-next: Authorization
+next: Basic Deal
 prev: Main Concepts
 ---
 

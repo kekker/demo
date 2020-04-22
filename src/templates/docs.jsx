@@ -23,12 +23,6 @@ const Docs = ({ data, pageContext, location }) => {
       title={title}
       description={description}
     >
-      <Seo
-        title={`${title} - Kekker`}
-        description={description || post.excerpt}
-        slug={slug}
-      />
-
       <MarkdownContent markdownRemark={content} listItems={listItems} />
     </Layout>
   );
@@ -49,6 +43,8 @@ export const pageQuery = graphql`
         description
         next
         prev
+        next_title
+        prev_title
       }
       fields {
         slug

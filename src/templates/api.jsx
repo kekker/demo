@@ -21,7 +21,7 @@ const GridApiLayout = styled.div`
 
 const GridApiMenu = styled.div`
   margin-bottom: ${props => props.theme.space[6]}px;
-  margin-top: ${props => props.theme.space[5]}px;
+  margin-top: ${props => props.theme.space[3]}px;
   white-space: nowrap;
 
   @media (min-height: 300px) {
@@ -42,9 +42,9 @@ const ApiLayout = ({
     <ShortHeader location={location} />
 
     <main>
-      <ContainerContent mt={0} pt={0} pl={{ _: 4, sm: 6, md: 6 }}>
+      <ContainerContent mt="10vh" mb={0}>
         <GridApiLayout>
-          <div style={{ paddingTop: '25px' }}>{children}</div>
+          <div>{children}</div>
           <aside>
             <GridApiMenu>
               <SideMenu location={location} />

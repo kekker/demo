@@ -6,23 +6,28 @@ import Flex from '../Flex';
 import logoSvg from '../../../static/assets/kekker_logo.svg';
 
 const StyledLogoLink = styled(Link)`
-  max-width: 205px;
-  min-width: 100px;
   width: 100%;
-  display: block;
-  margin-left: -6%;
+  padding: 0;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const StyledLogoImg = styled.img`
   margin-bottom: 0;
+  margin-top: -2%;
+  margin-left: -6%;
+  
+  width: 200px;
+  height: 100%;
+  min-width: 100px;
 `;
 
 const LogoLink = () => (
-  <Flex flexBasis="20%">
     <StyledLogoLink to="/">
       <StyledLogoImg src={logoSvg} alt="Kekker logo" />
     </StyledLogoLink>
-  </Flex>
 );
 
 export default LogoLink;

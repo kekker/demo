@@ -9,7 +9,6 @@ import Flex from '../Flex';
 import footerNav from '../../../content/footerNav.yml';
 import FooterLink from './FooterLink';
 import Text from '../TextStyles/Text';
-import LogoLink from '../Logo';
 
 const StyledSocialLink = styled.a`
   text-decoration: none;

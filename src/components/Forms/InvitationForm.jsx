@@ -102,7 +102,7 @@ class InvitationForm extends React.Component {
       .then(() => {
         console.log('Form Submitted ', values);
         this.setState({ loading: false, submitted: true });
-        // navigate("/");
+        this.props.parentCallback();
       })
       .catch(error => {
         this.setState({

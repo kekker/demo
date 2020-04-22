@@ -4,12 +4,41 @@ import styled from 'styled-components';
 
 import MarkdownFooter from '../MarkdownFooter';
 import Flex from '../Flex';
+import SandboxPromoSection from "../SandboxPromoSection";
 
 const MarkdownSection = styled.section`
   height: 100%;
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     max-width: 100%;
+  }
+`;
+
+const MarkdownRawContent = styled.div`
+  margin-bottom: ${({theme}) => theme.space[6]}px;
+  
+  & > p:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > ol > li:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > ol:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > ul > li:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > ul:last-child {
+    margin-bottom: 0;
+  }
+  
+  & > blockquote:last-child {
+    margin-bottom: 0;
   }
 `;
 
@@ -25,7 +54,7 @@ const getPageByTitle = (sectionList, templateTitle) => {
 };
 
 const MarkdownContent = ({ markdownRemark, listItems }) => {
-  const { next, prev } = markdownRemark.frontmatter;
+  const { next, prev, prev_title, next_title } = markdownRemark.frontmatter;
   const prevPage = getPageByTitle(listItems, prev);
   const nextPage = getPageByTitle(listItems, next);
 
@@ -36,8 +65,16 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
         flexDirection="column"
         justifyContent="space-between"
       >
-        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-        <MarkdownFooter prev={prevPage} next={nextPage} />
+        <MarkdownRawContent dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        <div>
+          <SandboxPromoSection/>
+          <MarkdownFooter
+              next_title={next_title}
+              prev_title={prev_title}
+              prev={prevPage}
+              next={nextPage}
+          />
+        </div>
       </Flex>
     </MarkdownSection>
   );

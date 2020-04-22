@@ -22,19 +22,19 @@ export const queryShortHeader = graphql`
   }
 `;
 
-const ShortHeader = ({ location }) => (
+const ShortHeader = ({ location, theme }) => (
   <StaticQuery
     query={queryShortHeader}
     render={data => (
       <ContainerSection
         width="100vw"
-        height="10vh"
+        height={theme.layout.menuHeight}
         style={{
           position: 'fixed', top: '0', left: '0', zIndex: 1
         }}
       >
         <BgImage
-          height="10vh"
+          height={theme.layout.menuHeight}
           fluid={data.bgImage.childImageSharp.fluid}
           title="Kekker background cover"
           color="#141414"
