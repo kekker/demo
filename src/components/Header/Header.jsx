@@ -27,7 +27,7 @@ const ShortHeader = ({ location, theme }) => (
     query={queryShortHeader}
     render={data => (
       <ContainerSection
-        width="100vw"
+        width="100%"
         height={theme.layout.menuHeight}
         style={{
           position: 'fixed', top: '0', left: '0', zIndex: 1

@@ -2,16 +2,22 @@ import React from "react";
 
 import Text from "../TextStyles/Text";
 import styled from "styled-components";
-import Button from "../Button/Button";
-import { AngleDown, AngleUp } from "../Icons/Icons";
 import Heading from "../TextStyles/Heading";
+import Flex from "../Flex";
+
+import ArrowSvg from '../../../static/assets/kekker_arrow.svg';
+import ArrowSvgWhite from '../../../static/assets/kekker_arrow_white.svg';
+
 
 const StyledSolutionList = styled.ul`
   position: relative;
   list-style: none;
-  margin: ${({theme}) => theme.space[3]}px 0;
+  margin: 0;
   
-  height: calc(${props => props.itemsShown} * 80px);
+  height: ${({isExpanded, itemsShown}) => isExpanded 
+    ? 'calc(' + itemsShown + '* 80px)'
+    : '0'
+  }; 
   
   -moz-transition: height .5s;
   -ms-transition: height .5s;
@@ -42,6 +48,38 @@ const StyledLink = styled.a`
     }
 `;
 
+const ExpandHeader = styled.button`
+    display: block;
+    height: 4em;
+    width: 100%;
+    padding: 0;
+    
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: start;
+    
+    &:last-of-type {
+        border: none;
+    }
+`;
+
+const StyledButtonIcon = styled.img`
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 10px;
+    height: 25px;
+    width: 25px;
+    padding: 5px;
+    
+    background-color: ${({theme}) => theme.colors.primaryBrand};
+    border-radius: 50%;
+    
+    transform: ${({isExpanded}) => isExpanded 
+            ? 'rotate(-90deg)' : 'rotate(90deg)' };
+`;
+
+
 class SolutionSection extends React.Component {
     constructor(props) {
         super(props);
@@ -56,33 +94,39 @@ class SolutionSection extends React.Component {
     }
 
     handleExpansion = e => {
-        if (this.state.isExpanded === true &&
-            this.ref &&
-            this.props.items.length > 6
-        ) {
-            this.ref.current.scrollIntoView({
-                block: 'start',
-                behavior: "smooth"
-            })
-        }
         this.setState({ isExpanded: !this.state.isExpanded });
     };
 
     render() {
         const { isExpanded } = this.state;
         const { title, items } = this.props;
-        const firstToShowItems = items.length >= 3 ? items.slice(0, 3) : items;
-        const remainingItems = items.length > 3 ? items.slice(3) : null;
-        const itemsCount = isExpanded && remainingItems
-            ? remainingItems.length + firstToShowItems.length
-            : firstToShowItems.length;
+
+        const itemsLength = items.length;
 
         return (
             <>
-                <Heading level={2}>{title}</Heading>
+                <ExpandHeader onClick={this.handleExpansion}>
+                    <Flex alignItems='center'>
+                        <StyledButtonIcon
+                            isExpanded={isExpanded}
+                            src={ArrowSvgWhite}
+                            alt=''
+                        />
+                        <Heading
+                            mb={0}
+                            display='inline-block'
+                            level={3}
+                            fontSize='22px'
+                            fontWeight='600'
+                        >
+                            {title}
+                        </Heading>
+                    </Flex>
+                </ExpandHeader>
                 <StyledSolutionList
-                    itemsShown={itemsCount}
-                    isExpanded={isExpanded}>
+                    itemsShown={itemsLength}
+                    isExpanded={isExpanded}
+                >
                     <div id={title}
                          style={{position: 'absolute', top: '-150px'}}
                          ref={this.ref}/>
@@ -99,12 +143,6 @@ class SolutionSection extends React.Component {
                         </StyledSolutionItem>
                     )}
                 </StyledSolutionList>
-                <Button
-                    disabled={false}
-                    title={isExpanded ? "Show Less" : "Show More"}
-                    onClick={this.handleExpansion}
-                    icon={isExpanded ? <AngleUp /> : <AngleDown />}
-                />
             </>
         )
     }

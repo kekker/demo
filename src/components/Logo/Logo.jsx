@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Flex from '../Flex';
 
-import logoSvg from '../../../static/assets/kekker_logo.svg';
+import logoSvg from '../../../static/assets/kekker_logo_white.svg';
 
 const StyledLogoLink = styled(Link)`
   width: 100%;
@@ -16,10 +16,8 @@ const StyledLogoLink = styled(Link)`
 
 const StyledLogoImg = styled.img`
   margin-bottom: 0;
-  margin-top: -2%;
-  margin-left: -6%;
   
-  width: 200px;
+  width: 180px;
   height: 100%;
   min-width: 100px;
 `;

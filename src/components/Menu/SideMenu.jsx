@@ -16,11 +16,11 @@ const MenuHeader = styled(Heading)`
     content: '';
     display: block;
     position: absolute;
-    top: -8px;
-    left: -34px;
-    width: 40px;
-    background-size: 40px 40px;
-    height: 40px;
+    bottom: 3px;
+    left: -25px;
+    width: 20px;
+    background-size: 20px 20px;
+    height: 20px;
     background-image: url(${HeaderBullet});
   }
 `;

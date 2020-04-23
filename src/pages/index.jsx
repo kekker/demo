@@ -72,7 +72,7 @@ const BlogIndex = ({ data, location }) => {
               ))}
             </Flex>
 
-            <hr style={{ marginBottom: 0, backgroundColor: 'hsla(0,0%,0%,0.4)'}}/>
+            <hr style={{ marginBottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.1)'}}/>
           </ContainerContent>
 
           <ContainerSection width="100%">
@@ -129,6 +129,8 @@ const BlogIndex = ({ data, location }) => {
             <ContainerContent pb={{ _: 4, sm: 6 }}>
               <Flex flexDirection="column" alignItems="center">
                 <Heading
+                  mb={3}
+                  maxWidth='600px'
                   fontWeight={600}
                   letterSpacing="-0.04em"
                   color="primaryText"
@@ -138,13 +140,12 @@ const BlogIndex = ({ data, location }) => {
                     xs: 'h1.sm',
                     sm: 'h1.md',
                     md: 'h1.lg',
-                    lg: 'h1.extralg',
                   }}
                 >
                   Create a Decentralized App
-                  <br />
+                  {' '}
                   <span style={{ letterSpacing: '-0.04em', fontWeight: '300' }}>
-                    in 10 Minutes
+                    in&nbsp;10&nbsp;Minutes
                   </span>
                 </Heading>
                 <ButtonLink
