@@ -56,7 +56,7 @@ const StyledBurgerButton = styled.button`
   
   color: ${({theme}) => theme.colors.invertedText};
   font-size: 20px;
-  line-height: 20px;
+  line-height: 18px;
 `;
 
 const StyledDropdownSection = styled.div`
@@ -149,6 +149,7 @@ class HeaderNav extends React.Component {
                 flexBasis="200px"
                 height='100%'
                 alignItems='center'
+                mr={3}
             >
               <LogoLink/>
             </Flex>

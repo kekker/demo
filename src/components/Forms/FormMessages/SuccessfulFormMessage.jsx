@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Text from '../../TextStyles/Text';
 
-import arrowSvg from '../../../../static/assets/kekker-arrow.svg';
+import arrowSvg from '../../../../static/assets/kekker_arrow.svg';
 import Flex from '../../Flex';
 
 const StyledArrowIconDiv = styled.div`

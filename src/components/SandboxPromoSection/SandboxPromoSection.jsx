@@ -11,7 +11,7 @@ import Flex from "../Flex";
 const SandboxPromoSection = () => (
     <ContainerSection height={'unset'}>
         <hr style={{ marginBottom: 0}} />
-        <ContainerContent pb={{_: 4, sm: 5}} pt={{_: 4, sm: 4}}>
+        <ContainerContent pb={4} pt={4}>
             <Flex flexDirection="column" alignItems="center">
                 <Heading
                     fontWeight={300}
@@ -26,8 +26,8 @@ const SandboxPromoSection = () => (
                     fontWeight='bold'
                     tag='div'
                     textAlign='center'
-                    mb={4}
-                    mt={3}
+                    mt={2}
+                    mb='25px'
                 >
                     We've prepared the Sandbox so that you can try out powerful features of Kekker Platform by yourself
                 </Text>

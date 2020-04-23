@@ -4,7 +4,7 @@
     "primaryText": "#000000",
     "invertedText": "#ffffff",
     "primaryLight": "#ffffff",
-    "primaryDark": "#1d1d1d",
+    "primaryDark": "#000000",
     "secondaryDark": "#535252",
     "linkColor": "#0e3ca1",
     "textLightGrey": "#9e9e9e"
@@ -20,11 +20,11 @@
     "h1": {
       "sm": 30,
       "md": 40,
-      "lg": 50,
-      "extralg": 50
+      "lg": 45,
+      "extralg": 45
     }
   },
-  "baseFontSize": "18px",
+  "baseFontSize": "16px",
   "baseLineHeight": 1.666,
   "headerFontFamily": [
     "Heebo",
@@ -68,7 +68,7 @@
     "menuHeight": "10vh",
     "indexHeaderSectionHeight": {
       "xs": "350px",
-      "md": "500px"
+      "md": "430px"
     }
   },
   "button" : {

@@ -35,6 +35,7 @@ const AngleDown = () => <FontAwesomeIcon icon={faAngleDown} />;
 const AngleUp = () => <FontAwesomeIcon icon={faAngleUp} />;
 const Bars = () => <FontAwesomeIcon icon={faBars} />;
 const Close = () => <FontAwesomeIcon icon={faTimes} />;
+
 // const Envelope = props => <FontAwesomeIcon {...props} icon={faEnvelope} />;
 // const Heart = props => <FontAwesomeIcon {...props} icon={faHeart} />;
 // const FaLink = props => <FontAwesomeIcon {...props} icon={faLink} />;
@@ -51,7 +52,7 @@ export {
   AngleDown,
   AngleUp,
   Bars,
-  Close
+  Close,
   // Envelope,
   // Heart,
   // FaLink,

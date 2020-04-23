@@ -12,10 +12,6 @@ const MenuWrapper = styled.div`
 
 const StyledMenuLink = styled(Link)`
   text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const MenuLinks = ({ links, location }) => {
@@ -27,9 +23,9 @@ const MenuLinks = ({ links, location }) => {
     return (
       <StyledMenuLink key={link.title} to={link.to}>
         <Text
-          textDecoration={isActive ? 'underline' : 'none'}
+          textDecoration='none'
           fontSize="medium"
-          fontWeight="400"
+          fontWeight={isActive ? 600 : 400}
           tag="div"
           color="primaryText"
           textAlign="left"

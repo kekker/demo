@@ -44,7 +44,7 @@ const MainHeader = ({ location, theme }) => (
     render={data => (
       <>
         <ContainerSection
-          width="100vw"
+          width="100%"
           height={theme.layout.menuHeight}
           bg="#000000"
           style={{
@@ -82,6 +82,7 @@ const MainHeader = ({ location, theme }) => (
                   alignItems="center"
                 >
                   <Heading
+                    mb={3}
                     fontWeight={300}
                     letterSpacing="-0.04em"
                     color="invertedText"
@@ -91,7 +92,6 @@ const MainHeader = ({ location, theme }) => (
                       xs: 'h1.sm',
                       sm: 'h1.md',
                       md: 'h1.lg',
-                      lg: 'h1.extralg',
                     }}
                   >
                     A
