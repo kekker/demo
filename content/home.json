@@ -3,19 +3,22 @@
     {
       "header": "Fast",
       "content": [
-        "Kekker allows for 10X faster time-to-market than direct competition, is 100X cheaper/faster than hiring experts and is easy to setup and use and no DLT/DFS experience needed!"
+        "Kekker allows for 10X faster time-to-market than direct competition, is 100X cheaper/faster than hiring experts and is easy to setup and use",
+        "Cut your time to market by 6 to 12 months and save hundreds of thousands of dollars in man-hours by focusing on building business applications, not the setup & maintenance of your DLT solution."
       ]
     },
     {
-      "header": "Flexible",
+      "header": "Easy",
       "content": [
-        "Choose DLT/DFS stack (Ethereum, Hyperledger or other) and a set of cryptography tools to meet your business, legal and regulatory requirements"
+        "Choose DLT/DFS stack (Ethereum, Hyperledger or other) and a set of tools to meet your business, legal and regulatory requirements.",
+        "Leverage Kekker's well documented APIs to build your decentralized application with ease - no DLT/DFS experience needed!"
       ]
     },
     {
-      "header": "Scalable",
+      "header": "Free",
       "content": [
-          "Cluster solutions to meet organizational and functional business requirements for different geographical, functional and technological networks"
+        "Kekker Sandbox is free. Don't worry about the infrastructure - just start building your decentralized application right now.",
+        "Transfer your decentralized application to your own infrastructure at any time or entrust us with hosting and support tailored to your needs."
       ]
     }
   ],
@@ -27,7 +30,7 @@
   "KekkerSandboxSectionHeader": "Kekker Sandbox at a Glance",
   "KekkerSandboxSectionContent": [
     "Kekker Sandbox is free and provides a unique opportunity to build a prototype or MVP on any of the popular blockchains.",
-    "Don’t bother about infrastructure - just start building your decentralized application right away. Yes, that’s right - the sandbox is free! At any time you can transfer your decentralized application to your own infrastructure or entrust us with hosting and support customized for your needs."
+    "At any time you can transfer your decentralized application to your own infrastructure or entrust us with hosting and support customized for your needs."
   ],
   "getStartedButtonSectionHeader":
          "Create a Decentralized App in 10 Minutes",

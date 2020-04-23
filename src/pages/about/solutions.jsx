@@ -23,12 +23,12 @@ const SolutionsPage = ({location}) => {
     return (
         <Layout
             location={location.pathname}
-            title="Solutions"
+            title="Decentralized solutions worldwide"
             description="Decentralized solutions"
         >
-            <Heading>Decentralized solutions</Heading>
-            <Text tag='p'>
-                Explore the list of the DAPP projects:
+            <Heading>Solutions</Heading>
+            <Text tag='p' fontSize='large'>
+                Decentralized solutions worldwide
             </Text>
             <SolutionsList/>
             <SandboxPromoSection/>
