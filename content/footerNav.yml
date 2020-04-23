@@ -10,6 +10,9 @@ items:
       - title: Sandbox
         to: /docs/getting-started/sandbox.html
 
+      - title: Tools
+        to: /docs/getting-started/tools.html
+
   - header: Scenarios
     items:
       - title: Basic Deal
@@ -23,11 +26,11 @@ items:
       - title: Platform
         to: /about/platform.html
 
-      - title: Solutions
-        to: /about/solutions
-
       - title: Benefits
         to: /about/benefits.html
+
+      - title: Solutions
+        to: /about/solutions
 
   - header: API
     items:

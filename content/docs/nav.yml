@@ -9,6 +9,9 @@
     - title: Sandbox
       to: /docs/getting-started/sandbox.html
 
+    - title: Tools
+      to: /docs/getting-started/tools.html
+
 - header: Scenarios
   items:
     - title: Basic Deal

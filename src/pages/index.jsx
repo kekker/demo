@@ -64,6 +64,7 @@ const BlogIndex = ({ data, location }) => {
                       key={`benefitsCont${benefitString.slice(0, 5)}`}
                       fontSize="medium"
                       tag="div"
+                      mb={2}
                     >
                       {benefitString}
                     </Text>
