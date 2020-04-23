@@ -58,35 +58,16 @@ const ExpandHeader = styled.button`
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     text-align: start;
-`;
-
-const StyledTriangleIcon = styled.img`
-    display: inline-block;
-    margin-bottom: 0;
-    margin-left: 10px;
-    height: 16px;
-    width: 16px;
     
-    transform: rotate(90deg);
-`;
-
-const StyledExpansionButton = styled.button`
-    background: transparent;
-    border: none;
-    padding: 0;
-    
-    font-weight: 800;
-    font-size: 17px;
-    
-    &:hover {
-        text-decoration: underline;
+    &:last-of-type {
+        border: none;
     }
 `;
 
 const StyledButtonIcon = styled.img`
     display: inline-block;
     margin-bottom: 0;
-    margin-right: 7px;
+    margin-right: 10px;
     height: 25px;
     width: 25px;
     padding: 5px;
@@ -94,7 +75,8 @@ const StyledButtonIcon = styled.img`
     background-color: ${({theme}) => theme.colors.primaryBrand};
     border-radius: 50%;
     
-    transform: rotate(-90deg);
+    transform: ${({isExpanded}) => isExpanded 
+            ? 'rotate(-90deg)' : 'rotate(90deg)' };
 `;
 
 
@@ -112,15 +94,6 @@ class SolutionSection extends React.Component {
     }
 
     handleExpansion = e => {
-        if (this.state.isExpanded === true &&
-            this.ref &&
-            this.props.items.length > 6
-        ) {
-            this.ref.current.scrollIntoView({
-                block: 'start',
-                behavior: "smooth"
-            })
-        }
         this.setState({ isExpanded: !this.state.isExpanded });
     };
 
@@ -134,8 +107,20 @@ class SolutionSection extends React.Component {
             <>
                 <ExpandHeader onClick={this.handleExpansion}>
                     <Flex alignItems='center'>
-                        <Heading mb={0} display='inline-block' level={2}>{title}</Heading>
-                        <StyledTriangleIcon src={ArrowSvg} alt=''/>
+                        <StyledButtonIcon
+                            isExpanded={isExpanded}
+                            src={ArrowSvgWhite}
+                            alt=''
+                        />
+                        <Heading
+                            mb={0}
+                            display='inline-block'
+                            level={3}
+                            fontSize='22px'
+                            fontWeight='600'
+                        >
+                            {title}
+                        </Heading>
                     </Flex>
                 </ExpandHeader>
                 <StyledSolutionList
@@ -158,16 +143,6 @@ class SolutionSection extends React.Component {
                         </StyledSolutionItem>
                     )}
                 </StyledSolutionList>
-                { isExpanded && (
-                    <StyledExpansionButton
-                        onClick={this.handleExpansion}
-                    >
-                        <Flex alignItems='center'>
-                            <StyledButtonIcon src={ArrowSvgWhite} alt='' />
-                            show less
-                        </Flex>
-                    </StyledExpansionButton>
-                )}
             </>
         )
     }
