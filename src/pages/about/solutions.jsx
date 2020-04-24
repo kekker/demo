@@ -27,8 +27,17 @@ const SolutionsPage = ({location}) => {
             description="Decentralized solutions"
         >
             <Heading>Solutions</Heading>
-            <Text tag='p' fontSize='large'>
-                Decentralized solutions worldwide
+            <Text tag='p'>
+                Companies from different industries seek operational efficiency in platform solutions.
+                Distributed (blockchain-based) platforms are expected to deliver the greatest
+                benefits with their ability to create more transparency and fairness
+                while also saving businesses time and money.
+            </Text>
+            <Text tag='p'>
+                Below you can find practical examples of blockchain technology,
+                already changing traditional ways of doing business.
+                Major sectors are introducing distributed solutions to address
+                recurrent industry problems.
             </Text>
             <SolutionsList/>
             <SandboxPromoSection/>
