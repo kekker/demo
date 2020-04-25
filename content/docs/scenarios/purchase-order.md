@@ -2,6 +2,7 @@
 title: Purchase Order
 description: Issue, adjust and submit a Purchase Order
 prev: Basic Deal
+sandboxPromo: true
 ---
 
 # Issue, adjust and submit a Purchase Order

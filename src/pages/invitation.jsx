@@ -39,7 +39,7 @@ class InvitationPage extends React.Component {
                 fontSize={{ _: 'h1.sm', sm: 'h1.md', md: 'h1.lg' }}
                 level={1}
             >
-              Get access to Sandbox
+              Sandbox Access
             </Heading>
 
             { isExpanded && (
@@ -48,17 +48,18 @@ class InvitationPage extends React.Component {
                   Sandbox environment
                 </Heading>
                 <Text mb={2} tag="p">
-                  The Sandbox environment is a complete replica of the Kekker production environment, supporting all of the same API endpoints.
-                  It is intended for engineers, developers, architects, product owners or anyone else who desires to develop/test decentralized apps for free!
+                  Kekker Sandbox is a copy of the production environment and supports all API endpoints.
+                  It is intended for engineers, developers, architects,
+                  product owners and anyone else who desires to develop/test decentralized apps.
                 </Text>
                 <Heading level={3} mb='0.3em'>
                   Sandbox setup
                 </Heading>
                 <Text tag="p">
-                  To set up your Sandbox account, all we ask for is to fill in the form below.
+                  To set up your Sandbox account, all we ask is for you to fill out the form below.
                 </Text>
                 <Text tag="p">
-                  Dig in with the Kekker Sandbox now!
+                  Dig into Kekker Sandbox right now!
                 </Text>
               </div>
             )}

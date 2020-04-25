@@ -3,6 +3,7 @@ title: Tools
 description: Tools needed to run Sandbox Scenarios
 next: Basic Deal
 prev: Sandbox
+sandboxPromo: true
 ---
 
 # Tools

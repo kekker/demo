@@ -50,7 +50,6 @@ class DealPage extends React.Component {
         description="Deal request for Kekker API"
       >
         {swaggerComponent}
-        <SandboxPromoSection/>
         <MarkdownFooter next={next} prev={prev} />
       </Layout>
     );

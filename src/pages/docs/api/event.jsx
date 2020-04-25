@@ -50,7 +50,6 @@ class EventPage extends React.Component {
         description="Event request for Kekker API"
       >
         {swaggerComponent}
-        <SandboxPromoSection/>
         <MarkdownFooter next={next} prev={prev} />
       </Layout>
     );

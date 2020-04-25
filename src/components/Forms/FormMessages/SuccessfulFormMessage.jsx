@@ -26,18 +26,12 @@ const SuccessfulFormMessage = () => (
         <StyledArrowIcon src={arrowSvg} alt="Arrow Icon" />
       </StyledArrowIconDiv>
       <Text tag="div" isHeadingFont textTransform="uppercase" fontWeight={600}>
-        Thank you for your request.
-        {' '}
-        <br />
-        Please, check your mail.
-        {' '}
-        <br />
-        Further instructions have been sent to you.
+        Check your email for further instructions
       </Text>
     </Flex>
 
     <Text tag="div">
-      If you have any questions, contact us on
+      If you have any questions, contact us at
       {' '}
       <a href="mailto:info@kekker.com">info@kekker.com</a>
     </Text>

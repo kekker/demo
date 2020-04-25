@@ -2,6 +2,7 @@
 title: Authorization
 description: Authorization for Kekker Sandbox
 next: Handling Errors
+sandboxPromo: true
 ---
 
 # Authorization

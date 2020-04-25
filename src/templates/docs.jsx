@@ -45,6 +45,7 @@ export const pageQuery = graphql`
         prev
         next_title
         prev_title
+        sandboxPromo
       }
       fields {
         slug

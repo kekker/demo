@@ -2,6 +2,7 @@
 title: Get Started
 description: Get Started - a quickstart to Kekker Platform
 next: Main Concepts
+sandboxPromo: true
 ---
 
 # Get started
