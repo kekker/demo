@@ -50,7 +50,6 @@ class ClientPage extends React.Component {
         description="Client request for Kekker API"
       >
         {swaggerComponent}
-        <SandboxPromoSection/>
         <MarkdownFooter next={next} prev={prev}/>
       </Layout>
     );

@@ -3,6 +3,7 @@ title: Basic Deal
 description: Hello World Kekker Scenario example
 next: Purchase Order
 prev: Sandbox
+sandboxPromo: true
 ---
 
 # "Hello, World!"

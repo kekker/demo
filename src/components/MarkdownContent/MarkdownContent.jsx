@@ -54,7 +54,7 @@ const getPageByTitle = (sectionList, templateTitle) => {
 };
 
 const MarkdownContent = ({ markdownRemark, listItems }) => {
-  const { next, prev, prev_title, next_title } = markdownRemark.frontmatter;
+  const { next, prev, prev_title, next_title, sandboxPromo } = markdownRemark.frontmatter;
   const prevPage = getPageByTitle(listItems, prev);
   const nextPage = getPageByTitle(listItems, next);
 
@@ -67,7 +67,9 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
       >
         <MarkdownRawContent dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         <div>
-          <SandboxPromoSection/>
+          { sandboxPromo && (
+              <SandboxPromoSection/>
+          )}
           <MarkdownFooter
               next_title={next_title}
               prev_title={prev_title}

@@ -17,8 +17,8 @@
     {
       "header": "Free",
       "content": [
-        "Kekker Sandbox is free. Don't worry about the infrastructure - just start building your decentralized application right now.",
-        "Cut your time to market by 6 to 12 months and save hundreds of thousands of dollars in man-hours."
+        "Kekker Sandbox is free. Cut your time to market by 6 to 12 months and save hundreds of thousands of dollars in man-hours.",
+        "Don't worry about the infrastructure - just start building your decentralized application right now."
       ]
     }
   ],
@@ -30,7 +30,7 @@
   "KekkerSandboxSectionHeader": "Kekker Sandbox at a Glance",
   "KekkerSandboxSectionContent": [
     "Kekker Sandbox is free and provides a unique opportunity to build a prototype or MVP on any of the popular blockchains.",
-    "At any time you can transfer your decentralized application to your own infrastructure or entrust us with hosting and support customized for your needs."
+    "Entrust us with hosting and supporting your commercial infrastructure or transfer your decentralized application to your own infrastructure at any time."
   ],
   "getStartedButtonSectionHeader":
          "Create a Decentralized App in 10 Minutes",

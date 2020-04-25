@@ -16,11 +16,29 @@ import GridItem from '../components/GridItem';
 import ContainerSection from '../components/ContainerSection';
 import Heading from '../components/TextStyles/Heading';
 import Text from '../components/TextStyles/Text';
+import BgImage from "../components/BgImage";
+
+const StyledPlatformImage = styled(Img)`
+  width: 100%;
+  margin-top: -30px;
+  
+  & img {
+    margin-bottom: 0;
+  }
+`;
 
 const StyledImage = styled(Img)`
   width: 100%;
   margin-bottom: 0;
-  margin-top: -50px;
+  margin-top: -70px;
+`;
+
+const StyledSandboxContentWrapper = styled.div`
+  max-width: 600px;
+  
+  & p:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 // Content
@@ -31,7 +49,7 @@ const BlogIndex = ({ data, location }) => {
   const { description } = data.site.siteMetadata;
 
   const {
-    platformImage, sandboxImage
+    platformImage, sandboxImage, sandboxBgImage
   } = data;
 
   return (
@@ -77,7 +95,7 @@ const BlogIndex = ({ data, location }) => {
           </ContainerContent>
 
           <ContainerSection width="100%">
-            <ContainerContent>
+            <ContainerContent pb={2}>
               <Heading mb="25px" mt={0} level={2}>
                 {jsonContent.KekkerPlatformSectionHeader}
               </Heading>
@@ -92,7 +110,7 @@ const BlogIndex = ({ data, location }) => {
                     </Text>
                 ))}
               </div>
-              <StyledImage
+              <StyledPlatformImage
                   fluid={platformImage.childImageSharp.fluid}
                   title="Kekker Platform overview"
               />
@@ -108,7 +126,7 @@ const BlogIndex = ({ data, location }) => {
               <Heading mb="25px" mt={0} level={2}>
                 {jsonContent.KekkerSandboxSectionHeader}
               </Heading>
-              <div style={{ maxWidth: '600px'}}>
+              <StyledSandboxContentWrapper>
                 { jsonContent.KekkerSandboxSectionContent.map(paragraph => (
                     <Text
                         key={`sandboxCont${paragraph.slice(0, 5)}`}
@@ -118,12 +136,24 @@ const BlogIndex = ({ data, location }) => {
                       { paragraph }
                     </Text>
                 ))}
-              </div>
-              <StyledImage
-                  fluid={sandboxImage.childImageSharp.fluid}
-                  title="Kekker Sandbox overview"
-              />
+              </StyledSandboxContentWrapper>
             </ContainerContent>
+          </ContainerSection>
+
+          <ContainerSection height={{_: '80vw', lg: '1000px'}}>
+            <BgImage
+                height={{_: '80vw', lg: '1000px'}}
+                fluid={sandboxBgImage.childImageSharp.fluid}
+                title='Sandbox Background Image'
+                bg='#000000'
+            >
+              <ContainerContent>
+                <StyledImage
+                    fluid={sandboxImage.childImageSharp.fluid}
+                    title="Kekker Sandbox overview"
+                />
+              </ContainerContent>
+            </BgImage>
           </ContainerSection>
 
           <ContainerSection bg="#FFFFFF">
@@ -192,7 +222,16 @@ export const pageQuery = graphql`
       }
     }
     sandboxImage: file(
-      absolutePath: { regex: "/kekker_mainpage_sandbox_transparent.png/" }
+      absolutePath: { regex: "/kekker_mainpage_sandbox.png/" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    sandboxBgImage: file(
+      absolutePath: { regex: "/kekker_mainpage_bg2.jpg/" }
     ) {
       childImageSharp {
         fluid(maxWidth: 1600) {

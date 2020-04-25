@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   border-radius: 2em;
   
   @media (max-width: 480px) {
-    ${({ isShrinking }) => isShrinking ? 'padding: 0.05em 0.3em;' : ''}
+    padding: ${({ isShrinking }) => isShrinking ? '0 0.5em;' : '0.15em 0.5em'}
   }
 `;
 
@@ -34,7 +34,7 @@ const ButtonLink = ({
         type="button"
     >
       <Text
-        fontSize={fontSize}
+        fontSize={{_: '14px', sm: fontSize}}
         fontWeight="900"
         isHeadingFont
         textTransform="uppercase"

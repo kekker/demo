@@ -3,6 +3,7 @@ title: Main Concepts
 description: Get Familiar with Kekker identities and workflow
 next: Sandbox
 prev: Get Started
+sandboxPromo: true
 ---
 
 # Main Concepts

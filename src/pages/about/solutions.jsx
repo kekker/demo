@@ -40,7 +40,6 @@ const SolutionsPage = ({location}) => {
                 recurrent industry problems.
             </Text>
             <SolutionsList/>
-            <SandboxPromoSection/>
             <MarkdownFooter next={next} prev={prev}/>
         </Layout>
     )

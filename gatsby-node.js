@@ -31,6 +31,7 @@ exports.createSchemaCustomization = ({ actions }) => {
         next_title: String
         prev: String
         prev_title: String
+        sandboxPromo: Boolean
     }
   `;
     createTypes(typeDefs)

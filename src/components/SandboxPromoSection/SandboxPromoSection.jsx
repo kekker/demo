@@ -11,7 +11,7 @@ import Flex from "../Flex";
 const SandboxPromoSection = () => (
     <ContainerSection height={'unset'}>
         <hr style={{ marginBottom: 0}} />
-        <ContainerContent pb={4} pt={4}>
+        <ContainerContent pb='35px' pt='35px'>
             <Flex flexDirection="column" alignItems="center">
                 <Heading
                     fontWeight={300}
@@ -26,21 +26,20 @@ const SandboxPromoSection = () => (
                     fontWeight='bold'
                     tag='div'
                     textAlign='center'
-                    mt={2}
-                    mb='25px'
+                    mt={1}
+                    mb='15px'
                 >
-                    We've prepared the Sandbox so that you can try out powerful features of Kekker Platform by yourself
+                    Test the platform's powerful features now
                 </Text>
                 <ButtonLink
                     fontSize='medium'
                     size='large'
                     isPrimary
                     to={'/invitation'}
-                    title={'Get Access'}
+                    title={'Sandbox Access'}
                 />
             </Flex>
         </ContainerContent>
-        {/*<hr style={{ marginBottom: 0}} />*/}
     </ContainerSection>
 );
 

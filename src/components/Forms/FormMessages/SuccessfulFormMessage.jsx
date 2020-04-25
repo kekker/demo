@@ -6,8 +6,8 @@ import arrowSvg from '../../../../static/assets/kekker_arrow.svg';
 import Flex from '../../Flex';
 
 const StyledArrowIconDiv = styled.div`
-  flex-basis: 105px;
-  margin-left: -1em;
+  flex-basis: 50px;
+  margin-right: 1em;
   display: flex;
 
   @media screen and (max-width: 440px) {
@@ -26,18 +26,12 @@ const SuccessfulFormMessage = () => (
         <StyledArrowIcon src={arrowSvg} alt="Arrow Icon" />
       </StyledArrowIconDiv>
       <Text tag="div" isHeadingFont textTransform="uppercase" fontWeight={600}>
-        Thank you for your request.
-        {' '}
-        <br />
-        Please, check your mail.
-        {' '}
-        <br />
-        Further instructions have been sent to you.
+        Check your email for further instructions
       </Text>
     </Flex>
 
     <Text tag="div">
-      If you have any questions, contact us on
+      If you have any questions, contact us at
       {' '}
       <a href="mailto:info@kekker.com">info@kekker.com</a>
     </Text>
