@@ -6,8 +6,8 @@ import arrowSvg from '../../../../static/assets/kekker_arrow.svg';
 import Flex from '../../Flex';
 
 const StyledArrowIconDiv = styled.div`
-  flex-basis: 105px;
-  margin-left: -1em;
+  flex-basis: 50px;
+  margin-right: 1em;
   display: flex;
 
   @media screen and (max-width: 440px) {
