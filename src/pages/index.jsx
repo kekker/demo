@@ -31,6 +31,10 @@ const StyledImage = styled(Img)`
   width: 100%;
   margin-bottom: 0;
   margin-top: -70px;
+  
+  @media (max-width: 550px) {
+    margin-top: -30px;
+  }
 `;
 
 const StyledSandboxContentWrapper = styled.div`
