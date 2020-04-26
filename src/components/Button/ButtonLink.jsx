@@ -8,12 +8,25 @@ import Text from '../TextStyles/Text';
 const StyledButton = styled.button`
   color: ${props => props.theme.colors.primaryText};
   padding: ${props => props.theme.button.size[props.size]};
+  transition: background 0.2s;
 
-  ${({ isPrimary, theme: { colors } }) => (isPrimary
-    ? ` border: 2px solid ${colors.primaryBrand};
-       background: ${colors.primaryBrand};`
-    : ` border: 2px solid ${colors.primaryLight};
-       background: ${colors.primaryLight};`)};
+  ${({ isPrimary, theme: { colors, button } }) => (isPrimary
+    ? `border: 2px solid ${colors.primaryBrand};
+       background: ${colors.primaryBrand};
+       
+       &:hover {
+         border: 2px solid ${button.disabledBgColor};
+         background: ${button.disabledBgColor};
+       }`
+        
+    : `border: 2px solid ${colors.primaryLight};
+       background: ${colors.primaryLight};
+       
+       &:hover {
+         border: 2px solid ${colors.primaryBrand};
+         background: ${colors.primaryBrand};
+       }`
+  )};
 
   font-size: ${props => props.theme.fontSizes[props.size]};
   border-radius: 2em;
