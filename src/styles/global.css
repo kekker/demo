@@ -39,8 +39,13 @@ a, button {
 }
 
 a {
+  color: #000000;
   background-image: none;
   text-shadow: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 p:not(:last-child) {
