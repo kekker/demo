@@ -8,7 +8,7 @@ import Text from '../TextStyles/Text';
 const StyledButton = styled.button`
   color: ${props => props.theme.colors.primaryText};
   padding: ${props => props.theme.button.size[props.size]};
-  transition: background 0.2s;
+  transition: background 0.1s;
 
   ${({ isPrimary, theme: { colors, button } }) => (isPrimary
     ? `border: 2px solid ${colors.primaryBrand};
@@ -28,7 +28,6 @@ const StyledButton = styled.button`
        }`
   )};
 
-  font-size: ${props => props.theme.fontSizes[props.size]};
   border-radius: 2em;
   
   @media (max-width: 480px) {
