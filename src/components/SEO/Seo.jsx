@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import {googleAnalyticsId} from "./config";
 
 function Seo({
   description, lang, meta, title
@@ -13,8 +12,7 @@ function Seo({
         site {
           siteMetadata {
             description
-            author
-            siteUrl
+            googleAnalyticsId
           }
         }
       }
@@ -24,6 +22,7 @@ function Seo({
   const metaDescription = description || site.siteMetadata.description;
   const mode = process.env.NODE_ENV;
   const isProduction = mode === 'production';
+  const { googleAnalyticsId } = site.siteMetadata;
 
   return (
     <Helmet

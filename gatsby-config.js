@@ -4,7 +4,8 @@ module.exports = {
 		author: `Kekker`,
 		bio: ``,
 		description: `Documentation for new Kekker Platform`,
-		siteUrl: `localhost:8000`
+		siteUrl: `localhost:8000`,
+		googleAnalyticsId: 'UA-67086519-3',
 	},
 	plugins: [
 		{
