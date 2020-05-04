@@ -60,7 +60,7 @@
     "url": "git+https://github.com/kekker/demo.git"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "sed -i s/CONTEXT_PLACEHOLDER/${CONTEXT}/g src/utils/inject-context.js && gatsby build",
     "develop": "gatsby develop",
     "lint": "eslint --ext .jsx,.js src",
     "lintfix": "eslint --ext .jsx,.js src --fix",
