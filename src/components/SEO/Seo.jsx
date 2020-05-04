@@ -26,6 +26,7 @@ function Seo({
                                 context &&
                                 context === 'production';
   const { googleAnalyticsId } = site.siteMetadata;
+  console.log(mode, context, isProduction);
 
   return (
     <Helmet
