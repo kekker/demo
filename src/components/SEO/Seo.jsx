@@ -21,7 +21,10 @@ function Seo({
 
   const metaDescription = description || site.siteMetadata.description;
   const mode = process.env.NODE_ENV;
-  const isProduction = mode === 'production';
+  const context = process.env.CONTEXT;
+  const isProduction = mode === 'production' &&
+                                context &&
+                                context === 'production';
   const { googleAnalyticsId } = site.siteMetadata;
 
   return (
