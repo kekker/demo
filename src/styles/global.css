@@ -64,8 +64,8 @@ footer {
 }
 
 blockquote {
-  background-color: #f2f2f2;
-  border-left-color: #9e9e9e;
+  background-color: hsl(44, 87%, 94%);
+  border-left-color: #ffde00;
   border-left-width: 9px;
   border-left-style: solid;
   padding: 20px 45px 20px 26px;

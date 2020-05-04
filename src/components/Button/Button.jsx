@@ -16,7 +16,6 @@ const StyledButton = styled.button`
        `
     : `border: 2px solid ${theme.colors.primaryBrand};
        background: ${theme.colors.primaryBrand};
-       
        &:hover {
          border: 2px solid ${theme.button.disabledBgColor};
          background: ${theme.button.disabledBgColor};
@@ -24,7 +23,7 @@ const StyledButton = styled.button`
        `
   )};
   
-  transition: background 0.2s;
+  transition: background 0.1s;
   border-radius: 2em;
 `;
 
