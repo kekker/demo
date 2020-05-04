@@ -19,14 +19,12 @@ function Seo({
     `,
   );
 
+  const { googleAnalyticsId } = site.siteMetadata;
   const metaDescription = description || site.siteMetadata.description;
   const mode = process.env.NODE_ENV;
-  const context = process.env.CONTEXT;
-  const isProduction = mode === 'production' &&
-                                context &&
-                                context === 'production';
-  const { googleAnalyticsId } = site.siteMetadata;
-  console.log(mode, context, isProduction);
+  const netlifyDev = process.env.NETLIFY_DEV;
+  const isDevelopment = mode === 'development' && netlifyDev;
+  console.log(mode, netlifyDev, isDevelopment);
 
   return (
     <Helmet
@@ -39,16 +37,16 @@ function Seo({
           name: 'description',
           content: metaDescription,
         },
-      ].concat(isProduction
-          ? meta
-          : {
-            name: `robots`,
-            content: "noindex,nofollow",
+      ].concat(isDevelopment
+          ? {
+              name: `robots`,
+              content: "noindex,nofollow",
           }
+          : meta
       )}
     >
        Global site tag (gtag.js) - Google Analytics
-      { isProduction && (
+      { !isDevelopment && (
         <>
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
           <script>
