@@ -62,8 +62,8 @@ transactions in Public Networks may require about 10 minutes to process.
 
 ### Differences from production environment
 The Sandbox contains test data only and is completely separate from your production environment. 
-The Sandbox API URLs clearly state ‘demo’ (e.g., [https://democlient1.kekker.com/]) 
-unlike the production environment URLs (e.g., [https://api.kekker.com/]).
+The Sandbox API URLs clearly state ‘demo’ (e.g., https://democlient1.kekker.com/) 
+unlike the production environment URLs (e.g., https://api.kekker.com/).
 
 > Real commercial data should never be used in the Sandbox.
 
