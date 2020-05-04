@@ -13,6 +13,7 @@
     "formik": "^2.1.4",
     "gatsby": "^2.19.32",
     "gatsby-image": "^2.2.23",
+    "gatsby-plugin-google-analytics": "^2.3.0",
     "gatsby-plugin-manifest": "^2.3.2",
     "gatsby-plugin-offline": "^3.0.11",
     "gatsby-plugin-react-helmet": "^3.1.10",
@@ -60,7 +61,7 @@
     "url": "git+https://github.com/kekker/demo.git"
   },
   "scripts": {
-    "build": "sed -i s/CONTEXT_PLACEHOLDER/${CONTEXT}/g src/utils/inject-context.js && gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "lint": "eslint --ext .jsx,.js src",
     "lintfix": "eslint --ext .jsx,.js src --fix",

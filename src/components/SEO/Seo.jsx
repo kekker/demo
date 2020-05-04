@@ -12,21 +12,15 @@ function Seo({
         site {
           siteMetadata {
             description
-            googleAnalyticsId
           }
         }
       }
     `,
   );
 
-  const { googleAnalyticsId } = site.siteMetadata;
   const metaDescription = description || site.siteMetadata.description;
   const mode = process.env.NODE_ENV;
-  const context = process.env.CONTEXT;
-  const isProduction = mode === 'production' &&
-                                context &&
-                                context === 'production';
-  console.log(mode, context, isProduction);
+  const isProduction = mode === 'production';
 
   return (
     <Helmet
@@ -46,26 +40,7 @@ function Seo({
             content: "noindex,nofollow",
           }
       )}
-    >
-       Global site tag (gtag.js) - Google Analytics
-      { isProduction && (
-        <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
-          <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', ${googleAnalyticsId});
-
-            gtag('config', 'UA-67086519-3');
-          `}
-          </script>
-        </>
-        )
-      }
-
-    </Helmet>
+    />
   );
 }
 

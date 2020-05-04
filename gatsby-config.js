@@ -5,9 +5,15 @@ module.exports = {
 		bio: ``,
 		description: `Documentation for new Kekker Platform`,
 		siteUrl: `localhost:8000`,
-		googleAnalyticsId: 'UA-67086519-3',
 	},
 	plugins: [
+		{
+			resolve: `gatsby-plugin-google-analytics`,
+			options: {
+				trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'none',
+				head: true,
+			},
+		},
 		{
 		  resolve: `gatsby-plugin-manifest`,
 		  options: {
