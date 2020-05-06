@@ -26,6 +26,10 @@ const StyledSocialLink = styled.a`
   &:last-child:after {
     content: '';
   }
+  
+  &:hover {
+    color: ${props => props.theme.colors.primaryBrand};
+  }
 `;
 
 const Grid = styled.div`

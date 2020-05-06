@@ -25,16 +25,16 @@ const FontAwesomeIcon = styled(Base)`
   ${props => (props.color ? `color: ${props.color}` : '')};
 `;
 
-const Facebook = () => <FontAwesomeIcon icon={faFacebookF} />;
-const GooglePlus = () => <FontAwesomeIcon icon={faGooglePlus} />;
-const Linkedin = () => <FontAwesomeIcon icon={faLinkedin} />;
-const Skype = () => <FontAwesomeIcon icon={faSkype} />;
-const Twitter = () => <FontAwesomeIcon icon={faTwitter} />;
-const Instagram = () => <FontAwesomeIcon icon={faInstagram} />;
-const AngleDown = () => <FontAwesomeIcon icon={faAngleDown} />;
-const AngleUp = () => <FontAwesomeIcon icon={faAngleUp} />;
-const Bars = () => <FontAwesomeIcon icon={faBars} />;
-const Close = () => <FontAwesomeIcon icon={faTimes} />;
+const Facebook = props => <FontAwesomeIcon {...props} icon={faFacebookF} />;
+const GooglePlus = props => <FontAwesomeIcon {...props} icon={faGooglePlus} />;
+const Linkedin = props => <FontAwesomeIcon {...props} icon={faLinkedin} />;
+const Skype = props => <FontAwesomeIcon {...props} icon={faSkype} />;
+const Twitter = props => <FontAwesomeIcon {...props} icon={faTwitter} />;
+const Instagram = props => <FontAwesomeIcon {...props} icon={faInstagram} />;
+const AngleDown = props => <FontAwesomeIcon {...props} icon={faAngleDown} />;
+const AngleUp = props => <FontAwesomeIcon {...props} icon={faAngleUp} />;
+const Bars = props => <FontAwesomeIcon {...props} icon={faBars} />;
+const Close = props => <FontAwesomeIcon {...props} icon={faTimes} />;
 
 // const Envelope = props => <FontAwesomeIcon {...props} icon={faEnvelope} />;
 // const Heart = props => <FontAwesomeIcon {...props} icon={faHeart} />;

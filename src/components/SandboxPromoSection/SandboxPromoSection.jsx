@@ -11,7 +11,7 @@ import Flex from "../Flex";
 const SandboxPromoSection = () => (
     <ContainerSection height={'unset'}>
         <hr style={{ marginBottom: 0}} />
-        <ContainerContent pb='35px' pt='35px'>
+        <ContainerContent pt='50px' pb='60px'>
             <Flex flexDirection="column" alignItems="center">
                 <Heading
                     fontWeight={300}
