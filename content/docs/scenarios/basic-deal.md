@@ -32,13 +32,9 @@ Receiver: `node PrivEth-2`
 >
 > In queries in the headers *CHANNEL*, *AUTHORIZATION* you must use the personal identifier you received during registration. This will allow not to interfere with the simultaneous work of several users, as well as facilitate the work of the Technical Support service if you have any questions. The query examples use the personal identifier Demo.
 
-For more information about authorization, visit [API: Authorization Page](/docs/getting-started/authorization.html)
+For more information about authorization, visit [API: Authorization Page](/docs/api/authorization.html)
 
-If you run into any error, visit [API: Errors Page ](/docs/getting-started/errors.html)
-
-You can to use [Postman script](https://documenter.getpostman.com/view/10819849/SzYgPtzV)
-or make requests above step by step
-
+If you run into any error, visit [API: Errors Page ](/docs/api/handling-errors.html)
 
 ## 1. Create a Deal
 

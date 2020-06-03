@@ -12,6 +12,11 @@ const MenuWrapper = styled.div`
 
 const StyledMenuLink = styled(Link)`
   text-decoration: none;
+  font-weight: ${({ isActive }) => (isActive ? 600 : 400)};
+  
+  &:hover {
+    font-weight: 600;
+  }
 `;
 
 const MenuLinks = ({ links, location }) => {
@@ -21,11 +26,10 @@ const MenuLinks = ({ links, location }) => {
     const isActive = currentPageLinkTitle === link.title.toLowerCase();
 
     return (
-      <StyledMenuLink key={link.title} to={link.to}>
+      <StyledMenuLink isActive={isActive} key={link.title} to={link.to}>
         <Text
-          textDecoration='none'
+          textDecoration={isActive ? 'underline' : 'none'}
           fontSize="medium"
-          fontWeight={isActive ? 600 : 400}
           tag="div"
           color="primaryText"
           textAlign="left"
