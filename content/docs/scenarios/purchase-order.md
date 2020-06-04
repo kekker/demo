@@ -17,9 +17,8 @@ It uses a predefined smart contract with the FirstDeal transaction type.
 
 ### How to start
 
-We offer two ways to run Basic Scenario:
-* Easy-to-use pre-configured set of API calls in [Postman](/docs/api/authorization.html)
-* Any [cURL](/docs/api/authorization.html) command-line tool for IT-savvy users
+To run Purchase Order scenario you can use any command-line tool for IT-savvy users.
+We recommend using cURl. Find more at our [Tools guide](/docs/getting-started/tools.html).
 
 
 ### Transaction parties

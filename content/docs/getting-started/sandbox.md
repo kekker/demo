@@ -42,14 +42,12 @@ The clusters interact with each other via a dedicated trunk network.
 
 #### Hyperledger Fabric cluster contains 2 nodes:
 
-* `XXXXX.kekker.com`
-* `XXXXX2.kekker.com`
+* `hyperdemoclient1.kekker.com`
+* `hyperdemoclient2.kekker.com`
 
 ![Hyperledger Private Cluster](HyperledgerPrivateC.png)
 
-#### Quorum cluster contains 2 nodes:
-* `XXXXX.kekker.com`
-* `XXXXX2.kekker.com`
+#### Quorum cluster contains 2 nodes
 
 ![Quorum Private Cluster](QuorumPrivateC.png)
 

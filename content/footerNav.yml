@@ -21,17 +21,6 @@ items:
       - title: Purchase Order
         to: /docs/scenarios/purchase-order.html
 
-  - header: About
-    items:
-      - title: Platform
-        to: /about/platform.html
-
-      - title: Benefits
-        to: /about/benefits.html
-
-      - title: Solutions
-        to: /about/solutions
-
   - header: API
     items:
       - title: Authorization
@@ -54,6 +43,18 @@ items:
 
       - title: Service
         to: /docs/api/service
+
+  - header: About
+    items:
+      - title: Platform
+        to: /about/platform.html
+
+      - title: Benefits
+        to: /about/benefits.html
+
+      - title: Solutions
+        to: /about/solutions
+
 
 social:
   - title: LinkedIn
