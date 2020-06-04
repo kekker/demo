@@ -6,7 +6,7 @@ import Theme from '../src/components/Theme';
 import typography from '../src/components/ThemeTypography';
 
 // automatically import all files ending in *.stories.js
-configure(require.context("../src", true, /\.stories\.js$/), module);
+configure(require.context("../src", true, /\.stories\.jsx$/), module);
 
 addDecorator((story) => (
     <Theme>

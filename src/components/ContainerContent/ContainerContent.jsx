@@ -4,8 +4,8 @@ import { space, layout } from 'styled-system';
 
 const StyledContainerContent = styled.div.attrs(props => ({
   pb: props.pb && props.pb === 'normal'
-      ? {_: 4, sm: 6}
-      : props.pb
+    ? { _: 4, sm: 6 }
+    : props.pb
 }))`
   display: block;
 
@@ -17,13 +17,11 @@ const StyledContainerContent = styled.div.attrs(props => ({
   max-width: ${(props) => props.theme.layout.containerMaxWidth};
 `;
 
-const ContainerContent = ({children, ...props}) => {
-  return (
-      <StyledContainerContent {...props}>
-        {children}
-      </StyledContainerContent>
-  )
-};
+const ContainerContent = ({ children, ...props }) => (
+  <StyledContainerContent {...props}>
+    {children}
+  </StyledContainerContent>
+);
 
 
 ContainerContent.defaultProps = {

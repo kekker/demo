@@ -18,7 +18,7 @@ const StyledButton = styled.button`
          border: 2px solid ${button.disabledBgColor};
          background: ${button.disabledBgColor};
        }`
-        
+
     : `border: 2px solid ${colors.primaryLight};
        background: ${colors.primaryLight};
        
@@ -31,22 +31,22 @@ const StyledButton = styled.button`
   border-radius: 2em;
   
   @media (max-width: 480px) {
-    padding: ${({ isShrinking }) => isShrinking ? '0 0.5em;' : '0.15em 0.5em'}
+    padding: ${({ isShrinking }) => (isShrinking ? '0 0.5em;' : '0.15em 0.5em')}
   }
 `;
 
 const ButtonLink = ({
   size, fontSize, title, isPrimary, isShrinking, to
 }) => (
-  <Link to={to} style={{ flexShrink: 0}}>
+  <Link to={to} style={{ flexShrink: 0 }}>
     <StyledButton
-        size={size}
-        isShrinking={isShrinking}
-        isPrimary={isPrimary}
-        type="button"
+      size={size}
+      isShrinking={isShrinking}
+      isPrimary={isPrimary}
+      type="button"
     >
       <Text
-        fontSize={{_: '14px', sm: fontSize}}
+        fontSize={{ _: '14px', sm: fontSize }}
         fontWeight="900"
         isHeadingFont
         textTransform="uppercase"

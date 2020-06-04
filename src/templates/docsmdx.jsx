@@ -1,20 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import PropTypes from 'prop-types';
 
 // Components
 import Layout from '../components/Layout/Layout';
-import MarkdownContent from '../components/MarkdownContent';
 
-import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
-
-const Docs = ({ data, pageContext, location }) => {
-  const { frontmatter } = data.markdownRemark;
+const DocsMdx = ({ data: { mdx }, location }) => {
+  const { frontmatter } = mdx;
+  const content = mdx.body;
   const { title, description } = frontmatter;
-  const content = data.markdownRemark;
-  const { slug } = pageContext;
-
-  const listItems = slug.includes('docs') ? listDocsLinks : listAboutLinks;
 
   return (
     <Layout
@@ -22,30 +17,28 @@ const Docs = ({ data, pageContext, location }) => {
       title={title}
       description={description}
     >
-      <MarkdownContent markdownRemark={content} listItems={listItems} />
+      <MDXRenderer>{content}</MDXRenderer>
     </Layout>
   );
 };
 
-Docs.propTypes = {
+DocsMdx.propTypes = {
   data: PropTypes.object,
   location: PropTypes.object.isRequired,
   pageContext: PropTypes.object,
 };
 
 export const pageQuery = graphql`
-  query DocsMarkdown($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+  query DocsMdx($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
         description
         next
         prev
-        next_title
-        prev_title
         sandboxPromo
       }
+      body  
       fields {
         slug
       }
@@ -53,4 +46,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default Docs;
+export default DocsMdx;

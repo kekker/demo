@@ -6,6 +6,9 @@ prev: Sandbox
 sandboxPromo: true
 ---
 
+import TabItem from '../../../src/components/TabBar/TabItem';
+import TabBar from '../../../src/components/TabBar/TabBar';
+
 # "Hello, World!"
 ___
 ## Basic Deal scenario shows the simplest case of a transaction among nodes.
@@ -58,6 +61,12 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
   "status": "Created"
 }
 ```
+
+<TabBar>
+    <TabItem label="Ethereum">Content</TabItem>
+    <TabItem label="HyperLedger">Content</TabItem>
+</TabBar>
+
 
 #### Call example
 ``` bash{1-100}

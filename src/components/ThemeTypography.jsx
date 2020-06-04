@@ -20,6 +20,7 @@ const typography = new Typography({
   bodyFontFamily,
   bodyWeight,
   headerWeight,
+  bodyColor: 100
 });
 
 // Hot reload typography in development.

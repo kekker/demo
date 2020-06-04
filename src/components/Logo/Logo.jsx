@@ -23,9 +23,9 @@ const StyledLogoImg = styled.img`
 `;
 
 const LogoLink = () => (
-    <StyledLogoLink to="/">
-      <StyledLogoImg src={logoSvg} alt="Kekker logo" />
-    </StyledLogoLink>
+  <StyledLogoLink to="/">
+    <StyledLogoImg src={logoSvg} alt="Kekker logo" />
+  </StyledLogoLink>
 );
 
 export default LogoLink;

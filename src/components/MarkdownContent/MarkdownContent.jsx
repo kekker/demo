@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import MarkdownFooter from '../MarkdownFooter';
 import Flex from '../Flex';
-import SandboxPromoSection from "../SandboxPromoSection";
+import SandboxPromoSection from '../SandboxPromoSection';
 
 const MarkdownSection = styled.section`
   height: 100%;
@@ -15,7 +15,7 @@ const MarkdownSection = styled.section`
 `;
 
 const MarkdownRawContent = styled.div`
-  margin-bottom: ${({theme}) => theme.space[6]}px;
+  margin-bottom: ${({ theme }) => theme.space[6]}px;
   
   & > p:last-child {
     margin-bottom: 0;
@@ -54,7 +54,9 @@ const getPageByTitle = (sectionList, templateTitle) => {
 };
 
 const MarkdownContent = ({ markdownRemark, listItems }) => {
-  const { next, prev, prev_title, next_title, sandboxPromo } = markdownRemark.frontmatter;
+  const {
+    next, prev, prev_title, next_title, sandboxPromo
+  } = markdownRemark.frontmatter;
   const prevPage = getPageByTitle(listItems, prev);
   const nextPage = getPageByTitle(listItems, next);
 
@@ -68,13 +70,13 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
         <MarkdownRawContent dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         <div>
           { sandboxPromo && (
-              <SandboxPromoSection/>
+          <SandboxPromoSection />
           )}
           <MarkdownFooter
-              next_title={next_title}
-              prev_title={prev_title}
-              prev={prevPage}
-              next={nextPage}
+            next_title={next_title}
+            prev_title={prev_title}
+            prev={prevPage}
+            next={nextPage}
           />
         </div>
       </Flex>

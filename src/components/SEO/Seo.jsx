@@ -34,11 +34,11 @@ function Seo({
           content: metaDescription,
         },
       ].concat(isProduction
-          ? meta
-          : {
-            name: `robots`,
-            content: "noindex,nofollow",
-          }
+        ? meta
+        : {
+          name: 'robots',
+          content: 'noindex,nofollow',
+        }
       )}
     />
   );
