@@ -11,11 +11,12 @@ const MenuWrapper = styled.div`
 `;
 
 const StyledMenuLink = styled(Link)`
+  position: relative;
   text-decoration: none;
-  font-weight: ${({ isActive }) => (isActive ? 600 : 400)};
+  font-weight: ${({ isActive }) => (isActive ? 900 : 400)};
   
   &:hover {
-    font-weight: 600;
+    text-decoration: underline;
   }
 `;
 
@@ -28,7 +29,6 @@ const MenuLinks = ({ links, location }) => {
     return (
       <StyledMenuLink isActive={isActive} key={link.title} to={link.to}>
         <Text
-          textDecoration={isActive ? 'underline' : 'none'}
           fontSize="medium"
           tag="div"
           color="primaryText"

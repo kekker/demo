@@ -13,7 +13,6 @@ const StyledInput = styled.input`
   font-family: 'Courier';
   border: 1px solid
     ${({ error, touched }) => (touched ? (error ? 'red' : 'green') : 'lightgrey')};
-  text-transform: uppercase;
 `;
 
 const TextInput = ({ label, isRequired, ...props }) => {
