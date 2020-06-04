@@ -14,9 +14,10 @@ const StyledMenuLink = styled(Link)`
   position: relative;
   text-decoration: none;
   font-weight: ${({ isActive }) => (isActive ? 900 : 400)};
+  cursor: ${({ isActive }) => (isActive ? 'default' : 'pointer')};
   
   &:hover {
-    text-decoration: underline;
+    text-decoration: ${({ isActive }) => (isActive ? 'none' : 'underline')};
   }
 `;
 
