@@ -5,7 +5,6 @@ import Text from '../TextStyles/Text';
 import Heading from '../TextStyles/Heading';
 import Flex from '../Flex';
 
-import ArrowSvg from '../../../static/assets/kekker_arrow.svg';
 import ArrowSvgWhite from '../../../static/assets/kekker_arrow_white.svg';
 
 
@@ -133,7 +132,7 @@ class SolutionSection extends React.Component {
               ref={this.ref}
             />
             { items.map(item => (
-              <StyledSolutionItem>
+              <StyledSolutionItem key={item.title}>
                 <StyledLink href={item.link} target="_blank">
                   <Text tag="div" fontSize="medium+" fontWeight={600}>
                     {item.title}
