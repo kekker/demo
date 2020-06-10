@@ -116,9 +116,9 @@ const CodeEditor = ({ code, language }) => {
   }, [state, valuesIndex]);
 
   return (
-    <div>
-      <CopyButton copyTextRef={copyTextRef} />
+    <div style={{ position: 'relative' }}>
       <CodeEditorContainer>
+        <CopyButton copyTextRef={copyTextRef} />
         <input type="hidden" ref={copyTextRef} value={copyText} />
         <pre>
           <code>
