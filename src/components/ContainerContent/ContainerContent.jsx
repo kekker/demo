@@ -27,10 +27,10 @@ const ContainerContent = ({ children, ...props }) => (
 ContainerContent.defaultProps = {
   height: '100%',
   width: '100%',
-  pt: { _: 4, sm: 6 },
+  pt: { _: 3, sm: 6 },
   pb: 0,
-  pl: { _: 4, sm: 6, md: 7 },
-  pr: { _: 4, sm: 6, md: 7 },
+  pl: { _: 3, sm: 6, md: 7 },
+  pr: { _: 3, sm: 6, md: 7 },
 };
 
 export default ContainerContent;
