@@ -28,10 +28,10 @@ const TextArea = styled.textarea`
 `;
 
 const CodeEditorContainer = styled.div`
- background-color: #fdf6e3;
- overflow-x: auto;
+  background-color: #fdf6e3;
+  overflow-x: auto;
  
- max-width: 688px;
+  max-width: 688px;
 
 
   @media (max-width: 980px) {
@@ -116,17 +116,17 @@ const CodeEditor = ({ code, language }) => {
   }, [state, valuesIndex]);
 
   return (
-    <CodeEditorContainer>
-      <div style={{ position: 'relative' }}>
-        <CopyButton copyTextRef={copyTextRef} />
+    <div>
+      <CopyButton copyTextRef={copyTextRef} />
+      <CodeEditorContainer>
         <input type="hidden" ref={copyTextRef} value={copyText} />
         <pre>
           <code>
             { wrapTags(code, re) }
           </code>
         </pre>
-      </div>
-    </CodeEditorContainer>
+      </CodeEditorContainer>
+    </div>
   );
 };
 
