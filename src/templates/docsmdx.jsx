@@ -1,15 +1,20 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import PropTypes from 'prop-types';
 
 // Components
 import Layout from '../components/Layout/Layout';
+import RenderRawContent from '../components/MarkdownContent';
+import { listAboutLinks, listDocsLinks } from '../utils/getLinkLists';
 
-const DocsMdx = ({ data: { mdx }, location }) => {
-  const { frontmatter } = mdx;
-  const content = mdx.body;
+
+const DocsMdx = ({ data, pageContext, location }) => {
+  const { frontmatter } = data.mdx;
   const { title, description } = frontmatter;
+  const content = data.mdx.body;
+  const { slug } = pageContext;
+
+  const listItems = slug.includes('docs') ? listDocsLinks : listAboutLinks;
 
   return (
     <Layout
@@ -17,7 +22,12 @@ const DocsMdx = ({ data: { mdx }, location }) => {
       title={title}
       description={description}
     >
-      <MDXRenderer>{content}</MDXRenderer>
+      <RenderRawContent
+        contentType="mdx"
+        frontmatter={frontmatter}
+        content={content}
+        listItems={listItems}
+      />
     </Layout>
   );
 };

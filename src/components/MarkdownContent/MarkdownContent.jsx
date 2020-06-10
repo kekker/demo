@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import MarkdownFooter from '../MarkdownFooter';
 import Flex from '../Flex';
 import SandboxPromoSection from '../SandboxPromoSection';
@@ -53,12 +54,29 @@ const getPageByTitle = (sectionList, templateTitle) => {
   );
 };
 
-const MarkdownContent = ({ markdownRemark, listItems }) => {
+const RenderRawContent = ({
+  contentType, content, frontmatter, listItems
+}) => {
   const {
     next, prev, prev_title, next_title, sandboxPromo
-  } = markdownRemark.frontmatter;
+  } = frontmatter;
   const prevPage = getPageByTitle(listItems, prev);
   const nextPage = getPageByTitle(listItems, next);
+
+  const contentNode = type => {
+    switch (type) {
+      case 'markdown':
+        return (
+          <MarkdownRawContent dangerouslySetInnerHTML={{ __html: content }} />
+        );
+      case 'mdx':
+        return (
+          <MDXRenderer>{content}</MDXRenderer>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <MarkdownSection>
@@ -67,7 +85,7 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
         flexDirection="column"
         justifyContent="space-between"
       >
-        <MarkdownRawContent dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        { contentNode(contentType)}
         <div>
           { sandboxPromo && (
           <SandboxPromoSection />
@@ -84,9 +102,15 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
   );
 };
 
-MarkdownContent.propTypes = {
-  markdownRemark: PropTypes.object.isRequired,
+RenderRawContent.propTypes = {
+  contentType: PropTypes.string,
+  content: PropTypes.object.isRequired,
+  frontmatter: PropTypes.object.isRequired,
   listItems: PropTypes.array.isRequired,
 };
 
-export default MarkdownContent;
+RenderRawContent.defaultProps = {
+  contentType: 'markdown'
+};
+
+export default RenderRawContent;
