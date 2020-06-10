@@ -5,22 +5,29 @@ import styled from 'styled-components';
 import TabNav from './TabNav';
 
 const StyledTabBar = styled.div`
+   max-width: 55vw;
   
+  
+    @media (max-width: 980px) {
+        max-width: 90vw;
+    }
+  }
 `;
 
 const StyledTabNavContainer = styled.div`
   position: relative;
   display: flex;
-  z-index: 2;
 `;
 
 const StyledTabContainer = styled.div`
-  padding: 20px;
-  min-height: 100px;
-  border: 1px solid black;
+  border: 1px solid #EDEDED;
   border-radius: 0 0 5px 5px;
   position: relative;
   top: -1px;
+  
+  & pre {
+    margin-bottom: 0;
+  }
 `;
 
 class TabBar extends React.Component {

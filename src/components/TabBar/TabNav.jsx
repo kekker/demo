@@ -5,11 +5,10 @@ import styled from 'styled-components';
 // nav-item
 const StyledNavButton = styled.button`
   flex: 1;
-  background-color: ${({ isActive }) => (isActive ? '#7CC6FE' : '#FFF')};
+  background-color: ${({ isActive, theme }) => (isActive ? theme.colors.primaryBrand : '#FFF')};
   border: 1px solid #EDEDED;
   padding: 10px 15px;
   cursor: pointer;
-  border-radius: 5px 5px 0 0;
   overflow: hidden;
   outline: none;
   text-transform: uppercase;
