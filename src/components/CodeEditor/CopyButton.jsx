@@ -36,23 +36,24 @@ const CopyButton = ({ copyTextRef }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyClick = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(copyTextRef.current.value).then(
-        () => {
-          console.log('copy success');
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    } else {
-      copyTextRef.current.select();
-      console.log(document.execCommand('copy')); // true
-      document.execCommand('copy');
-    }
+    if (typeof window !== 'undefined') {
+      if (navigator && navigator.clipboard) {
+        navigator.clipboard.writeText(copyTextRef.current.value).then(
+          () => {
+            console.log('copy success');
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      } else {
+        copyTextRef.current.select();
+        document.execCommand('copy');
+      }
 
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1000);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000);
+    }
   };
 
   return (

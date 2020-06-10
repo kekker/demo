@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect, useRef, useState
+} from 'react';
 import Prism from 'prismjs';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useAppState } from '../../appState/appState';
+import { useAppState } from '../../appState';
 import CopyButton from './CopyButton';
 import '../../../static/assets/prism.css';
-
 
 const TextArea = styled.textarea`
   position: absolute;
@@ -50,7 +51,7 @@ const TextAreaContainer = styled.div`
 `;
 
 const CodeEditor = ({ code, language }) => {
-  const [state, dispatch] = useAppState();
+  const { state, dispatch } = useAppState();
 
   const copyTextRef = useRef();
   const [copyText, setCopyText] = useState('');
@@ -116,15 +117,8 @@ const CodeEditor = ({ code, language }) => {
 
   return (
     <CodeEditorContainer>
-      <div>
-        {
-          /* Logical shortcut for only displaying the
-             button if the copy command exists */
-          document && document.queryCommandSupported('copy')
-          && (
-            <CopyButton copyTextRef={copyTextRef} />
-          )
-        }
+      <div style={{ position: 'relative' }}>
+        <CopyButton copyTextRef={copyTextRef} />
         <input type="hidden" ref={copyTextRef} value={copyText} />
         <pre>
           <code>

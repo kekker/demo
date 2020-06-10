@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -30,68 +30,37 @@ const StyledTabContainer = styled.div`
   }
 `;
 
-class TabBar extends React.Component {
-  constructor(props) {
-    super(props);
+const TabBar = ({ children }) => {
+  const getChildrenLabels = elements => elements.map(({ props }) => props.label);
 
-    this.state = {
-      activeTab: null,
-    };
+  const [activeTab, setActiveTab] = useState(getChildrenLabels(children)[0]);
 
-    this.getChildrenLabels = this.getChildrenLabels.bind(this);
-    this.setActiveTab = this.setActiveTab.bind(this);
-    this.renderTabs = this.renderTabs.bind(this);
-  }
-
-  componentDidMount() {
-    const { children = [] } = this.props;
-
-    const activeTab = this.getChildrenLabels(children)[0];
-
-    this.setActiveTab(activeTab);
-  }
-
-  getChildrenLabels = children => children.map(({ props }) => props.label);
-
-  setActiveTab = activeTab => {
-    const { activeTab: currentTab } = this.state;
+  const setActiveTabFunc = currentTab => {
     if (currentTab !== activeTab) {
-      this.setState({
-        activeTab,
-      });
+      setActiveTab(currentTab);
     }
-  }
+  };
 
-  renderTabs = () => {
-    const { children = [] } = this.props;
-    const { activeTab } = this.state;
+  const renderTabs = () => getChildrenLabels(children).map(navLabel => (
+    <TabNav
+      key={navLabel}
+      navLabel={navLabel}
+      isActive={activeTab === navLabel}
+      onChangeActiveTab={setActiveTabFunc}
+    />
+  ));
 
-    return this.getChildrenLabels(children).map(navLabel => (
-      <TabNav
-        key={navLabel}
-        navLabel={navLabel}
-        isActive={activeTab === navLabel}
-        onChangeActiveTab={this.setActiveTab}
-      />
-    ));
-  }
-
-  render() {
-    const { activeTab } = this.state;
-    const { children } = this.props;
-
-    return (
-      <StyledTabBar>
-        <StyledTabNavContainer>
-          {this.renderTabs()}
-        </StyledTabNavContainer>
-        <StyledTabContainer>
-          {React.Children.map(children, child => React.cloneElement(child, { activeTab }))}
-        </StyledTabContainer>
-      </StyledTabBar>
-    );
-  }
-}
+  return (
+    <StyledTabBar>
+      <StyledTabNavContainer>
+        { renderTabs() }
+      </StyledTabNavContainer>
+      <StyledTabContainer>
+        { React.Children.map(children, child => React.cloneElement(child, { activeTab })) }
+      </StyledTabContainer>
+    </StyledTabBar>
+  );
+};
 
 TabBar.propTypes = {
   children: PropTypes.node
