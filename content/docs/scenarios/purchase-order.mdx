@@ -111,94 +111,6 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
 #### Call example
 
 <TabBar>
-    <TabItem label="Ethereum">
-       <CodeEditor code={
-       `
-curl -X POST "http://eth1.kekker.com/api/deals"
--H "Accept: application/json"
--H "Channel: {CHANNEL}"
--H "Content-Type: application/json"
--H "Authorization: {AUTHORIZATION}"
--d "
-{
- "dealUid": null,
- "kind": "FirstDeal",
- "parties": [
-     {
-       "key": "PUBCLIENT2",
-       "role": "Seller"
-     },
-     {
-       "key": "PUBCLIENT1",
-       "role": "Buyer"
-     }
-  ],
- "parameters": [
-     {
-       "key": "DocNumber",
-       "value": "123"
-     },
-     {
-       "key": "Item",
-       "value": "Pepper"
-     },
-     {
-       "key": "DeliveryDate",
-       "value": "2020-08-08"
-     },
-     {
-       "key": "Quantity",
-       "value": "10"
-     }
-   ]
-}"
-       `
-       } />
-    </TabItem>
-    <TabItem label="HyperLedger">
-        <CodeEditor code={
-       `
-curl -X POST "http://hlf1.kekker.com/api/deals"
--H "Accept: application/json"
--H "Channel: {CHANNEL}"
--H "Content-Type: application/json"
--H "Authorization: {AUTHORIZATION}"
--d "
-{
- "dealUid": null,
- "kind": "FirstDeal",
- "parties": [
-     {
-       "key": "HYPERCLIENT2",
-       "role": "Seller"
-     },
-     {
-       "key": "HYPERCLIENT1",
-       "role": "Buyer"
-     }
-  ],
- "parameters": [
-     {
-       "key": "DocNumber",
-       "value": "123"
-     },
-     {
-       "key": "Item",
-       "value": "Pepper"
-     },
-     {
-       "key": "DeliveryDate",
-       "value": "2020-08-08"
-     },
-     {
-       "key": "Quantity",
-       "value": "10"
-     }
-   ]
-}"
-       `
-        } />
-    </TabItem>
     <TabItem label="Quorum">
         <CodeEditor code={
            `
@@ -243,6 +155,94 @@ curl -X POST "http://qrm1.kekker.com/api/deals"
            `
             } />
     </TabItem>
+    <TabItem label="HyperLedger">
+         <CodeEditor code={
+           `
+curl -X POST "http://hlf1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ "dealUid": null,
+ "kind": "FirstDeal",
+ "parties": [
+     {
+       "key": "HYPERCLIENT2",
+       "role": "Seller"
+     },
+     {
+       "key": "HYPERCLIENT1",
+       "role": "Buyer"
+     }
+  ],
+ "parameters": [
+     {
+       "key": "DocNumber",
+       "value": "123"
+     },
+     {
+       "key": "Item",
+       "value": "Pepper"
+     },
+     {
+       "key": "DeliveryDate",
+       "value": "2020-08-08"
+     },
+     {
+       "key": "Quantity",
+       "value": "10"
+     }
+   ]
+}"
+           `
+            } />
+    </TabItem>
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X POST "http://eth1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ "dealUid": null,
+ "kind": "FirstDeal",
+ "parties": [
+     {
+       "key": "PUBCLIENT2",
+       "role": "Seller"
+     },
+     {
+       "key": "PUBCLIENT1",
+       "role": "Buyer"
+     }
+  ],
+ "parameters": [
+     {
+       "key": "DocNumber",
+       "value": "123"
+     },
+     {
+       "key": "Item",
+       "value": "Pepper"
+     },
+     {
+       "key": "DeliveryDate",
+       "value": "2020-08-08"
+     },
+     {
+       "key": "Quantity",
+       "value": "10"
+     }
+   ]
+}"
+       `
+       } />
+    </TabItem>
 </TabBar>
 
 #### Response example
@@ -266,6 +266,42 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 #### Call example
 
 <TabBar>
+    <TabItem label="Quorum">
+            <CodeEditor code={
+           `
+curl -X POST "http://qrm1.kekker.com/api/deals/setstatus"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ "dealUid": "{UID}",
+ "status": "Issued",
+ "remark": null,
+ "parameters": []
+}"
+           `
+        } />
+    </TabItem>
+    <TabItem label="HyperLedger">
+         <CodeEditor code={
+           `
+curl -X POST "http://hlf1.kekker.com/api/deals/setstatus"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ "dealUid": "{UID}",
+ "status": "Issued",
+ "remark": null,
+ "parameters": []
+}"
+           `
+            } />
+    </TabItem>
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
@@ -284,42 +320,6 @@ curl -X POST "http://eth1.kekker.com/api/deals/setstatus"
        `
        } />
     </TabItem>
-    <TabItem label="HyperLedger">
-        <CodeEditor code={
-       `
-curl -X POST "http://hlf1.kekker.com/api/deals/setstatus"
--H "Accept: application/json"
--H "Channel: {CHANNEL}"
--H "Content-Type: application/json"
--H "Authorization: {AUTHORIZATION}"
--d "
-{
- "dealUid": "{UID}",
- "status": "Issued",
- "remark": null,
- "parameters": []
-}"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Quorum">
-            <CodeEditor code={
-           `
-curl -X POST "http://qrm1.kekker.com/api/deals/setstatus"
--H "Accept: application/json"
--H "Channel: {CHANNEL}"
--H "Content-Type: application/json"
--H "Authorization: {AUTHORIZATION}"
--d "
-{
- "dealUid": "{UID}",
- "status": "Issued",
- "remark": null,
- "parameters": []
-}"
-           `
-            } />
-        </TabItem>
 </TabBar>
 
 #### Response example
@@ -336,6 +336,26 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 #### Call example (the node URL is different)
 
 <TabBar>
+    <TabItem label="Quorum">
+                <CodeEditor code={
+               `
+curl -X GET "http://qrm2.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+               `
+        } />
+    </TabItem>
+    <TabItem label="HyperLedger">
+            <CodeEditor code={
+           `
+curl -X GET "http://hlf2.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+           `
+        } />
+    </TabItem>
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
@@ -346,26 +366,6 @@ curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
        `
        } />
     </TabItem>
-    <TabItem label="HyperLedger">
-        <CodeEditor code={
-       `
-curl -X GET "http://hlf2.kekker.com/api/deals/{UID}"
--H "Accept: application/json"
--H "Channel: {CHANNEL}"
--H "Authorization: {AUTHORIZATION}"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Quorum">
-            <CodeEditor code={
-           `
-curl -X GET "http://qrm2.kekker.com/api/deals/{UID}"
--H "Accept: application/json"
--H "Channel: {CHANNEL}"
--H "Authorization: {AUTHORIZATION}"
-           `
-            } />
-        </TabItem>
 </TabBar>
 
 #### Response example (check status and parameters)
@@ -444,10 +444,10 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 #### Call example
 
 <TabBar>
-    <TabItem label="Ethereum">
-       <CodeEditor code={
-       `
-curl -X POST "http://eth2.kekker.com/api/deals/setstatus"
+    <TabItem label="Quorum">
+        <CodeEditor code={
+           `
+curl -X POST "http://qrm2.kekker.com/api/deals/setstatus"
 -H "Accept: application/json"
 -H "Channel: {CHANNEL}"
 -H "Content-Type: application/json"
@@ -468,8 +468,8 @@ curl -X POST "http://eth2.kekker.com/api/deals/setstatus"
     }
     ]
 }"
-       `
-       } />
+           `
+            } />
     </TabItem>
     <TabItem label="HyperLedger">
         <CodeEditor code={
@@ -498,10 +498,10 @@ curl -X POST "http://hlf2.kekker.com/api/deals/setstatus"
        `
         } />
     </TabItem>
-    <TabItem label="Quorum">
-            <CodeEditor code={
-           `
-curl -X POST "http://qrm2.kekker.com/api/deals/setstatus"
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X POST "http://eth2.kekker.com/api/deals/setstatus"
 -H "Accept: application/json"
 -H "Channel: {CHANNEL}"
 -H "Content-Type: application/json"
@@ -522,9 +522,9 @@ curl -X POST "http://qrm2.kekker.com/api/deals/setstatus"
     }
     ]
 }"
-           `
-            } />
-        </TabItem>
+       `
+       } />
+    </TabItem>
 </TabBar>
 
 #### Response example
@@ -541,15 +541,15 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 #### Call example
 
 <TabBar>
-    <TabItem label="Ethereum">
-       <CodeEditor code={
+    <TabItem label="Quorum">
+        <CodeEditor code={
        `
-curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
+curl -X GET "http://qrm2.kekker.com/api/deals/{UID}"
 -H "Accept: application/json"
 -H "Channel: {CHANNEL}"
 -H "Authorization: {AUTHORIZATION}"
        `
-       } />
+        } />
     </TabItem>
     <TabItem label="HyperLedger">
         <CodeEditor code={
@@ -561,16 +561,16 @@ curl -X GET "http://hlf2.kekker.com/api/deals/{UID}"
        `
         } />
     </TabItem>
-    <TabItem label="Quorum">
-            <CodeEditor code={
-           `
-curl -X GET "http://qrm2.kekker.com/api/deals/{UID}"
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
 -H "Accept: application/json"
 -H "Channel: {CHANNEL}"
 -H "Authorization: {AUTHORIZATION}"
-           `
-            } />
-        </TabItem>
+       `
+       } />
+    </TabItem>
 </TabBar>
 
 #### Response example
@@ -654,6 +654,42 @@ Use `POST`-method call `/api/deals/setstatus`. The JSON specification of the new
 #### Call example
 
 <TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X POST "http://qrm2.kekker.com/api/deals/setstatus"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+  "dealUid": "{UID}",
+  "status": "Ordered",
+  "remark": null,
+  "parameters": []
+}"
+       `
+        } />
+    </TabItem>
+    <TabItem label="HyperLedger">
+            <CodeEditor code={
+           `
+curl -X POST "http://hlf1.kekker.com/api/deals/setstatus"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+  "dealUid": "{UID}",
+  "status": "Ordered",
+  "remark": null,
+  "parameters": []
+}"
+           `
+            } />
+        </TabItem>
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
@@ -672,42 +708,6 @@ curl -X POST "http://eth1.kekker.com/api/deals/setstatus"
        `
        } />
     </TabItem>
-    <TabItem label="HyperLedger">
-        <CodeEditor code={
-       `
-curl -X POST "http://hlf1.kekker.com/api/deals/setstatus"
--H "Accept: application/json"
--H "Channel: {CHANNEL}"
--H "Content-Type: application/json"
--H "Authorization: {AUTHORIZATION}"
--d "
-{
-  "dealUid": "{UID}",
-  "status": "Ordered",
-  "remark": null,
-  "parameters": []
-}"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Quorum">
-            <CodeEditor code={
-           `
-curl -X POST "http://qrm2.kekker.com/api/deals/setstatus"
--H "Accept: application/json"
--H "Channel: {CHANNEL}"
--H "Content-Type: application/json"
--H "Authorization: {AUTHORIZATION}"
--d "
-{
-  "dealUid": "{UID}",
-  "status": "Ordered",
-  "remark": null,
-  "parameters": []
-}"
-           `
-            } />
-        </TabItem>
 </TabBar>
 
 #### Response example
