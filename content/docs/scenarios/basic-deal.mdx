@@ -69,7 +69,7 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X POST "http://democlient1.kekker.com/api/deals"
+curl -X POST "http://eth1.kekker.com/api/deals"
 -H "Accept: application/json"
 -H "Channel: {CHANNEL}"
 -H "Content-Type: application/json"
@@ -80,11 +80,11 @@ curl -X POST "http://democlient1.kekker.com/api/deals"
  "kind": "FirstDeal",
  "parties": [
    {
-     "key": "CLIENT1",
+     "key": "PUBCLIENT1",
      "role": "Sender"
    },
    {
-     "key": "CLIENT2",
+     "key": "PUBCLIENT2",
      "role": "Receiver"
    }
  ],
@@ -96,7 +96,7 @@ curl -X POST "http://democlient1.kekker.com/api/deals"
     <TabItem label="HyperLedger">
         <CodeEditor code={
        `
-curl -X POST "http://hyperdemoclient1.kekker.com/api/deals"
+curl -X POST "http://hlf1.kekker.com/api/deals"
 -H "Accept: application/json"
 -H "Channel: {CHANNEL}"
 -H "Content-Type: application/json"
@@ -112,6 +112,33 @@ curl -X POST "http://hyperdemoclient1.kekker.com/api/deals"
    },
    {
      "key": "HYPERCLIENT2",
+     "role": "Receiver"
+   }
+ ],
+ "status": "Created"
+}"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X POST "http://qrm1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ "dealUid": null,
+ "kind\": "FirstDeal",
+ "parties": [
+   {
+     "key": "CLIENT1",
+     "role": "Sender"
+   },
+   {
+     "key": "CLIENT2",
      "role": "Receiver"
    }
  ],
@@ -140,7 +167,7 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X GET "http://democlient2.kekker.com/api/deals/{UID}"
+curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
 -H "Accept: application/json"
 -H "Channel: {CHANNEL}"
 -H "Authorization: {AUTHORIZATION}"
@@ -150,13 +177,23 @@ curl -X GET "http://democlient2.kekker.com/api/deals/{UID}"
     <TabItem label="HyperLedger">
         <CodeEditor code={
        `
-curl -X GET "http://hyperdemoclient2.kekker.com/api/deals/{UID}"
+curl -X GET "http://hlf2.kekker.com/api/deals/{UID}"
 -H "Accept: application/json"
 -H "Channel: {CHANNEL}"
 -H "Authorization: {AUTHORIZATION}"
        `
         } />
     </TabItem>
+    <TabItem label="Quorum">
+            <CodeEditor code={
+           `
+curl -X GET "http://qrm1.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+           `
+            } />
+        </TabItem>
 </TabBar>
 
 
