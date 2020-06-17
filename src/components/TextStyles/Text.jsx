@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { space, color, typography } from 'styled-system';
-import {toFontFamilyString} from "../../utils/fontFamilyArrayToString";
+import { toFontFamilyString } from '../../utils/fontFamilyArrayToString';
 
 const StyledText = styled.div.attrs(props => ({
   finalFont: props.isHeadingFont

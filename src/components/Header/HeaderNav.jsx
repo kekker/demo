@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, {withTheme} from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import HeaderLink from './HeaderLink';
 import ButtonLink from '../Button';
 import Flex from '../Flex';
 
 import navHeader from '../../../content/navHeader.yml';
 import LogoLink from '../Logo';
-import {Bars, Close} from "../Icons/Icons";
-import ContainerContent from "../ContainerContent";
-import ContainerSection from "../ContainerSection";
-import footerNav from "../../../content/footerNav.yml";
-import FooterLink from "../Footer/FooterLink";
+import { Bars, Close } from '../Icons/Icons';
+import ContainerContent from '../ContainerContent';
+import ContainerSection from '../ContainerSection';
+import footerNav from '../../../content/footerNav.yml';
+import FooterLink from '../Footer/FooterLink';
 
 const Nav = styled.nav`
   display: flex;
@@ -54,13 +54,13 @@ const StyledBurgerButton = styled.button`
   border: none;
   background-color: transparent;
   
-  color: ${({theme}) => theme.colors.invertedText};
+  color: ${({ theme }) => theme.colors.invertedText};
   font-size: 20px;
   line-height: 18px;
 `;
 
 const StyledDropdownSection = styled.div`
-  max-height: ${({isExpanded}) => isExpanded ? '1000px' : 0};
+  max-height: ${({ isExpanded }) => (isExpanded ? '1000px' : 0)};
   position: absolute;
   left: -30px;
   right: -30px;
@@ -101,7 +101,7 @@ class HeaderNav extends React.Component {
   }
 
   handleExpansion = () => {
-    this.setState({ isExpanded: !this.state.isExpanded})
+    this.setState({ isExpanded: !this.state.isExpanded });
   };
 
   render() {
@@ -109,69 +109,72 @@ class HeaderNav extends React.Component {
     const { isExpanded } = this.state;
 
     const DropDownMenu = (
-        <StyledDropdownSection isExpanded={isExpanded}>
-          <ContainerSection bg={'#000000'}>
-            <ContainerContent pt={3} pb={{ _: 4, sm: 6 }}>
-              <Flex flexDirection="column" height="100%">
-                <Grid>
-                  {footerNav.items.map(linkSection => (
-                      <FooterLink
-                          key={`headerSection${linkSection.header}`}
-                          footerColumn={linkSection}
-                          count={footerNav.items.length}
-                          fontSize='medium'
-                      />
-                  ))}
-                </Grid>
-              </Flex>
-            </ContainerContent>
-          </ContainerSection>
-        </StyledDropdownSection>
+      <StyledDropdownSection isExpanded={isExpanded}>
+        <ContainerSection bg="#000000">
+          <ContainerContent pt={3} pb={{ _: 4, sm: 6 }}>
+            <Flex flexDirection="column" height="100%">
+              <Grid>
+                {footerNav.items.map(linkSection => (
+                  <FooterLink
+                    key={`headerSection${linkSection.header}`}
+                    footerColumn={linkSection}
+                    count={footerNav.items.length}
+                    fontSize="medium"
+                  />
+                ))}
+              </Grid>
+            </Flex>
+          </ContainerContent>
+        </ContainerSection>
+      </StyledDropdownSection>
     );
 
     return (
-      <div style={{position: 'relative', width: '100%', margin: 0, padding: 0}}>
+      <div style={{
+        position: 'relative', width: '100%', margin: 0, padding: 0
+      }}
+      >
         <Flex
-            height={theme.layout.menuHeight}
-            width="100%"
-            justifyContent="space-between"
-            alignItems="center"
+          height={theme.layout.menuHeight}
+          width="100%"
+          justifyContent="space-between"
+          alignItems="center"
         >
 
-          <Flex height='100%'>
-            <BurgerLinkWrapper width='30px' height='100%' alignItems='center'>
+          <Flex height="100%">
+            <BurgerLinkWrapper width="30px" height="100%" alignItems="center">
               <StyledBurgerButton onClick={this.handleExpansion}>
-                { isExpanded ? <Close /> : <Bars/>}
+                { isExpanded ? <Close /> : <Bars />}
               </StyledBurgerButton>
             </BurgerLinkWrapper>
 
             <Flex
-                flexBasis="200px"
-                height='100%'
-                alignItems='center'
-                mr={3}
+              flexBasis="200px"
+              height="100%"
+              alignItems="center"
+              mr={3}
             >
-              <LogoLink/>
+              <LogoLink />
             </Flex>
           </Flex>
 
           <Nav>
             {navHeader.items.map(link => (
-                <HeaderLink
-                    key={link.title}
-                    isActive={location.includes(link.activeSelector)}
-                    title={link.title}
-                    to={link.to}
-                />
+              <HeaderLink
+                key={link.title}
+                isActive={location.includes(link.activeSelector)}
+                title={link.title}
+                to={link.to}
+              />
             ))}
           </Nav>
           <ButtonLink
-              size="small"
-              fontSize="medium"
-              isPrimary
-              isShrinking
-              to="/invitation"
-              title="Sandbox Access"
+            size="small"
+            fontSize="medium"
+            isPrimary
+            isShrinking
+            to="/invitation"
+            title="Sandbox Access"
           />
         </Flex>
         {DropDownMenu}

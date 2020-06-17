@@ -16,7 +16,7 @@ import GridItem from '../components/GridItem';
 import ContainerSection from '../components/ContainerSection';
 import Heading from '../components/TextStyles/Heading';
 import Text from '../components/TextStyles/Text';
-import BgImage from "../components/BgImage";
+import BgImage from '../components/BgImage';
 
 const StyledPlatformImage = styled(Img)`
   width: 100%;
@@ -63,7 +63,7 @@ const BlogIndex = ({ data, location }) => {
 
         <MainHeader location={location.pathname} />
 
-        <main style={{ marginTop: 0}}>
+        <main style={{ marginTop: 0 }}>
 
           <ContainerContent>
             <Flex
@@ -95,7 +95,7 @@ const BlogIndex = ({ data, location }) => {
               ))}
             </Flex>
 
-            <hr style={{ marginBottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.1)'}}/>
+            <hr style={{ marginBottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.1)' }} />
           </ContainerContent>
 
           <ContainerSection width="100%">
@@ -103,28 +103,28 @@ const BlogIndex = ({ data, location }) => {
               <Heading mb="25px" mt={0} level={2}>
                 {jsonContent.KekkerPlatformSectionHeader}
               </Heading>
-              <div style={{ maxWidth: '600px'}}>
+              <div style={{ maxWidth: '600px' }}>
                 { jsonContent.KekkerPlatformSectionContent.map(paragraph => (
-                    <Text
-                        key={`platformCont${paragraph.slice(0, 5)}`}
-                        fontSize="medium"
-                        tag="p"
-                    >
-                      { paragraph }
-                    </Text>
+                  <Text
+                    key={`platformCont${paragraph.slice(0, 5)}`}
+                    fontSize="medium"
+                    tag="p"
+                  >
+                    { paragraph }
+                  </Text>
                 ))}
               </div>
               <StyledPlatformImage
-                  fluid={platformImage.childImageSharp.fluid}
-                  title="Kekker Platform overview"
+                fluid={platformImage.childImageSharp.fluid}
+                title="Kekker Platform overview"
               />
             </ContainerContent>
           </ContainerSection>
 
           <ContainerSection
-              width="100%"
-              bg='#000000'
-              color='#FFFFFF'
+            width="100%"
+            bg="#000000"
+            color="#FFFFFF"
           >
             <ContainerContent>
               <Heading mb="25px" mt={0} level={2}>
@@ -132,29 +132,29 @@ const BlogIndex = ({ data, location }) => {
               </Heading>
               <StyledSandboxContentWrapper>
                 { jsonContent.KekkerSandboxSectionContent.map(paragraph => (
-                    <Text
-                        key={`sandboxCont${paragraph.slice(0, 5)}`}
-                        fontSize="medium"
-                        tag="p"
-                    >
-                      { paragraph }
-                    </Text>
+                  <Text
+                    key={`sandboxCont${paragraph.slice(0, 5)}`}
+                    fontSize="medium"
+                    tag="p"
+                  >
+                    { paragraph }
+                  </Text>
                 ))}
               </StyledSandboxContentWrapper>
             </ContainerContent>
           </ContainerSection>
 
-          <ContainerSection height={{_: '80vw', lg: '1000px'}}>
+          <ContainerSection height={{ _: '80vw', lg: '1000px' }}>
             <BgImage
-                height={{_: '80vw', lg: '1000px'}}
-                fluid={sandboxBgImage.childImageSharp.fluid}
-                title='Sandbox Background Image'
-                bg='#000000'
+              height={{ _: '80vw', lg: '1000px' }}
+              fluid={sandboxBgImage.childImageSharp.fluid}
+              title="Sandbox Background Image"
+              bg="#000000"
             >
               <ContainerContent>
                 <StyledImage
-                    fluid={sandboxImage.childImageSharp.fluid}
-                    title="Kekker Sandbox overview"
+                  fluid={sandboxImage.childImageSharp.fluid}
+                  title="Kekker Sandbox overview"
                 />
               </ContainerContent>
             </BgImage>
@@ -165,7 +165,7 @@ const BlogIndex = ({ data, location }) => {
               <Flex flexDirection="column" alignItems="center">
                 <Heading
                   mb={3}
-                  maxWidth='600px'
+                  maxWidth="600px"
                   fontWeight={600}
                   letterSpacing="-0.04em"
                   color="primaryText"

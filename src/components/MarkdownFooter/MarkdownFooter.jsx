@@ -81,7 +81,9 @@ const BorderDiv = styled.div`
   }
 `;
 
-const MarkdownFooter = ({ next, prev, next_title, prev_title }) => (
+const MarkdownFooter = ({
+  next, prev, next_title, prev_title
+}) => (
   <FlexWithBorder
     next={next}
     prev={prev}
@@ -116,7 +118,7 @@ const MarkdownFooter = ({ next, prev, next_title, prev_title }) => (
                   fontWeight={800}
                   fontSize={{ _: '17px', sm: 'extralarge', md: 'h1.sm' }}
                 >
-                  {prev_title ? prev_title : prev.title}
+                  {prev_title || prev.title}
                 </Text>
               </div>
             </Flex>
@@ -152,7 +154,7 @@ const MarkdownFooter = ({ next, prev, next_title, prev_title }) => (
                   fontWeight={800}
                   fontSize={{ _: '17px', sm: 'extralarge', md: 'h1.sm' }}
                 >
-                  {next_title ? next_title : next.title}
+                  {next_title || next.title}
                 </Text>
               </div>
             </Flex>

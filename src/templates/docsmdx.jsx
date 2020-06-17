@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 // Components
 import Layout from '../components/Layout/Layout';
-import MarkdownContent from '../components/MarkdownContent';
+import RenderRawContent from '../components/MarkdownContent';
+import { listAboutLinks, listDocsLinks } from '../utils/getLinkLists';
 
-import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
 
-const Docs = ({ data, pageContext, location }) => {
-  const { frontmatter } = data.markdownRemark;
+const DocsMdx = ({ data, pageContext, location }) => {
+  const { frontmatter } = data.mdx;
   const { title, description } = frontmatter;
-  const content = data.markdownRemark.html;
+  const content = data.mdx.body;
   const { slug } = pageContext;
 
   const listItems = slug.includes('docs') ? listDocsLinks : listAboutLinks;
@@ -22,7 +22,8 @@ const Docs = ({ data, pageContext, location }) => {
       title={title}
       description={description}
     >
-      <MarkdownContent
+      <RenderRawContent
+        contentType="mdx"
         frontmatter={frontmatter}
         content={content}
         listItems={listItems}
@@ -31,25 +32,23 @@ const Docs = ({ data, pageContext, location }) => {
   );
 };
 
-Docs.propTypes = {
+DocsMdx.propTypes = {
   data: PropTypes.object,
   location: PropTypes.object.isRequired,
   pageContext: PropTypes.object,
 };
 
 export const pageQuery = graphql`
-  query DocsMarkdown($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+  query DocsMdx($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
         description
         next
         prev
-        next_title
-        prev_title
         sandboxPromo
       }
+      body  
       fields {
         slug
       }
@@ -57,4 +56,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default Docs;
+export default DocsMdx;

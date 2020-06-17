@@ -10,7 +10,7 @@ import Flex from '../Flex';
 import HeaderNav from './HeaderNav';
 import Heading from '../TextStyles/Heading';
 import ButtonLink from '../Button';
-import LogoLink from "../Logo";
+import LogoLink from '../Logo';
 
 const jsonContent = require('../../../content/home');
 
@@ -61,14 +61,15 @@ const MainHeader = ({ location, theme }) => (
         <ContainerSection
           pt={theme.layout.menuHeight}
           height={{
-              xs: `calc(${theme.layout.menuHeight} + ${theme.layout.indexHeaderSectionHeight.xs})`,
-              md: `calc(${theme.layout.menuHeight} + ${theme.layout.indexHeaderSectionHeight.md})`
+            xs: `calc(${theme.layout.menuHeight} + ${theme.layout.indexHeaderSectionHeight.xs})`,
+            md: `calc(${theme.layout.menuHeight} + ${theme.layout.indexHeaderSectionHeight.md})`
           }}
         >
           <BgImage
             height={{
-                xs: `${theme.layout.indexHeaderSectionHeight.xs}`,
-                md: `${theme.layout.indexHeaderSectionHeight.md}`}}
+              xs: `${theme.layout.indexHeaderSectionHeight.xs}`,
+              md: `${theme.layout.indexHeaderSectionHeight.md}`
+            }}
             fluid={data.bgImage.childImageSharp.fluid}
             title="Kekker background cover"
             color="#000000"

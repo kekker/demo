@@ -14,42 +14,37 @@ on any of the popular blockchains.
 As soon as you are ready to launch your business application you can move to 
 your own infrastructure or use our commercial infrastructure hosting and supporting services.
 
-#### The Sandbox consists of 4 separate clusters:
-* Private Ethereum cluster
-* Public Ethereum cluster
+#### The Sandbox consists of 3 separate clusters:
+* Quorum cluster
 * Hyperledger Fabric cluster (limited free availability)
-* Quorum cluster (limited free availability)
+* Public Ethereum cluster
 
 The clusters interact with each other via a dedicated trunk network.
 
-![Kekker Sandbox Scheme](KekkerSandboxLight.png)
-
-
-#### Private Ethereum cluster contains 3 nodes:
-
-* `democlient1.kekker.com`
-* `democlient2.kekker.com`
-* `democlient3.kekker.com`
-
-![Ethereum Private Cluster](EthereumPrivateC.png)
-
-#### Public Ethereum cluster is based on the Rinkeby Ethereum testnet and contains 2 nodes:
-
-* `pubdemoclient1.kekker.com`
-* `pubdemoclient2.kekker.com`
-
-![Ethereum Public Cluster](EthereumPublicC.png)
-
-#### Hyperledger Fabric cluster contains 2 nodes:
-
-* `hyperdemoclient1.kekker.com`
-* `hyperdemoclient2.kekker.com`
-
-![Hyperledger Private Cluster](HyperledgerPrivateC.png)
+![Kekker Sandbox Scheme](sandbox_scheme.png)
 
 #### Quorum cluster contains 2 nodes
 
-![Quorum Private Cluster](QuorumPrivateC.png)
+* `qrm1.kekker.com` 
+* `qrm2.kekker.com` 
+* `qrm3.kekker.com`
+
+![Quorum Private Cluster](quorum_scheme.png)
+
+#### Hyperledger Fabric cluster contains 2 nodes:
+
+* `hlf1.kekker.com` 
+* `hlf2.kekker.com` 
+* `hlf3.kekker.com`
+
+![Hyperledger Private Cluster](hyper_scheme.png)
+
+#### Public Ethereum cluster is based on the Rinkeby Ethereum testnet and contains 2 nodes:
+
+* `eth1.kekker.com` 
+* `eth2.kekker.com`
+
+![Ethereum Public Cluster](eth_scheme.png)
 
 ### Sandbox Access
 Hit the Sandbox Access button, fill out the form and get your access credentials in no time. 
@@ -57,11 +52,6 @@ Hit the Sandbox Access button, fill out the form and get your access credentials
 ### Transaction timing in Private and Public Networks
 Unlike Private Network transactions’ typical processing time of a few minutes, 
 transactions in Public Networks may require about 10 minutes to process.
-
-### Differences from production environment
-The Sandbox contains test data only and is completely separate from your production environment. 
-The Sandbox API URLs clearly state ‘demo’ (e.g., https://democlient1.kekker.com/) 
-unlike the production environment URLs (e.g., https://api.kekker.com/).
 
 > Real commercial data should never be used in the Sandbox.
 

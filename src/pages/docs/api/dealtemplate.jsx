@@ -6,8 +6,8 @@ import '../../../styles/swagger-ui-new.css';
 
 // Components
 import Layout from '../../../components/Layout';
-import MarkdownFooter from "../../../components/MarkdownFooter";
-import SandboxPromoSection from "../../../components/SandboxPromoSection";
+import MarkdownFooter from '../../../components/MarkdownFooter';
+import SandboxPromoSection from '../../../components/SandboxPromoSection';
 
 const swaggerContent = require('../../../../static/kekkerdemo-dealtemplate');
 

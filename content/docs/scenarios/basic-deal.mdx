@@ -6,13 +6,17 @@ prev: Sandbox
 sandboxPromo: true
 ---
 
+import TabItem from '../../../src/components/TabBar/TabItem';
+import TabBar from '../../../src/components/TabBar/TabBar';
+import CodeEditor from '../../../src/components/CodeEditor/CodeEditor';
+
+
 # "Hello, World!"
-___
-## Basic Deal scenario shows the simplest case of a transaction among nodes.
+
+Basic Deal scenario shows the simplest case of a transaction among nodes.
 
 The participant called Sender initiates deal at the first node. 
-The second participant called Receiver detects deal initiating at the other node.  
-___
+The second participant called Receiver detects deal initiating at the other node.
 
 ### Transaction parties
 Sender: `node PrivEth-1`
@@ -60,36 +64,97 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
 ```
 
 #### Call example
-``` bash{1-100}
-curl 
--X POST "http://democlient1.kekker.com/api/deals" 
--H "Accept: application/json" 
--H "Channel: {CHANNEL}" 
--H "Content-Type: application/json" 
--H "Authorization: {AUTHORIZATION}" 
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X POST "http://qrm1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
 -d "
 {
-  \"dealUid\": null,
-  \"kind\": \"FirstDeal\",
-  \"parties\": [
-    {
-      \"key\": \"CLIENT1\",
-      \"role\": \"Sender\"
-    },
-    {
-      \"key\": \"CLIENT2\",
-      \"role\": \"Receiver\"
-    }
-  ],
-  \"status\": \"Created\"
+ "dealUid": null,
+ "kind\": "FirstDeal",
+ "parties": [
+   {
+     "key": "CLIENT1",
+     "role": "Sender"
+   },
+   {
+     "key": "CLIENT2",
+     "role": "Receiver"
+   }
+ ],
+ "status": "Created"
 }"
-```
+       `
+        } />
+    </TabItem>
+    <TabItem label="HyperLedger">
+            <CodeEditor code={
+           `
+curl -X POST "http://hlf1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ "dealUid": null,
+ "kind\": "FirstDeal",
+ "parties": [
+   {
+     "key": "HYPERCLIENT1",
+     "role": "Sender"
+   },
+   {
+     "key": "HYPERCLIENT2",
+     "role": "Receiver"
+   }
+ ],
+ "status": "Created"
+}"
+           `
+            } />
+        </TabItem>
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X POST "http://eth1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ "dealUid": null,
+ "kind": "FirstDeal",
+ "parties": [
+   {
+     "key": "PUBCLIENT1",
+     "role": "Sender"
+   },
+   {
+     "key": "PUBCLIENT2",
+     "role": "Receiver"
+   }
+ ],
+ "status": "Created"
+}"
+       `
+       } />
+    </TabItem>
+</TabBar>
+
 
 #### Response example
 
 If everything is fine you'll receive the Deal identifier [UID] in the response body . Save it and add to further requests.
 
-## 2. Make sure at `Receiver` node the Deal status is Created
+## 2. Make sure at Receiver node the Deal status is Created
 Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 > **Attention!** 
@@ -98,13 +163,39 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 #### Call example (the node URL is different)
 
-```bash{1-100}
-curl 
--X GET "http://democlient2.kekker.com/api/deals/{UID}" 
--H "Accept: application/json" 
--H "Channel: {CHANNEL}" 
+<TabBar>
+    <TabItem label="Quorum">
+            <CodeEditor code={
+           `
+curl -X GET "http://qrm2.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
 -H "Authorization: {AUTHORIZATION}"
-```
+           `
+        } />
+    </TabItem>
+    <TabItem label="HyperLedger">
+        <CodeEditor code={
+       `
+curl -X GET "http://hlf2.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+       `
+       } />
+    </TabItem>
+</TabBar>
+
 
 #### Response example (check status)
 ```json

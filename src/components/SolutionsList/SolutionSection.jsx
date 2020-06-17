@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import Text from "../TextStyles/Text";
-import styled from "styled-components";
-import Heading from "../TextStyles/Heading";
-import Flex from "../Flex";
+import styled from 'styled-components';
+import Text from '../TextStyles/Text';
+import Heading from '../TextStyles/Heading';
+import Flex from '../Flex';
 
-import ArrowSvg from '../../../static/assets/kekker_arrow.svg';
 import ArrowSvgWhite from '../../../static/assets/kekker_arrow_white.svg';
 
 
@@ -14,10 +13,10 @@ const StyledSolutionList = styled.ul`
   list-style: none;
   margin: 0;
   
-  height: ${({isExpanded, itemsShown}) => isExpanded 
-    ? 'calc(' + itemsShown + '* 80px)'
-    : '0'
-  }; 
+  height: ${({ isExpanded, itemsShown }) => (isExpanded
+    ? `calc(${itemsShown}* 80px)`
+    : '0')
+}; 
   
   -moz-transition: height .5s;
   -ms-transition: height .5s;
@@ -31,8 +30,8 @@ const StyledSolutionItem = styled.li`
   border-bottom: 1px solid hsla(0,0%,0%,0.1);
   margin: 0;
   height: 80px;
-  padding-bottom: ${({theme}) => theme.space[2]}px;
-  padding-top: ${({theme}) => theme.space[2]}px;
+  padding-bottom: ${({ theme }) => theme.space[2]}px;
+  padding-top: ${({ theme }) => theme.space[2]}px;
   
   &:last-child {
     border-bottom: none;
@@ -40,7 +39,7 @@ const StyledSolutionItem = styled.li`
 `;
 
 const StyledLink = styled.a`
-    color: ${({theme}) => theme.colors.primaryText};
+    color: ${({ theme }) => theme.colors.primaryText};
     text-decoration: none;
     
     &:hover {
@@ -72,79 +71,82 @@ const StyledButtonIcon = styled.img`
     width: 25px;
     padding: 5px;
     
-    background-color: ${({theme}) => theme.colors.primaryBrand};
+    background-color: ${({ theme }) => theme.colors.primaryBrand};
     border-radius: 50%;
     
-    transform: ${({isExpanded}) => isExpanded 
-            ? 'rotate(-90deg)' : 'rotate(90deg)' };
+    transform: ${({ isExpanded }) => (isExpanded
+    ? 'rotate(-90deg)' : 'rotate(90deg)')};
 `;
 
 
 class SolutionSection extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            isExpanded: false
-        };
+    this.state = {
+      isExpanded: false
+    };
 
-        this.ref = React.createRef();
+    this.ref = React.createRef();
 
-        this.handleExpansion = this.handleExpansion.bind(this);
-    }
+    this.handleExpansion = this.handleExpansion.bind(this);
+  }
 
     handleExpansion = e => {
-        this.setState({ isExpanded: !this.state.isExpanded });
+      this.setState({ isExpanded: !this.state.isExpanded });
     };
 
     render() {
-        const { isExpanded } = this.state;
-        const { title, items } = this.props;
+      const { isExpanded } = this.state;
+      const { title, items } = this.props;
 
-        const itemsLength = items.length;
+      const itemsLength = items.length;
 
-        return (
-            <>
-                <ExpandHeader onClick={this.handleExpansion}>
-                    <Flex alignItems='center'>
-                        <StyledButtonIcon
-                            isExpanded={isExpanded}
-                            src={ArrowSvgWhite}
-                            alt=''
-                        />
-                        <Heading
-                            mb={0}
-                            display='inline-block'
-                            level={3}
-                            fontSize='22px'
-                            fontWeight='600'
-                        >
-                            {title}
-                        </Heading>
-                    </Flex>
-                </ExpandHeader>
-                <StyledSolutionList
-                    itemsShown={itemsLength}
-                    isExpanded={isExpanded}
-                >
-                    <div id={title}
-                         style={{position: 'absolute', top: '-150px'}}
-                         ref={this.ref}/>
-                    { items.map(item =>
-                        <StyledSolutionItem>
-                            <StyledLink href={item.link} target='_blank'>
-                                <Text tag='div' fontSize='medium+' fontWeight={600}>
-                                    {item.title}
-                                </Text>
-                            </StyledLink>
-                            <Text tag='div' fontSize='medium'>
-                                {item.specification}
-                            </Text>
-                        </StyledSolutionItem>
-                    )}
-                </StyledSolutionList>
-            </>
-        )
+      return (
+        <>
+          <ExpandHeader onClick={this.handleExpansion}>
+            <Flex alignItems="center">
+              <StyledButtonIcon
+                isExpanded={isExpanded}
+                src={ArrowSvgWhite}
+                alt=""
+              />
+              <Heading
+                mb={0}
+                display="inline-block"
+                level={3}
+                fontSize="22px"
+                fontWeight="600"
+              >
+                {title}
+              </Heading>
+            </Flex>
+          </ExpandHeader>
+          <StyledSolutionList
+            itemsShown={itemsLength}
+            isExpanded={isExpanded}
+          >
+            <div
+              id={title}
+              style={{ position: 'absolute', top: '-150px' }}
+              ref={this.ref}
+            />
+            { items.map(item => (
+              <StyledSolutionItem key={item.title}>
+                <StyledLink href={item.link} target="_blank">
+                  <Text tag="div" fontSize="medium+" fontWeight={600}>
+                    {item.title}
+                  </Text>
+                </StyledLink>
+                <Text tag="div" fontSize="medium">
+                  {item.specification}
+                </Text>
+              </StyledSolutionItem>
+            )
+            )}
+          </StyledSolutionList>
+        </>
+      );
     }
 }
 

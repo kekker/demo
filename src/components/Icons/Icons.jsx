@@ -18,7 +18,8 @@ import {
   faAngleDown,
   faAngleUp,
   faBars,
-  faTimes
+  faTimes,
+  faCopy
 } from '@fortawesome/free-solid-svg-icons';
 
 const FontAwesomeIcon = styled(Base)`
@@ -35,6 +36,7 @@ const AngleDown = props => <FontAwesomeIcon {...props} icon={faAngleDown} />;
 const AngleUp = props => <FontAwesomeIcon {...props} icon={faAngleUp} />;
 const Bars = props => <FontAwesomeIcon {...props} icon={faBars} />;
 const Close = props => <FontAwesomeIcon {...props} icon={faTimes} />;
+const Copy = props => <FontAwesomeIcon {...props} icon={faCopy} />;
 
 // const Envelope = props => <FontAwesomeIcon {...props} icon={faEnvelope} />;
 // const Heart = props => <FontAwesomeIcon {...props} icon={faHeart} />;
@@ -53,6 +55,7 @@ export {
   AngleUp,
   Bars,
   Close,
+  Copy
   // Envelope,
   // Heart,
   // FaLink,
