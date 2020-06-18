@@ -11,18 +11,30 @@ sandboxPromo: true
 
 ## Deal: a General Transaction 
 
-We use an abstraction called **Deal** to pass information between parties. For any given business scenario you set the Deal participants, roles, scenario steps and step-by-step transition map. We then apply universal rules to translate the Deal into DLT operations, pass it to the recipient and represent back in a structured Deal logic on a recipient’s side. 
+We use an abstraction called **Deal** to pass information between parties. 
+For any given business scenario you set the Deal participants, roles, scenario steps and step-by-step 
+transition map. We then apply universal rules to translate the Deal into DLT operations, 
+pass it to the recipient and represent back in a structured Deal logic on a recipient’s side. 
 
-A Deal is simple but smart. It can cover a wide range of scenarios from pure document exchange between companies to multistage contract execution. In some cases you may want to use a combination of Deals for your process, e.g. if a scenario is complex and multilayered or contains stages with markedly different sets of parties involved.
+A Deal is simple but smart. It can cover a wide range of scenarios from pure document exchange between 
+companies to multistage contract execution. In some cases you may want to use a combination of 
+Deals for your process, e.g. if a scenario is complex and multilayered or contains stages with markedly 
+different sets of parties involved.
 
-A Deal is literally an underlying operation abstraction which facilitates any given transaction. It is a distributed container that provides a combination of the following components:
+A Deal is literally an underlying operation abstraction which facilitates any given transaction. 
+It is a distributed container that provides a combination of the following components:
 * Transaction attributes (transaction type and its attributes, status)
 * Role list of transaction participants
 * A list of necessary files for the transaction with optional restricted access to desired participants
 * Role map of transaction status changes
 * Algorithms for processing transaction status changes
 
-Basic operational abstraction is what developers of specific services hosted on the Platform operate on. Since the versatility, flexibility, and functional completeness of this abstraction largely determines the speed and efficiency of developing appropriate services, which in turn allows developers to speed up the process of providing new and more attractive services to end users.
+Basic operational abstraction is what developers of specific services hosted on the Platform operate on. 
+Since the versatility, flexibility, and functional completeness of this abstraction largely determines 
+the speed and efficiency of developing appropriate services, which in turn allows developers to speed up 
+the process of providing new and more attractive services to end users.
+
+***
 
 ## Transport Function
 

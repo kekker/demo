@@ -19,9 +19,8 @@ The participant called Sender initiates deal at the first node.
 The second participant called Receiver detects deal initiating at the other node.
 
 ### Transaction parties
-Sender: `node PrivEth-1`
-
-Receiver: `node PrivEth-2`
+* Sender
+* Receiver
 
 ### The script consists of the following sequential steps:
 1. At **Sender** node create a Deal with the the parallel setting the *Created* state
@@ -76,19 +75,19 @@ curl -X POST "http://qrm1.kekker.com/api/deals"
 -H "Authorization: {AUTHORIZATION}"
 -d "
 {
- "dealUid": null,
- "kind\": "FirstDeal",
- "parties": [
+ \\"dealUid\\": null,
+ \\"kind\\": \\"FirstDeal\\",
+ \\"parties\\": [
    {
-     "key": "CLIENT1",
-     "role": "Sender"
+     \\"key\\": \\"CLIENT1\\",
+     \\"role\\": \\"Sender\\"
    },
    {
-     "key": "CLIENT2",
-     "role": "Receiver"
+     \\"key\\": \\"CLIENT2\\",
+     \\"role\\": \\"Receiver\\"
    }
  ],
- "status": "Created"
+ \\"status\\": \\"Created\\"
 }"
        `
         } />
@@ -103,19 +102,19 @@ curl -X POST "http://hlf1.kekker.com/api/deals"
 -H "Authorization: {AUTHORIZATION}"
 -d "
 {
- "dealUid": null,
- "kind\": "FirstDeal",
- "parties": [
+ \\"dealUid\\": null,
+ \\"kind\\": \\"FirstDeal\\",
+ \\"parties\\": [
    {
-     "key": "HYPERCLIENT1",
-     "role": "Sender"
+     \\"key\\": \\"HYPERCLIENT1\\",
+     \\"role\\": \\"Sender\\"
    },
    {
-     "key": "HYPERCLIENT2",
-     "role": "Receiver"
+     \\"key\\": \\"HYPERCLIENT2\\",
+     \\"role\\": \\"Receiver\\"
    }
  ],
- "status": "Created"
+ \\"status\\": \\"Created\\"
 }"
            `
             } />
@@ -130,19 +129,19 @@ curl -X POST "http://eth1.kekker.com/api/deals"
 -H "Authorization: {AUTHORIZATION}"
 -d "
 {
- "dealUid": null,
- "kind": "FirstDeal",
- "parties": [
+ \\"dealUid\\": null,
+ \\"kind\\": \\"FirstDeal\\",
+ \\"parties\\": [
    {
-     "key": "PUBCLIENT1",
-     "role": "Sender"
+     \\"key\\": \\"PUBCLIENT1\\",
+     \\"role\\": \\"Sender\\"
    },
    {
-     "key": "PUBCLIENT2",
-     "role": "Receiver"
+     \\"key\\": \\"PUBCLIENT2\\",
+     \\"role\\": \\"Receiver\\"
    }
  ],
- "status": "Created"
+ \\"status\\": \\"Created\\"
 }"
        `
        } />
@@ -159,7 +158,7 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
 
 > **Attention!** 
 >
-> Wait for 5 minutes after step [2] before executing these queries
+> Wait for 2 minutes after step [2] before executing these queries
 
 #### Call example (the node URL is different)
 
