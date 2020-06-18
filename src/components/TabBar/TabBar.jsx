@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import TabNav from './TabNav';
+import { usePageState } from '../../state/pageState';
 
 const StyledTabBar = styled.div`
    max-width: 55vw;
@@ -33,11 +34,12 @@ const StyledTabContainer = styled.div`
 const TabBar = ({ children }) => {
   const getChildrenLabels = elements => elements.map(({ props }) => props.label);
 
-  const [activeTab, setActiveTab] = useState(getChildrenLabels(children)[0]);
+  const { pageState, pageDispatch } = usePageState();
+  const { ActiveTab } = pageState;
 
   const setActiveTabFunc = currentTab => {
-    if (currentTab !== activeTab) {
-      setActiveTab(currentTab);
+    if (currentTab !== ActiveTab) {
+      pageDispatch({ type: 'SET_ACTIVE_TAB', value: currentTab });
     }
   };
 
@@ -45,7 +47,7 @@ const TabBar = ({ children }) => {
     <TabNav
       key={navLabel}
       navLabel={navLabel}
-      isActive={activeTab === navLabel}
+      isActive={ActiveTab === navLabel}
       onChangeActiveTab={setActiveTabFunc}
     />
   ));
@@ -56,7 +58,7 @@ const TabBar = ({ children }) => {
         { renderTabs() }
       </StyledTabNavContainer>
       <StyledTabContainer>
-        { React.Children.map(children, child => React.cloneElement(child, { activeTab })) }
+        { children }
       </StyledTabContainer>
     </StyledTabBar>
   );

@@ -8,6 +8,7 @@ import Footer from '../Footer';
 import { ShortHeader } from '../Header';
 import Seo from '../SEO';
 import SideMenu from '../Menu/SideMenu';
+import { PageStateProvider } from '../../state/pageState';
 
 const GridLayout = styled.div`
   display: grid;
@@ -54,18 +55,20 @@ const Layout = ({
       <ShortHeader location={location} />
 
       <main>
-        <ContainerContent mb={0} pb={pb || 0} mt="10vh">
-          <GridLayout>
-            <div>
-              {children}
-            </div>
-            <ResponsiveAside>
-              <GridMenu>
-                <SideMenu location={location} section={sideMenu} />
-              </GridMenu>
-            </ResponsiveAside>
-          </GridLayout>
-        </ContainerContent>
+        <PageStateProvider>
+          <ContainerContent mb={0} pb={pb || 0} mt="10vh">
+            <GridLayout>
+              <div>
+                {children}
+              </div>
+              <ResponsiveAside>
+                <GridMenu>
+                  <SideMenu location={location} section={sideMenu} />
+                </GridMenu>
+              </ResponsiveAside>
+            </GridLayout>
+          </ContainerContent>
+        </PageStateProvider>
       </main>
     </div>
 
@@ -86,3 +89,5 @@ Layout.defaultProps = {
 };
 
 export default Layout;
+
+
