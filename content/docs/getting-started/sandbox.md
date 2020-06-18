@@ -23,7 +23,9 @@ The clusters interact with each other via a dedicated trunk network.
 
 ![Kekker Sandbox Scheme](sandbox_scheme.png)
 
-#### Quorum cluster contains 2 nodes
+***
+
+#### Quorum cluster contains 3 nodes
 
 * `qrm1.kekker.com` 
 * `qrm2.kekker.com` 
@@ -31,13 +33,17 @@ The clusters interact with each other via a dedicated trunk network.
 
 ![Quorum Private Cluster](quorum_scheme.png)
 
-#### Hyperledger Fabric cluster contains 2 nodes:
+***
+
+#### Hyperledger Fabric cluster contains 3 nodes:
 
 * `hlf1.kekker.com` 
 * `hlf2.kekker.com` 
 * `hlf3.kekker.com`
 
 ![Hyperledger Private Cluster](hyper_scheme.png)
+
+***
 
 #### Public Ethereum cluster is based on the Rinkeby Ethereum testnet and contains 2 nodes:
 
@@ -46,8 +52,7 @@ The clusters interact with each other via a dedicated trunk network.
 
 ![Ethereum Public Cluster](eth_scheme.png)
 
-### Sandbox Access
-Hit the Sandbox Access button, fill out the form and get your access credentials in no time. 
+***
 
 ### Transaction timing in Private and Public Networks
 Unlike Private Network transactions’ typical processing time of a few minutes, 
@@ -76,3 +81,6 @@ transactions in Public Networks may require about 10 minutes to process.
    
    Avoid DLT/DFS environment configuration drift, so you can produce higher-quality products. 
    Easily clone your Sandbox environment to the production stage, eliminating hardware and cloud sprawl.
+   
+### Sandbox Access
+Hit the Sandbox Access button, fill out the form and get your access credentials in no time.    

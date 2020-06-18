@@ -101,6 +101,22 @@ button:focus {
   outline: none !important;
 }
 
+hr {
+  position: relative;
+  background-color: transparent;
+  height: 50px;
+  margin: 20px 0;
+}
+
+hr:before {
+  content: '***';
+  font-size: 32px;
+  color: #E5E5E5;
+  position: absolute;
+  top: 10px;
+  left: 45%;
+}
+
 /* ***********************************
 MEDIA QUERIES
 *********************************** */

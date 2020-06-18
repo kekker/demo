@@ -8,8 +8,6 @@ sandboxPromo: true
 
 # Tools
 
-![cURl example](/assets/curl.gif)
-
 ## cURL
 
 Feel free to use your favorite HTTP request tools to access the Sandbox services. We recommend using the cURL command-line tool for transferring data using various protocols. 
@@ -45,3 +43,5 @@ If you are a Windows user please follow these simple steps:
 
 If you are a Linux user the cURL tool must be installed on your machine along with the operating system. 
 If this is not the case or you want to update the tool check the distributions and installation instructions at <a href="https://curl.haxx.se/download.html" target="blank">https://curl.haxx.se/download.html </a>
+
+![cURl example](/assets/curl.gif)

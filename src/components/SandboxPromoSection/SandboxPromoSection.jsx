@@ -10,8 +10,7 @@ import Flex from '../Flex';
 
 const SandboxPromoSection = () => (
   <ContainerSection height="unset">
-    <hr style={{ marginBottom: 0 }} />
-    <ContainerContent pt="50px" pb="60px">
+    <ContainerContent style={{ borderTop: '1px solid hsla(0,0%,0%,0.2)' }} pt="50px" pb="60px">
       <Flex flexDirection="column" alignItems="center">
         <Heading
           fontWeight={300}
@@ -29,7 +28,7 @@ const SandboxPromoSection = () => (
           mt={1}
           mb="15px"
         >
-          Test the platform's powerful features now
+          Test the platform&apos;s powerful features now
         </Text>
         <ButtonLink
           fontSize="medium"
