@@ -4,9 +4,12 @@ import React, {
 import Prism from 'prismjs';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useAppState } from '../../appState';
+import { useAppState } from '../../state/appState';
+import { usePageState } from '../../state/pageState';
 import CopyButton from './CopyButton';
+
 import '../../../static/assets/prism.css';
+
 
 const TextArea = styled.textarea`
   position: absolute;
@@ -50,20 +53,46 @@ const TextAreaContainer = styled.div`
   height: 25px;
 `;
 
-const CodeEditor = ({ code, language }) => {
+const CodeEditor = ({ code, language, TabLabel }) => {
   const { state, dispatch } = useAppState();
+  const { pageState, pageDispatch } = usePageState();
 
   const copyTextRef = useRef();
   const [copyText, setCopyText] = useState('');
 
   const valuesIndex = {
     CHANNEL: null,
-    UID: null,
-    AUTHORIZATION: null
+    AUTHORIZATION: null,
+    UID_Quorum: null,
+    UID_Hyperledger: null,
+    UID_Ethereum: null,
   };
 
   const re = /{(\w+)}/;
   let copyCode = [];
+
+  const stateDispatcher = elem => {
+    if (elem === 'CHANNEL' || elem === 'AUTHORIZATION') {
+      const actionType = `UPDATE_${elem}`;
+      return (evt) => dispatch({ type: actionType, value: evt.target.value });
+    }
+    if (elem === 'UID') {
+      const actionType = `UPDATE_${elem}_${TabLabel}`;
+      return (evt) => pageDispatch({ type: actionType, value: evt.target.value });
+    }
+    return null;
+  };
+
+
+  const valueDispatcher = elem => {
+    if (elem === 'CHANNEL' || elem === 'AUTHORIZATION') {
+      return state[elem];
+    }
+    if (elem === 'UID') {
+      return pageState[`${elem}_${TabLabel}`];
+    }
+    return null;
+  };
 
   const wrapTags = (text, regex) => {
     const textArray = text.split(regex);
@@ -79,14 +108,17 @@ const CodeEditor = ({ code, language }) => {
           </code>
         );
       }
-      const actionType = `UPDATE_${elem}`;
-      valuesIndex[elem] = index;
+      let valueName = elem;
+      if (elem === 'UID') {
+        valueName = `${elem}_${TabLabel}`;
+      }
+      valuesIndex[valueName] = index;
       return (
         <TextAreaContainer key={elem}>
           <TextArea
             rows={1}
-            value={state[elem]}
-            onChange={evt => dispatch({ type: actionType, value: evt.target.value })}
+            value={valueDispatcher(elem)}
+            onChange={stateDispatcher(elem)}
             placeholder={elem}
             name={elem}
           />
@@ -107,8 +139,14 @@ const CodeEditor = ({ code, language }) => {
     if (valuesIndex.CHANNEL) {
       returnCode[valuesIndex.CHANNEL] = state.CHANNEL ? state.CHANNEL : 'CHANNEL';
     }
-    if (valuesIndex.UID) {
-      returnCode[valuesIndex.UID] = state.UID ? state.UID : 'UID';
+    if (valuesIndex.UID_Quorum) {
+      returnCode[valuesIndex.UID_Quorum] = pageState.UID_Quorum ? pageState.UID_Quorum : 'UID';
+    }
+    if (valuesIndex.UID_Hyperledger) {
+      returnCode[valuesIndex.UID_Hyperledger] = pageState.UID_Hyperledger ? pageState.UID_Hyperledger : 'UID';
+    }
+    if (valuesIndex.UID_Ethereum) {
+      returnCode[valuesIndex.UID_Ethereum] = pageState.UID_Ethereum ? pageState.UID_Ethereum : 'UID';
     }
 
     const returnStr = returnCode.join('').replace(/\s\s+|[\n\r]/g, ' ');
