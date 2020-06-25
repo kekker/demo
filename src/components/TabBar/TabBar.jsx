@@ -6,6 +6,8 @@ import TabNav from './TabNav';
 import { usePageState } from '../../state/pageState';
 
 const StyledTabBar = styled.div`
+   margin-top: 1em;
+   margin-bottom: 2em;
    max-width: 55vw;
   
   

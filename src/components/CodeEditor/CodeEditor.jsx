@@ -8,8 +8,6 @@ import { useAppState } from '../../state/appState';
 import { usePageState } from '../../state/pageState';
 import CopyButton from './CopyButton';
 
-import '../../../static/assets/prism.css';
-
 
 const TextArea = styled.textarea`
   position: absolute;
@@ -23,15 +21,18 @@ const TextArea = styled.textarea`
   overflow: auto;
   
   resize: none;
-  rows: 1;
-  background: #F2F2F2;
+  font-family: 'Courier';
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  
+  background: ${({ theme }) => theme.colors.bodyLightGrey};
   outline-color: ${({ theme }) => theme.colors.primaryBrand};
   border: none;
-  border-bottom: 3px solid ${({ theme }) => theme.colors.textLightGrey};;
+  border-bottom: 3px solid ${({ theme }) => theme.colors.textLightGrey};
 `;
 
 const CodeEditorContainer = styled.div`
-  background-color: #fdf6e3;
+  background-color: ${({ theme }) => theme.colors.bodyLightGrey};
   overflow-x: auto;
  
   max-width: 688px;
@@ -42,7 +43,7 @@ const CodeEditorContainer = styled.div`
     }
   }
 
-  padding: 20px 0 20px 20px;
+  padding: 40px 0 20px 20px;
 
 `;
 
