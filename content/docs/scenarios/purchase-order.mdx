@@ -25,9 +25,8 @@ We recommend using cURl. Find more at our [Tools guide](/docs/getting-started/to
 
 ### Transaction parties
 
-Buyer: `node PrivEth-1`
-
-Seller: `node PrivEth-2`
+* Buyer
+* Seller
 
 ### Scenario overview
 
@@ -78,11 +77,11 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
   "kind": "FirstDeal",
   "parties": [
     {
-      "key": "CLIENT1",
+      "key": "QRM1",
       "role": "Buyer"
     },
     {
-      "key": "CLIENT2",
+      "key": "QRM2",
       "role": "Seller"
     }
   ],
@@ -124,11 +123,11 @@ curl -X POST "http://qrm1.kekker.com/api/deals"
  \\"kind\\": \\"FirstDeal\\",
  \\"parties\\": [
      {
-       \\"key\\": \\"CLIENT2\\",
+       \\"key\\": \\"QRM2\\",
        \\"role\\": \\"Seller\\"
      },
      {
-       \\"key\\": \\"CLIENT1\\",
+       \\"key\\": \\"QRM1\\",
        \\"role\\": \\"Buyer\\"
      }
   ],
@@ -168,11 +167,11 @@ curl -X POST "http://hlf1.kekker.com/api/deals"
  \\"kind\\": \\"FirstDeal\\",
  \\"parties\\": [
      {
-       \\"key\\": \\"HYPERCLIENT2\\",
+       \\"key\\": \\"HLF2\\",
        \\"role\\": \\"Seller\\"
      },
      {
-       \\"key\\": \\"HYPERCLIENT1\\",
+       \\"key\\": \\"HLF1\\",
        \\"role\\": \\"Buyer\\"
      }
   ],
@@ -212,11 +211,11 @@ curl -X POST "http://eth1.kekker.com/api/deals"
  \\"kind\\": \\"FirstDeal\\",
  \\"parties\\": [
      {
-       \\"key\\": \\"PUBCLIENT2\\",
+       \\"key\\": \\"ETH2\\",
        \\"role\\": \\"Seller\\"
      },
      {
-       \\"key\\": \\"PUBCLIENT1\\",
+       \\"key\\": \\"ETH1\\",
        \\"role\\": \\"Buyer\\"
      }
   ],
@@ -394,11 +393,11 @@ curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
     ],
     "parties": [
         {
-            "key": "CLIENT2",
+            "key": "QRM2",
             "role": "Seller"
         },
         {
-            "key": "CLIENT1",
+            "key": "QRM1",
             "role": "Buyer"
         }
     ],
@@ -407,7 +406,7 @@ curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
         {
             "status": "Issued",
             "party": {
-                "key": "CLIENT1",
+                "key": "QRM1",
                 "role": "Buyer"
             },
             "remark": "1",
@@ -603,11 +602,11 @@ curl -X GET "http://eth1.kekker.com/api/deals/{UID}"
     ],
     "parties": [
         {
-            "key": "CLIENT2",
+            "key": "QRM2",
             "role": "Seller"
         },
         {
-            "key": "CLIENT1",
+            "key": "QRM1",
             "role": "Buyer"
         }
     ],
@@ -616,7 +615,7 @@ curl -X GET "http://eth1.kekker.com/api/deals/{UID}"
         {
             "status": "Issued",
             "party": {
-                "key": "CLIENT1",
+                "key": "QRM1",
                 "role": "Buyer"
             },
             "remark": "1",
@@ -625,7 +624,7 @@ curl -X GET "http://eth1.kekker.com/api/deals/{UID}"
         {
             "status": "Adjusted",
             "party": {
-                "key": "CLIENT2",
+                "key": "QRM2",
                 "role": "Seller"
             },
             "remark": "2",
@@ -782,11 +781,11 @@ curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
     ],
     "parties": [
         {
-            "key": "CLIENT2",
+            "key": "QRM2",
             "role": "Seller"
         },
         {
-            "key": "CLIENT1",
+            "key": "QRM1",
             "role": "Buyer"
         }
     ],
@@ -795,7 +794,7 @@ curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
         {
             "status": "Issued",
             "party": {
-                "key": "CLIENT1",
+                "key": "QRM1",
                 "role": "Buyer"
             },
             "remark": "1",
