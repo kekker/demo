@@ -21,8 +21,11 @@ companies to multistage contract execution. In some cases you may want to use a 
 Deals for your process, e.g. if a scenario is complex and multilayered or contains stages with markedly 
 different sets of parties involved.
 
+![Deal Scheme](deal_scheme.png)
+
 A Deal is literally an underlying operation abstraction which facilitates any given transaction. 
 It is a distributed container that provides a combination of the following components:
+
 * Transaction attributes (transaction type and its attributes, status)
 * Role list of transaction participants
 * A list of necessary files for the transaction with optional restricted access to desired participants

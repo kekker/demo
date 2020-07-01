@@ -17,30 +17,6 @@ const MarkdownSection = styled.section`
 
 const MarkdownRawContent = styled.div`
   margin-bottom: ${({ theme }) => theme.space[6]}px;
-  
-  & > p:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > ol > li:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > ol:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > ul > li:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > ul:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > blockquote:last-child {
-    margin-bottom: 0;
-  }
 `;
 
 const getPageByTitle = (sectionList, templateTitle) => {
