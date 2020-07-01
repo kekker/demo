@@ -4,7 +4,7 @@
     ["prismjs", {
       "languages": ["shell", "bash", "json"],
       "plugins": ["show-language"],
-      "theme": "solarizedlight",
+      "theme": "default",
       "css": true
     }]
   ]

@@ -24,3 +24,11 @@
 [data-rmiz-btn-open] {
     top: -40px !important;
 }
+
+.code-toolbar {
+    margin-top: 0.5em;
+}
+
+:not(pre) > code[class*="language-"] {
+    white-space: unset;
+}

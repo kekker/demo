@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Text from '../TextStyles/Text';
-import { Copy } from '../Icons/Icons';
 
 
 const StyledCopyButton = styled.button`
   position: absolute;
-  padding: 5px 10px;
+  padding: 1px 10px;
   z-index: 1;
    
-  top: 5px;
-  right: 10px;
+  top: 20px;
+  left: 10px;
   border: none;
   
   ${({ disabled, theme }) => (disabled
@@ -75,12 +74,13 @@ const CopyButton = ({ copyTextRef }) => {
         : (
           <>
             <Text
-              mr="0.5em"
+              fontSize="14px"
+              fontWeight="800"
+              textTransform="uppercase"
               tag="span"
             >
-              Copy
+              copy code to clipboard
             </Text>
-            <Copy />
           </>
         )}
     </StyledCopyButton>

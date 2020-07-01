@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // nav-item
 const StyledNavButton = styled.button`
   flex: 1;
-  background-color: ${({ isActive, theme }) => (isActive ? theme.colors.primaryBrand : '#FFF')};
+  background-color: ${({ isActive, theme }) => (isActive ? theme.colors.bodyLightGrey : '#FFF')};
   border: 1px solid #EDEDED;
   padding: 10px 15px;
   cursor: pointer;
