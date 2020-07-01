@@ -12,7 +12,7 @@ import CopyButton from './CopyButton';
 const TextArea = styled.textarea`
   position: absolute;
   top: 5px;
-  width: 250px;
+  width: 300px;
   height: 30px;
   
   margin: 0;
