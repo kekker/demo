@@ -173,8 +173,8 @@ class HeaderNav extends React.Component {
             fontSize="medium"
             isPrimary
             isShrinking
-            to="/invitation"
-            title="Sandbox Access"
+            to="/docs/getting-started/get-started.html"
+            title="Get Started"
           />
         </Flex>
         {DropDownMenu}
