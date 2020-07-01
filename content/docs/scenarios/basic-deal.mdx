@@ -1,0 +1,235 @@
+---
+title: Basic Deal
+description: Hello World Kekker Scenario example
+next: Purchase Order
+prev: Sandbox
+sandboxPromo: true
+---
+
+import TabItem from '../../../src/components/TabBar/TabItem';
+import TabBar from '../../../src/components/TabBar/TabBar';
+import CodeEditor from '../../../src/components/CodeEditor/CodeEditor';
+
+
+# "Hello, World!"
+
+Basic Deal scenario shows the simplest case of a transaction among nodes.
+
+The participant called Sender initiates deal at the first node. 
+The second participant called Receiver detects deal initiating at the other node.
+
+### Transaction parties
+* Sender
+* Receiver
+
+### The script consists of the following sequential steps:
+1. At **Sender** node create a Deal with the the parallel setting the *Created* state
+2. Make sure at **Receiver** node the Deal exists and status is equal to *Created*
+
+### Pre-adjustment
+> **Attention!** 
+>
+> In the call case the ID is replaced with (UID) word - you need to replace it with your obtained ID when creating the Deal at Step 1.
+
+> **Attention!** 
+>
+> In queries in the headers *CHANNEL*, *AUTHORIZATION* you must use the personal identifier you received during registration. This will allow not to interfere with the simultaneous work of several users, as well as facilitate the work of the Technical Support service if you have any questions. The query examples use the personal identifier Demo.
+
+For more information about authorization, visit [API: Authorization Page](/docs/api/authorization.html)
+
+If you run into any error, visit [API: Errors Page ](/docs/api/handling-errors.html)
+
+## 1. Create a Deal
+
+Use `POST`-method call `/api/deals/`. The json specification of the transaction is indicated as the request data. In our case:
+
+#### Body data
+```json
+{
+  "dealUid": null,
+  "kind": "FirstDeal",
+  "parties": [
+    {
+      "key": "QRM1",
+      "role": "Sender"
+    },
+    {
+      "key": "QRM2",
+      "role": "Receiver"
+    }
+  ],
+  "status": "Created"
+}
+```
+
+#### Call example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X POST "http://qrm1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ \\"dealUid\\": null,
+ \\"kind\\": \\"FirstDeal\\",
+ \\"parties\\": [
+   {
+     \\"key\\": \\"QRM1\\",
+     \\"role\\": \\"Sender\\"
+   },
+   {
+     \\"key\\": \\"QRM2\\",
+     \\"role\\": \\"Receiver\\"
+   }
+ ],
+ \\"status\\": \\"Created\\"
+}"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+            <CodeEditor code={
+           `
+curl -X POST "http://hlf1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ \\"dealUid\\": null,
+ \\"kind\\": \\"FirstDeal\\",
+ \\"parties\\": [
+   {
+     \\"key\\": \\"HLF1\\",
+     \\"role\\": \\"Sender\\"
+   },
+   {
+     \\"key\\": \\"HLF2\\",
+     \\"role\\": \\"Receiver\\"
+   }
+ ],
+ \\"status\\": \\"Created\\"
+}"
+           `
+            } />
+        </TabItem>
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X POST "http://eth1.kekker.com/api/deals"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ \\"dealUid\\": null,
+ \\"kind\\": \\"FirstDeal\\",
+ \\"parties\\": [
+   {
+     \\"key\\": \\"ETH1\\",
+     \\"role\\": \\"Sender\\"
+   },
+   {
+     \\"key\\": \\"ETH2\\",
+     \\"role\\": \\"Receiver\\"
+   }
+ ],
+ \\"status\\": \\"Created\\"
+}"
+       `
+       } />
+    </TabItem>
+</TabBar>
+
+
+#### Response example
+
+If everything is fine you'll receive the Deal identifier [UID] in the response body . Save it and add to further requests.
+
+## 2. Make sure at Receiver node the Deal status is Created
+Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
+
+> **Attention!** 
+>
+> Wait for 2 minutes after step [2] before executing these queries
+
+#### Call example (the node URL is different)
+
+<TabBar>
+    <TabItem label="Quorum">
+            <CodeEditor code={
+           `
+curl -X GET "http://qrm2.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+           `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+        <CodeEditor code={
+       `
+curl -X GET "http://hlf2.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
+-H "Accept: application/json"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+       `
+       } />
+    </TabItem>
+</TabBar>
+
+
+#### Response example (check status)
+```json
+{
+    "uid": "6e4c83cc-874a-41c5-b416-a796ba7b95fb",
+    "kind": "FirstDeal",
+    "status": "Created",
+    "remark": "",
+    "parameters": [],
+    "parties": [
+        {
+            "key": "QRM1",
+            "role": "Sender"
+        },
+        {
+            "key": "QRM2",
+            "role": "Receiver"
+        }
+    ],
+    "files": [],
+    "history": [
+        {
+            "status": "Created",
+            "party": {
+                "key": "QRM1",
+                "role": "Sender"
+            },
+            "remark": "",
+            "version": 2
+        }
+    ],
+    "statusMap": []
+}
+```
+Check the Deal status equals `Created`
+> **Attention!** 
+>
+> If incorrect repeat the second request after a while

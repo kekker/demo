@@ -1,12 +1,11 @@
-.gatsby-highlight {
+.gatsby-highlight, .code-toolbar {
+    overflow-x: auto;
     margin-bottom: 2em;
     max-width: 55vw;
-    /*max-width: 70%;*/
-    /*width: 90%;*/
 }
 
 @media (max-width: 980px) {
-    .gatsby-highlight {
+    .gatsby-highlight, .code-toolbar {
         max-width: 90vw;
     }
 }
@@ -24,4 +23,12 @@
 
 [data-rmiz-btn-open] {
     top: -40px !important;
+}
+
+.code-toolbar {
+    margin-top: 0.5em;
+}
+
+:not(pre) > code[class*="language-"] {
+    white-space: unset;
 }

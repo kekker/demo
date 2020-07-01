@@ -45,10 +45,12 @@ const Button = ({
     >
       {title}
     </Text>
-    {icon &&
+    {icon
+    && (
     <StyledIcon>
       {icon}
-    </StyledIcon>}
+    </StyledIcon>
+    )}
   </StyledButton>
 );
 

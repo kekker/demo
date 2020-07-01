@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Theme from "../Theme";
-import Heading from "../TextStyles/Heading";
+import Theme from '../Theme';
+import Heading from '../TextStyles/Heading';
 
 export const Story = ({ children }) => (
-    <div style={{ margin: '75px'}}>
-        {children}
-    </div>
+  <div style={{ margin: '75px' }}>
+    {children}
+  </div>
 );
 
 const StyledStoryRow = styled.div`
@@ -43,25 +43,27 @@ const StyledCheckboxWrapper = styled.div`
 `;
 
 export const StoryCheckBox = ({ label, onChange }) => (
-    <StyledCheckboxWrapper>
-        <label htmlFor={label}>{label}</label>
-        <input style={{ marginLeft: '10px'}} id={label} type='checkbox' onClick={onChange}/>
-    </StyledCheckboxWrapper>
+  <StyledCheckboxWrapper>
+    <label htmlFor={label}>{label}</label>
+    <input style={{ marginLeft: '10px' }} id={label} type="checkbox" onClick={onChange} />
+  </StyledCheckboxWrapper>
 );
 
-export const StoryRow = ({ heading, label, onChange, ...props }) => (
-    <>
-        { heading && (
-            <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                <Heading level={2} mb={2} mr={4} fontWeight={400}>
-                    { heading }
-                </Heading>
-                { label && onChange && (
-                    <StoryCheckBox label={label} onChange={onChange} />
-                )}
-            </div>
-        )}
-        <hr />
-        <StyledStoryRow {...props} />
-    </>
+export const StoryRow = ({
+  heading, label, onChange, ...props
+}) => (
+  <>
+    { heading && (
+    <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+      <Heading level={2} mb={2} mr={4} fontWeight={400}>
+        { heading }
+      </Heading>
+      { label && onChange && (
+      <StoryCheckBox label={label} onChange={onChange} />
+      )}
+    </div>
+    )}
+    <hr />
+    <StyledStoryRow {...props} />
+  </>
 );

@@ -1,3 +1,3 @@
-import SandboxPromoSection from "./SandboxPromoSection";
+import SandboxPromoSection from './SandboxPromoSection';
 
 export default SandboxPromoSection;

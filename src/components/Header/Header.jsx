@@ -30,7 +30,7 @@ const ShortHeader = ({ location, theme }) => (
         width="100%"
         height={theme.layout.menuHeight}
         style={{
-          position: 'fixed', top: '0', left: '0', zIndex: 1
+          position: 'fixed', top: '0', left: '0', zIndex: 2
         }}
       >
         <BgImage

@@ -1,2 +1,1 @@
-export const toFontFamilyString = fontFamilyArray =>
-    `'${fontFamilyArray.join("', '")}'`;
+export const toFontFamilyString = fontFamilyArray => `'${fontFamilyArray.join("', '")}'`;

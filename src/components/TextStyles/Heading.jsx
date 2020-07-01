@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { space, typography, color, layout } from 'styled-system';
+import {
+  space, typography, color, layout
+} from 'styled-system';
 
 const StyledHeading = styled.div`
   ${space};
