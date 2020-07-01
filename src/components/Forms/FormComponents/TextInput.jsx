@@ -1,6 +1,9 @@
 import React from 'react';
 import { useField } from 'formik';
 import styled from 'styled-components';
+import {
+  space, layout, flexBasis
+} from 'styled-system';
 
 import { FormError } from './FormError';
 import Label from './Label';
@@ -15,17 +18,25 @@ const StyledInput = styled.input`
     ${({ error, touched }) => (touched ? (error ? 'red' : 'green') : 'lightgrey')};
 `;
 
-const TextInput = ({ label, isRequired, ...props }) => {
+const TextInputWrapper = styled.div`
+  ${space};
+  ${layout};
+  ${flexBasis};
+`;
+
+const TextInput = ({ label, isRequired, wrapperStyles, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input> and also replace ErrorMessage entirely.
   const [field, meta] = useField(props);
   return (
-    <>
-      <Label
-        isRequired={isRequired}
-        label={label}
-        htmlFor={props.name || props.id}
-      />
+    <TextInputWrapper {...wrapperStyles}>
+      {label && (
+        <Label
+          isRequired={isRequired}
+          label={label}
+          htmlFor={props.name || props.id}
+        />
+      )}
       <StyledInput
         {...field}
         error={meta.error}
@@ -33,7 +44,7 @@ const TextInput = ({ label, isRequired, ...props }) => {
         {...props}
       />
       {meta.touched && meta.error ? <FormError>{meta.error}</FormError> : null}
-    </>
+    </TextInputWrapper>
   );
 };
 

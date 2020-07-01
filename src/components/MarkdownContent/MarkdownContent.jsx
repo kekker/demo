@@ -17,30 +17,6 @@ const MarkdownSection = styled.section`
 
 const MarkdownRawContent = styled.div`
   margin-bottom: ${({ theme }) => theme.space[6]}px;
-  
-  & > p:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > ol > li:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > ol:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > ul > li:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > ul:last-child {
-    margin-bottom: 0;
-  }
-  
-  & > blockquote:last-child {
-    margin-bottom: 0;
-  }
 `;
 
 const getPageByTitle = (sectionList, templateTitle) => {
@@ -58,7 +34,7 @@ const RenderRawContent = ({
   contentType, content, frontmatter, listItems
 }) => {
   const {
-    next, prev, prev_title, next_title, sandboxPromo
+    next, prev, prev_title, next_title
   } = frontmatter;
   const prevPage = getPageByTitle(listItems, prev);
   const nextPage = getPageByTitle(listItems, next);
@@ -87,9 +63,6 @@ const RenderRawContent = ({
       >
         { contentNode(contentType)}
         <div>
-          { sandboxPromo && (
-          <SandboxPromoSection />
-          )}
           <MarkdownFooter
             next_title={next_title}
             prev_title={prev_title}
@@ -104,7 +77,7 @@ const RenderRawContent = ({
 
 RenderRawContent.propTypes = {
   contentType: PropTypes.string,
-  content: PropTypes.object.isRequired,
+  content: PropTypes.string.isRequired,
   frontmatter: PropTypes.object.isRequired,
   listItems: PropTypes.array.isRequired,
 };

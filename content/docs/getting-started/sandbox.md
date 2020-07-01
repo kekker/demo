@@ -21,7 +21,7 @@ your own infrastructure or use our commercial infrastructure hosting and support
 
 The clusters interact with each other via a dedicated trunk network.
 
-![Kekker Sandbox Scheme](sandbox_scheme.png)
+![Kekker Sandbox Scheme](kekker_sandbox.png)
 
 ***
 

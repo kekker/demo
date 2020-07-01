@@ -30,11 +30,6 @@ const StyledPlatformImage = styled(Img)`
 const StyledImage = styled(Img)`
   width: 100%;
   margin-bottom: 0;
-  margin-top: -70px;
-  
-  @media (max-width: 550px) {
-    margin-top: -30px;
-  }
 `;
 
 const StyledSandboxContentWrapper = styled.div`
@@ -95,7 +90,7 @@ const BlogIndex = ({ data, location }) => {
               ))}
             </Flex>
 
-            <hr style={{ marginBottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.1)' }} />
+            <hr />
           </ContainerContent>
 
           <ContainerSection width="100%">
@@ -144,14 +139,14 @@ const BlogIndex = ({ data, location }) => {
             </ContainerContent>
           </ContainerSection>
 
-          <ContainerSection height={{ _: '80vw', lg: '1000px' }}>
+          <ContainerSection height={{ _: '100vw', lg: '1000px' }}>
             <BgImage
-              height={{ _: '80vw', lg: '1000px' }}
+              height={{ _: '100vw', lg: '1000px' }}
               fluid={sandboxBgImage.childImageSharp.fluid}
               title="Sandbox Background Image"
               bg="#000000"
             >
-              <ContainerContent>
+              <ContainerContent pt='20px'>
                 <StyledImage
                   fluid={sandboxImage.childImageSharp.fluid}
                   title="Kekker Sandbox overview"
@@ -217,7 +212,7 @@ export const pageQuery = graphql`
       }
     }
     platformImage: file(
-      absolutePath: { regex: "/kekker_mainpage_platform_v3.png/" }
+      absolutePath: { regex: "/kekker_mainpage_platform.png/" }
     ) {
       childImageSharp {
         fluid(maxWidth: 1600) {
