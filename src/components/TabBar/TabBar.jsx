@@ -10,11 +10,10 @@ const StyledTabBar = styled.div`
    margin-bottom: 2em;
    max-width: 55vw;
   
-  
-    @media (max-width: 980px) {
-        max-width: 90vw;
-    }
+  @media (max-width: 700px) {
+     max-width: 90vw;
   }
+  
 `;
 
 const StyledTabNavContainer = styled.div`

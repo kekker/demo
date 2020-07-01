@@ -34,7 +34,7 @@ const RenderRawContent = ({
   contentType, content, frontmatter, listItems
 }) => {
   const {
-    next, prev, prev_title, next_title, sandboxPromo
+    next, prev, prev_title, next_title
   } = frontmatter;
   const prevPage = getPageByTitle(listItems, prev);
   const nextPage = getPageByTitle(listItems, next);
@@ -63,9 +63,6 @@ const RenderRawContent = ({
       >
         { contentNode(contentType)}
         <div>
-          { sandboxPromo && (
-          <SandboxPromoSection />
-          )}
           <MarkdownFooter
             next_title={next_title}
             prev_title={prev_title}
@@ -80,7 +77,7 @@ const RenderRawContent = ({
 
 RenderRawContent.propTypes = {
   contentType: PropTypes.string,
-  content: PropTypes.object.isRequired,
+  content: PropTypes.string.isRequired,
   frontmatter: PropTypes.object.isRequired,
   listItems: PropTypes.array.isRequired,
 };

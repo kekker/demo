@@ -9,6 +9,7 @@ import { ShortHeader } from '../Header';
 import Seo from '../SEO';
 import SideMenu from '../Menu/SideMenu';
 import { PageStateProvider } from '../../state/pageState';
+import SandboxPromoSection from '../SandboxPromoSection';
 
 const GridLayout = styled.div`
   display: grid;
@@ -71,7 +72,7 @@ const Layout = ({
         </PageStateProvider>
       </main>
     </div>
-
+    <SandboxPromoSection />
     <Footer />
   </Theme>
 );
