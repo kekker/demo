@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { useTransition, animated } from 'react-spring';
 import styled from 'styled-components';
@@ -28,6 +28,23 @@ const ButtonModalClose = styled.button`
 
 
 export default function AnimatedDialog(props) {
+  // const rootRef = useRef(null);
+  //
+  // const updateRootElement = (item, state, props) => {
+  //   if (item) {
+  //     if (!rootRef.current) {
+  //       rootRef.current = document.querySelector('html');
+  //     }
+  //     rootRef.current.style.overflow = props.isOpen ? 'hidden' : 'visible';
+  //   }
+  // };
+
+  // const html = document.querySelector('html');
+  //
+  // useEffect(() => {
+  //   props.isOpen ? (html.style.overflow = 'hidden') : (html.style.overflow = 'visible');
+  // }, [props.isOpen]);
+
   const transitions = useTransition(
     props.isOpen ? props : false,
     null,
@@ -46,6 +63,7 @@ export default function AnimatedDialog(props) {
         key={key}
         style={{ opacity }}
         onDismiss={item.onDismiss}
+        dangerouslyBypassScrollLock
       >
         <animated.DialogContent
           aria-label="dialog-question"

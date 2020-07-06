@@ -30,6 +30,19 @@ const FAQPage = ({ location }) => {
 
   return (
     <>
+      <AnimatedDialog isOpen={showDialog} onDismiss={close}>
+        <div style={{ padding: '75px' }}>
+          <Heading
+            fontSize={{ _: '24px', md: '32px' }}
+            fontWeight={200}
+            mb={5}
+          >
+            Contact the Kekker support team
+          </Heading>
+          <QuestionForm />
+        </div>
+      </AnimatedDialog>
+
       <Layout
         location={location.pathname}
         title="FAQ Page"
@@ -97,19 +110,6 @@ const FAQPage = ({ location }) => {
         </div>
 
       </Layout>
-
-      <AnimatedDialog isOpen={showDialog} onDismiss={close}>
-        <div style={{ padding: '75px' }}>
-          <Heading
-            fontSize={{ _: '24px', md: '32px' }}
-            fontWeight={200}
-            mb={5}
-          >
-            Contact the Kekker support team
-          </Heading>
-          <QuestionForm />
-        </div>
-      </AnimatedDialog>
     </>
   );
 };

@@ -24,7 +24,7 @@ const Preview = styled(animated.button)`
   
   will-change: opacity;
   
-  z-index: ${({ isExpanded }) => (isExpanded ? -1 : 1)};
+  z-index: ${({ isExpanded }) => (isExpanded ? -1 : 0)};
   
   background: transparent;
   text-align: start;
