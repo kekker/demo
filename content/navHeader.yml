@@ -3,6 +3,10 @@ items:
     to: /docs/getting-started/get-started.html
     activeSelector: /docs/
 
+  - title: FAQ
+    to: /faq
+    activeSelector: /faq
+
   - title: About
     to: /about/platform.html
     activeSelector: /about/

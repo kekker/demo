@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Modal causing double scroll Bar",
+    "content": "In the end I found that the best solution was to toggle a class on the body when the modal is opened, this class would add overflow-y: hidden. This allows me to scroll the content of the modal if it overflows the body, but doesn't allow scrolling of the body itself at the same time. No more double scroll bars.",
+    "tag": "API"
+  },
+  {
+    "title": "Does an index/documentation of all compiled POSIX functions exist?",
+    "content": "Background: I'm writing some piece of platform-independent C# code, which sometimes has to access platform-specific native code using P/Invoke. E.g. I may have to access DeviceIoControl on Windows, or ioctl on POSIX-compatible platforms.",
+    "tag": "Platform"
+  },
+  {
+    "title": "Can Syntax Errors be handled?",
+    "content": "A syntax error means that the code featuring said error cannot be parsed. It doesn't even begin to be a valid program, hence it cannot be executed. Therefore SyntaxError exceptions are raised before the program is run, and hence can't be caught from within the program.",
+    "tag": "Sandbox"
+  },
+  {
+    "title": "BOOTSTRAP Navigation Bar Doesn't Collapse at the Correct Window Size",
+    "content": "So I have created a bootstrap responsive navigation bar which moves all links into a separate tab once the window gets too small. To make the navbar look better, I set white-space: nowrap; hoping that instead of allowing the links to go on to new lines before collapsing the navigation bar, the Navigation bar would instead collapse at the point the links went beyond the page border. However, this wasn't the case and the navigation bar collapses after the 2 rightmost links disappear beyond the page border.",
+    "tag": "API"
+  },
+  {
+    "title": "JavaScript event that fires when all of the certain elements get display: none",
+    "content": "So, say, I have 5 html elements that are hidden via class that has a display:none property. Then there's a button which removes that class on one of these elements with every click (5 clicks results into all 5 elements being visible). And then all of these 5 elements have \"their own button\" that adds back this class with display:none when clicked.",
+    "tag": "Platform"
+  },
+  {
+    "title": "tensorflow hub pre-trained neural network hults training on custom given data due to EarlyStopping error",
+    "content": "I am running the code blocks below to train a neural network, found on tensorflow hub, upon by movie content data. I have 4 inputs of data that can be seen below. While everything seems to be set correct and the training starts successfully, the EarlyStopping round hults the training of the model. Also it seems that the val_loss and loss metrics are pinted as NaN per epoch. See my code below along with two screenshots describing my issue.",
+    "tag": "Sandbox"
+  },
+  {
+    "title": "Getting error: int() argument must be a string, a bytes-like object or a number, not 'ObjectId'",
+    "content": "I have some GraphQL mutation. I am testing APIs on Postman and have below error.\n\n{ \"errors\": [ { \"message\": \"int() argument must be a string, a bytes-like object or a number, not 'ObjectId'\", \"locations\": [ { \"line\": 2, \"column\": 3 } ], \"path\": [ \"createUser\" ] }",
+    "tag": "Sandbox"
+  },
+  {
+    "title": "Able to connect to redis but set/get times out",
+    "content": "I'm trying to do a get() from my AWS Lambda (NodeJS) on ElastiCache Redis using node_redis client. I believe that I'm able to connect to redis but I'm getting Time out (Lambda 60 sec time out) when I'm trying to perform a get() operation.",
+    "tag": "Sandbox"
+  },
+  {
+    "title": "laravel 7 - add new images on existing tables\n",
+    "content": "I was successful uploading multiple images while inserting a new record. I used two models 'Car' and 'caralbum' and made a join. However, I was trying to create an option to add more images on current list but failed to do so. my codes are-",
+    "tag": "API"
+  },
+  {
+    "title": "React Cursor for Input Component Jumps to Start on Certain Deletes",
+    "content": "I have seen other people have issues with cursors jumping to the end, but never cursors jumping to the start in this manner. Is there something wrong with how I am handling onChange events?\n\nHere is my component (code is also provided in the sandbox):",
+    "tag": "Sandbox"
+  },
+  {
+    "title": "Does php evaluate the second argument of an or statement if the first evaluates to false?",
+    "content": "So my question is about the behaviour of php in the case of an or statement taking two functions. When the first function already evaluates to true, is there a chance that the second function will still be executed?",
+    "tag": "API"
+  },
+  {
+    "title": "Why is a promise resolved before a setTimeout",
+    "content": "The Promise .then() callback will be invoked immediately after the code block completes. The timer will get a default minimum time of around 15 or 16 milliseconds, so it's definitely going to happen after that.",
+    "tag": "API"
+  },
+  {
+    "title": "How do you use MSP430 on windows 10 Ubuntu 18.04?",
+    "content": "I plugged my MSP430 into my computer and when I launch ubuntu and do lsusb the device is not listed. Any idea what I need to do?",
+    "tag": "Platform"
+  },
+  {
+    "title": "How to check existence of an object using pk in django template?",
+    "content": "Please, don't implement this in the template. Templates should be used for rendering logic, not business logic.\n\nYou can define a method for example on your Post object to obtain the previous and next item:",
+    "tag": "Sandbox"
+  },
+  {
+    "title": "how do i fix this error im new to programming",
+    "content": "hello im a new to programming so basiclly what im saying is that i am dumb, why do i get this error only assignment call increment decrement await and new object expressions can be used as a statement",
+    "tag": "API"
+  },
+  {
+    "title": "How can I count the number of matching zero elements between two numpy arrays?",
+    "content": "So what I've done here is simply subtract the summation of the ones and negative ones from the total length of the array. I can't assume that the difference (zeros: 5745) contains ALL matching elements that contain zeros can I?",
+    "tag": "API"
+  }
+]
