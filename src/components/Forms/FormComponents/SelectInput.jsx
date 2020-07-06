@@ -39,7 +39,7 @@ const SelectInput = ({ label, options, ...props }) => {
       />
       <StyledSelect {...field} {...props}>
         {options.map(option => (
-          <option value={option.value}>{option.text}</option>
+          <option key={option.text} value={option.value}>{option.text}</option>
         ))}
       </StyledSelect>
       {meta.touched && meta.error ? <FormError>{meta.error}</FormError> : null}

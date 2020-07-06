@@ -11,7 +11,8 @@ const StyledRichInput = styled.textarea`
   height: 150px;
   padding: 8px 13px;
 
-  border: 1px solid lightgrey;
+  border: 1px solid
+    ${({ error, touched }) => (touched ? (error ? 'red' : 'green') : 'lightgrey')};
   font-family: 'Courier';
   font-size: ${props => props.theme.fontSizes.medium}px;
 `;
@@ -25,7 +26,12 @@ const RichTextInput = ({ label, ...props }) => {
         label={label}
         htmlFor={props.name || props.id}
       />
-      <StyledRichInput {...field} {...props} />
+      <StyledRichInput
+        error={meta.error}
+        touched={meta.touched}
+        {...field}
+        {...props}
+      />
       {meta.touched && meta.error ? <FormError>{meta.error}</FormError> : null}
     </>
   );
