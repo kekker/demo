@@ -7,7 +7,6 @@ import MenuLinks from './MenuLinks';
 
 import HeaderBullet from '../../../static/assets/kekker_menu_bullet.svg';
 
-import { listDocsLinks, listAboutLinks } from '../../utils/getLinkLists';
 
 const MenuHeader = styled(Heading)`
   position: relative;
@@ -25,37 +24,29 @@ const MenuHeader = styled(Heading)`
   }
 `;
 
-const SideMenu = ({ location, section }) => {
-  let linkSections;
-  if (section) {
-    linkSections = section.includes('docs') ? listDocsLinks : listAboutLinks;
-  } else {
-    linkSections = location.includes('docs/') ? listDocsLinks : listAboutLinks;
-  }
+const SideMenu = ({ location, links }) => (
+  <>
+    {links.map(section => (
+      <React.Fragment key={section.header}>
+        <MenuHeader
+          mb={2}
+          textTransform="uppercase"
+          textAlign="left"
+          level={4}
+          fontSize="22px"
+        >
+          {section.header}
+        </MenuHeader>
+        <MenuLinks location={location} links={section.items} />
+      </React.Fragment>
+    ))}
+  </>
+);
 
-  return (
-    <>
-      {linkSections.map(section => (
-        <React.Fragment key={section.header}>
-          <MenuHeader
-            mb={2}
-            textTransform="uppercase"
-            textAlign="left"
-            level={4}
-            fontSize="22px"
-          >
-            {section.header}
-          </MenuHeader>
-          <MenuLinks location={location} links={section.items} />
-        </React.Fragment>
-      ))}
-    </>
-  );
-};
 
 SideMenu.propTypes = {
   location: PropTypes.string.isRequired,
-  section: PropTypes.oneOf(['docs', 'about']),
+  links: PropTypes.array
 };
 
 export default SideMenu;
