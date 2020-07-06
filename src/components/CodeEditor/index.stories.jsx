@@ -4,10 +4,11 @@ import { Story, StoryRow } from '../StorybookComponents';
 import CodeEditor from './CodeEditor';
 
 export default {
-  title: 'CodeEditor',
+  title: 'Code Editor',
 };
 
 const exampleCode1 = `
+
     curl -X POST "http://democlient1.kekker.com/api/deals/setstatus" 
     -H "Accept: application/json" 
     -H "Channel: {CHANNEL}" 
@@ -22,14 +23,14 @@ const exampleCode1 = `
   `;
 
 const exampleCode2 = `
+
   curl -X GET "http://democlient2.kekker.com/api/deals/{UID}" 
   -H "Accept: application/json" 
   -H "Channel: {CHANNEL}" 
   -H "Authorization: {AUTHORIZATION}"
-  
 `;
 
-export const Tabs = () => (
+export const CodeEditorStory = () => (
   <Story>
     <StoryRow heading="CodeEditor">
       <CodeEditor code={exampleCode1} />
