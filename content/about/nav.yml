@@ -3,8 +3,8 @@
     - title: Platform
       to: /about/platform.html
 
-    - title: Solutions
-      to: /about/solutions.html
-
     - title: Benefits
       to: /about/benefits.html
+
+    - title: Solutions
+      to: /about/solutions

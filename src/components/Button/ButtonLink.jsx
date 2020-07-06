@@ -8,24 +8,45 @@ import Text from '../TextStyles/Text';
 const StyledButton = styled.button`
   color: ${props => props.theme.colors.primaryText};
   padding: ${props => props.theme.button.size[props.size]};
+  transition: background 0.1s;
 
-  ${({ isPrimary, theme: { colors } }) => (isPrimary
-    ? ` border: 2px solid ${colors.primaryBrand};
-       background: ${colors.primaryBrand};`
-    : ` border: 2px solid ${colors.primaryLight};
-       background: ${colors.primaryLight};`)};
+  ${({ isPrimary, theme: { colors, button } }) => (isPrimary
+    ? `border: 2px solid ${colors.primaryBrand};
+       background: ${colors.primaryBrand};
+       
+       &:hover {
+         border: 2px solid ${button.disabledBgColor};
+         background: ${button.disabledBgColor};
+       }`
 
-  font-size: ${props => props.theme.fontSizes[props.size]};
+    : `border: 2px solid ${colors.primaryLight};
+       background: ${colors.primaryLight};
+       
+       &:hover {
+         border: 2px solid ${colors.primaryBrand};
+         background: ${colors.primaryBrand};
+       }`
+  )};
+
   border-radius: 2em;
+  
+  @media (max-width: 480px) {
+    padding: ${({ isShrinking }) => (isShrinking ? '0 0.5em;' : '0.15em 0.5em')}
+  }
 `;
 
 const ButtonLink = ({
-  size, fontSize, title, isPrimary, to
+  size, fontSize, title, isPrimary, isShrinking, to
 }) => (
-  <Link to={to}>
-    <StyledButton size={size} isPrimary={isPrimary} type="button">
+  <Link to={to} style={{ flexShrink: 0 }}>
+    <StyledButton
+      size={size}
+      isShrinking={isShrinking}
+      isPrimary={isPrimary}
+      type="button"
+    >
       <Text
-        fontSize={fontSize}
+        fontSize={{ _: '14px', sm: fontSize }}
         fontWeight="900"
         isHeadingFont
         textTransform="uppercase"
@@ -40,11 +61,13 @@ ButtonLink.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large', 'extralarge']),
   title: PropTypes.string.isRequired,
   isPrimary: PropTypes.bool,
+  isShrinking: PropTypes.bool,
   to: PropTypes.string.isRequired,
 };
 
 ButtonLink.defaultProps = {
   isPrimary: false,
+  isShrinking: false,
   size: 'medium',
   fontSize: 'medium',
 };

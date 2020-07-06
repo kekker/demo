@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwaggerUI from 'swagger-ui-react';
-import 'swagger-ui-react/swagger-ui.css';
+
+import '../../../styles/swagger-ui-new.css';
 
 // Components
-import ApiLayout from '../../../templates/api';
+import Layout from '../../../components/Layout';
+import MarkdownFooter from '../../../components/MarkdownFooter';
+import SandboxPromoSection from '../../../components/SandboxPromoSection';
 
 const swaggerContent = require('../../../../static/kekkerdemo-dealtemplate');
 
@@ -30,14 +33,25 @@ class DealTemplatePage extends React.Component {
     const { location } = this.props;
     const { swaggerComponent } = this.state;
 
+    const next = {
+      to: '/docs/api/event',
+      title: 'API: Event'
+    };
+
+    const prev = {
+      to: '/docs/api/deal',
+      title: 'API: Deal'
+    };
+
     return (
-      <ApiLayout
+      <Layout
         location={location.pathname}
         title="API DealTemplate - Kekker"
         description="DealTemplate request for Kekker API"
       >
         {swaggerComponent}
-      </ApiLayout>
+        <MarkdownFooter next={next} prev={prev} />
+      </Layout>
     );
   }
 }

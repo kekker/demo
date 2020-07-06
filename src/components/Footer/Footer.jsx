@@ -9,7 +9,6 @@ import Flex from '../Flex';
 import footerNav from '../../../content/footerNav.yml';
 import FooterLink from './FooterLink';
 import Text from '../TextStyles/Text';
-import LogoLink from '../Logo';
 
 const StyledSocialLink = styled.a`
   text-decoration: none;
@@ -27,6 +26,10 @@ const StyledSocialLink = styled.a`
   &:last-child:after {
     content: '';
   }
+  
+  &:hover {
+    color: ${props => props.theme.colors.primaryBrand};
+  }
 `;
 
 const Grid = styled.div`
@@ -42,13 +45,6 @@ const Footer = () => {
     <ContainerSection bg="primaryDark" height="100%">
       <ContainerContent pb={{ _: 4, sm: 6 }}>
         <Flex flexDirection="column" height="100%">
-          {/* <Flex */}
-          {/*  flexWrap="wrap" */}
-          {/*  justifyContent="space-between" */}
-          {/*  alignItems="center" */}
-          {/* > */}
-          {/*  <LogoLink /> */}
-          {/* </Flex> */}
           <Grid>
             {footerNav.items.map(linkSection => (
               <FooterLink

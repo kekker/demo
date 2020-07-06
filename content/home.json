@@ -1,28 +1,39 @@
 {
   "benefits": [
     {
-      "header": "Platform",
+      "header": "Fast",
       "content": [
-        "Kekker is middleware with a set of DLT/DFS technologies and APIs that lets you build and run decentralized blockchain-powered applications without blockchain expertise. Use Kekker’s services to operate your decentralized environment or manage your secured distributed solution network independently."
-        ]
+        "Kekker allows for 10X faster time-to-market than direct competition, is 100X cheaper/faster than hiring experts and is easy to setup and use.",
+        "Focus on building business applications, not the setup & maintenance of your DLT solution."
+      ]
     },
     {
-      "header": "Sandbox",
+      "header": "Easy",
       "content": [
-        "Kekker Sandbox is free and allows you to create a prototype or MVP on any of the popular blockchains. Don't worry about infrastructure - just start building your decentralized application right now. Yes, that's right - the Sandbox is free! Transfer your decentralized application to your own infrastructure at any time or entrust us with hosting and support tailored to your needs."
-        ]
+        "Choose DLT/DFS stack (Ethereum, Hyperledger or other) and a set of tools to meet your business, legal and regulatory requirements.",
+        "Leverage Kekker's well documented APIs to build your decentralized application with ease - no DLT/DFS experience needed."
+      ]
     },
     {
-      "header": "Benefits",
+      "header": "Free",
       "content": [
-        "Kekker allows for 10X faster time-to-market than direct competition, is 100X cheaper/faster than hiring experts and is easy to setup and use and no DLT/DFS experience needed! Cut your time to market by 6 to 18 months and save hundreds of thousands of dollars in man-hours by focusing on building business applications, not the setup & maintenance of your DLT solution."
-        ]
+        "Kekker Sandbox is free. Cut your time to market by 6 to 12 months and save hundreds of thousands of dollars in man-hours.",
+        "Don't worry about the infrastructure - just start building your decentralized application right now."
+      ]
     }
   ],
   "KekkerPlatformSectionHeader": "Kekker Platform at a Glance",
+  "KekkerPlatformSectionContent": [
+    "Kekker is middleware with a set of DLT/DFS technologies and APIs that lets you build and run decentralized blockchain-powered applications without blockchain expertise.",
+    "Use Kekker’s services to operate your decentralized environment or manage your secured distributed solution network independently."
+  ],
   "KekkerSandboxSectionHeader": "Kekker Sandbox at a Glance",
+  "KekkerSandboxSectionContent": [
+    "Kekker Sandbox is free and provides a unique opportunity to build a prototype or MVP on any of the popular blockchains.",
+    "Entrust us with hosting and supporting your commercial infrastructure or transfer your decentralized application to your own infrastructure at any time."
+  ],
   "getStartedButtonSectionHeader":
          "Create a Decentralized App in 10 Minutes",
   "getStartedButtonLink":
-          "docs/getting-started/get-started.html"
+          "/docs/getting-started/get-started.html"
 }

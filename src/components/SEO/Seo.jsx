@@ -12,8 +12,6 @@ function Seo({
         site {
           siteMetadata {
             description
-            author
-            siteUrl
           }
         }
       }
@@ -21,6 +19,8 @@ function Seo({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const mode = process.env.NODE_ENV;
+  const isProduction = mode === 'production';
 
   return (
     <Helmet
@@ -33,7 +33,13 @@ function Seo({
           name: 'description',
           content: metaDescription,
         },
-      ].concat(meta)}
+      ].concat(isProduction
+        ? meta
+        : {
+          name: 'robots',
+          content: 'noindex,nofollow',
+        }
+      )}
     />
   );
 }

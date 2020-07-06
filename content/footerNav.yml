@@ -10,14 +10,25 @@ items:
       - title: Sandbox
         to: /docs/getting-started/sandbox.html
 
-      - title: Authorization
-        to: /docs/getting-started/authorization.html
+      - title: Tools
+        to: /docs/getting-started/tools.html
 
-      - title: Handling Errors
-        to: /docs/getting-started/hanlding-errors.html
+  - header: Scenarios
+    items:
+      - title: Basic Deal
+        to: /docs/scenarios/basic-deal.html
+
+      - title: Purchase Order
+        to: /docs/scenarios/purchase-order.html
 
   - header: API
     items:
+      - title: Authorization
+        to: /docs/api/authorization.html
+
+      - title: Handling Errors
+        to: /docs/api/handling-errors.html
+
       - title: Client
         to: /docs/api/client
 
@@ -33,26 +44,22 @@ items:
       - title: Service
         to: /docs/api/service
 
-  - header: Scenarios
-    items:
-      - title: Basic Deal
-        to: /docs/scenarios/basic-deal.html
-
-      - title: Purchase Order
-        to: /docs/scenarios/purchase-order.html
-
   - header: About
     items:
       - title: Platform
         to: /about/platform.html
 
-      - title: Solutions
-        to: /about/solutions.html
-
       - title: Benefits
         to: /about/benefits.html
+
+      - title: Solutions
+        to: /about/solutions
+
 
 social:
   - title: LinkedIn
     to: https://www.linkedin.com/company/kekker
+
+  - title: info@kekker.com
+    to: mailto:info@kekker.com
 

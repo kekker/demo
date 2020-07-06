@@ -38,7 +38,7 @@ const Content = styled.div`
 const BgImage = ({
   fluid, title, bg, children, ...props
 }) => (
-  <Parent bg={bg}>
+  <Parent>
     <StyledBgImage fluid={fluid} title={title} bg={bg} {...props} />
     <Content>{children}</Content>
   </Parent>

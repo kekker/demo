@@ -1,7 +1,7 @@
 import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme } from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 
 import ContainerSection from '../ContainerSection';
 import BgImage from '../BgImage';
@@ -10,6 +10,7 @@ import Flex from '../Flex';
 import HeaderNav from './HeaderNav';
 import Heading from '../TextStyles/Heading';
 import ButtonLink from '../Button';
+import LogoLink from '../Logo';
 
 const jsonContent = require('../../../content/home');
 
@@ -25,14 +26,26 @@ export const queryMainHeader = graphql`
   }
 `;
 
+const LogoLinkWrapper = styled.div`
+  display: block;
+  margin-bottom: 20px;
+  margin-top: -40px;
+  
+  @media (min-width: 700px) {
+    display: none;
+  }
+
+`;
+
+
 const MainHeader = ({ location, theme }) => (
   <StaticQuery
     query={queryMainHeader}
     render={data => (
       <>
         <ContainerSection
-          width="100vw"
-          height="10vh"
+          width="100%"
+          height={theme.layout.menuHeight}
           bg="#000000"
           style={{
             position: 'fixed', top: '0', left: '0', zIndex: 1
@@ -44,12 +57,19 @@ const MainHeader = ({ location, theme }) => (
             </Flex>
           </ContainerContent>
         </ContainerSection>
+
         <ContainerSection
-          pt="10vh"
-          height={{ xs: 'calc(10vh + 400px)', md: 'calc(10vh + 500px)' }}
+          pt={theme.layout.menuHeight}
+          height={{
+            xs: `calc(${theme.layout.menuHeight} + ${theme.layout.indexHeaderSectionHeight.xs})`,
+            md: `calc(${theme.layout.menuHeight} + ${theme.layout.indexHeaderSectionHeight.md})`
+          }}
         >
           <BgImage
-            height={{ xs: '400px', md: '500px' }}
+            height={{
+              xs: `${theme.layout.indexHeaderSectionHeight.xs}`,
+              md: `${theme.layout.indexHeaderSectionHeight.md}`
+            }}
             fluid={data.bgImage.childImageSharp.fluid}
             title="Kekker background cover"
             color="#000000"
@@ -63,6 +83,7 @@ const MainHeader = ({ location, theme }) => (
                   alignItems="center"
                 >
                   <Heading
+                    mb={3}
                     fontWeight={300}
                     letterSpacing="-0.04em"
                     color="invertedText"
@@ -72,7 +93,6 @@ const MainHeader = ({ location, theme }) => (
                       xs: 'h1.sm',
                       sm: 'h1.md',
                       md: 'h1.lg',
-                      lg: 'h1.extralg',
                     }}
                   >
                     A
@@ -96,7 +116,7 @@ const MainHeader = ({ location, theme }) => (
                   </Heading>
                   <ButtonLink
                     size="large"
-                    fontSize="large"
+                    fontSize="medium_"
                     to={jsonContent.getStartedButtonLink}
                     title="Get started"
                   />

@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import MarkdownFooter from '../MarkdownFooter';
 import Flex from '../Flex';
+import SandboxPromoSection from '../SandboxPromoSection';
 
 const MarkdownSection = styled.section`
   height: 100%;
@@ -11,6 +13,10 @@ const MarkdownSection = styled.section`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     max-width: 100%;
   }
+`;
+
+const MarkdownRawContent = styled.div`
+  margin-bottom: ${({ theme }) => theme.space[6]}px;
 `;
 
 const getPageByTitle = (sectionList, templateTitle) => {
@@ -24,10 +30,29 @@ const getPageByTitle = (sectionList, templateTitle) => {
   );
 };
 
-const MarkdownContent = ({ markdownRemark, listItems }) => {
-  const { next, prev } = markdownRemark.frontmatter;
+const RenderRawContent = ({
+  contentType, content, frontmatter, listItems
+}) => {
+  const {
+    next, prev, prev_title, next_title
+  } = frontmatter;
   const prevPage = getPageByTitle(listItems, prev);
   const nextPage = getPageByTitle(listItems, next);
+
+  const contentNode = type => {
+    switch (type) {
+      case 'markdown':
+        return (
+          <MarkdownRawContent dangerouslySetInnerHTML={{ __html: content }} />
+        );
+      case 'mdx':
+        return (
+          <MDXRenderer>{content}</MDXRenderer>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <MarkdownSection>
@@ -36,16 +61,29 @@ const MarkdownContent = ({ markdownRemark, listItems }) => {
         flexDirection="column"
         justifyContent="space-between"
       >
-        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-        <MarkdownFooter prev={prevPage} next={nextPage} />
+        { contentNode(contentType)}
+        <div>
+          <MarkdownFooter
+            next_title={next_title}
+            prev_title={prev_title}
+            prev={prevPage}
+            next={nextPage}
+          />
+        </div>
       </Flex>
     </MarkdownSection>
   );
 };
 
-MarkdownContent.propTypes = {
-  markdownRemark: PropTypes.object.isRequired,
+RenderRawContent.propTypes = {
+  contentType: PropTypes.string,
+  content: PropTypes.string.isRequired,
+  frontmatter: PropTypes.object.isRequired,
   listItems: PropTypes.array.isRequired,
 };
 
-export default MarkdownContent;
+RenderRawContent.defaultProps = {
+  contentType: 'markdown'
+};
+
+export default RenderRawContent;

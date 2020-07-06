@@ -12,9 +12,9 @@ import Text from '../TextStyles/Text';
 import SuccessfulFormMessage from './FormMessages/SuccessfulFormMessage';
 import ErrorFormMessage from './FormMessages/ErrorFormMessage';
 
-//import { phoneNumberRegex } from '../../utils/phoneNumberRegex';
+// import { phoneNumberRegex } from '../../utils/phoneNumberRegex';
 import { encode } from '../../utils/convertObjectToQueryString';
-import ContainerContent from "../ContainerContent/ContainerContent";
+import ContainerContent from '../ContainerContent/ContainerContent';
 
 
 const initialValues = {
@@ -65,8 +65,8 @@ const InvitationSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   phone: Yup.string()
-    //.matches(phoneNumberRegex, 'Phone number is not valid')
-    //.phone()
+    // .matches(phoneNumberRegex, 'Phone number is not valid')
+    // .phone()
     .required('Required'),
   occupation: Yup.string().oneOf(
     industryValues,
@@ -102,7 +102,7 @@ class InvitationForm extends React.Component {
       .then(() => {
         console.log('Form Submitted ', values);
         this.setState({ loading: false, submitted: true });
-        // navigate("/");
+        this.props.parentCallback();
       })
       .catch(error => {
         this.setState({
@@ -111,11 +111,10 @@ class InvitationForm extends React.Component {
           errorMessage: error.message,
         });
       })
-      .finally(() =>
-          this.props.parentRef.current.scrollIntoView({
-            block: 'end',
-            behavior: "smooth"
-          })
+      .finally(() => this.props.parentRef.current.scrollIntoView({
+        block: 'end',
+        behavior: 'smooth'
+      })
       );
   };
 
@@ -124,112 +123,130 @@ class InvitationForm extends React.Component {
       loading, error, submitted, errorMessage
     } = this.state;
 
-    const formBlock =
-        <Formik
-            initialValues={initialValues}
-            validationSchema={InvitationSchema}
-            onSubmit={this.handleSubmit}
-        >
-          {formik => (
-              <Form
-                  name="Invitation Form"
-                  method="post"
-                  netlify-honeypot="bot-field"
-                  data-netlify="true"
-                  style={{ marginBottom: 0 }}
-                  innerRef={this.ref}
+    const formBlock = (
+      <Formik
+        initialValues={initialValues}
+        validationSchema={InvitationSchema}
+        onSubmit={this.handleSubmit}
+      >
+        {formik => (
+          <Form
+            name="Invitation Form"
+            method="post"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+            style={{ marginBottom: 0 }}
+            innerRef={this.ref}
+          >
+            <input type="hidden" name="bot-field" />
+            <TextInput
+              label="Your Email"
+              name="email"
+              type="email"
+              placeholder=""
+              isRequired
+            />
+            <TextInput
+              label="Full Name"
+              name="fullName"
+              type="text"
+              placeholder=""
+              isRequired
+            />
+            <TextInput
+              label="Phone Number"
+              name="phone"
+              type="phone"
+              placeholder=""
+              isRequired
+            />
+            <SelectInput
+              label="Industry"
+              name="occupation"
+              options={industryOptions}
+            />
+            <RichTextInput
+              maxlength={300}
+              label="Comments"
+              name="comment"
+              type="text"
+              placeholder="Enter comments (optional)"
+            />
+            <Text
+              marginTop={3}
+              marginBottom={3}
+              tag="div"
+              fontSize="small"
+              color="textLightGrey"
+            >
+              By submitting this form, you confirm that you have read and
+              agree to our
+              {' '}
+              <a
+                href="/assets/Privacy_Policy.pdf"
+                target="_blank"
+                title="privacy policy"
+                style={{ textDecoration: 'none' }}
               >
-                <input type="hidden" name="bot-field" />
-                <TextInput
-                    label="Your Email"
-                    name="email"
-                    type="email"
-                    placeholder=""
-                    isRequired
-                />
-                <TextInput
-                    label="Full Name"
-                    name="fullName"
-                    type="text"
-                    placeholder=""
-                    isRequired
-                />
-                <TextInput
-                    label="Phone Number"
-                    name="phone"
-                    type="phone"
-                    placeholder=""
-                    isRequired
-                />
-                <SelectInput
-                    label="Industry"
-                    name="occupation"
-                    options={industryOptions}
-                />
-                <RichTextInput
-                    maxlength={300}
-                    label="Comments"
-                    name="comment"
-                    type="text"
-                    placeholder="Enter comments (optional)"
-                />
                 <Text
-                    marginTop={3}
-                    marginBottom={3}
-                    tag="div"
-                    fontSize="small"
-                    color="textLightGrey"
+                  fontSize="small"
+                  color="textLightGrey"
+                  textDecoration="underline"
                 >
-                  By submitting this form, you confirm that you have read and
-                  agree to our
-                  {' '}
-                  <Link
-                      to="/"
-                      title="privacy policy"
-                      style={{ textDecoration: 'none' }}
-                  >
-                    <Text
-                        fontSize="small"
-                        color="textLightGrey"
-                        textDecoration="underline"
-                    >
-                      privacy policy
-                    </Text>
-                  </Link>
+                  privacy policy
                 </Text>
-                <div>
-                  <Button
-                      disabled={!(formik.isValid && formik.dirty) || loading}
-                      size="medium+"
-                      title={loading ? 'Loading...' : 'Submit Request'}
-                      type="submit"
-                  />
-                </div>
-              </Form>
-          )}
-        </Formik>;
+              </a>
+              {' '}
+              and
+              {' '}
+              <a
+                href="/assets/Kekker_Terms_Of_Service.pdf"
+                target="_blank"
+                title="privacy policy"
+                style={{ textDecoration: 'none' }}
+              >
+                <Text
+                  fontSize="small"
+                  color="textLightGrey"
+                  textDecoration="underline"
+                >
+                  terms of service
+                </Text>
+              </a>
+            </Text>
+            <div>
+              <Button
+                disabled={loading}
+                size="medium+"
+                title={loading ? 'Loading...' : 'Submit'}
+                type="submit"
+              />
+            </div>
+          </Form>
+        )}
+      </Formik>
+    );
 
     // Display errors above form if any
     const errorMessageBlock = error
-        ? <ErrorFormMessage errorMessage={errorMessage} />
-        : '';
+      ? <ErrorFormMessage errorMessage={errorMessage} />
+      : '';
 
     // Show a success message, if form is submitted and no errors occurred
     const contentFormBlock = submitted
-        ?  <SuccessfulFormMessage />
-        : (
-            <>
-              { errorMessageBlock }
-              { formBlock }
-            </>
-        );
+      ? <SuccessfulFormMessage />
+      : (
+        <>
+          { errorMessageBlock }
+          { formBlock }
+        </>
+      );
 
 
-
-    return  (
-        <ContainerContent ml='0' mr='0' pl='0' pr='0' pt='0'  ref={this.ref}>
-          { contentFormBlock }
-        </ContainerContent>
+    return (
+      <ContainerContent ml="0" mr="0" pl="0" pr="0" pt="0" ref={this.ref}>
+        { contentFormBlock }
+      </ContainerContent>
     );
   }
 }

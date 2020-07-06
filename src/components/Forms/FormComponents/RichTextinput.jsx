@@ -13,7 +13,6 @@ const StyledRichInput = styled.textarea`
 
   border: 1px solid lightgrey;
   font-family: 'Courier';
-  text-transform: uppercase;
   font-size: ${props => props.theme.fontSizes.medium}px;
 `;
 

@@ -4,35 +4,34 @@ import styled from 'styled-components';
 
 import Flex from '../Flex';
 import Text from '../TextStyles/Text';
-import Heading from '../TextStyles/Heading';
 
 import prevArrow from '../../../static/assets/kekker_arrow_2.svg';
 
 const NextImg = styled.img`
-  height: 80px;
+  height: 50px;
   margin-bottom: 0;
 
   @media (min-width: ${props => props.theme.breakpoints.sm}) {
-    height: 100px;
+    height: 70px;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.md}) {
-    height: 170px;
+    height: 110px;
   }
 `;
 
 const PrevImg = styled.img`
-  height: 80px;
+  height: 50px;
   margin-bottom: 0;
 
   transform: scale(-1, 1);
 
   @media (min-width: ${props => props.theme.breakpoints.sm}) {
-    height: 100px;
+    height: 70px;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.md}) {
-    height: 170px;
+    height: 110px;
   }
 `;
 
@@ -62,31 +61,19 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const DivResponsiveMarginLeft = styled.div`
-  margin-left: -40px;
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    margin-left: -20px;
-  }
-`;
-
-const DivResponsiveMarginRight = styled.div`
-  margin-right: -40px;
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    margin-right: -20px;
-  }
-`;
-
 const FlexWithBorder = styled(Flex)`
-  ${({ next, prev }) => (next && prev ? 'border-top: 1px solid #ececec;' : '')}
+  ${({ next, prev }) => (next || prev ? 'border-top: 1px solid hsla(0,0%,0%,0.2);;' : '')}
 `;
 
 const BorderDiv = styled.div`
   width: 1px;
-  background-color: #ececec;
+  background-color: hsla(0,0%,0%,0.2);
+  display: none;
   height: 60px;
 
   @media (min-width: ${props => props.theme.breakpoints.sm}) {
     height: 70px;
+    display: block;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.md}) {
@@ -94,7 +81,9 @@ const BorderDiv = styled.div`
   }
 `;
 
-const MarkdownFooter = ({ next, prev }) => (
+const MarkdownFooter = ({
+  next, prev, next_title, prev_title
+}) => (
   <FlexWithBorder
     next={next}
     prev={prev}
@@ -104,7 +93,7 @@ const MarkdownFooter = ({ next, prev }) => (
     {prev && (
       <>
         <StyledLink to={prev.to} rel="prev">
-          <Flex alignItems="flex-start">
+          <Flex alignItems="center">
             <PrevImg src={prevArrow} />
             <Flex
               height={{ _: '80px', sm: '100px', md: '170px' }}
@@ -113,7 +102,7 @@ const MarkdownFooter = ({ next, prev }) => (
               alignItems="flex-start"
               justifyContent="center"
             >
-              <DivResponsiveMarginLeft style={{ textAlign: 'start' }}>
+              <div style={{ textAlign: 'start' }}>
                 <TestDisappear
                   fontSize="small"
                   fontWeight={400}
@@ -127,11 +116,11 @@ const MarkdownFooter = ({ next, prev }) => (
                 <Text
                   isHeadingFont
                   fontWeight={800}
-                  fontSize={{ _: 'extralarge', md: 'h1.sm' }}
+                  fontSize={{ _: '17px', sm: 'extralarge', md: 'h1.sm' }}
                 >
-                  {prev.title}
+                  {prev_title || prev.title}
                 </Text>
-              </DivResponsiveMarginLeft>
+              </div>
             </Flex>
           </Flex>
         </StyledLink>
@@ -141,7 +130,7 @@ const MarkdownFooter = ({ next, prev }) => (
     {next && (
       <>
         <StyledLink to={next.to} rel="next">
-          <Flex alignItems="flex-end">
+          <Flex alignItems="center">
             <Flex
               height={{ _: '80px', sm: '100px', md: '170px' }}
               flexDirection="column"
@@ -149,7 +138,7 @@ const MarkdownFooter = ({ next, prev }) => (
               alignItems="flex-end"
               justifyContent="center"
             >
-              <DivResponsiveMarginRight style={{ textAlign: 'end' }}>
+              <div style={{ textAlign: 'end' }}>
                 <TestDisappear
                   fontSize="small"
                   fontWeight={400}
@@ -163,11 +152,11 @@ const MarkdownFooter = ({ next, prev }) => (
                 <Text
                   isHeadingFont
                   fontWeight={800}
-                  fontSize={{ _: 'extralarge', md: 'h1.sm' }}
+                  fontSize={{ _: '17px', sm: 'extralarge', md: 'h1.sm' }}
                 >
-                  {next.title}
+                  {next_title || next.title}
                 </Text>
-              </DivResponsiveMarginRight>
+              </div>
             </Flex>
             <NextImg src={prevArrow} />
           </Flex>

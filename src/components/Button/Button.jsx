@@ -9,20 +9,32 @@ const StyledButton = styled.button`
   padding: ${props => props.theme.button.size[props.size]};
 
   ${({ disabled, theme }) => (disabled
-    ? ` border: 2px solid ${theme.button.disabledBgColor};
+    ? `border: 2px solid ${theme.button.disabledBgColor};
        background: ${theme.button.disabledBgColor};
        color: ${theme.button.disabledFontColor};
        cursor: default;
        `
-    : ` border: 2px solid ${theme.colors.primaryBrand};
+    : `border: 2px solid ${theme.colors.primaryBrand};
        background: ${theme.colors.primaryBrand};
-       `)};
-
+       &:hover {
+         border: 2px solid ${theme.button.disabledBgColor};
+         background: ${theme.button.disabledBgColor};
+       }
+       `
+  )};
+  
+  transition: background 0.1s;
   border-radius: 2em;
 `;
 
+const StyledIcon = styled.div`
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+`;
+
 const Button = ({
-  title, disabled, onClick, size, type
+  title, disabled, onClick, size, type, icon
 }) => (
   <StyledButton size={size} type={type} onClick={onClick} disabled={disabled}>
     <Text
@@ -33,6 +45,12 @@ const Button = ({
     >
       {title}
     </Text>
+    {icon
+    && (
+    <StyledIcon>
+      {icon}
+    </StyledIcon>
+    )}
   </StyledButton>
 );
 

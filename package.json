@@ -6,12 +6,20 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-regular-svg-icons": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@mdx-js/mdx": "^1.6.5",
+    "@mdx-js/react": "^1.6.5",
+    "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-styled-components": "^1.10.7",
+    "babel-preset-gatsby": "^0.4.9",
     "formik": "^2.1.4",
     "gatsby": "^2.19.32",
     "gatsby-image": "^2.2.23",
+    "gatsby-plugin-google-analytics": "^2.3.0",
     "gatsby-plugin-manifest": "^2.3.2",
+    "gatsby-plugin-mdx": "^1.2.14",
     "gatsby-plugin-offline": "^3.0.11",
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-sharp": "^2.5.3",
@@ -39,8 +47,14 @@
     "yup": "^0.28.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
     "@types/prop-types": "^15.7.3",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.20.1",
@@ -64,6 +78,8 @@
     "lintfix": "eslint --ext .jsx,.js src --fix",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }

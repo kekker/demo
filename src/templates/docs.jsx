@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 // Components
 import Layout from '../components/Layout/Layout';
-import Seo from '../components/SEO/Seo';
 import MarkdownContent from '../components/MarkdownContent';
 
 import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
@@ -12,7 +11,7 @@ import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
 const Docs = ({ data, pageContext, location }) => {
   const { frontmatter } = data.markdownRemark;
   const { title, description } = frontmatter;
-  const content = data.markdownRemark;
+  const content = data.markdownRemark.html;
   const { slug } = pageContext;
 
   const listItems = slug.includes('docs') ? listDocsLinks : listAboutLinks;
@@ -23,13 +22,11 @@ const Docs = ({ data, pageContext, location }) => {
       title={title}
       description={description}
     >
-      <Seo
-        title={`${title} - Kekker`}
-        description={description || post.excerpt}
-        slug={slug}
+      <MarkdownContent
+        frontmatter={frontmatter}
+        content={content}
+        listItems={listItems}
       />
-
-      <MarkdownContent markdownRemark={content} listItems={listItems} />
     </Layout>
   );
 };
@@ -49,6 +46,9 @@ export const pageQuery = graphql`
         description
         next
         prev
+        next_title
+        prev_title
+        sandboxPromo
       }
       fields {
         slug

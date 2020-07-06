@@ -18,9 +18,26 @@ import Heading from '../components/TextStyles/Heading';
 import Text from '../components/TextStyles/Text';
 import BgImage from '../components/BgImage';
 
+const StyledPlatformImage = styled(Img)`
+  width: 100%;
+  margin-top: -30px;
+  
+  & img {
+    margin-bottom: 0;
+  }
+`;
+
 const StyledImage = styled(Img)`
   width: 100%;
   margin-bottom: 0;
+`;
+
+const StyledSandboxContentWrapper = styled.div`
+  max-width: 600px;
+  
+  & p:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 // Content
@@ -31,7 +48,7 @@ const BlogIndex = ({ data, location }) => {
   const { description } = data.site.siteMetadata;
 
   const {
-    platformBgImage, platformImage, sandboxBgImage, sandboxImage
+    platformImage, sandboxImage, sandboxBgImage
   } = data;
 
   return (
@@ -41,15 +58,16 @@ const BlogIndex = ({ data, location }) => {
 
         <MainHeader location={location.pathname} />
 
-        <main>
-          <ContainerContent pb={3}>
+        <main style={{ marginTop: 0 }}>
+
+          <ContainerContent>
             <Flex
               flexDirection={{ _: 'column', sm: 'row' }}
               flexWrap="wrap"
               justifyContent="space-between"
               mb={{ _: 0, sm: 6 }}
             >
-              {jsonContent.benefits.map(item => (
+              { jsonContent.benefits.map(item => (
                 <GridItem
                   key={`benefits${item.header}`}
                   cols={jsonContent.benefits.length}
@@ -63,6 +81,7 @@ const BlogIndex = ({ data, location }) => {
                       key={`benefitsCont${benefitString.slice(0, 5)}`}
                       fontSize="medium"
                       tag="div"
+                      mb={2}
                     >
                       {benefitString}
                     </Text>
@@ -70,63 +89,68 @@ const BlogIndex = ({ data, location }) => {
                 </GridItem>
               ))}
             </Flex>
-            <Heading mb="25px" level={2}>
-              {jsonContent.KekkerPlatformSectionHeader}
-            </Heading>
+
+            <hr />
           </ContainerContent>
 
-          <ContainerSection width="100%" height="60vw" maxHeight="700px">
-            <BgImage
-              maxHeight="700px"
-              height="60vw"
-              fluid={platformBgImage.childImageSharp.fluid}
-              title="Kekker Platform section background cover"
-              color="#FFFFFF"
-            >
-              <ContainerContent pt={{ _: 2, sm: 0 }} pb={{ _: 2, sm: 0 }}>
-                <Flex
-                  width="100%"
-                  height="100%"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <StyledImage
-                    fluid={platformImage.childImageSharp.fluid}
-                    title="Kekker Platform overview"
-                  />
-                </Flex>
-              </ContainerContent>
-            </BgImage>
+          <ContainerSection width="100%">
+            <ContainerContent pb={2}>
+              <Heading mb="25px" mt={0} level={2}>
+                {jsonContent.KekkerPlatformSectionHeader}
+              </Heading>
+              <div style={{ maxWidth: '600px' }}>
+                { jsonContent.KekkerPlatformSectionContent.map(paragraph => (
+                  <Text
+                    key={`platformCont${paragraph.slice(0, 5)}`}
+                    fontSize="medium"
+                    tag="p"
+                  >
+                    { paragraph }
+                  </Text>
+                ))}
+              </div>
+              <StyledPlatformImage
+                fluid={platformImage.childImageSharp.fluid}
+                title="Kekker Platform overview"
+              />
+            </ContainerContent>
           </ContainerSection>
 
           <ContainerSection
             width="100%"
-            maxHeight={{ md: '900px', lg: '1000px' }}
-            height="90vw"
+            bg="#000000"
+            color="#FFFFFF"
           >
+            <ContainerContent>
+              <Heading mb="25px" mt={0} level={2}>
+                {jsonContent.KekkerSandboxSectionHeader}
+              </Heading>
+              <StyledSandboxContentWrapper>
+                { jsonContent.KekkerSandboxSectionContent.map(paragraph => (
+                  <Text
+                    key={`sandboxCont${paragraph.slice(0, 5)}`}
+                    fontSize="medium"
+                    tag="p"
+                  >
+                    { paragraph }
+                  </Text>
+                ))}
+              </StyledSandboxContentWrapper>
+            </ContainerContent>
+          </ContainerSection>
+
+          <ContainerSection height={{ _: '100vw', lg: '1000px' }}>
             <BgImage
-              maxHeight={{ md: '900px', lg: '1000px' }}
-              height="90vw"
+              height={{ _: '100vw', lg: '1000px' }}
               fluid={sandboxBgImage.childImageSharp.fluid}
-              title="Kekker Platform section background cover"
-              color="#FFFFFF"
+              title="Sandbox Background Image"
+              bg="#000000"
             >
-              <ContainerContent>
-                <Heading mb="0" level={2} color="invertedText">
-                  {jsonContent.KekkerSandboxSectionHeader}
-                </Heading>
-                <Flex
-                  width="100%"
-                  height="100%"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <StyledImage
-                    style={{ marginTop: '-70px'}}
-                    fluid={sandboxImage.childImageSharp.fluid}
-                    title="Kekker Sandbox overview"
-                  />
-                </Flex>
+              <ContainerContent pt='20px'>
+                <StyledImage
+                  fluid={sandboxImage.childImageSharp.fluid}
+                  title="Kekker Sandbox overview"
+                />
               </ContainerContent>
             </BgImage>
           </ContainerSection>
@@ -135,6 +159,8 @@ const BlogIndex = ({ data, location }) => {
             <ContainerContent pb={{ _: 4, sm: 6 }}>
               <Flex flexDirection="column" alignItems="center">
                 <Heading
+                  mb={3}
+                  maxWidth="600px"
                   fontWeight={600}
                   letterSpacing="-0.04em"
                   color="primaryText"
@@ -144,19 +170,18 @@ const BlogIndex = ({ data, location }) => {
                     xs: 'h1.sm',
                     sm: 'h1.md',
                     md: 'h1.lg',
-                    lg: 'h1.extralg',
                   }}
                 >
                   Create a Decentralized App
-                  <br />
+                  {' '}
                   <span style={{ letterSpacing: '-0.04em', fontWeight: '300' }}>
-                    in 10 Minutes
+                    in&nbsp;10&nbsp;Minutes
                   </span>
                 </Heading>
                 <ButtonLink
                   to={jsonContent.getStartedButtonLink}
                   size="large"
-                  fontSize="large"
+                  fontSize="medium_"
                   isPrimary
                   title="Get started"
                 />
@@ -186,25 +211,9 @@ export const pageQuery = graphql`
         description
       }
     }
-    platformBgImage: file(
-      absolutePath: { regex: "/kekker_mainpage_platform_background_v1.jpg/" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     platformImage: file(
-      absolutePath: { regex: "/kekker_mainpage_platform_v1.png/" }
+      absolutePath: { regex: "/kekker_mainpage_platform.png/" }
     ) {
-      childImageSharp {
-        fluid(maxWidth: 1600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    sandboxBgImage: file(absolutePath: { regex: "/kekker_mainpage_bg2.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 1600) {
           ...GatsbyImageSharpFluid
@@ -212,7 +221,16 @@ export const pageQuery = graphql`
       }
     }
     sandboxImage: file(
-      absolutePath: { regex: "/kekker_mainpage_sandbox_transparent.png/" }
+      absolutePath: { regex: "/kekker_mainpage_sandbox.png/" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    sandboxBgImage: file(
+      absolutePath: { regex: "/kekker_mainpage_bg2.jpg/" }
     ) {
       childImageSharp {
         fluid(maxWidth: 1600) {
