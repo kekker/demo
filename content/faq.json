@@ -78,5 +78,25 @@
     "title": "How can I count the number of matching zero elements between two numpy arrays?",
     "content": "So what I've done here is simply subtract the summation of the ones and negative ones from the total length of the array. I can't assume that the difference (zeros: 5745) contains ALL matching elements that contain zeros can I?",
     "tag": "API"
+  },
+  {
+    "title": "Does php evaluate the second argument of an or statement if the first evaluates to false?",
+    "content": "So my question is about the behaviour of php in the case of an or statement taking two functions. When the first function already evaluates to true, is there a chance that the second function will still be executed?",
+    "tag": "API"
+  },
+  {
+    "title": "Why is a promise resolved before a setTimeout",
+    "content": "The Promise .then() callback will be invoked immediately after the code block completes. The timer will get a default minimum time of around 15 or 16 milliseconds, so it's definitely going to happen after that.",
+    "tag": "API"
+  },
+  {
+    "title": "How do you use MSP430 on windows 10 Ubuntu 18.04?",
+    "content": "I plugged my MSP430 into my computer and when I launch ubuntu and do lsusb the device is not listed. Any idea what I need to do?",
+    "tag": "Platform"
+  },
+  {
+    "title": "How to check existence of an object using pk in django template?",
+    "content": "Please, don't implement this in the template. Templates should be used for rendering logic, not business logic.\n\nYou can define a method for example on your Post object to obtain the previous and next item:",
+    "tag": "Sandbox"
   }
 ]

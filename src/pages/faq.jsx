@@ -53,7 +53,10 @@ const FAQPage = ({ location }) => {
 
           <AnimatedTabs color="black">
 
-            <TabList style={{ justifyContent: 'space-around' }}>
+            <TabList style={{
+              justifyContent: 'space-around'
+            }}
+            >
               <AnimatedTab index={0} style={{ background: 'transparent', flex: 1 }}>
                 All Questions
               </AnimatedTab>

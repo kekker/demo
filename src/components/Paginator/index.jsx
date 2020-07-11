@@ -2,6 +2,9 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import prevArrowWide from '../../../static/assets/kekker_arrow.svg';
+import Text from '../TextStyles/Text';
+
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
 
@@ -26,12 +29,11 @@ const PaginationWrapper = styled.ul`
   display: flex;
   flex-direction: row;
   
-  margin: 0;
+  margin: 50px 0 0 0;
 `;
 
-const PageItem = styled.li`
-  width: 75px;
-  height: 75px;
+const PageItem = styled.li`  
+  margin-bottom: 0;
   
   &::before {
     display: none;
@@ -39,19 +41,89 @@ const PageItem = styled.li`
 `;
 
 const PageLink = styled.button`
-  width: 100%;
   height: 100%;
   
-  border: ${({ isActive, theme }) => isActive ? `3px solid ${theme.colors.primaryBrand}` : 'none' };
   background: transparent;
+  border: none;
   
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 18px;
+  
+  font-weight: ${({ isActive }) => (isActive ? 600 : 300)};
   
   &:hover {
     text-decoration: underline;
   }
 `;
+
+const StyledPageControl = styled.button`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  
+  background: transparent;
+  border: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const NextImg = styled.img`
+  height: 14px;
+  margin-top: 2px;
+  margin-bottom: 0;
+  margin-left: 10px;
+`;
+
+const PrevImg = styled.img`
+  height: 14px;
+  margin-bottom: 2px;
+  margin-right: 10px;
+
+  transform: scale(-1, 1);
+`;
+
+
+const PageControl = ({ type, onClick }) => {
+  if (type === 'prev') {
+    return (
+      <StyledPageControl style={{ marginRight: '40px' }} onClick={onClick}>
+        <PrevImg src={prevArrowWide} />
+        <Text
+          fontSize="18px"
+          textTransform="uppercase"
+          fontWeight="800"
+          tag="div"
+        >
+          Previous&nbsp;Page
+        </Text>
+      </StyledPageControl>
+    );
+  }
+
+  if (type === 'next') {
+    return (
+      <PageLink style={{ marginLeft: '40px' }} onClick={onClick}>
+        <Text
+          fontSize="18px"
+          textTransform="uppercase"
+          fontWeight="800"
+          tag="span"
+        >
+          Next&nbsp;Page
+        </Text>
+        <NextImg src={prevArrowWide} />
+      </PageLink>
+    );
+  }
+
+  return null;
+};
+
+PageControl.propTypes = {
+  type: PropTypes.oneOf(['prev', 'next']),
+  onClick: PropTypes.func
+};
 
 
 class Pagination extends Component {
@@ -160,40 +232,23 @@ class Pagination extends Component {
 
     return (
       <>
-        <nav aria-label="Countries Pagination">
+        <nav aria-label="Question Pagination">
           <PaginationWrapper>
-            {pages.map((page, index) => {
-              if (page === LEFT_PAGE) {
+            { currentPage !== 1 && (
+              <PageControl onClick={this.handleMoveLeft} type="prev" />
+            )}
+            {pages.map((page) => {
+              if (page === LEFT_PAGE || page === RIGHT_PAGE) {
                 return (
-                  <PageItem key={index}>
-                    <PageLink
-                      href="#"
-                      aria-label="Previous"
-                      onClick={this.handleMoveLeft}
-                    >
-                      <span aria-hidden="true">&laquo;</span>
-                    </PageLink>
-                  </PageItem>
-                );
-              }
-
-              if (page === RIGHT_PAGE) {
-                return (
-                  <PageItem key={index}>
-                    <PageLink
-                      href="#"
-                      aria-label="Next"
-                      onClick={this.handleMoveRight}
-                    >
-                      <span aria-hidden="true">&raquo;</span>
-                    </PageLink>
+                  <PageItem style={{ paddingTop: '3px' }} key={`PageItem${page}`}>
+                    <span aria-hidden="true">&#8230;</span>
                   </PageItem>
                 );
               }
 
               return (
                 <PageItem
-                  key={index}
+                  key={`PageItem${page}`}
                 >
                   <PageLink
                     href="#"
@@ -205,6 +260,9 @@ class Pagination extends Component {
                 </PageItem>
               );
             })}
+            { currentPage !== this.totalPages && (
+              <PageControl onClick={this.handleMoveRight} type="next" />
+            )}
           </PaginationWrapper>
         </nav>
       </>

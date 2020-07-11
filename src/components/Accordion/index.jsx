@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
@@ -24,7 +24,7 @@ const Preview = styled(animated.button)`
   
   will-change: opacity;
   
-  z-index: ${({ isExpanded }) => (isExpanded ? -1 : 0)};
+  z-index: ${({ isExpanded }) => (isExpanded ? -1 : 1)};
   
   background: transparent;
   text-align: start;
@@ -46,6 +46,15 @@ const ExpandHeader = styled.button`
     &:hover h3 {
       text-decoration: underline;
     }
+    
+    &:disabled:hover h3 {
+      text-decoration: none;
+    }
+    
+    &:disabled {
+      cursor: default;
+      color: inherit;
+    }
 `;
 
 const StyledButtonIcon = styled.img`
@@ -63,8 +72,16 @@ const StyledButtonIcon = styled.img`
     ? 'rotate(-90deg)' : 'rotate(90deg)')};
 `;
 
+const AccordionWrapper = styled.div`
+  position: relative;
+  margin-top: 50px;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.bodyLightGrey};
+`;
+
 
 const Accordion = ({ title, preview, children }) => {
+  // If we have a preview, the state is "closed" -> false
+  // If now preview, set to expanded
   const [isExpanded, setIsExpanded] = useState(false);
 
   const ref = useRef();
@@ -73,19 +90,34 @@ const Accordion = ({ title, preview, children }) => {
   const invertedProps = useSpring({ opacity: isExpanded ? 0 : 1, config: { duration: 200 } });
   const [props, set] = useSpring(() => ({ opacity: 0, height: INITIAL_HEIGHT, config: { duration: 200 } }));
 
+  useEffect(() => {
+    if (!preview) {
+      setIsExpanded(true);
+      set({ opacity: 1 });
+    }
+  });
+
   const handleExpansion = () => {
-    setIsExpanded(true);
-    set({ height: INITIAL_HEIGHT / 2 + rect.height, opacity: 1 });
+    if (preview) {
+      setIsExpanded(true);
+      set({ height: INITIAL_HEIGHT / 2 + rect.height, opacity: 1 });
+    }
   };
 
   const handleClosure = () => {
-    setIsExpanded(false);
-    set({ height: INITIAL_HEIGHT, opacity: 0 });
+    if (preview) {
+      setIsExpanded(false);
+      set({ height: INITIAL_HEIGHT, opacity: 0 });
+    }
   };
 
   return (
-    <div style={{ position: 'relative', marginTop: '50px', borderBottom: '2px solid #eeeeee' }}>
-      <ExpandHeader aria-label="Expand Question" onClick={isExpanded ? handleClosure : handleExpansion}>
+    <AccordionWrapper>
+      <ExpandHeader
+        disabled={!preview}
+        aria-label="Expand Question"
+        onClick={isExpanded ? handleClosure : handleExpansion}
+      >
         <Flex justifyContent="space-between" alignItems="start">
           <Heading
             maxWidth="550px"
@@ -103,20 +135,22 @@ const Accordion = ({ title, preview, children }) => {
             alt=""
           />
         </Flex>
-        <Preview
-          isExpanded={isExpanded}
-          aria-label="Expand Preview Question"
-          onClick={isExpanded ? handleClosure : handleExpansion}
-          style={invertedProps}
-        >
-          <Text>
-            {preview}
-            {' '}
-          </Text>
-          <Text tag="span" fontWeight={600}>
-            read more
-          </Text>
-        </Preview>
+        {preview && (
+          <Preview
+            isExpanded={isExpanded}
+            aria-label="Expand Preview Question"
+            onClick={isExpanded ? handleClosure : handleExpansion}
+            style={invertedProps}
+          >
+            <Text>
+              {preview}
+              {' '}
+            </Text>
+            <Text tag="span" fontWeight={600}>
+              read more
+            </Text>
+          </Preview>
+        )}
       </ExpandHeader>
 
       <AccordionContent
@@ -125,7 +159,7 @@ const Accordion = ({ title, preview, children }) => {
         <animated.div style={{ position: 'absolute', maxWidth: '650px' }} ref={ref}>{children}</animated.div>
       </AccordionContent>
 
-    </div>
+    </AccordionWrapper>
   );
 };
 

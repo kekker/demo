@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import Accordion from '../../Accordion';
 import Pagination from '../../Paginator';
 import Text from '../../TextStyles/Text';
+import Hr from '../../TextStyles/Hr';
 import truncateStr from '../../../utils/truncateStr';
+
 
 class FAQSection extends React.Component {
   constructor(props) {
@@ -55,15 +57,25 @@ class FAQSection extends React.Component {
           ref={this.ref}
         />
         {currentPage && (
-          <span className="current-page d-inline-block h-100 pl-4 text-secondary">
-                  Page <span className="font-weight-bold">{currentPage}</span> /{" "}
-            <span className="font-weight-bold">{totalPages}</span>
-                </span>
+          <Text mt={5} fontSize="12px" tag="div" textTransform="uppercase">
+            Page
+            {' '}
+            <span style={{ fontWeight: 'bold' }}>{currentPage}</span>
+            {' '}
+            /
+            {' '}
+            {totalPages}
+            &#8195;
+            <span style={{ fontWeight: 'bold' }}>{totalQuestions}</span>
+            {' '}
+            questions and answers
+          </Text>
         )}
+        <Hr style={{ marginTop: '20px' }} />
         {currentQuestions.map(elem => (
           <Accordion
             title={elem.title}
-            preview={truncateStr(elem.content, 150)}
+            preview={elem.content.length > 150 ? truncateStr(elem.content, 150) : null}
             key={elem.title.substr(0, 20)}
           >
             <Text tag="div" fontSize="medium">
@@ -73,8 +85,8 @@ class FAQSection extends React.Component {
         ))}
         <Pagination
           totalRecords={totalQuestions}
-          pageLimit={3}
-          pageNeighbours={0}
+          pageLimit={5}
+          pageNeighbours={1}
           onPageChanged={this.onPageChanged}
         />
       </div>

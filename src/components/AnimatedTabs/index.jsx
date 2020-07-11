@@ -5,12 +5,34 @@ import {
   Tabs, Tab, useTabsContext
 } from '@reach/tabs';
 import { useRect } from '@reach/rect';
+import styled from 'styled-components';
 
 import './index.css';
 
 
 const HORIZONTAL_PADDING = 8;
 const AnimatedContext = React.createContext();
+
+
+const UnderlineFigure = styled.div`
+  position: absolute;
+  height: 8px;
+  background: ${({ color }) => color};
+  z-index: 1;
+  
+  transition: all 300ms ease;
+ 
+  left: ${({ activeRect, rect }) => (
+    (activeRect && activeRect.left) - (rect && rect.left) + HORIZONTAL_PADDING
+  )}px;
+  
+  top: ${({ activeRect, rect }) => (
+    (activeRect && activeRect.bottom) - (rect && rect.top)
+  )}px;
+  width: ${({ activeRect }) => (
+    activeRect && activeRect.width - HORIZONTAL_PADDING * 2
+  )}px;
+`;
 
 export function AnimatedTabs({ color, children, ...rest }) {
   const [activeRect, setActiveRect] = useState(null);
@@ -23,26 +45,42 @@ export function AnimatedTabs({ color, children, ...rest }) {
         ref={ref}
         style={{ ...rest.style, outline: 'none', position: 'relative' }}
       >
-        <div
-          style={{
-            position: 'absolute',
-            height: 5,
-            background: color,
-            transition: 'all 300ms ease',
-            left:
-              (activeRect && activeRect.left)
-              - (rect && rect.left)
-              + HORIZONTAL_PADDING,
-            top: (activeRect && activeRect.bottom) - (rect && rect.top),
-            // subtract both sides of horizontal padding to center the div
-            width: activeRect && activeRect.width - HORIZONTAL_PADDING * 2,
-          }}
+        <UnderlineFigure
+          color="black"
+          activeRect={activeRect}
+          rect={rect}
         />
         {children}
       </Tabs>
     </AnimatedContext.Provider>
   );
 }
+
+const StyledTab = styled(Tab)`
+  position: relative;
+  background: transparent;
+  border: none;
+  
+  padding: 4px ${HORIZONTAL_PADDING}px;
+  font-size: 18px;
+  
+  &:hover::before {
+    content: '';
+    display: block;
+    z-index: 0;
+    
+    position: absolute;
+    height: 8px;
+    background: ${({ theme }) => theme.colors.primaryBrand};
+    
+    left: ${HORIZONTAL_PADDING}px;
+    top: 37px;
+  
+    width: ${({ rect }) => (
+    rect && rect.width - HORIZONTAL_PADDING * 2
+  )}px;
+  }
+`;
 
 export function AnimatedTab({ index, ...props }) {
   // get the currently selected index from useTabsContext
@@ -61,14 +99,13 @@ export function AnimatedTab({ index, ...props }) {
   }, [isSelected, rect, setActiveRect]);
 
   return (
-    <Tab
+    <StyledTab
       ref={ref}
       {...props}
+      rect={rect}
       style={{
         ...props.style,
-        background: 'transparent',
-        border: 'none',
-        padding: `4px ${HORIZONTAL_PADDING}px`,
+        fontSize: { _: '16px', sm: '18px' },
       }}
     />
   );
