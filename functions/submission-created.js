@@ -12,7 +12,7 @@ exports.handler = async (event, context, callback) => {
   } = payload;
   const dataForSending = JSON.stringify({
     email,
-    name,
+    fullName: name,
   });
 
   const headers = {

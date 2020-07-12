@@ -62,19 +62,10 @@ class SandboxPromoSection extends React.Component {
               <Heading
                 fontSize={{ _: '40px', md: '48px' }}
                 fontWeight={100}
-                mb={1}
+                mb={0}
               >
                 Test the platform’s powerful features&nbsp;now
               </Heading>
-              <Text
-                fontSize="16px"
-                lineHeight="18px"
-                fontWeight="bold"
-                tag="div"
-                mt={2}
-              >
-                Sandbox access data will be sent to your email.
-              </Text>
               <InvitationShortForm parentCallback={this.onSubmitted} />
             </Flex>
           )}
