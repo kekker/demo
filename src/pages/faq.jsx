@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // Components
 import {
@@ -17,6 +18,15 @@ import { AnimatedTab, AnimatedTabs } from '../components/AnimatedTabs';
 
 import faq from '../../content/faq.json';
 import FAQSection from '../components/blocks/FAQSection';
+import ContainerContent from '../components/ContainerContent';
+
+
+const ContactButtonSection = styled.div`
+  padding: 40px 0;
+  @media (max-width: 700px) {
+    border-top: 5px solid black;
+  }
+`;
 
 
 const FAQPage = ({ location }) => {
@@ -26,12 +36,11 @@ const FAQPage = ({ location }) => {
 
   const sandboxFaq = faq.filter(question => question.tag.toLowerCase() === 'sandbox');
   const apiFaq = faq.filter(question => question.tag.toLowerCase() === 'api');
-  const platformFaq = faq.filter(question => question.tag.toLowerCase() === 'platform');
 
   return (
     <>
       <AnimatedDialog isOpen={showDialog} onDismiss={close}>
-        <div style={{ padding: '75px' }}>
+        <ContainerContent pb={3}>
           <Heading
             fontSize={{ _: '24px', md: '32px' }}
             fontWeight={200}
@@ -40,7 +49,7 @@ const FAQPage = ({ location }) => {
             Contact the Kekker support team
           </Heading>
           <QuestionForm />
-        </div>
+        </ContainerContent>
       </AnimatedDialog>
 
       <Layout
@@ -66,12 +75,9 @@ const FAQPage = ({ location }) => {
               <AnimatedTab index={2} style={{ flex: 1 }}>
                 Sandbox
               </AnimatedTab>
-              <AnimatedTab index={3} style={{ flex: 1 }}>
-                Platform
-              </AnimatedTab>
             </TabList>
 
-            <TabPanels style={{ padding: 10 }}>
+            <TabPanels>
               <TabPanel>
                 <FAQSection list={faq} />
               </TabPanel>
@@ -84,15 +90,11 @@ const FAQPage = ({ location }) => {
                 <FAQSection list={sandboxFaq} />
               </TabPanel>
 
-              <TabPanel>
-                <FAQSection list={platformFaq} />
-              </TabPanel>
-
             </TabPanels>
           </AnimatedTabs>
 
         </div>
-        <div>
+        <ContactButtonSection>
           <Heading
             fontSize={{ _: '24px', md: '32px' }}
             fontWeight={200}
@@ -110,7 +112,7 @@ const FAQPage = ({ location }) => {
           >
             Open Dialog
           </Button>
-        </div>
+        </ContactButtonSection>
 
       </Layout>
     </>

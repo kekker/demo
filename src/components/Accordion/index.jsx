@@ -2,16 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import { animated, useSpring } from 'react-spring';
-import { useRect } from '@reach/rect';
+import { animated, useTransition, useSpring } from 'react-spring';
 
+import Rect, { useRect } from '@reach/rect';
 import Heading from '../TextStyles/Heading';
 import Flex from '../Flex';
 
 import ArrowSvgWhite from '../../../static/assets/kekker_arrow_white.svg';
 import Text from '../TextStyles/Text';
 
-const INITIAL_HEIGHT = 100;
 
 const AccordionContent = styled(animated.div)`
   will-change: opacity, height;
@@ -19,12 +18,11 @@ const AccordionContent = styled(animated.div)`
 `;
 
 const Preview = styled(animated.button)`
-  position: absolute;
   max-width: 650px;
   
   will-change: opacity;
   
-  z-index: ${({ isExpanded }) => (isExpanded ? -1 : 1)};
+  z-index: ${({ isexpanded }) => (isexpanded === 'true' ? -1 : 1)};
   
   background: transparent;
   text-align: start;
@@ -32,7 +30,7 @@ const Preview = styled(animated.button)`
   padding: 0;
 `;
 
-const ExpandHeader = styled.button`
+const ExpandHeader = styled.div`
     display: block;
     width: 100%;
     padding: 0;
@@ -75,41 +73,67 @@ const StyledButtonIcon = styled.img`
 const AccordionWrapper = styled.div`
   position: relative;
   margin-top: 50px;
+  padding-bottom: 50px;
   border-bottom: 2px solid ${({ theme }) => theme.colors.bodyLightGrey};
 `;
+
+
+const AccordionInner = ({ isExpanded, children }) => {
+  const { opacity } = useSpring({ opacity: isExpanded ? 1 : 0 });
+
+  return (
+    <AccordionContent style={{ opacity }}>
+      <animated.div style={{ maxWidth: '650px' }}>{children}</animated.div>
+    </AccordionContent>
+  );
+};
 
 
 const Accordion = ({ title, preview, children }) => {
   // If we have a preview, the state is "closed" -> false
   // If now preview, set to expanded
   const [isExpanded, setIsExpanded] = useState(false);
-
-  const ref = useRef();
-  const rect = useRect(ref);
-
-  const invertedProps = useSpring({ opacity: isExpanded ? 0 : 1, config: { duration: 200 } });
-  const [props, set] = useSpring(() => ({ opacity: 0, height: INITIAL_HEIGHT, config: { duration: 200 } }));
-
-  useEffect(() => {
-    if (!preview) {
-      setIsExpanded(true);
-      set({ opacity: 1 });
-    }
-  });
+  const props = useSpring({ opacity: isExpanded ? 0 : 1 });
 
   const handleExpansion = () => {
     if (preview) {
       setIsExpanded(true);
-      set({ height: INITIAL_HEIGHT / 2 + rect.height, opacity: 1 });
     }
   };
 
   const handleClosure = () => {
     if (preview) {
       setIsExpanded(false);
-      set({ height: INITIAL_HEIGHT, opacity: 0 });
     }
   };
+
+  if (!preview) {
+    return (
+      <AccordionWrapper>
+        <ExpandHeader
+          aria-label="Expand Question"
+        >
+          <Flex justifyContent="space-between" alignItems="start">
+            <Heading
+              maxWidth="550px"
+              mb={3}
+              display="inline-block"
+              level={3}
+              fontSize="30px"
+              fontWeight="600"
+            >
+              {title}
+            </Heading>
+          </Flex>
+        </ExpandHeader>
+        <AccordionContent
+          isExpanded
+        >
+          <div style={{ maxWidth: '650px' }}>{children}</div>
+        </AccordionContent>
+      </AccordionWrapper>
+    );
+  }
 
   return (
     <AccordionWrapper>
@@ -135,29 +159,54 @@ const Accordion = ({ title, preview, children }) => {
             alt=""
           />
         </Flex>
-        {preview && (
-          <Preview
-            isExpanded={isExpanded}
-            aria-label="Expand Preview Question"
-            onClick={isExpanded ? handleClosure : handleExpansion}
-            style={invertedProps}
-          >
-            <Text>
-              {preview}
-              {' '}
-            </Text>
-            <Text tag="span" fontWeight={600}>
-              read more
-            </Text>
-          </Preview>
-        )}
       </ExpandHeader>
 
-      <AccordionContent
-        style={props}
-      >
-        <animated.div style={{ position: 'absolute', maxWidth: '650px' }} ref={ref}>{children}</animated.div>
-      </AccordionContent>
+      <Rect>
+        {({ rect, ref }) => (
+          <div style={{
+            position: 'relative',
+          }}
+          >
+
+            <div style={{ position: 'absolute' }} ref={ref}>
+              <AccordionInner
+                isExpanded={isExpanded}
+              >
+                {children}
+              </AccordionInner>
+            </div>
+
+            <Rect>
+              { measures => (
+                <AccordionContent style={props}>
+                  <Preview
+                    ref={measures.ref}
+                    isexpanded={isExpanded.toString()}
+                    aria-label="Expand Preview Question"
+                    onClick={isExpanded ? handleClosure : handleExpansion}
+                  >
+                    <Text>
+                      {preview}
+                      {' '}
+                    </Text>
+                    <Text tag="span" fontWeight={600}>
+                      read more
+                    </Text>
+                  </Preview>
+
+                  <div style={{
+                    transition: 'all 340ms',
+                    height: isExpanded && rect && measures && rect.height
+                      ? rect.height - measures.rect.height : 0
+                  }}
+                  />
+                </AccordionContent>
+              )}
+            </Rect>
+
+          </div>
+        )}
+      </Rect>
 
     </AccordionWrapper>
   );
@@ -165,7 +214,10 @@ const Accordion = ({ title, preview, children }) => {
 
 Accordion.propTypes = {
   title: PropTypes.string.isRequired,
-  preview: PropTypes.string.isRequired,
+  preview: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.any
+  ]),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

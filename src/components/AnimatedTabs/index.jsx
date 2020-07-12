@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import './index.css';
 
 
-const HORIZONTAL_PADDING = 8;
+const HORIZONTAL_PADDING = 20;
 const AnimatedContext = React.createContext();
 
 
@@ -23,14 +23,14 @@ const UnderlineFigure = styled.div`
   transition: all 300ms ease;
  
   left: ${({ activeRect, rect }) => (
-    (activeRect && activeRect.left) - (rect && rect.left) + HORIZONTAL_PADDING
+    (activeRect && activeRect.left) - (rect && rect.left)
   )}px;
   
   top: ${({ activeRect, rect }) => (
     (activeRect && activeRect.bottom) - (rect && rect.top)
   )}px;
   width: ${({ activeRect }) => (
-    activeRect && activeRect.width - HORIZONTAL_PADDING * 2
+    activeRect && activeRect.width - HORIZONTAL_PADDING
   )}px;
 `;
 
@@ -61,7 +61,7 @@ const StyledTab = styled(Tab)`
   background: transparent;
   border: none;
   
-  padding: 4px ${HORIZONTAL_PADDING}px;
+  padding: 4px ${HORIZONTAL_PADDING}px 4px 0;
   font-size: 18px;
   
   &:hover::before {
@@ -73,11 +73,11 @@ const StyledTab = styled(Tab)`
     height: 8px;
     background: ${({ theme }) => theme.colors.primaryBrand};
     
-    left: ${HORIZONTAL_PADDING}px;
+    right: ${HORIZONTAL_PADDING}px;
     top: 37px;
   
     width: ${({ rect }) => (
-    rect && rect.width - HORIZONTAL_PADDING * 2
+    rect && rect.width - HORIZONTAL_PADDING
   )}px;
   }
 `;

@@ -19,6 +19,7 @@ const GridLayout = styled.div`
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
+    grid-gap: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
@@ -36,15 +37,15 @@ const Layout = ({
     <div>
       <ShortHeader location={location} />
 
-      <main>
-        <PageStateProvider>
+      <PageStateProvider>
+        <main>
           <ContainerContent mb={0} pb={pb || 0} mt="10vh">
             <GridLayout>
               {children}
             </GridLayout>
           </ContainerContent>
-        </PageStateProvider>
-      </main>
+        </main>
+      </PageStateProvider>
     </div>
 
     <SandboxPromoSection />

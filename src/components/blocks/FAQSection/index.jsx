@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 import Accordion from '../../Accordion';
 import Pagination from '../../Paginator';
@@ -75,12 +76,21 @@ class FAQSection extends React.Component {
         {currentQuestions.map(elem => (
           <Accordion
             title={elem.title}
-            preview={elem.content.length > 150 ? truncateStr(elem.content, 150) : null}
+            preview={elem.content.length >= 210 ? truncateStr(elem.content, 200) : null}
             key={elem.title.substr(0, 20)}
           >
             <Text tag="div" fontSize="medium">
               {elem.content}
             </Text>
+            { elem.link && (
+              <Text tag="div" fontSize="medium">
+                See more at
+                {' '}
+                <Link to={elem.link.to}>
+                  {elem.link.title ? elem.link.title : elem.link.to}
+                </Link>
+              </Text>
+            )}
           </Accordion>
         ))}
         <Pagination

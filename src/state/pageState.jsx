@@ -6,7 +6,8 @@ const initialState = {
   UID_Quorum: '',
   UID_Ethereum: '',
   UID_Hyperledger: '',
-  ActiveTab: 'Quorum'
+  ActiveTab: 'Quorum',
+  rect: null,
 };
 
 function valuesStateReducer(state, action) {
@@ -21,6 +22,9 @@ function valuesStateReducer(state, action) {
       return { ...state, UID_Quorum: action.value };
 
     case 'SET_ACTIVE_TAB':
+      return { ...state, ActiveTab: action.value };
+
+    case 'SET_PAGE_RECT':
       return { ...state, ActiveTab: action.value };
 
     default:
