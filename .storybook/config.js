@@ -4,14 +4,20 @@ import React from "react";
 
 import Theme from '../src/components/Theme';
 import typography from '../src/components/ThemeTypography';
+import { PageStateProvider } from '../src/state/pageState';
+import { AppStateProvider } from '../src/state/appState';
 
 // automatically import all files ending in *.stories.js
 configure(require.context("../src", true, /\.stories\.jsx$/), module);
 
 addDecorator((story) => (
-    <Theme>
-        {story()}
-    </Theme>
+  <AppStateProvider>
+      <Theme>
+          <PageStateProvider>
+              {story()}
+          </PageStateProvider>
+      </Theme>
+  </AppStateProvider>
 ));
 
 // Gatsby's Link overrides:

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -13,7 +13,6 @@ const StyledTabBar = styled.div`
   @media (max-width: 700px) {
      max-width: 90vw;
   }
-  
 `;
 
 const StyledTabNavContainer = styled.div`
@@ -66,11 +65,11 @@ const TabBar = ({ children }) => {
 };
 
 TabBar.propTypes = {
-  children: PropTypes.node
-};
-
-TabBar.defaultProps = {
-  children: null
+  label: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 export default TabBar;

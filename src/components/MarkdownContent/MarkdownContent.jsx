@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import MarkdownFooter from '../MarkdownFooter';
 import Flex from '../Flex';
-import SandboxPromoSection from '../SandboxPromoSection';
+
 
 const MarkdownSection = styled.section`
   height: 100%;

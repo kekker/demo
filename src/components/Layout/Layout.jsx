@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Theme from '../Theme';
 import ContainerContent from '../ContainerContent';
 import Footer from '../Footer';
 import { ShortHeader } from '../Header';
 import Seo from '../SEO';
-import SideMenu from '../Menu/SideMenu';
 import { PageStateProvider } from '../../state/pageState';
 import SandboxPromoSection from '../SandboxPromoSection';
 
@@ -21,6 +19,7 @@ const GridLayout = styled.div`
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
+    grid-gap: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
@@ -28,53 +27,30 @@ const GridLayout = styled.div`
   }
 `;
 
-const GridMenu = styled.div`
-  margin-bottom: ${({ theme }) => theme.space[6]}px;
-  margin-top: ${({ theme }) => theme.space[3]}px;
-  white-space: nowrap;
-
-  @media (min-height: 300px) {
-    position: sticky;
-    top: calc(${({ theme }) => theme.layout.menuHeight} 
-              + ${({ theme }) => theme.space[7]}px);
-  }
-`;
-
-const ResponsiveAside = styled.aside`
-  @media (max-width: 700px) {
-    display: none;
-  }
-`;
 
 const Layout = ({
-  children, location, title, description, sideMenu, pb
+  children, location, title, description, pb
 }) => (
-  <Theme>
+  <>
     <Seo title={title} description={description} />
 
     <div>
       <ShortHeader location={location} />
 
-      <main>
-        <PageStateProvider>
+      <PageStateProvider>
+        <main>
           <ContainerContent mb={0} pb={pb || 0} mt="10vh">
             <GridLayout>
-              <div>
-                {children}
-              </div>
-              <ResponsiveAside>
-                <GridMenu>
-                  <SideMenu location={location} section={sideMenu} />
-                </GridMenu>
-              </ResponsiveAside>
+              {children}
             </GridLayout>
           </ContainerContent>
-        </PageStateProvider>
-      </main>
+        </main>
+      </PageStateProvider>
     </div>
+
     <SandboxPromoSection />
     <Footer />
-  </Theme>
+  </>
 );
 
 Layout.propTypes = {
@@ -82,7 +58,6 @@ Layout.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string,
-  sideMenu: PropTypes.string,
 };
 
 Layout.defaultProps = {
@@ -90,5 +65,3 @@ Layout.defaultProps = {
 };
 
 export default Layout;
-
-

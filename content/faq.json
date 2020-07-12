@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Do you use cryptocurrencies?",
+    "content": "We use blockchain as a distributed transaction storage system and do not work with cryptocurrency. However, when building individual clusters, you can use its currency for instance, to arrange billing.",
+    "tag": "General"
+  },
+  {
+    "title": "What are the main differences between sandbox and production environment?",
+    "content": "Sandbox with pre-set three nodes environment and APIs is great for rapid prototyping and debugging of integration processes without setting up your own environment. In production environment you will have your own environment set up for your specific needs. You can host your infrastructure or use our commercial infrastructure hosting and support services.",
+    "tag": "Sandbox"
+  },
+  {
+    "title": "What types of authorization are used in Kekker Sandbox?",
+    "content": "For simplicity we use Basic authorization for Sandbox. Production environment is usually deployed in a closed loop system.",
+    "tag": "Sandbox",
+    "link": {
+      "to": "/docs/api/authorization.html",
+      "title": "Authorization Page"
+    }
+  },
+  {
+    "title": "I created a Deal on my node. How do the Deal’s other members learn about this?",
+    "content": "An event mechanism is used to track changes in transactions.",
+    "tag": "API",
+    "link": {
+      "to": "/docs/api/event",
+      "title": "Event Page"
+    }
+  },
+  {
+    "title": "What are controlled and uncontrolled Deals?",
+    "content": "Controlled Deals are the main type of transactions in the system. It's kind and the transition map is set up and published by the cluster administrator. If a member who is not a cluster administrator needs a new Deal type with with specific transition map he should request the cluster administrator for publication of such transition map template. Uncontrolled Deals are used when the state transition map is not known in advance.",
+    "tag": "API"
+  }
+]

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Theme from '../Theme';
 import Heading from '../TextStyles/Heading';
 
 export const Story = ({ children }) => (

@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Story, StoryRow } from '../StorybookComponents';
 
 import TabBar from './TabBar';
@@ -8,13 +9,34 @@ export default {
   title: 'TabBar',
 };
 
-export const Tabs = () => (
+const TabContentWrapper = styled.div`
+  width: 800px;
+  height: 400px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const TabBarStory = () => (
   <Story>
     <StoryRow heading="TabBar">
       <TabBar>
-        <TabItem label="tab1">Content</TabItem>
-        <TabItem label="tab2">Content</TabItem>
-        <TabItem label="tab3">Content</TabItem>
+        <TabItem label="Quorum">
+          <TabContentWrapper>
+            <span>Quorum Content</span>
+          </TabContentWrapper>
+        </TabItem>
+        <TabItem label="Ethereum">
+          <TabContentWrapper>
+            Ethereum Content
+          </TabContentWrapper>
+        </TabItem>
+        <TabItem label="Hyperledger">
+          <TabContentWrapper>
+            Hyperledger Content
+          </TabContentWrapper>
+        </TabItem>
       </TabBar>
     </StoryRow>
   </Story>

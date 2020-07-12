@@ -1,7 +1,11 @@
 import React from 'react';
 import { AppStateProvider } from './src/state/appState';
-import { PageStateProvider } from './src/state/pageState';
+import Theme from './src/components/Theme';
 
 export const wrapRootElement = ({ element }) => (
-  <AppStateProvider>{ element }</AppStateProvider>
+  <AppStateProvider>
+    <Theme>
+      { element }
+    </Theme>
+  </AppStateProvider>
 );
