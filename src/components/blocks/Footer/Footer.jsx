@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import React from 'react';
+import { Link } from 'gatsby';
 
 import ContainerSection from '../../fragments/ContainerSection';
 import ContainerContent from '../../fragments/ContainerContent';
@@ -9,6 +10,7 @@ import Flex from '../../fragments/Flex';
 import footerNav from '../../../../content/footerNav.yml';
 import FooterLink from './FooterLink';
 import Text from '../../fragments/TextStyles/Text';
+import Heading from '../../fragments/TextStyles/Heading';
 
 const StyledSocialLink = styled.a`
   text-decoration: none;
@@ -39,6 +41,13 @@ const Grid = styled.div`
   margin-bottom: 30px;
 `;
 
+
+const AddonLink = styled(Link)`
+  &:hover h4 {
+    color: ${({ theme }) => theme.colors.primaryBrand};
+  }
+`;
+
 const Footer = () => {
   const footerFontSize = 'medium';
   return (
@@ -55,6 +64,21 @@ const Footer = () => {
               />
             ))}
           </Grid>
+
+          {footerNav.addons.map(link => (
+            <AddonLink to={link.to}>
+              <Heading
+                mb={2}
+                level={4}
+                fontSize="20px"
+                color="invertedText"
+                letterSpacing={0}
+              >
+                {link.header}
+              </Heading>
+            </AddonLink>
+          ))}
+
           <Flex mb={4}>
             {footerNav.social.map(socialLink => (
               <StyledSocialLink

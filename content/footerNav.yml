@@ -56,6 +56,14 @@ items:
         to: /about/solutions
 
 
+addons:
+  - header: Pricing
+    to: /pricing
+
+  - header: FAQ
+    to: /faq
+
+
 social:
   - title: LinkedIn
     to: https://www.linkedin.com/company/kekker
