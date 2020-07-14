@@ -44,6 +44,7 @@ const GridItem = ({
 GridItem.propTypes = {
   cols: PropTypes.number.isRequired,
   linkTo: PropTypes.string,
+  children: PropTypes.node,
 };
 
 GridItem.defaultTypes = {

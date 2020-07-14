@@ -1,7 +1,7 @@
 import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { withTheme } from 'styled-components';
+import { withTheme } from 'styled-components';
 
 import ContainerSection from '../../fragments/ContainerSection';
 import BgImage from '../../fragments/BgImage';
@@ -10,7 +10,7 @@ import Flex from '../../fragments/Flex';
 import HeaderNav from './HeaderNav';
 import Heading from '../../fragments/TextStyles/Heading';
 import ButtonLink from '../../fragments/Button';
-import LogoLink from '../../fragments/Logo';
+
 
 const jsonContent = require('../../../../content/home.json');
 
@@ -24,17 +24,6 @@ export const queryMainHeader = graphql`
       }
     }
   }
-`;
-
-const LogoLinkWrapper = styled.div`
-  display: block;
-  margin-bottom: 20px;
-  margin-top: -40px;
-  
-  @media (min-width: 700px) {
-    display: none;
-  }
-
 `;
 
 
