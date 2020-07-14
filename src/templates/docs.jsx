@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 // Components
 import styled from 'styled-components';
-import Layout from '../components/Layout/Layout';
-import MarkdownContent from '../components/MarkdownContent';
+import Layout from '../components/fragments/Layout/Layout';
+import MarkdownContent from '../components/blocks/MarkdownContent';
 
 import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
-import SideMenu from '../components/Menu/SideMenu';
+import SideMenu from '../components/blocks/Menu/SideMenu';
 
 
 const GridMenu = styled.div`
