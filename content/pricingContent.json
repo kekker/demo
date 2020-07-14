@@ -1,19 +1,19 @@
 [
   {
-    "title": "Sandbox developer",
-    "text": "Lorem ipsum is placeholder text commonly used in the graphic",
+    "title": "Sandbox Basic",
+    "text": "Build your prototype and test your hypotheses",
     "price": "Free",
-    "limits": "50TRX/DAY INCLUDED"
+    "limits": "25TRX/DAY INCLUDED"
   },
   {
-    "title": "Sandbox business",
-    "text": "Lorem ipsum is placeholder text commonly used in the graphic",
+    "title": "Sandbox Growth",
+    "text": "Grow your app with unlimited transactions",
     "price": "$49/month",
     "limits": "UNLIMITED TRX/DAY"
   },
   {
-    "title": "Custom infrastructure maintenance",
-    "text": "Middleware commercial maintenance and development",
+    "title": "Kekker Business",
+    "text": "Contact us for support and an infrastructure tailored to your needs",
     "price": "",
     "limits": "",
     "button": "Contact us"
