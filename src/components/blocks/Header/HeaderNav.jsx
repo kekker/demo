@@ -10,8 +10,11 @@ import LogoLink from '../../fragments/Logo';
 import { Bars, Close } from '../../fragments/Icons/Icons';
 import ContainerContent from '../../fragments/ContainerContent';
 import ContainerSection from '../../fragments/ContainerSection';
-import footerNav from '../../../../content/footerNav.yml';
 import FooterLink from '../Footer/FooterLink';
+
+import footerNav from '../../../../content/footerNav.yml';
+import Heading from '../../fragments/TextStyles/Heading';
+import { Link } from 'gatsby';
 
 const Nav = styled.nav`
   display: flex;
@@ -89,6 +92,12 @@ const Grid = styled.div`
   margin-bottom: 30px;
 `;
 
+const AddonLink = styled(Link)`
+  &:hover h4 {
+    color: ${({ theme }) => theme.colors.primaryBrand};
+  }
+`;
+
 class HeaderNav extends React.Component {
   constructor(props) {
     super(props);
@@ -124,6 +133,21 @@ class HeaderNav extends React.Component {
                 ))}
               </Grid>
             </Flex>
+
+            {footerNav.addons.map(link => (
+              <AddonLink to={link.to}>
+                <Heading
+                  mb={2}
+                  level={4}
+                  fontSize="20px"
+                  color="invertedText"
+                  letterSpacing={0}
+                >
+                  {link.header}
+                </Heading>
+              </AddonLink>
+            ))}
+
           </ContainerContent>
         </ContainerSection>
       </StyledDropdownSection>
