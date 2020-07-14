@@ -9,7 +9,6 @@ import Seo from '../components/fragments/SEO/Seo';
 import { MainHeader } from '../components/blocks/Header';
 import ContainerContent from '../components/fragments/ContainerContent';
 import Footer from '../components/blocks/Footer';
-import Theme from '../components/Theme';
 import ButtonLink from '../components/fragments/Button';
 import Flex from '../components/fragments/Flex';
 import GridItem from '../components/fragments/GridItem';
@@ -17,6 +16,7 @@ import ContainerSection from '../components/fragments/ContainerSection';
 import Heading from '../components/fragments/TextStyles/Heading';
 import Text from '../components/fragments/TextStyles/Text';
 import BgImage from '../components/fragments/BgImage';
+import Hr from '../components/fragments/TextStyles/Hr';
 
 const StyledPlatformImage = styled(Img)`
   width: 100%;
@@ -89,7 +89,7 @@ const BlogIndex = ({ data, location }) => {
             ))}
           </Flex>
 
-          <hr />
+          <Hr />
         </ContainerContent>
 
         <ContainerSection width="100%">
