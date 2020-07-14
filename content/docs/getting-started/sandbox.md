@@ -14,10 +14,11 @@ on any of the popular blockchains.
 As soon as you are ready to launch your business application you can move to 
 your own infrastructure or use our commercial infrastructure hosting and supporting services.
 
-#### The Sandbox consists of 3 separate clusters:
+#### The Sandbox consists of 4 separate clusters:
 * Quorum cluster
-* Hyperledger Fabric cluster (limited free availability)
+* Hyperledger Fabric cluster
 * Public Ethereum cluster
+* Corda cluster (under construction)
 
 The clusters interact with each other via a dedicated trunk network.
 
@@ -83,4 +84,4 @@ transactions in Public Networks may require about 10 minutes to process.
    Easily clone your Sandbox environment to the production stage, eliminating hardware and cloud sprawl.
    
 ### Sandbox Access
-Hit the Sandbox Access button, fill out the form and get your access credentials in no time.    
+Fill out the form below and get your access credentials in no time. 

@@ -32,7 +32,9 @@ Launch your command-line processor and run `curl google.com`. If you see the fol
 
 ### Windows
 
-If you are a Windows user please follow these simple steps:
+If you are Windows user hit the Windows button on your keyboard and type cmd for Command Prompt.
+
+If you don't have Command Prompt on your machine follow these simple steps:
 * Download the app from <a href="https://curl.haxx.se/windows/" target="blank">https://curl.haxx.se/windows/ </a>
 * Unzip the downloaded archive to any directory `<root_path>`
 * Install certificate `<root_path>\bin\curl-ca-bundle.crt` to your local storage
