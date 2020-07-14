@@ -5,9 +5,9 @@ import SwaggerUI from 'swagger-ui-react';
 import '../../../styles/swagger-ui-new.css';
 
 // Components
-import Layout from '../../../components/Layout';
-import MarkdownFooter from '../../../components/MarkdownFooter';
-import SandboxPromoSection from '../../../components/SandboxPromoSection';
+import Layout from '../../../components/fragments/Layout';
+import MarkdownFooter from '../../../components/blocks/MarkdownFooter';
+import SandboxPromoSection from '../../../components/blocks/SandboxPromoSection';
 
 const swaggerContent = require('../../../../static/kekkerdemo-service');
 

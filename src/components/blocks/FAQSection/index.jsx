@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
-import Accordion from '../../Accordion';
-import Pagination from '../../Paginator';
-import Text from '../../TextStyles/Text';
-import Hr from '../../TextStyles/Hr';
+import Accordion from '../Accordion';
+import Pagination from '../Paginator';
+import Text from '../../fragments/TextStyles/Text';
+import Hr from '../../fragments/TextStyles/Hr';
 import truncateStr from '../../../utils/truncateStr';
 
 

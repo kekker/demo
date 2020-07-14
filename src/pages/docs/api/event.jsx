@@ -5,8 +5,8 @@ import SwaggerUI from 'swagger-ui-react';
 import '../../../styles/swagger-ui-new.css';
 
 // Components
-import Layout from '../../../components/Layout';
-import MarkdownFooter from '../../../components/MarkdownFooter';
+import Layout from '../../../components/fragments/Layout';
+import MarkdownFooter from '../../../components/blocks/MarkdownFooter';
 
 const swaggerContent = require('../../../../static/kekkerdemo-event');
 

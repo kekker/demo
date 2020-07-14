@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Layout from '../../components/Layout';
-import MarkdownFooter from '../../components/MarkdownFooter';
-import SandboxPromoSection from '../../components/SandboxPromoSection';
-import Heading from '../../components/TextStyles/Heading';
-import Text from '../../components/TextStyles/Text';
-import SolutionsList from '../../components/SolutionsList/SolutionsList';
+import Layout from '../../components/fragments/Layout';
+import MarkdownFooter from '../../components/blocks/MarkdownFooter';
+import SandboxPromoSection from '../../components/blocks/SandboxPromoSection';
+import Heading from '../../components/fragments/TextStyles/Heading';
+import Text from '../../components/fragments/TextStyles/Text';
+import SolutionsList from '../../components/blocks/SolutionsList/SolutionsList';
 
 const SolutionsPage = ({ location }) => {
   const prev = {

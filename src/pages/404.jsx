@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/fragments/Layout/Layout';
 
 const NotFoundPage = ({ location }) => (
   <Layout location={location.pathname} title="Sorry, ain't no page here">

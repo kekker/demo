@@ -7,6 +7,10 @@ items:
     to: /faq
     activeSelector: /faq
 
+  - title: Pricing
+    to: /pricing
+    activeSelector: /pricing
+
   - title: About
     to: /about/platform.html
     activeSelector: /about/

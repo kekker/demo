@@ -8,17 +8,17 @@ import {
 } from '@reach/tabs';
 
 
-import Layout from '../components/Layout/Layout';
-import AnimatedDialog from '../components/AnimatedDialog';
-import QuestionForm from '../components/Forms/QuestionForm';
-import Heading from '../components/TextStyles/Heading';
-import Button from '../components/Button/Button';
+import Layout from '../components/fragments/Layout/Layout';
+import AnimatedDialog from '../components/fragments/AnimatedDialog';
+import QuestionForm from '../components/blocks/Forms/QuestionForm';
+import Heading from '../components/fragments/TextStyles/Heading';
+import Button from '../components/fragments/Button/Button';
 
-import { AnimatedTab, AnimatedTabs } from '../components/AnimatedTabs';
+import { AnimatedTab, AnimatedTabs } from '../components/fragments/AnimatedTabs';
 
 import faq from '../../content/faq.json';
 import FAQSection from '../components/blocks/FAQSection';
-import ContainerContent from '../components/ContainerContent';
+import ContainerContent from '../components/fragments/ContainerContent';
 
 
 const ContactButtonSection = styled.div`
