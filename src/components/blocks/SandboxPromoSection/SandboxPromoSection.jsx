@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Heading from '../../fragments/TextStyles/Heading';
-import Text from '../../fragments/TextStyles/Text';
 import ContainerSection from '../../fragments/ContainerSection';
 import ContainerContent from '../../fragments/ContainerContent';
 import Flex from '../../fragments/Flex';
 import InvitationShortForm from '../Forms/InvitationShortForm';
+import Hr from '../../fragments/TextStyles/Hr';
 
 
 const SandboxSubmittedState = () => (
@@ -17,17 +17,6 @@ const SandboxSubmittedState = () => (
     >
       Check your email for further instructions
     </Heading>
-    <Text
-      fontSize="16px"
-      lineHeight="18px"
-      fontWeight="bold"
-      tag="div"
-      mt={2}
-    >
-      If you have any questions, contact us at
-      {' '}
-      <a style={{ color: '#000000' }} href="mailto:info@kekker.com">info@kekker.com</a>
-    </Text>
   </Flex>
 );
 
@@ -49,32 +38,25 @@ class SandboxPromoSection extends React.Component {
 
     return (
       <ContainerSection height="unset">
+
         <ContainerContent
-          style={{ borderTop: '1px solid hsla(0,0%,0%,0.8)' }}
-          mt={{ _: 0, md: '60px' }}
-          pt={{ _: '30px', md: '60px' }}
+          mt={0}
+          pt={0}
           pb={{ _: '30px', md: '60px' }}
         >
+          <Hr backgroundColor="rgb(0, 0, 0, 0.8)" height={{ _: 4, sm: 1 }} mb={{ _: '30px', md: '60px' }} />
+
           { submitted ? (
             <SandboxSubmittedState />
           ) : (
             <Flex flexDirection="column" alignItems="start">
               <Heading
-                fontSize={{ _: '40px', md: '48px' }}
-                fontWeight={100}
+                fontSize={{ _: '30px', sm: '40px', md: '48px' }}
+                fontWeight={{ _: 800, sm: 100 }}
                 mb={1}
               >
                 Test the platform’s powerful features&nbsp;now
               </Heading>
-              <Text
-                fontSize="16px"
-                lineHeight="18px"
-                fontWeight="bold"
-                tag="div"
-                mt={2}
-              >
-                Sandbox access data will be sent to your email.
-              </Text>
               <InvitationShortForm parentCallback={this.onSubmitted} />
             </Flex>
           )}
