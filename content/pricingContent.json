@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Sandbox developer",
+    "text": "Lorem ipsum is placeholder text commonly used in the graphic",
+    "price": "Free",
+    "limits": "50TRX/DAY INCLUDED"
+  },
+  {
+    "title": "Sandbox business",
+    "text": "Lorem ipsum is placeholder text commonly used in the graphic",
+    "price": "$49/month",
+    "limits": "UNLIMITED TRX/DAY"
+  },
+  {
+    "title": "Custom infrastructure maintenance",
+    "text": "Middleware commercial maintenance and development",
+    "price": "",
+    "limits": "",
+    "button": "Contact us"
+  }
+]
