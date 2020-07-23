@@ -73,7 +73,6 @@ class QuestionForm extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': 'Question Form',
         ...values,
       }),
     })
@@ -103,13 +102,15 @@ class QuestionForm extends React.Component {
       >
         {formik => (
           <Form
-            name="Question Form"
+            name="question"
             method="post"
             netlify-honeypot="bot-field"
             data-netlify="true"
+            netlify
             style={{ marginBottom: 0 }}
             innerRef={this.ref}
           >
+            <input type="hidden" name="form-name" value="question" />
             <input type="hidden" name="bot-field" />
             <TextInput
               label="Name"
