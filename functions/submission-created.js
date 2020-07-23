@@ -54,7 +54,7 @@ exports.handler = async (event, context, callback) => {
   const { form_name, data } = JSON.parse(event.body).payload;
 
   try {
-    const [dataForSending, options] = dispatchForm(form_name, data);
+    const [dataForSending, options] = dispatchForm({ form_name, data });
     logNewSubmission(dataForSending);
 
     const req = http.request(options, (res) => {
