@@ -180,7 +180,7 @@ export const HiddenQuestionForm = () => (
     <input type="text" name="fullName" />
     <input type="email" name="email" />
     <select name="subject" />
-    <textarea name="message" />
+    <textarea name="comment" />
   </form>
 );
 

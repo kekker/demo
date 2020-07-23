@@ -40,7 +40,7 @@ const dispatchForm = payload => {
     return [dataForSending, options];
   }
 
-  throw new Error('Undefined form name');
+  throw new Error(`Undefined form name: ${form_name}`);
 };
 
 const logNewSubmission = data => {
@@ -71,7 +71,7 @@ exports.handler = async (event, context, callback) => {
     });
 
     req.on('error', (error) => {
-      console.log('Problem with request:', error.message);
+      throw new Error(`Problem with request:\n ${error.message}`);
     });
     req.write(dataForSending);
     req.end();
@@ -81,6 +81,6 @@ exports.handler = async (event, context, callback) => {
       data: dataForSending
     });
   } catch (err) {
-    console.log('Error Occured:', err);
+    console.log('Error Occurred:\n', err);
   }
 };

@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 
 import TextInput from '../../fragments/FormComponents/TextInput';
 import Button from '../../fragments/Button/Button';
-import Text from '../../fragments/TextStyles/Text';
 import ErrorFormMessage from './FormMessages/ErrorFormMessage';
 
 import { encode } from '../../../utils/convertObjectToQueryString';
