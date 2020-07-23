@@ -79,7 +79,7 @@ class QuestionForm extends React.Component {
     })
       .then(() => {
         console.log('Form Submitted ', values);
-        this.setState({ loading: false, submitted: true });
+        this.setState({ loading: false });
         this.props.parentCallback();
       })
       .catch(error => {
@@ -88,12 +88,7 @@ class QuestionForm extends React.Component {
           error: true,
           errorMessage: error.message,
         });
-      })
-      .finally(() => this.props.parentRef.current.scrollIntoView({
-        block: 'end',
-        behavior: 'smooth'
-      })
-      );
+      });
   };
 
   render() {
