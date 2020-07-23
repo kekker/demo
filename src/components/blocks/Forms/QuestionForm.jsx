@@ -72,6 +72,7 @@ class QuestionForm extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
+        'form-name': 'question',
         ...values,
       }),
     })
@@ -106,7 +107,6 @@ class QuestionForm extends React.Component {
             style={{ marginBottom: 0 }}
             innerRef={this.ref}
           >
-            <input type="hidden" name="form-name" value="question" />
             <input type="hidden" name="bot-field" />
             <TextInput
               label="Name"
