@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -19,6 +19,7 @@ import { AnimatedTab, AnimatedTabs } from '../components/fragments/AnimatedTabs'
 import faq from '../../content/faq.json';
 import FAQSection from '../components/blocks/FAQSection';
 import ContainerContent from '../components/fragments/ContainerContent';
+import Text from '../components/fragments/TextStyles/Text';
 
 
 const ContactButtonSection = styled.div`
@@ -30,7 +31,8 @@ const ContactButtonSection = styled.div`
 
 
 const FAQPage = ({ location }) => {
-  const [showDialog, setShowDialog] = React.useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
   const open = () => setShowDialog(true);
   const close = () => setShowDialog(false);
 
@@ -40,15 +42,36 @@ const FAQPage = ({ location }) => {
   return (
     <>
       <AnimatedDialog isOpen={showDialog} onDismiss={close}>
-        <ContainerContent pb={3}>
-          <Heading
-            fontSize={{ _: '24px', md: '32px' }}
-            fontWeight={200}
-            mb={5}
-          >
-            Contact the Kekker support team
-          </Heading>
-          <QuestionForm />
+        <ContainerContent pb={{ _: 3, sm: 6 }}>
+          { submitted ? (
+            <>
+              <Heading
+                fontSize={{ _: '24px', md: '32px' }}
+                fontWeight={200}
+                mb={5}
+              >
+                Contact the Kekker support team
+              </Heading>
+              <Text
+                tag="p"
+                fontSize={{ _: '18px', sm: '20px' }}
+                fontWeight={800}
+              >
+                The form is submitted!
+              </Text>
+            </>
+          ) : (
+            <>
+              <Heading
+                fontSize={{ _: '24px', md: '32px' }}
+                fontWeight={200}
+                mb={5}
+              >
+                Contact the Kekker support team
+              </Heading>
+              <QuestionForm parentCallback={() => setSubmitted(true)} />
+            </>
+          )}
         </ContainerContent>
       </AnimatedDialog>
 
