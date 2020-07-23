@@ -102,11 +102,10 @@ class QuestionForm extends React.Component {
       >
         {formik => (
           <Form
-            name="question"
             method="post"
             netlify-honeypot="bot-field"
             data-netlify="true"
-            netlify
+            name="question"
             style={{ marginBottom: 0 }}
             innerRef={this.ref}
           >
