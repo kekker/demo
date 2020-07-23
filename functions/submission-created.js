@@ -7,11 +7,14 @@ const questionRoute = '/api/feedbacks';
 
 
 const dispatchForm = ({ form_name, data }) => {
-  const options = {
+  const headers = {
     'Content-Type': 'application/json',
     Authorization: `Basic ${API_MESSAGING_AUTH_BASIC_KEY}`,
+  };
+  const options = {
     hostname: BASE_BACKEND_URL,
     method: 'POST',
+    headers
   };
 
   if (form_name === 'invitation') {
@@ -20,7 +23,7 @@ const dispatchForm = ({ form_name, data }) => {
       email,
       fullName: name,
     });
-    options['Content-Length'] = Buffer.byteLength(dataForSending);
+    options.headers['Content-Length'] = Buffer.byteLength(dataForSending);
     options.path = messageRoute;
     return [dataForSending, options];
   }
