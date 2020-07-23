@@ -80,7 +80,6 @@ class QuestionForm extends React.Component {
       .then(() => {
         console.log('Form Submitted ', values);
         this.setState({ loading: false });
-        this.props.parentCallback();
       })
       .catch(error => {
         this.setState({
