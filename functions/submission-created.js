@@ -40,7 +40,7 @@ const dispatchForm = payload => {
     return [dataForSending, options];
   }
 
-  throw new Error(`Undefined form name: ${form_name}`);
+  throw new Error(`Undefined form name: ${form_name}\n data: ${payload.toString()}`);
 };
 
 const logNewSubmission = data => {
