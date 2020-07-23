@@ -73,14 +73,12 @@ class QuestionForm extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': 'Question Form',
         ...values,
       }),
     })
       .then(() => {
         console.log('Form Submitted ', values);
-        this.setState({ loading: false, submitted: true });
-        this.props.parentCallback();
+        this.setState({ loading: false });
       })
       .catch(error => {
         this.setState({
@@ -88,12 +86,7 @@ class QuestionForm extends React.Component {
           error: true,
           errorMessage: error.message,
         });
-      })
-      .finally(() => this.props.parentRef.current.scrollIntoView({
-        block: 'end',
-        behavior: 'smooth'
-      })
-      );
+      });
   };
 
   render() {
@@ -109,13 +102,14 @@ class QuestionForm extends React.Component {
       >
         {formik => (
           <Form
-            name="Question Form"
             method="post"
             netlify-honeypot="bot-field"
             data-netlify="true"
+            name="question"
             style={{ marginBottom: 0 }}
             innerRef={this.ref}
           >
+            <input type="hidden" name="form-name" value="question" />
             <input type="hidden" name="bot-field" />
             <TextInput
               label="Name"
