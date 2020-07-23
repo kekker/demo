@@ -6,7 +6,6 @@ import RichTextInput from '../../fragments/FormComponents/RichTextinput';
 import SelectInput from '../../fragments/FormComponents/SelectInput';
 import TextInput from '../../fragments/FormComponents/TextInput';
 import Button from '../../fragments/Button/Button';
-import Text from '../../fragments/TextStyles/Text';
 import SuccessfulFormMessage from './FormMessages/SuccessfulFormMessage';
 import ErrorFormMessage from './FormMessages/ErrorFormMessage';
 
@@ -73,6 +72,7 @@ class QuestionForm extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
+        'form-name': 'question',
         ...values,
       }),
     })
@@ -103,13 +103,10 @@ class QuestionForm extends React.Component {
         {formik => (
           <Form
             method="post"
-            netlify-honeypot="bot-field"
-            data-netlify="true"
             name="question"
             style={{ marginBottom: 0 }}
             innerRef={this.ref}
           >
-            <input type="hidden" name="form-name" value="question" />
             <input type="hidden" name="bot-field" />
             <TextInput
               label="Name"
@@ -176,5 +173,14 @@ class QuestionForm extends React.Component {
     );
   }
 }
+
+export const HiddenQuestionForm = () => (
+  <form name="question" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="text" name="fullName" />
+    <input type="email" name="email" />
+    <select name="subject" />
+    <textarea name="message" />
+  </form>
+);
 
 export default QuestionForm;

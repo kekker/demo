@@ -135,7 +135,7 @@ class HeaderNav extends React.Component {
             </Flex>
 
             {footerNav.addons.map(link => (
-              <AddonLink to={link.to}>
+              <AddonLink key={link.header} to={link.to}>
                 <Heading
                   mb={2}
                   level={4}

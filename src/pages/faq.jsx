@@ -10,7 +10,7 @@ import {
 
 import Layout from '../components/fragments/Layout/Layout';
 import AnimatedDialog from '../components/fragments/AnimatedDialog';
-import QuestionForm from '../components/blocks/Forms/QuestionForm';
+import QuestionForm, { HiddenQuestionForm } from '../components/blocks/Forms/QuestionForm';
 import Heading from '../components/fragments/TextStyles/Heading';
 import Button from '../components/fragments/Button/Button';
 
@@ -112,6 +112,7 @@ const FAQPage = ({ location }) => {
           >
             Open Dialog
           </Button>
+          <HiddenQuestionForm />
         </ContactButtonSection>
 
       </Layout>
