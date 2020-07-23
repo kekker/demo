@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 
 import TextInput from '../../fragments/FormComponents/TextInput';
 import Button from '../../fragments/Button/Button';
-import Text from '../../fragments/TextStyles/Text';
 import ErrorFormMessage from './FormMessages/ErrorFormMessage';
 
 import { encode } from '../../../utils/convertObjectToQueryString';
@@ -48,6 +47,7 @@ class InvitationShortForm extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
+        'form-name': 'invitation',
         ...values,
       }),
     })
@@ -85,7 +85,6 @@ class InvitationShortForm extends React.Component {
             style={{ marginBottom: 0 }}
           >
             <input type="hidden" name="bot-field" />
-            <input type="hidden" name="form-name" value="invitation" />
             <Flex mb={4} mt={4} flexDirection={{ _: 'column', md: 'row' }}>
               <TextInput
                 wrapperStyles={{

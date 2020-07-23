@@ -79,6 +79,7 @@ class QuestionForm extends React.Component {
       .then(() => {
         console.log('Form Submitted ', values);
         this.setState({ loading: false });
+        this.props.parentCallback();
       })
       .catch(error => {
         this.setState({
@@ -176,10 +177,11 @@ class QuestionForm extends React.Component {
 
 export const HiddenQuestionForm = () => (
   <form name="question" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" />
     <input type="text" name="fullName" />
     <input type="email" name="email" />
     <select name="subject" />
-    <textarea name="message" />
+    <textarea name="comment" />
   </form>
 );
 

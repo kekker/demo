@@ -1,63 +1,86 @@
+/* eslint-disable camelcase */
 const { API_MESSAGING_AUTH_BASIC_KEY, BASE_BACKEND_URL } = process.env;
 const http = require('http');
 
 const messageRoute = '/api/messages';
+const questionRoute = '/api/feedbacks';
+
+
+const dispatchForm = ({ form_name, data }) => {
+  const options = {
+    'Content-Type': 'application/json',
+    Authorization: `Basic ${API_MESSAGING_AUTH_BASIC_KEY}`,
+    hostname: BASE_BACKEND_URL,
+    method: 'POST',
+  };
+
+  if (form_name === 'invitation') {
+    const { email, name } = data;
+    const dataForSending = JSON.stringify({
+      email,
+      fullName: name,
+    });
+    options['Content-Length'] = Buffer.byteLength(dataForSending);
+    options.path = messageRoute;
+    return [dataForSending, options];
+  }
+
+  if (form_name === 'question') {
+    const {
+      fullName, email, subject, comment
+    } = data;
+    const dataForSending = JSON.stringify({
+      email,
+      fullName,
+      theme: subject,
+      text: comment
+    });
+    options['Content-Length'] = Buffer.byteLength(dataForSending);
+    options.path = questionRoute;
+    return [dataForSending, options];
+  }
+
+  throw new Error(`Undefined form name: ${form_name}\n data: ${JSON.stringify(data)}`);
+};
+
+const logNewSubmission = data => {
+  console.log('Received submission from ');
+  console.log(`With payload: ${data}`);
+  console.log('Content-Length: ', Buffer.byteLength(data));
+};
 
 
 exports.handler = async (event, context, callback) => {
-  const payload = JSON.parse(event.body).payload.data;
-  const { ip, user_agent } = payload;
-  const {
-    email, name
-  } = payload;
-  const dataForSending = JSON.stringify({
-    email,
-    fullName: name,
-  });
+  const { form_name, data } = JSON.parse(event.body).payload;
 
-  const headers = {
-    'Content-Type': 'application/json',
-    'Content-Length': Buffer.byteLength(dataForSending),
-    Authorization: `Basic ${API_MESSAGING_AUTH_BASIC_KEY}`,
-  };
+  try {
+    const [dataForSending, options] = dispatchForm({ form_name, data });
+    logNewSubmission(dataForSending);
 
-  const options = {
-    hostname: BASE_BACKEND_URL,
-    path: messageRoute,
-    method: 'POST',
-    headers
-  };
-
-  console.log('Received submission from ');
-  console.log(`Ip: ${ip}, User Agent: ${user_agent}`);
-  console.log(`With payload: ${payload}`);
-  console.log('Content-Length: ', Buffer.byteLength(dataForSending));
-
-  const req = http.request(options, (res) => {
-    console.log(`statusCode: ${res.statusCode}`);
-
-    res.setEncoding('utf8');
-
-    res.on('end', () => {
-      callback(null, {
-        statusCode: 200
+    const req = http.request(options, (res) => {
+      console.log(`statusCode: ${res.statusCode}`);
+      res.setEncoding('utf8');
+      res.on('end', () => {
+        callback(null, {
+          statusCode: 200
+        });
+      });
+      res.on('data', (d) => {
+        process.stdout.write(d);
       });
     });
 
-    res.on('data', (d) => {
-      process.stdout.write(d);
+    req.on('error', (error) => {
+      throw new Error(`Problem with request:\n ${error.message}`);
     });
-  });
+    req.write(dataForSending);
+    req.end();
 
-  req.on('error', (error) => {
-    console.log('Problem with request:', error.message);
-  });
-
-  req.write(dataForSending);
-  req.end();
-
-  callback(null, {
-    statusCode: 200,
-    data: dataForSending
-  });
+    callback(null, {
+      statusCode: 200,
+      data: dataForSending
+    });
+  } catch (err) {
+    console.log('Error Occurred:\n', err);
+  }
 };
