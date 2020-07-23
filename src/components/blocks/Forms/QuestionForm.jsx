@@ -103,8 +103,6 @@ class QuestionForm extends React.Component {
         {formik => (
           <Form
             method="post"
-            netlify-honeypot="bot-field"
-            data-netlify="true"
             name="question"
             style={{ marginBottom: 0 }}
             innerRef={this.ref}
@@ -176,5 +174,14 @@ class QuestionForm extends React.Component {
     );
   }
 }
+
+export const HiddenQuestionForm = () => (
+  <form name="question" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="fullName" />
+    <input type="email" name="email" />
+    <select name="subject" />
+    <textarea name="message" />
+  </form>
+);
 
 export default QuestionForm;
