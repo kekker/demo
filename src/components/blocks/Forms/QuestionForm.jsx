@@ -6,7 +6,6 @@ import RichTextInput from '../../fragments/FormComponents/RichTextinput';
 import SelectInput from '../../fragments/FormComponents/SelectInput';
 import TextInput from '../../fragments/FormComponents/TextInput';
 import Button from '../../fragments/Button/Button';
-import Text from '../../fragments/TextStyles/Text';
 import SuccessfulFormMessage from './FormMessages/SuccessfulFormMessage';
 import ErrorFormMessage from './FormMessages/ErrorFormMessage';
 
@@ -176,7 +175,7 @@ class QuestionForm extends React.Component {
 }
 
 export const HiddenQuestionForm = () => (
-  <form name="question" netlify netlify-honeypot="bot-field" hidden>
+  <form name="question" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
     <input type="text" name="fullName" />
     <input type="email" name="email" />
     <select name="subject" />
