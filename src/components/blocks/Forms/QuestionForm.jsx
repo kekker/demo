@@ -177,6 +177,7 @@ class QuestionForm extends React.Component {
 
 export const HiddenQuestionForm = () => (
   <form name="question" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" />
     <input type="text" name="fullName" />
     <input type="email" name="email" />
     <select name="subject" />
