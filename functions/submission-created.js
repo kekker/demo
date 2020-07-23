@@ -5,8 +5,8 @@ const http = require('http');
 const messageRoute = '/api/messages';
 const questionRoute = '/api/feedbacks';
 
-const dispatchForm = payload => {
-  const { form_name } = payload;
+
+const dispatchForm = (data, form_name) => {
   const options = {
     'Content-Type': 'application/json',
     Authorization: `Basic ${API_MESSAGING_AUTH_BASIC_KEY}`,
@@ -15,7 +15,7 @@ const dispatchForm = payload => {
   };
 
   if (form_name === 'invitation') {
-    const { email, name } = payload;
+    const { email, name } = data;
     const dataForSending = JSON.stringify({
       email,
       fullName: name,
@@ -28,7 +28,7 @@ const dispatchForm = payload => {
   if (form_name === 'question') {
     const {
       fullName, email, subject, comment
-    } = payload;
+    } = data;
     const dataForSending = JSON.stringify({
       email,
       fullName,
@@ -40,7 +40,7 @@ const dispatchForm = payload => {
     return [dataForSending, options];
   }
 
-  throw new Error(`Undefined form name: ${form_name}\n data: ${JSON.stringify(payload)}`);
+  throw new Error(`Undefined form name: ${form_name}\n data: ${JSON.stringify(data)}`);
 };
 
 const logNewSubmission = data => {
@@ -51,10 +51,10 @@ const logNewSubmission = data => {
 
 
 exports.handler = async (event, context, callback) => {
-  const payload = JSON.parse(event.body).payload.data;
+  const { form_name, data } = JSON.parse(event.body).payload;
 
   try {
-    const [dataForSending, options] = dispatchForm(payload);
+    const [dataForSending, options] = dispatchForm(form_name, data);
     logNewSubmission(dataForSending);
 
     const req = http.request(options, (res) => {
