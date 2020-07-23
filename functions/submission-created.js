@@ -6,7 +6,7 @@ const messageRoute = '/api/messages';
 const questionRoute = '/api/feedbacks';
 
 
-const dispatchForm = (data, form_name) => {
+const dispatchForm = ({ form_name, data }) => {
   const options = {
     'Content-Type': 'application/json',
     Authorization: `Basic ${API_MESSAGING_AUTH_BASIC_KEY}`,
