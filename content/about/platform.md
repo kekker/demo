@@ -1,8 +1,7 @@
 ---
 title: Platform
 description: A Kekker platform description
-next: solutions
-prev: benefits
+next: benefits
 ---
 
 # Platform
