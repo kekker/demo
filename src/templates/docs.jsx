@@ -3,31 +3,14 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
 // Components
-import styled from 'styled-components';
 import Layout from '../components/fragments/Layout/Layout';
 import MarkdownContent from '../components/blocks/MarkdownContent';
-
-import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
+import GridMenu from '../components/fragments/GridItem/GridMenu';
+import ResponsiveAside from '../components/fragments/ResponsiveAside';
 import SideMenu from '../components/blocks/Menu/SideMenu';
 
+import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
 
-const GridMenu = styled.div`
-  margin-bottom: ${({ theme }) => theme.space[6]}px;
-  margin-top: ${({ theme }) => theme.space[3]}px;
-  white-space: nowrap;
-
-  @media (min-height: 300px) {
-    position: sticky;
-    top: calc(${({ theme }) => theme.layout.menuHeight} 
-              + ${({ theme }) => theme.space[7]}px);
-  }
-`;
-
-const ResponsiveAside = styled.aside`
-  @media (max-width: 700px) {
-    display: none;
-  }
-`;
 
 const Docs = ({ data, pageContext, location }) => {
   const { frontmatter } = data.markdownRemark;

@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 // Components
 import Layout from '../../components/fragments/Layout';
 import MarkdownFooter from '../../components/blocks/MarkdownFooter';
-import SandboxPromoSection from '../../components/blocks/SandboxPromoSection';
 import Heading from '../../components/fragments/TextStyles/Heading';
 import Text from '../../components/fragments/TextStyles/Text';
 import SolutionsList from '../../components/blocks/SolutionsList/SolutionsList';
+import SideMenu from '../../components/blocks/Menu/SideMenu';
+import GridMenu from '../../components/fragments/GridItem/GridMenu';
+import ResponsiveAside from '../../components/fragments/ResponsiveAside';
+
+import { listAboutLinks } from '../../utils/getLinkLists';
+
 
 const SolutionsPage = ({ location }) => {
   const prev = {
-    to: '/about/platform.html',
-    title: 'Platform'
-  };
-
-  const next = {
     to: '/about/benefits.html',
     title: 'Benefits'
   };
@@ -26,21 +26,30 @@ const SolutionsPage = ({ location }) => {
       title="Decentralized solutions worldwide"
       description="Decentralized solutions"
     >
-      <Heading>Solutions</Heading>
-      <Text tag="p">
-        Companies from different industries seek operational efficiency in platform solutions.
-        Distributed (blockchain-based) platforms are expected to deliver the greatest
-        benefits with their ability to create more transparency and fairness
-        while also saving businesses time and money.
-      </Text>
-      <Text tag="p">
-        Below you can find practical examples of blockchain technology,
-        already changing traditional ways of doing business.
-        Major sectors are introducing distributed solutions to address
-        recurrent industry problems.
-      </Text>
-      <SolutionsList />
-      <MarkdownFooter next={next} prev={prev} />
+      <div>
+        <Heading>Solutions</Heading>
+        <Text tag="p">
+          Companies from different industries seek operational efficiency in platform solutions.
+          Distributed (blockchain-based) platforms are expected to deliver the greatest
+          benefits with their ability to create more transparency and fairness
+          while also saving businesses time and money.
+        </Text>
+        <Text tag="p">
+          Below you can find practical examples of blockchain technology,
+          already changing traditional ways of doing business.
+          Major sectors are introducing distributed solutions to address
+          recurrent industry problems.
+        </Text>
+        <SolutionsList />
+        <MarkdownFooter prev={prev} />
+      </div>
+
+      <ResponsiveAside>
+        <GridMenu>
+          <SideMenu location={location.pathname} links={listAboutLinks} />
+        </GridMenu>
+      </ResponsiveAside>
+
     </Layout>
   );
 };

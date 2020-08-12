@@ -46,7 +46,7 @@
     "react-typography": "^0.16.19",
     "styled-components": "^5.0.1",
     "styled-system": "^5.1.5",
-    "swagger-ui-react": "^3.25.0",
+    "swagger-ui-react": "3.25.0",
     "typography": "^0.16.19",
     "yup": "^0.28.3"
   },

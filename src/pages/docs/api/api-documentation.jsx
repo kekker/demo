@@ -7,11 +7,15 @@ import '../../../styles/swagger-ui-new.css';
 // Components
 import Layout from '../../../components/fragments/Layout';
 import MarkdownFooter from '../../../components/blocks/MarkdownFooter';
-import SandboxPromoSection from '../../../components/blocks/SandboxPromoSection';
+import GridMenu from '../../../components/fragments/GridItem/GridMenu';
+import SideMenu from '../../../components/blocks/Menu/SideMenu';
+import { listDocsLinks } from '../../../utils/getLinkLists';
+import ResponsiveAside from '../../../components/fragments/ResponsiveAside';
 
-const swaggerContent = require('../../../../static/kekkerdemo-client');
+const swaggerContent = require('../../../../static/kekkerdemo');
 
-class ClientPage extends React.Component {
+
+class ApiPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,26 +42,29 @@ class ClientPage extends React.Component {
       title: 'Handling Errors'
     };
 
-    const next = {
-      to: '/docs/api/deal',
-      title: 'API: Deal'
-    };
-
     return (
       <Layout
         location={location.pathname}
-        title="API Client - Kekker"
-        description="Client request for Kekker API"
+        title="API Documentation - Kekker"
+        description="Kekker API Documentation"
       >
-        {swaggerComponent}
-        <MarkdownFooter next={next} prev={prev} />
+        <div>
+          {swaggerComponent}
+          <MarkdownFooter prev={prev} />
+        </div>
+
+        <ResponsiveAside>
+          <GridMenu>
+            <SideMenu location={location.pathname} links={listDocsLinks} />
+          </GridMenu>
+        </ResponsiveAside>
       </Layout>
     );
   }
 }
 
-ClientPage.propTypes = {
+ApiPage.propTypes = {
   location: PropTypes.object,
 };
 
-export default ClientPage;
+export default ApiPage;
