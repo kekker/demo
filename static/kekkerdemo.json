@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1",
-    "title": "Kekker.API",
-    "description": "Kekker deals API"
+    "title": "Kekker API",
+    "description": "Kekker API Documentation"
   },
   "paths": {
     "/api/clients": {

@@ -29,20 +29,8 @@ items:
       - title: Handling Errors
         to: /docs/api/handling-errors.html
 
-      - title: Client
-        to: /docs/api/client
-
-      - title: Deal
-        to: /docs/api/deal
-
-      - title: DealTemplate
-        to: /docs/api/dealtemplate
-
-      - title: Event
-        to: /docs/api/event
-
-      - title: Service
-        to: /docs/api/service
+      - title: API Documentation
+        to: /docs/api/api-documentation
 
   - header: About
     items:
