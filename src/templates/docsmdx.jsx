@@ -3,8 +3,8 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
 // Components
-import Layout from '../components/Layout/Layout';
-import RenderRawContent from '../components/MarkdownContent';
+import Layout from '../components/fragments/Layout/Layout';
+import RenderRawContent from '../components/blocks/MarkdownContent';
 import { listAboutLinks, listDocsLinks } from '../utils/getLinkLists';
 
 

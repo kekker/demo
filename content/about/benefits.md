@@ -1,8 +1,8 @@
 ---
 title: Benefits
 description: Kekker benefits faster time to market cheaper
-next: platform
-prev: solutions
+next: solutions
+prev: platform
 ---
 
 # Benefits

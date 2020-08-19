@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Sandbox Basic",
+    "text": "Build your prototype and test your hypotheses",
+    "price": "Free",
+    "limits": "100TRX/DAY INCLUDED"
+  },
+  {
+    "title": "Sandbox Growth",
+    "text": "Grow your app with unlimited transactions",
+    "price": "$49/month",
+    "limits": "UNLIMITED TRX/DAY"
+  },
+  {
+    "title": "Kekker Business",
+    "text": "Contact us for support and an infrastructure tailored to your needs",
+    "price": "",
+    "limits": "",
+    "button": "Contact us"
+  }
+]
