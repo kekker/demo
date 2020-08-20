@@ -13,7 +13,7 @@ const TextArea = styled.textarea`
   position: absolute;
   top: 5px;
   width: 300px;
-  height: 30px;
+  height: ${({ heightMultiplier }) => heightMultiplier * 30}px;
   
   margin: 0;
   padding: 0 0 0 5px;
@@ -64,9 +64,15 @@ const CodeEditor = ({ code, language, TabLabel }) => {
   const valuesIndex = {
     CHANNEL: null,
     AUTHORIZATION: null,
-    UID_Quorum: null,
-    UID_Hyperledger: null,
-    UID_Ethereum: null,
+    QUEUEID_Quorum: null,
+    LOCALDEALID_Quorum: null,
+    DEALID_Quorum: null,
+    QUEUEID_Ethereum: null,
+    LOCALDEALID_Ethereum: null,
+    DEALID_Ethereum: null,
+    QUEUEID_Hyperledger: null,
+    LOCALDEALID_Hyperledger: null,
+    DEALID_Hyperledger: null,
   };
 
   const re = /{(\w+)}/;
@@ -77,7 +83,7 @@ const CodeEditor = ({ code, language, TabLabel }) => {
       const actionType = `UPDATE_${elem}`;
       return (evt) => dispatch({ type: actionType, value: evt.target.value });
     }
-    if (elem === 'UID') {
+    if (elem === 'DEALID' || elem === 'QUEUEID' || elem === 'LOCALDEALID') {
       const actionType = `UPDATE_${elem}_${TabLabel}`;
       return (evt) => pageDispatch({ type: actionType, value: evt.target.value });
     }
@@ -89,7 +95,7 @@ const CodeEditor = ({ code, language, TabLabel }) => {
     if (elem === 'CHANNEL' || elem === 'AUTHORIZATION') {
       return state[elem];
     }
-    if (elem === 'UID') {
+    if (elem === 'DEALID' || elem === 'QUEUEID' || elem === 'LOCALDEALID') {
       return pageState[`${elem}_${TabLabel}`];
     }
     return null;
@@ -110,14 +116,19 @@ const CodeEditor = ({ code, language, TabLabel }) => {
         );
       }
       let valueName = elem;
-      if (elem === 'UID') {
+      let rowCount = 1;
+      if (elem === 'DEALID' || elem === 'QUEUEID' || elem === 'LOCALDEALID') {
         valueName = `${elem}_${TabLabel}`;
+      }
+      if (elem === 'DEALID') {
+        rowCount = 2;
       }
       valuesIndex[valueName] = index;
       return (
         <TextAreaContainer key={elem}>
           <TextArea
-            rows={1}
+            rows={rowCount}
+            heightMultiplier={rowCount}
             value={valueDispatcher(elem)}
             onChange={stateDispatcher(elem)}
             placeholder={elem}
@@ -140,14 +151,32 @@ const CodeEditor = ({ code, language, TabLabel }) => {
     if (valuesIndex.CHANNEL) {
       returnCode[valuesIndex.CHANNEL] = state.CHANNEL ? state.CHANNEL : 'CHANNEL';
     }
-    if (valuesIndex.UID_Quorum) {
-      returnCode[valuesIndex.UID_Quorum] = pageState.UID_Quorum ? pageState.UID_Quorum : 'UID';
+    if (valuesIndex.QUEUEID_Quorum) {
+      returnCode[valuesIndex.QUEUEID_Quorum] = pageState.QUEUEID_Quorum ? pageState.QUEUEID_Quorum : 'QUEUEID';
     }
-    if (valuesIndex.UID_Hyperledger) {
-      returnCode[valuesIndex.UID_Hyperledger] = pageState.UID_Hyperledger ? pageState.UID_Hyperledger : 'UID';
+    if (valuesIndex.DEALID_Quorum) {
+      returnCode[valuesIndex.DEALID_Quorum] = pageState.DEALID_Quorum ? pageState.DEALID_Quorum : 'DEALID';
     }
-    if (valuesIndex.UID_Ethereum) {
-      returnCode[valuesIndex.UID_Ethereum] = pageState.UID_Ethereum ? pageState.UID_Ethereum : 'UID';
+    if (valuesIndex.LOCALDEALID_Quorum) {
+      returnCode[valuesIndex.LOCALDEALID_Quorum] = pageState.LOCALDEALID_Quorum ? pageState.LOCALDEALID_Quorum : 'LOCALDEALID';
+    }
+    if (valuesIndex.QUEUEID_Hyperledger) {
+      returnCode[valuesIndex.QUEUEID_Hyperledger] = pageState.QUEUEID_Hyperledger ? pageState.QUEUEID_Hyperledger : 'QUEUEID';
+    }
+    if (valuesIndex.DEALID_Hyperledger) {
+      returnCode[valuesIndex.DEALID_Hyperledger] = pageState.DEALID_Hyperledger ? pageState.DEALID_Hyperledger : 'DEALID';
+    }
+    if (valuesIndex.LOCALDEALID_Hyperledger) {
+      returnCode[valuesIndex.LOCALDEALID_Hyperledger] = pageState.LOCALDEALID_Hyperledger ? pageState.LOCALDEALID_Hyperledger : 'LOCALDEALID';
+    }
+    if (valuesIndex.QUEUEID_Ethereum) {
+      returnCode[valuesIndex.QUEUEID_Ethereum] = pageState.QUEUEID_Ethereum ? pageState.QUEUEID_Ethereum : 'QUEUEID';
+    }
+    if (valuesIndex.DEALID_Ethereum) {
+      returnCode[valuesIndex.DEALID_Ethereum] = pageState.DEALID_Ethereum ? pageState.DEALID_Ethereum : 'DEALID';
+    }
+    if (valuesIndex.LOCALDEALID_Ethereum) {
+      returnCode[valuesIndex.LOCALDEALID_Ethereum] = pageState.LOCALDEALID_Ethereum ? pageState.LOCALDEALID_Ethereum : 'LOCALDEALID';
     }
 
     const returnStr = returnCode.join('').replace(/\s\s+|[\n\r]/g, ' ');
