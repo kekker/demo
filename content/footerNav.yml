@@ -23,14 +23,38 @@ items:
 
   - header: API
     items:
+      - title: About
+        to: /docs/api/about.html
+
+      - title: Business object identifiers
+        to: /docs/api/business-object-identifiers.html
+
+      - title: File operations
+        to: /docs/api/file-operations.html
+
+      - title: Operations with networks
+        to: /docs/api/operations-with-networks.html
+
+      - title: Interaction with operation queues
+        to: /docs/api/interaction-with-operation-queues.html
+
+      - title: Interaction with events
+        to: /docs/api/interaction-with-events.html
+
+      - title: Operations with abstract business objects
+        to: /docs/api/operations-with-abstract-business-objects.html
+
       - title: Authorization
         to: /docs/api/authorization.html
 
       - title: Handling Errors
         to: /docs/api/handling-errors.html
 
-      - title: API Documentation
-        to: /docs/api/api-documentation
+      - title: Versioning
+        to: /docs/api/versioning.html
+
+      - title: API List
+        to: /docs/api/api-list
 
   - header: About
     items:

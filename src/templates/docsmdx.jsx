@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Layout from '../components/fragments/Layout/Layout';
 import RenderRawContent from '../components/blocks/MarkdownContent';
 import { listAboutLinks, listDocsLinks } from '../utils/getLinkLists';
-import GridMenu from '../components/fragments/GridItem/GridMenu';
 import SideMenu from '../components/blocks/Menu/SideMenu';
 import ResponsiveAside from '../components/fragments/ResponsiveAside';
 
@@ -32,9 +31,7 @@ const DocsMdx = ({ data, pageContext, location }) => {
         listItems={listItems}
       />
       <ResponsiveAside>
-        <GridMenu>
-          <SideMenu location={location.pathname} links={listItems} />
-        </GridMenu>
+        <SideMenu location={location.pathname} links={listItems} />
       </ResponsiveAside>
     </Layout>
   );

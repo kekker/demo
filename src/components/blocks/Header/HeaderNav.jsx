@@ -120,7 +120,7 @@ class HeaderNav extends React.Component {
     const DropDownMenu = (
       <StyledDropdownSection isExpanded={isExpanded}>
         <ContainerSection bg="#000000">
-          <ContainerContent pt={3} pb={{ _: 4, sm: 6 }}>
+          <ContainerContent pt={3} pb={{ _: 4, sm: 6 }} style={{ height: 'calc(100vh - 66px)' }}>
             <Flex flexDirection="column" height="100%">
               <Grid>
                 {footerNav.items.map(linkSection => (

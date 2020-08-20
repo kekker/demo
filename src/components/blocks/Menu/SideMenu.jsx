@@ -24,23 +24,48 @@ const MenuHeader = styled(Heading)`
   }
 `;
 
+const StickyMenu = styled.nav`
+  max-width: 250px;
+  
+  @media (min-height: 300px) {
+    position: sticky;
+    top: ${({ theme }) => theme.layout.menuHeight};
+  }
+`;
+
+const ScrollContainer = styled.div`
+  height: calc(100vh - 10vh - 75px);
+  overflow-y: scroll;
+  
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 const SideMenu = ({ location, links }) => (
-  <>
-    {links.map(section => (
-      <React.Fragment key={section.header}>
-        <MenuHeader
-          mb={2}
-          textTransform="uppercase"
-          textAlign="left"
-          level={4}
-          fontSize="22px"
-        >
-          {section.header}
-        </MenuHeader>
-        <MenuLinks location={location} links={section.items} />
-      </React.Fragment>
-    ))}
-  </>
+  <StickyMenu>
+    <ScrollContainer>
+      <div style={{ marginLeft: '30px', marginTop: '1em' }}>
+        {links.map(section => (
+          <div style={{ marginBottom: '20px' }} key={section.header}>
+            <MenuHeader
+              mb={2}
+              textTransform="uppercase"
+              textAlign="left"
+              level={4}
+              fontSize="22px"
+            >
+              {section.header}
+            </MenuHeader>
+            <MenuLinks location={location} links={section.items} />
+          </div>
+        ))}
+      </div>
+    </ScrollContainer>
+  </StickyMenu>
 );
 
 

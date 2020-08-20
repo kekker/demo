@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // Components
 import Layout from '../components/fragments/Layout/Layout';
 import MarkdownContent from '../components/blocks/MarkdownContent';
-import GridMenu from '../components/fragments/GridItem/GridMenu';
 import ResponsiveAside from '../components/fragments/ResponsiveAside';
 import SideMenu from '../components/blocks/Menu/SideMenu';
 
@@ -26,17 +25,13 @@ const Docs = ({ data, pageContext, location }) => {
       title={title}
       description={description}
     >
-      <div>
-        <MarkdownContent
-          frontmatter={frontmatter}
-          content={content}
-          listItems={listItems}
-        />
-      </div>
+      <MarkdownContent
+        frontmatter={frontmatter}
+        content={content}
+        listItems={listItems}
+      />
       <ResponsiveAside>
-        <GridMenu>
-          <SideMenu location={location.pathname} links={listItems} />
-        </GridMenu>
+        <SideMenu location={location.pathname} links={listItems} />
       </ResponsiveAside>
     </Layout>
   );
