@@ -1,6 +1,7 @@
 ---
 title: Authorization
-description: Authorization for Kekker Sandbox
+description: Authorization for Kekker Platform
+prev: Operations with abstract business objects
 next: Handling Errors
 sandboxPromo: true
 ---
