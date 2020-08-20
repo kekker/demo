@@ -5,11 +5,6 @@ import styled from 'styled-components';
 import Text from '../../fragments/TextStyles/Text';
 import getPageTitleFromPathname from '../../../utils/getPageTitleFromPathname';
 
-
-const MenuWrapper = styled.div`
-  margin-bottom: 30px;
-`;
-
 const StyledMenuLink = styled(Link)`
   position: relative;
   text-decoration: none;
@@ -21,6 +16,18 @@ const StyledMenuLink = styled(Link)`
   }
 `;
 
+const StyledUl = styled.ul`
+  margin: 0;
+`;
+
+const StyledLi = styled.li`
+  margin: 10px 0;
+  
+  &::before {
+    display: none;
+  }
+`;
+
 const MenuLinks = ({ links, location }) => {
   const mappedLinks = links.map(link => {
     const currentPageLinkTitle = getPageTitleFromPathname(location);
@@ -28,24 +35,26 @@ const MenuLinks = ({ links, location }) => {
     const isActive = currentPageLinkTitle === link.title.toLowerCase();
 
     return (
-      <StyledMenuLink isActive={isActive} key={link.title} to={link.to}>
-        <Text
-          fontSize="medium"
-          tag="div"
-          color="primaryText"
-          textAlign="left"
-          textTransform="uppercase"
-        >
-          {link.title}
-        </Text>
-      </StyledMenuLink>
+      <StyledLi key={link.title}>
+        <StyledMenuLink isActive={isActive} to={link.to}>
+          <Text
+            fontSize="medium"
+            tag="p"
+            color="primaryText"
+            textAlign="left"
+            lineHeight="1.2em"
+          >
+            {link.title}
+          </Text>
+        </StyledMenuLink>
+      </StyledLi>
     );
   });
 
   return (
-    <>
-      <MenuWrapper>{mappedLinks}</MenuWrapper>
-    </>
+    <StyledUl>
+      {mappedLinks}
+    </StyledUl>
   );
 };
 
