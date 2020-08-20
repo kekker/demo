@@ -9,6 +9,7 @@ import Heading from '../../fragments/TextStyles/Heading';
 const StyledFooterLink = styled(Link)`
   color: ${props => props.theme.colors.invertedText};
   display: block;
+  margin: 2px 0;
   transition: 'color 0.2s ease-out';
 
   text-decoration: none;
