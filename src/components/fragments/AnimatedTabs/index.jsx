@@ -60,6 +60,7 @@ const StyledTab = styled(Tab)`
   position: relative;
   background: transparent;
   border: none;
+  outline: none;
   
   padding: 4px ${HORIZONTAL_PADDING}px 4px 0;
   font-size: 18px;

@@ -30,13 +30,13 @@ h1 {
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 28px;
   letter-spacing: -0.02em;
 }
 
 @media (max-width: 960px) {
   h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 
@@ -47,8 +47,8 @@ h2 {
 }
 
 h2, h3, h4, h5, h6 {
-  margin-top: 1.4em;
-  margin-bottom: 0.4em;
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
 }
 
 a, button {
@@ -140,6 +140,29 @@ hr:before {
   position: absolute;
   top: 10px;
   left: 45%;
+}
+
+table {
+  margin-bottom: 0;
+  max-width: 55vw;
+}
+
+@media (max-width: 980px) {
+  table {
+    max-width: 90vw;
+  }
+}
+
+td, th {
+  padding: 5px;
+}
+
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(3) {
+  width: 20%;
 }
 
 /* ***********************************
