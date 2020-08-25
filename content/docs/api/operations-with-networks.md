@@ -26,6 +26,8 @@ underlying a group of networks.
 Operations within this group allow Business-application to gain information about every 
 cluster, underlying the group of networks, including members list of every cluster. 
 
+> **See API Documentation: [API: Networks Requests](/docs/api/requests-networks.html)**
+
 #### The following operations are included into this group:
 * `GET /api/clusters` - obtaining a list of available networks/clusters
 * `GET /api/clusters/{ClusterId}` - obtaining information about particular cluster

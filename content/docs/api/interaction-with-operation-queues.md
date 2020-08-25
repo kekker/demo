@@ -22,6 +22,9 @@ In case of an implementation error, an implementation of all consequent operatio
 business-object instance, will be interrupted  until the error correction or deletion of the wrong operation 
 from the queue are performed. 
 
+> **See API documentation: [API: Queue Requests](/docs/api/requests-queues.html)** 
+
+
 **Operation identifier in the queue - QueueId.** Business-application gets **QueueId** 
 in response to an API-operation call during the creation/updating of the business-object. 
 After that, the following operations with the queue gets available in relation 

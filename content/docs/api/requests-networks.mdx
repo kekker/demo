@@ -1,0 +1,733 @@
+---
+title: API Networks Requests
+description: API Networks Requests for Kekker platform
+sandboxPromo: true
+---
+
+import ResponseStatusTabs from '../../../src/components/blocks/ResponseStatusTabs';
+import TabItem from '../../../src/components/blocks/TabBar/TabItem';
+import TabBar from '../../../src/components/blocks/TabBar/TabBar';
+import CodeEditor from '../../../src/components/blocks/CodeEditor/CodeEditor';
+import HeaderRequestLink from '../../../src/components/fragments/HeaderRequestLink';
+
+
+<HeaderRequestLink title="GET /api/clients" />
+
+Get current cluster clients list
+
+### Query parameters:
+
+| Header       | Description                  | Required |
+|--------------|------------------------------|----------|
+| pageNumber   | Paging: position             | false    |
+| pageSize     | Paging: returned items count | false    |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET "http://qrm1.kekker.com/api/clients"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET "http://hlf1.kekker.com/api/clients"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET "http://eth1.kekker.com/api/clients"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'PagedResponse<Client>',
+      ref: '#'
+    },
+    example: `{
+  "pageNumber": 1,
+  "pageSize": 10,
+  "totalRecords": 3,
+  "data": [
+    {
+      "clusterId": "abb755c40618426ead3384f81807586d",
+      "key": "QRM1",
+      "publicCertificates": [],
+      "info": "QRM1 public data"
+    },
+    {
+      "clusterId": "abb755c40618426ead3384f81807586d",
+      "key": "QRM2",
+      "publicCertificates": [],
+      "info": "QRM2 public data"
+    },
+    {
+      "clusterId": "abb755c40618426ead3384f81807586d",
+      "key": "QRM3",
+      "publicCertificates": [],
+      "info": "QRM3 public data"
+    }
+  ]
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/cluster" />
+
+Get current cluster information
+
+### Query parameters:
+none
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET "http://qrm1.kekker.com/api/cluster"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET "http://hlf1.kekker.com/api/cluster"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET "http://eth1.kekker.com/api/cluster"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'ClusterInfo',
+      ref: '#'
+    },
+    example: `{
+  "clusterId": "QRM",
+  "description": "Kekker Sandbox",
+  "techInfo": "Quorum private cluster",
+  "applications": [],
+  "operatorInfo": "Kekker",
+  "clientsNumber": 3
+}`
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Cluster not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/clusters" />
+
+Get clusters list
+
+### Query parameters:
+
+| Header       | Description                  | Required |
+|--------------|------------------------------|----------|
+| pageNumber   | Paging: position             | false    |
+| pageSize     | Paging: returned items count | false    |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET "http://qrm1.kekker.com/api/clusters"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET "http://hlf1.kekker.com/api/clusters"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET "http://eth1.kekker.com/api/clusters"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Array<ClusterTech>',
+      ref: '#'
+    },
+    example: `[
+  {
+    "clusterId": "QRM",
+    "versionInfo": "1.0",
+    "clientsNumber": 3
+  },
+  {
+    "clusterId": "HLF",
+    "versionInfo": "1.0",
+    "clientsNumber": 3
+  },
+  {
+    "clusterId": "ETH",
+    "versionInfo": "1.0",
+    "clientsNumber": 2
+  }
+]`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/clusters/{clusterId}" />
+
+Get cluster information
+
+### Query parameters:
+
+| Header       | Description                       | Type     |
+|--------------|-----------------------------------|----------|
+| clusterId    | Unique identifier for the cluster | string   |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET "http://qrm1.kekker.com/cluster/QRM"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET "http://hlf1.kekker.com/cluster/QRM"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET "http://eth1.kekker.com/cluster/QRM"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'ClusterInfo',
+      ref: '#'
+    },
+    example: `{
+  "clusterId": "QRM",
+  "description": "Kekker Sandbox",
+  "techInfo": "Quorum private cluster",
+  "applications": [],
+  "operatorInfo": "Kekker",
+  "clientsNumber": 3
+}`
+  },
+  {
+      statusCode: 400,
+      description: 'Returned in case of request validation error.',
+      headers: [
+        {
+          header: 'content-type',
+          value: 'application/json; charset=utf-8'
+        },
+        {
+          header: 'api-supported-versions',
+          value: 'Supported versions. Example: 1.0, 2.0'
+        }
+      ],
+      scheme: {
+        contentType: 'application/json',
+        value: 'Error',
+        ref: '#'
+      },
+      example: `{
+  "errorMessage": "Cluster not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/clusters/{clusterId}/clients" />
+
+Get cluster clients
+
+### Query parameters:
+
+| Header       | Description                       | Required |
+|--------------|-----------------------------------|----------|
+| clusterId    | Unique identifier for the cluster | true     |
+| pageNumber   | Paging: position                  | false    |
+| pageSize     | Paging: returned items count      | false    |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET "http://qrm1.kekker.com/cluster/QRM/clients"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET "http://hlf1.kekker.com/cluster/QRM/clients"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET "http://eth1.kekker.com/cluster/QRM/clients"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'PagedResponse<Client>',
+      ref: '#'
+    },
+    example: `{
+  "pageNumber": 1,
+  "pageSize": 10,
+  "totalRecords": 3,
+  "data": [
+    {
+      "clusterId": "abb755c40618426ead3384f81807586d",
+      "key": "QRM1",
+      "publicCertificates": [],
+      "info": "QRM1 public data"
+    },
+    {
+      "clusterId": "abb755c40618426ead3384f81807586d",
+      "key": "QRM2",
+      "publicCertificates": [],
+      "info": "QRM2 public data"
+    },
+    {
+      "clusterId": "abb755c40618426ead3384f81807586d",
+      "key": "QRM3",
+      "publicCertificates": [],
+      "info": "QRM3 public data"
+    }
+  ]
+}`
+  },
+  {
+      statusCode: 400,
+      description: 'Returned in case of request validation error.',
+      headers: [
+        {
+          header: 'content-type',
+          value: 'application/json; charset=utf-8'
+        },
+        {
+          header: 'api-supported-versions',
+          value: 'Supported versions. Example: 1.0, 2.0'
+        }
+      ],
+      scheme: {
+        contentType: 'application/json',
+        value: 'Error',
+        ref: '#'
+      },
+      example: `{
+  "errorMessage": "Cluster not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***

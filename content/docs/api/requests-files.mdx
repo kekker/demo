@@ -1,0 +1,297 @@
+---
+title: API File Requests
+description: API File Requests for Kekker Platform
+sandboxPromo: true
+---
+
+import ResponseStatusTabs from '../../../src/components/blocks/ResponseStatusTabs';
+import TabItem from '../../../src/components/blocks/TabBar/TabItem';
+import TabBar from '../../../src/components/blocks/TabBar/TabBar';
+import CodeEditor from '../../../src/components/blocks/CodeEditor/CodeEditor';
+import HeaderRequestLink from '../../../src/components/fragments/HeaderRequestLink';
+
+
+<HeaderRequestLink title="POST /api/files" />
+
+Upload file
+
+### Query parameters:
+none
+
+### Body:
+
+| Content Type        | Value            |
+|---------------------|------------------|
+| multipart/form-data | Form             |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X POST "http://qrm1.kekker.com/api/files"
+-H "accept: */*"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "Content-Type: multipart/form-data"
+-H "x-api-version: 2.0"
+-F "formFile=offer.pdf;type=application/pdf"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X POST "http://hlf1.kekker.com/api/files"
+-H "accept: */*"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "Content-Type: multipart/form-data"
+-H "x-api-version: 2.0"
+-F "formFile=offer.pdf;type=application/pdf"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X POST "http://eth1.kekker.com/api/files"
+-H "accept: */*"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "Content-Type: multipart/form-data"
+-H "x-api-version: 2.0"
+-F "formFile=offer.pdf;type=application/pdf"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful. Response body is empty.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ]
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "File not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/files/{fileUid}" />
+
+Download file
+
+### Query parameters:
+
+| Header       | Description                          | Type          |
+|--------------|--------------------------------------|---------------|
+| fileUid      | Unique local identifier for the file | string($uuid) |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET"http://qrm1.kekker.com/api/files/c19131e4-b9c1-4dce-8cae-b8d00f50fc61"
+-H "accept: */*"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET"http://hlf1.kekker.com/api/files/c19131e4-b9c1-4dce-8cae-b8d00f50fc61"
+-H "accept: */*"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET"http://eth1.kekker.com/api/files/c19131e4-b9c1-4dce-8cae-b8d00f50fc61"
+-H "accept: */*"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful. Response body is empty.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      },
+      {
+        header: 'content-disposition',
+        value: 'Attachment; filename='
+      }
+    ],
+    scheme: {
+      contentType: 'application/x-binary',
+      value: 'FileData',
+    }
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "File not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***

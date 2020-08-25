@@ -10,6 +10,8 @@ sandboxPromo: true
 
 ## Operations with Abstract deal
 
+> **See API documentation: [API: Abstract Business Objects Requests](/docs/api/requests-abstract-business-objects.html)**
+
 Kekker API provides the following operations with business-object "Abstract deal":
 * `GET /api/deals/templates` - obtaining a list of available deal templates
 * `POST /api/deals` - creature of a Deal
@@ -17,7 +19,6 @@ Kekker API provides the following operations with business-object "Abstract deal
 * `GET /api/deals` - obtaining a Deals list
 * `GET /api/deals/{Id}` - obtaining information about concrete Deal state
 * `GET /api/deals/{Id}/tech` - obtaining information about Deal technical characteristics
-
 
 > Business-application has to obtain a list of available Deal templates before the creature of any Deal - make 
 > a request `GET /api/deals/templates` and obtain templates description as an array of structures **DealTemplate**:

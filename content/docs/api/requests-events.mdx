@@ -1,0 +1,457 @@
+---
+title: API Events Requests
+description: API Events Requests for Kekker platform
+sandboxPromo: true
+---
+
+import {
+  TabPanels
+} from '@reach/tabs';
+
+import ResponseStatusTabs from '../../../src/components/blocks/ResponseStatusTabs';
+import TabItem from '../../../src/components/blocks/TabBar/TabItem';
+import TabBar from '../../../src/components/blocks/TabBar/TabBar';
+import CodeEditor from '../../../src/components/blocks/CodeEditor/CodeEditor';
+import HeaderRequestLink from '../../../src/components/fragments/HeaderRequestLink';
+
+
+<HeaderRequestLink title="GET /api/events/{category}" />
+
+Get events
+
+### Query parameters:
+
+| Header       | Description                  | Required |
+|--------------|------------------------------|----------|
+| category     | Events category filter. Available values: System, Clients, Queue, Deals | false |
+| pageNumber   | Paging: position             | false    |
+| pageSize     | Paging: returned items count | false    |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET "http://qrm1.kekker.com/api/events"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET "http://hlf1.kekker.com/api/events"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET "http://eth1.kekker.com/api/events"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'PagedResponse<Event>',
+      ref: '#'
+    },
+    example: `{
+  "pageNumber": 1,
+  "pageSize": 10,
+  "totalRecords": 5,
+  "data": [
+    {
+      "objectId": 10025,
+      "error": "Unknown client QRM4",
+      "eventUid": "3148a02e-862e-40eb-87af-d214b8e7ba2f",
+      "event": "ErrorQueueEvent",
+      "category": "Queue",
+      "timestamp": "2020-08-04T06:38:39.28"
+    },
+    {
+      "objectId": 10023,
+      "dealId": "ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff",
+      "eventUid": "1fdb07d4-e260-4e7e-aca9-69db3f0c2658",
+      "event": "SuccessQueueEvent",
+      "category": "Queue",
+      "timestamp": "2020-08-04T21:41:05.183"
+    },
+    {
+      "objectId": "ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff",
+      “localObjectId”:3487,
+      "eventUid": "d4eb2098-3890-49c8-8029-729752c57e65",
+      "event": "DealUpdated",
+      "category": "Deals",
+      "timestamp": "2020-08-04T21:41:05.183"
+    },
+    {
+      "queueId": 10022,
+      "dealId": "ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff",
+      "eventUid": "d256d4ce-b253-490f-83a9-68195c0f2bbe",
+      "event": "Success",
+      "category": "Queue",
+      "timestamp": "2020-08-04T21:23:14.813"
+    },
+    {
+      "objectId": "ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff",
+      “localObjectId”:3487,
+      "eventUid": "9a51267f-ce6b-4347-90cd-52d72a12c969",
+      "event": "DealUpdated",
+      "category": "Deals",
+      "timestamp": "2020-08-04T21:23:14.813"
+    }
+  ]
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="POST /api/events/{eventUid}/ack" />
+
+Ack event
+
+### Query parameters:
+
+| Header       | Description                    | Type          |
+|--------------|--------------------------------|---------------|
+| eventUid     | Unique identifier of the event | string($uuid) |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET "http://qrm1.kekker.com/api/events/56d5b7a2-2b5f-4f53-b790-d7448efc0234/ack"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET "http://hlf1.kekker.com/api/events/56d5b7a2-2b5f-4f53-b790-d7448efc0234/ack"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET "http://eth1.kekker.com/api/events/56d5b7a2-2b5f-4f53-b790-d7448efc0234/ack"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Earliest unprocessed event time (type: string("yyyy"-"MM"-"dd"T"HH":"mm":"ss"."fffffffzzz"))',
+    },
+    example: '2020-08-04T21:23:14.813'
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Event not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="POST /api/events/reset/{dateTimeUTC}" />
+
+Reinitialise events
+
+### Query parameters:
+
+| Header       | Description                    | Type          |
+|--------------|--------------------------------|---------------|
+| dateTimeUTC  | The lower time limit for reinitialization ISO8601 | string("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffzzz") |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET  "http://qrm1.kekker.com/api/events/reset/2020-08-04T06:38:39.2"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+                <CodeEditor code={
+                `
+curl -X GET  "http://hlf1.kekker.com/api/events/reset/2020-08-04T06:38:39.2"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                `
+        } />
+   </TabItem>
+   <TabItem label="Ethereum">
+                   <CodeEditor code={
+                  `
+curl -X GET  "http://eth1.kekker.com/api/events/reset/2020-08-04T06:38:39.2"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+                  `
+           } />
+   </TabItem>
+</TabBar>
+
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful. Response body is empty.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ]
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Error description"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+

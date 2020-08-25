@@ -25,6 +25,8 @@ It is supposed, that Business-application will use the following basic cycle alg
 * Events processing
 * Exclusion of processed events from a list of not-processed ones
 
+> **See API documentation: [API: Events Requests](/docs/api/requests-events.html)**
+
 Kekker proposes the following operation to implement this API’s functionality:
 * `GET /api/events` - request for a general list of not-processed events
 * `GET /api/events/{Category}` - request for a list of not-processed events within the concrete category
