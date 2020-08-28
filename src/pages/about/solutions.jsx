@@ -26,7 +26,7 @@ const SolutionsPage = ({ location }) => {
       description="Decentralized solutions"
     >
       <div>
-        <Heading>Solutions</Heading>
+        <Heading>Decentralized projects worldwide</Heading>
         <Text tag="p">
           Companies from different industries seek operational efficiency in platform solutions.
           Distributed (blockchain-based) platforms are expected to deliver the greatest

@@ -171,10 +171,10 @@ const BlogIndex = ({ data, location }) => {
                   md: 'h1.lg',
                 }}
               >
-                Create a Decentralized App
+                Create a Decentralized App Now
                 {' '}
                 <span style={{ letterSpacing: '-0.04em', fontWeight: '300' }}>
-                  in&nbsp;10&nbsp;Minutes
+
                 </span>
               </Heading>
               <ButtonLink
