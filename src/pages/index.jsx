@@ -171,11 +171,7 @@ const BlogIndex = ({ data, location }) => {
                   md: 'h1.lg',
                 }}
               >
-                Create a Decentralized App Now
-                {' '}
-                <span style={{ letterSpacing: '-0.04em', fontWeight: '300' }}>
-
-                </span>
+                {jsonContent.getStartedButtonSectionHeader}
               </Heading>
               <ButtonLink
                 to={jsonContent.getStartedButtonLink}
