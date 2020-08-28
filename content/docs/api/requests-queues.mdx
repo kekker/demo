@@ -33,42 +33,13 @@ Check queue action
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/queue/1801"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/queue/1801"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/queue/1801"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -172,42 +143,13 @@ Delete error queue action
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X DELETE "http://qrm1.kekker.com/api/queue/1801"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X DELETE "http://hlf1.kekker.com/api/queue/1801"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X DELETE "http://eth1.kekker.com/api/queue/1801"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 

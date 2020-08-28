@@ -11,7 +11,7 @@ import {
 import ResponseStatusTabs from '../../../src/components/blocks/ResponseStatusTabs';
 import TabItem from '../../../src/components/blocks/TabBar/TabItem';
 import TabBar from '../../../src/components/blocks/TabBar/TabBar';
-import CodeEditor from '../../../src/components/blocks/CodeEditor/CodeEditor';
+import CodeBlock from '../../../src/components/blocks/CodeEditor/CodeBlock';
 import HeaderRequestLink from '../../../src/components/fragments/HeaderRequestLink';
 import { StyledTab, StyledTabPanel, StyledTabs, StyledTabList } from '../../../src/components/fragments/StyledTabs';
 
@@ -36,7 +36,7 @@ Create deal
 | x-api-version | 2.0                      | true     |
 
 
-## Request Example
+## Request Example body
 
 <StyledTabs>
   <StyledTabList>
@@ -52,9 +52,8 @@ Create deal
   </StyledTabList>
   <TabPanels>
     <StyledTabPanel>
-        <CodeEditor code={
-       `
-{
+      <CodeBlock code={
+`{
   "kind": "ExampleDeal",
   "parent":null,
   "appRef": null,
@@ -69,11 +68,11 @@ Create deal
     }
   ],
 }`
-        } />
+} />
     </StyledTabPanel>
     <StyledTabPanel>
-      <CodeEditor code={`
-{
+      <CodeBlock code={
+`{
   "kind": "LcDeal",
   "parent":null,
   "appRef": null,
@@ -185,8 +184,8 @@ Create deal
             } />
     </StyledTabPanel>
     <StyledTabPanel>
-      <CodeEditor code={`
-{
+      <CodeBlock code={
+`{
   "kind": "FirstDeal",
   "parent":null,
   "appRef": null,
@@ -313,42 +312,13 @@ Get deals list
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/deals"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/deals"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/deals"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -463,7 +433,7 @@ Change deal state
 | x-api-version | 2.0                      | true     |
 
 
-## Example body
+## Request Example body
 
 ```json
 {
@@ -593,79 +563,23 @@ Get extended deal information
 
 ## Request Example with global identifier
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/deals/ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/deals/ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/deals/ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
+```
 
 ## Request Example with local identifier
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/deals/30501"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/deals/30501"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/deals/30501"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
+```
 
 ## Response
 
@@ -842,38 +756,12 @@ Get deal templates list
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/deals/template"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/deals/template"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/deals/template"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
+```
 
 ## Response
 
@@ -997,41 +885,13 @@ Get deals blockchain contract
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/deals/3501/tech"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/deals/3501/tech"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/deals/3501/tech"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
+```
 
 ## Response
 

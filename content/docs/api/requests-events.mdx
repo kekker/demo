@@ -39,42 +39,13 @@ Get events
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/events"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/events"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/events"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -203,42 +174,13 @@ Ack event
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/events/56d5b7a2-2b5f-4f53-b790-d7448efc0234/ack"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/events/56d5b7a2-2b5f-4f53-b790-d7448efc0234/ack"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/events/56d5b7a2-2b5f-4f53-b790-d7448efc0234/ack"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -342,42 +284,13 @@ Reinitialise events
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET  "http://qrm1.kekker.com/api/events/reset/2020-08-04T06:38:39.2"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET  "http://hlf1.kekker.com/api/events/reset/2020-08-04T06:38:39.2"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET  "http://eth1.kekker.com/api/events/reset/2020-08-04T06:38:39.2"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 

@@ -36,10 +36,7 @@ none
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X POST "http://qrm1.kekker.com/api/files"
 -H "accept: */*"
 -H "Authorization: {AUTHORIZATION}"
@@ -47,37 +44,7 @@ curl -X POST "http://qrm1.kekker.com/api/files"
 -H "Content-Type: multipart/form-data"
 -H "x-api-version: 2.0"
 -F "formFile=offer.pdf;type=application/pdf"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X POST "http://hlf1.kekker.com/api/files"
--H "accept: */*"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "Content-Type: multipart/form-data"
--H "x-api-version: 2.0"
--F "formFile=offer.pdf;type=application/pdf"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X POST "http://eth1.kekker.com/api/files"
--H "accept: */*"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "Content-Type: multipart/form-data"
--H "x-api-version: 2.0"
--F "formFile=offer.pdf;type=application/pdf"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -176,42 +143,13 @@ Download file
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET"http://qrm1.kekker.com/api/files/c19131e4-b9c1-4dce-8cae-b8d00f50fc61"
 -H "accept: */*"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET"http://hlf1.kekker.com/api/files/c19131e4-b9c1-4dce-8cae-b8d00f50fc61"
--H "accept: */*"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET"http://eth1.kekker.com/api/files/c19131e4-b9c1-4dce-8cae-b8d00f50fc61"
--H "accept: */*"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 

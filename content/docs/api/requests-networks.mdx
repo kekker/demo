@@ -33,39 +33,12 @@ Get current cluster clients list
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/clients"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/clients"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/clients"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -168,39 +141,12 @@ none
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/cluster"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/cluster"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/cluster"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -312,39 +258,12 @@ Get clusters list
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/api/clusters"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/api/clusters"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/api/clusters"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -442,42 +361,13 @@ Get cluster information
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/cluster/QRM"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/cluster/QRM"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/cluster/QRM"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 
@@ -590,42 +480,13 @@ Get cluster clients
 
 ## Request Example
 
-<TabBar>
-    <TabItem label="Quorum">
-        <CodeEditor code={
-       `
+```bash
 curl -X GET "http://qrm1.kekker.com/cluster/QRM/clients"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
 -H "x-api-version: 2.0"
-       `
-        } />
-    </TabItem>
-    <TabItem label="Hyperledger">
-                <CodeEditor code={
-                `
-curl -X GET "http://hlf1.kekker.com/cluster/QRM/clients"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                `
-        } />
-   </TabItem>
-   <TabItem label="Ethereum">
-                   <CodeEditor code={
-                  `
-curl -X GET "http://eth1.kekker.com/cluster/QRM/clients"
--H "accept: application/json"
--H "Authorization: {AUTHORIZATION}"
--H "channel: {CHANNEL}"
--H "x-api-version: 2.0"
-                  `
-           } />
-   </TabItem>
-</TabBar>
-
+```
 
 ## Response
 

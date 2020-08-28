@@ -18,6 +18,7 @@ import Text from '../components/fragments/TextStyles/Text';
 import BgImage from '../components/fragments/BgImage';
 import Hr from '../components/fragments/TextStyles/Hr';
 
+
 const StyledPlatformImage = styled(Img)`
   width: 100%;
   margin-top: -30px;
