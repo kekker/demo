@@ -8,13 +8,10 @@ sandboxPromo: true
 
 # Versioning
 
-We use **http headers based** versioning API. A version is marked as X.Y. For example, 1.4 where:
+Kekker uses **http headers based API-versioning**. Versions are marked as X.. For example, 1.4, where:
 * X-major version
 * Y-minor version
 
-A major version is changed when a call logic is changed or a minor version is overloaded. 
-
-X-api-version header is used during calling to function to define a concrete version. If a header is not defined, 
-a  default version will be used. 
-
-A list of versions supported by the method is returned from the server in the *"api-supported-versions"* header. 
+Major version is extended when the logic of calls is changed or minor versions are overloaded. 
+A concrete method version should be marked in the header x-api-version. A default version is used if the header is blank. 
+You can get a list of versions supported by the method in the header api-supported-versions.

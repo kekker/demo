@@ -52,5 +52,17 @@
     - title: Versioning
       to: /docs/api/versioning.html
 
-    - title: API List
-      to: /docs/api/api-list
+    - title: Requests Files
+      to: /docs/api/requests-files.html
+
+    - title: Requests Events
+      to: /docs/api/requests-events.html
+
+    - title: Requests Queues
+      to: /docs/api/requests-queues.html
+
+    - title: Requests Abstract Business Objects
+      to: /docs/api/requests-abstract-business-objects.html
+
+    - title: Requests Networks
+      to: /docs/api/requests-networks.html

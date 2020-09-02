@@ -29,7 +29,7 @@ const icons = {
 const logo_icons = [
   'kekker_logo_black',
   'kekker_logo_white'
-].map(icon => require(`../../../static/assets/${icon}.svg`));
+].map(icon => require(`../../../../static/assets/${icon}.svg`));
 
 const custom_icons = [
   'kekker_menu_bullet',
@@ -38,7 +38,7 @@ const custom_icons = [
   'kekker_arrow_white',
   'kekker_close',
   'kekker_down',
-].map(icon => require(`../../../static/assets/${icon}.svg`));
+].map(icon => require(`../../../../static/assets/${icon}.svg`));
 
 const StyledIcon = styled.img`
     height: 80px;

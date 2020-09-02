@@ -9,26 +9,81 @@
     "/api/clients": {
       "get": {
         "tags": [ "Client" ],
-        "summary": "Get clients list",
+        "summary": "Get current cluster clients list",
         "operationId": "List",
         "consumes": [ "application/json" ],
         "produces": [ "application/json" ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Paging: position",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Paging: returned items count",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Your authorization token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "description": "2.0",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "400": {
-            "description": "Bad Request",
-            "schema": { "$ref": "#/definitions/Error" }
+          "401": {
+            "description": "Invalid Credentials"
           },
           "500": {
             "description": "Server Error",
-            "schema": { "$ref": "#/definitions/Error" }
+            "schema": { "$ref": "#/definitions/Error" },
+            "headers": {
+              "api-supported-versions": {
+                "description": "Supported versions",
+                "type": "number"
+              },
+              "content-type": {
+                "description": "Content Type",
+                "type": "string"
+              }
+            }
           },
           "200": {
             "description": "Success",
             "schema": {
               "uniqueItems": false,
               "type": "array",
-              "items": { "$ref": "#/definitions/Client" }
+              "items": { "$ref": "#/definitions/PagedResponseClient" }
+            },
+            "headers": {
+              "api-supported-versions": {
+                "description": "Supported versions",
+                "type": "number"
+              },
+              "content-type": {
+                "description": "Content Type",
+                "type": "string"
+              }
             }
           }
         }
@@ -594,14 +649,31 @@
       "description": "Client object",
       "type": "object",
       "properties": {
+        "clusterID": {
+          "type": "string",
+          "description": "Unique identifier for the cluster"
+        },
         "key": {
           "description": "Unique identifier for the client",
           "type": "string"
         },
-        "data": {
+        "publicCertificates": {
+          "description": "Public clients certificates",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "info": {
           "description": "Public client information",
           "type": "string"
         }
+      },
+      "example": {
+        "clusterId": "abb755c40618426ead3384f81807586d",
+        "key": "QRM1",
+        "publicCertificates": [],
+        "info": "QRM1 public data"
       }
     },
     "Deal": {
@@ -1183,6 +1255,54 @@
       "properties": {},
       "discriminator": "$type",
       "x-ms-discriminator-value": "Kekker.Deals.Model.Events.SetStatusErrorEvent, Kekker.Deals.Model"
+    },
+    "PagedResponseClient": {
+      "type": "object",
+      "properties": {
+        "pageNumber": {
+          "type": "integer",
+          "description": "Paging: position"
+        },
+        "pageSize": {
+          "type": "integer",
+          "description": "Paging: returned items count"
+        },
+        "totalRecords": {
+          "type": "integer",
+          "description": "Total items count"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Client"
+          }
+        }
+      },
+      "example": {
+        "pageNumber": 1,
+        "pageSize": 10,
+        "totalRecords": 3,
+        "data": [
+          {
+            "clusterId": "abb755c40618426ead3384f81807586d",
+            "key": "QRM1",
+            "publicCertificates": [],
+            "info": "QRM1 public data"
+          },
+          {
+            "clusterId": "abb755c40618426ead3384f81807586d",
+            "key": "QRM2",
+            "publicCertificates": [],
+            "info": "QRM2 public data"
+          },
+          {
+            "clusterId": "abb755c40618426ead3384f81807586d",
+            "key": "QRM3",
+            "publicCertificates": [],
+            "info": "QRM3 public data"
+          }
+        ]
+      }
     }
   }
 }

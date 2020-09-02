@@ -1,0 +1,976 @@
+---
+title: API Abstract Business Objects Requests
+description: API Abstract Business Objects Requests for Kekker platform
+sandboxPromo: true
+---
+
+import {
+  TabPanels
+} from '@reach/tabs';
+
+import ResponseStatusTabs from '../../../src/components/blocks/ResponseStatusTabs';
+import TabItem from '../../../src/components/blocks/TabBar/TabItem';
+import TabBar from '../../../src/components/blocks/TabBar/TabBar';
+import CodeBlock from '../../../src/components/blocks/CodeEditor/CodeBlock';
+import HeaderRequestLink from '../../../src/components/fragments/HeaderRequestLink';
+import { StyledTab, StyledTabPanel, StyledTabs, StyledTabList } from '../../../src/components/fragments/StyledTabs';
+
+<HeaderRequestLink title="POST /api/deals" />
+
+Create deal
+
+### Body:
+
+| Content Type       | Value            |
+|--------------------|------------------|
+| application/json   | CreateDeal       |
+
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example body
+
+<StyledTabs>
+  <StyledTabList>
+    <StyledTab index={0}>
+      Predefined deal body
+    </StyledTab>
+    <StyledTab index={1}>
+      Deal with loaded transitions map
+    </StyledTab>
+    <StyledTab index={2}>
+      Free deal body
+    </StyledTab>
+  </StyledTabList>
+  <TabPanels>
+    <StyledTabPanel>
+      <CodeBlock code={
+`{
+  "kind": "ExampleDeal",
+  "parent":null,
+  "appRef": null,
+  "parties": [
+    {
+      "key": "QRM1",
+      "role": "Sender"
+    },
+    {
+      "key": "QRM2",
+      "role": "Receiver"
+    }
+  ],
+}`
+} />
+    </StyledTabPanel>
+    <StyledTabPanel>
+      <CodeBlock code={
+`{
+  "kind": "LcDeal",
+  "parent":null,
+  "appRef": null,
+  "parameters": [
+    {
+      "key": "DocNumber",
+      "value": "123"
+    },
+    {
+      "key": "Item",
+      "value": "Pepper"
+    },
+    {
+      "key": "DeliveryDate",
+      "value": "2020-08-08"
+    },
+    {
+      "key": "Quantity",
+      "value": "10"
+    }
+  ],
+  "parties": [
+    {
+      "key": "QRM1",
+      "role": "Seller"
+    },
+    {
+      "key": "QRM2",
+      "role": "Buyer"
+    },
+    {
+      "key": "QRM3",
+      "role": "Bank"
+    }
+  ],
+  "transitions": [
+    {
+      "status": "CargoSent",
+      "statusNext": "CargoGot",
+      "roles": [
+         "Buyer"
+       ]
+    },
+    {
+      "status": "LcOk",
+      "statusNext": "CargoSent",
+      "roles": [
+         "Seller"
+       ]
+    },
+    {
+      "status": "LcReq",
+      "statusNext": "LcOk",
+      "roles": [
+         "Bank"
+       ]
+    },
+    {
+      "status": "LcReq",
+      "statusNext": "LcFail",
+      "roles": [
+         "Bank"
+       ]
+    },
+    {
+      "status": "NEW",
+      "statusNext": "OfferReq",
+      "roles": [
+         "Seller"
+       ]
+    },
+    {
+      "status": "OfferOk",
+      "statusNext": "LcReq",
+      "roles": [
+         "Buyer"
+       ]
+    },
+    {
+      "status": "OfferReq",
+      "statusNext": "OfferOk",
+      "roles": [
+         "Buyer"
+       ]
+    },
+    {
+      "status": "CargoGot",
+      "statusNext": "Payment",
+      "roles": [
+         "Bank"
+       ]
+    },
+    {
+      "status": "LcFail",
+      "statusNext": "LcReq",
+      "roles": [
+         "Buyer"
+       ]
+    },
+    {
+      "status": "Payment",
+      "statusNext": "Closed",
+      "roles": [
+         "Seller"
+       ]
+    }
+  ]
+}`
+            } />
+    </StyledTabPanel>
+    <StyledTabPanel>
+      <CodeBlock code={
+`{
+  "kind": "FirstDeal",
+  "parent":null,
+  "appRef": null,
+  "parties": [
+     {
+       "key": "QRM1",
+       "role": "AnyRole1"
+     },
+     {
+       "key": "QRM2",
+       "role": "AnyRole2"
+     }
+  ],
+}`
+      } />
+    </StyledTabPanel>
+  </TabPanels>
+</StyledTabs>
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'CreateDealResponse',
+      ref: '#'
+    },
+    example: `{
+  "queueId": 15897,
+  "localDealId": 3456
+}`
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "DealKind LcDeal not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Transitions must have single start state \"NEW\""
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/deals" />
+
+Get deals list
+
+### Query parameters:
+
+| Header       | Description                  | Required |
+|--------------|------------------------------|----------|
+| pageNumber   | Paging: position             | false    |
+| pageSize     | Paging: returned items count | false    |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+```bash
+curl -X GET "http://qrm1.kekker.com/api/deals"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+```
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'PagedResponse<DealState>',
+      ref: '#'
+    },
+    example: `
+ {
+  "pageNumber": 1,
+  "pageSize": 10,
+  "totalRecords": 3,
+  "data": [
+    {
+      "dealId": "ad04c39314184ac0847304fc22eaac75:fc5567d419c647e0b4f8806dc8d3a9ae",
+      “localDealId”:3511,
+      "kind": "FirstDeal",
+      "version": 8,
+      "status": "CargoGot"
+    },
+    {
+      "dealId": null,
+      “localDealId”:3510,
+      "kind": "FirstDeal",
+      "version": 0,
+      "status": null
+    },
+    {
+      "dealId": "ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff",
+      “localDealId”:3509,
+      "kind": "FirstDeal",
+      "version": 3,
+      "status": "CONFIRMED"
+    }
+  ]
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="POST /api/deals/{dealId}" />
+
+Change deal state
+
+### Query parameters:
+
+| Header       | Description                               | Type     |
+|--------------|-------------------------------------------|----------|
+| id           | Identifier for the deal (local or global) | string   |
+
+### Body:
+
+| Content Type       | Value            |
+|--------------------|------------------|
+| application/json   | ChangeState      |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example body
+
+```json
+{
+  "status": "OfferOk",
+  "remark": "Offer accepted",
+  "parameters": [
+    {
+      "key": "Quantity",
+      "value": "9"
+    },
+  ],
+  "files": [
+    {
+      "kind": "Offer acceptance",
+      "localId": "c19131e4-b9c1-4dce-8cae-b8d00f50fc61",
+    },
+    {
+      "kind": "bill",
+      "receivers": ["QRM1"],
+      "localPath": "E:\\Files\\bill_1324.pdf",
+    }
+  ],
+  "status": "OfferOk",
+  "remark": "Offer accepted",
+}
+```
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Identifier for the deals queue action (type: long)',
+    },
+    example: "33302"
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Deal not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/deals/{id}" />
+
+Get extended deal information
+
+### Query parameters:
+
+| Header       | Description                               | Type     |
+|--------------|-------------------------------------------|----------|
+| id           | Identifier for the deal (local or global) | string   |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example with global identifier
+
+```bash
+curl -X GET "http://qrm1.kekker.com/api/deals/ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+```
+
+## Request Example with local identifier
+
+```bash
+curl -X GET "http://qrm1.kekker.com/api/deals/30501"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+```
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Deal',
+    },
+    example: `{
+  "dealId": "ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff",
+  "localDealId": 3502,
+  "kind": "FirstDeal",
+  "version": 3,
+  "status": "CONFIRMED",
+  "parent": null,
+  "appRef": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "parameters": [
+    {
+      "key": "Item",
+      "value": "Pepper"
+    },
+    {
+      "key": "Quantity",
+      "value": "10"
+    }
+  ],
+  "parties": [
+    {
+      "key": "QRM1",
+      "role": "SENDER"
+    },
+    {
+      "key": "QRM2",
+      "role": "RECEIVER"
+    }
+  ],
+  "transitions": [
+    {
+      "status": "NEW",
+      "statusNext": "SENT",
+      "roles": ["SENDER"]
+    },
+    {
+      "status": "SENT",
+      "statusNext": "CONFIRMED",
+      "roles": ["RECEIVER"]
+    },
+    {
+      "status": "CONFIRMED",
+      "statusNext": "Closed",
+      "roles": [ "SENDER", "RECEIVER" ]
+    }
+  ],
+  "files": [
+    {
+      "kind": "OFFER",
+      "appRef": "7b7a5542-e6e3-4543-b666-815550345713",
+      "receivers": [
+        "QRM1",
+        "QRM2"
+      ],
+      "localPath": "E:\\Files\\bfdd4bef74bf4af5b09561a924c4a20b_main.txt",
+      "localId": "c19131e4-b9c1-4dce-8cae-b8d00f50fc61",
+      "version": 2,
+      "status": "SENT"
+    }
+  ],
+  "history": [
+    {
+      "status": "SENT",
+      "version": 2,
+      "remark": "REMARK",
+      "executor": "CLIENT1"
+    },
+    {
+      "status": "CONFIRMED",
+      "version": 3,
+      "remark": "REMARK2",
+      "executor": "CLIENT2"
+    }
+  ]
+}`
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+  "errorMessage": "Deal not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/deals/templates" />
+
+Get deal templates list
+
+### Query parameters:
+
+| Header       | Description                  | Required |
+|--------------|------------------------------|----------|
+| pageNumber   | Paging: position             | false    |
+| pageSize     | Paging: returned items count | false    |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+```bash
+curl -X GET "http://qrm1.kekker.com/api/deals/template"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "x-api-version: 2.0"
+```
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'PagedResponse<DealTemplate>',
+    },
+    example: `{
+  "pageNumber": 1,
+  "pageSize": 10,
+  "totalRecords": 2,
+  "data": [
+    {
+    "dealKind": "ExampleDeal",
+    "description": "Example deal",
+    "transitions": [
+      {
+        "status": "NEW",
+        "statusNext": "Created",
+        "roles":[ "Sender"]
+      },
+      {
+        "status": "Created",
+        "statusNext": "Sent",
+        "roles": ["Sender"]
+      },
+      {
+        "status": "Sent",
+        "statusNext": "Received",
+        "roles": ["Receiver"]
+      },
+      {
+        "status": "Received",
+        "statusNext": "Approved",
+        "roles": ["Receiver"]
+      },
+      {
+        "status": "Received",
+        "statusNext": "Refused",
+        "roles": ["Receiver"]
+      }
+    ]
+   },
+   {
+   "name": "FreeDeal",
+   "description": "Free deal template",
+   "transitions": []
+   }
+  ]
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="GET /api/deals/{id}/tech" />
+
+Get deals blockchain contract
+
+### Query parameters:
+
+| Header       | Description                               | Type     |
+|--------------|-------------------------------------------|----------|
+| id           | Identifier for the deal (local or global) | string   |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+```bash
+curl -X GET "http://qrm1.kekker.com/api/deals/3501/tech"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+```
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Blockchain contract address (type: string)',
+    },
+    example: "cb8851f85e103031d12181056b554d6af9571ce9"
+  },
+  {
+      statusCode: 400,
+      description: 'Returned in case of request validation error.',
+      headers: [
+        {
+          header: 'content-type',
+          value: 'application/json; charset=utf-8'
+        },
+        {
+          header: 'api-supported-versions',
+          value: 'Supported versions. Example: 1.0, 2.0'
+        }
+      ],
+      scheme: {
+        contentType: 'application/json',
+        value: 'Error',
+        ref: '#'
+      },
+      example: `{
+  "errorMessage": "Deal not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+

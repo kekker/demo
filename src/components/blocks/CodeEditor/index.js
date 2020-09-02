@@ -1,3 +1,4 @@
 import CodeEditor from './CodeEditor';
+import CodeBlock from './CodeBlock';
 
-export default CodeEditor;
+export default { CodeEditor, CodeBlock };

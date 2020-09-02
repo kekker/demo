@@ -12,7 +12,7 @@ const initialState = {
   QUEUEID_Hyperledger: '',
   LOCALDEALID_Hyperledger: '',
   DEALID_Hyperledger: '',
-  ActiveTab: 'Quorum',
+  ActiveTab: '',
   rect: null,
 };
 

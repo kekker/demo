@@ -11,62 +11,56 @@ sandboxPromo: true
 > Kekker Platform allows not only to form separate independent members networks, but also to create linked groups of 
 networks. 
 
-Kekker's mechanisms allow such multi-cluster networks to work as a unified whole - business operations can 
-be performed absolutely clearly for them, and participants of any cluster can interact within the whole group of 
-networks. 
+The Kekker platform allows to form separate independent networks, as well as connected groups of networks (clusters). 
+Multi-cluster networks work as a whole in Kekker. Business operations are performed within the clusters as in a unified space. 
+Members of any cluster can interact with the whole group of clusters.
 
-Division of networks into clusters can have, for example, a geographical or purely 
-technical character - use of basic blockchain platforms in different clusters 
-(more detailed information about options of a network cluster structure is available in ...).
+Division into clusters can be geographical or purely technical (for example, while using basic blockchain platforms). 
 
-Information about a network/cluster is formed by its **Operator**, 
-Kekker Platforms' mechanisms allow to spread this information online within clusters, 
-underlying a group of networks.
+**Sandbox** is a group of clusters:
+* Private Quorum
+* Private Hyper Ledger Fabrique
+* Public Ethereum (test-net Rinkeby)
 
-Operations within this group allow Business-application to gain information about every 
-cluster, underlying the group of networks, including members list of every cluster. 
+**Operator** gives information about its network/cluster. Kekker allows to spread it online in a group of clusters.
 
-#### The following operations are included into this group:
+> **See API Documentation: [API: Networks Requests](/docs/api/requests-networks.html)**
+
+Your app can get information about every cluster of the group via **operations with networks/clusters**, 
+including members lists of every cluster:
 * `GET /api/clusters` - obtaining a list of available networks/clusters
 * `GET /api/clusters/{ClusterId}` - obtaining information about particular cluster
 * `GET /api/clusters/{ClusterId}/clients` - obtaining a member list of particular cluster
 
-#### Reduced forms of calling to relevant operation are available for the current network/cluster:
+Reduced API calls can be used for a current network/cluster:
 * `GET /api/cluster`
 * `GET /api/clients`
 
-As a result of `GET /api/clusters` request, Business-application gets an array of structures **ClusterTech**, which 
-contains the following information about 
-every cluster from the group of networks:
+`GET /api/clusters` call returns an array of structures **ClusterTech**, containing the following information about 
+every cluster of a group of networks:
 * *ClusterId* - a cluster identifier 
-* *VersionInfo* - an identifier of version cluster description (can be used for the synchronization of information about cluster between the Business-application and Kekker Adapter)
-* *ClientsNumber* - a number of cluster members
+* *VersionInfo* - an identifier of a cluster description version (can be used to synchronize information between 
+Business-application and Kekker Adapter)
+* *ClientsCount* - a number of cluster members
 
-As a result of `GET /api/clusters{ClusterId}` request, Business-application gets a **ClusterInfo** structure, which 
-contains the following information about cluster:
+`GET /api/clusters{ClusterId}` call returns a structure **ClusterInfo**, containing the following information about cluster:
 * *ClusterId*
 * *Description* - a short description (for example, "Quorum Kekker Sandbox")
-* *TechInfo* - technical characteristics: a type of blockchain, a type of DFS, productivity constraints, etc.
+* *TechInfo* - technical characteristics: blockchain type, DFS type, productivity constraints etc.
 * *Applications* - a list of business-applications in the cluster
 * *OperatorInfo* - contacts of an operator
-* *ClientsNumber* - a number of cluster members
+* *ClientsCount* - a number of cluster members
 
-As a result of `GET /api/clusters/{ClusterId}/clients` request, Business-application gets an array of structure 
-**Client**, containing the following information about every participant of the cluster:
+`GET /api/clusters/{ClusterId}/clients` call returns an array of structures **Client**, containing the following 
+information about every cluster member:
 * *ClusterId*
 * *Key* - a unique identifier of a participant
 * *PublicCertificates* - public certificates of participation, used by Kekker Platform
 * *Info* - extended information about a participant: a name, requisites, etc. 
 
-The value of a **Key** field is used for identification of the participant during work with business-objects and is 
-set by the Operator of the relevant network within the cluster.The value of this field is desirable to be globally 
-unique - this will allow to unite any network within the local or global group of networks in the future. 
+A **Key** field is used to identify a participant when working with business-objects. Its value is set by an **Operator**
+ of the relevant network in the cluster. This value should be unique within the current and future clusters. 
+This will allow to unify any network in the local or global group of networks. 
 
-Taken into account the length of the field - 32 symbols, a standard GUID, 
-or a lot of "normal" e-mail, or phone number for a physical person can be used as such 
-an identifier. 
-
-> As a reminder, a [Kekker Sandbox](/docs/getting-started/sandbox.html) is a unified group of networks as a part of the following clusters:
-> * Private Quorum
-> * Private Hyper Ledger
-> * Public Ethereum (test-net Rinkeby)
+The field length limit is 32 symbols, so you can use a standard GUID, as well as "real-life" identifiers: 
+email or phone number. 

@@ -8457,6 +8457,10 @@
     margin-top: 0;
 }
 
+.swagger-ui .model-example li::before {
+    display: none;
+}
+
 .swagger-ui .tab {
     display: flex;
     padding: 0;
