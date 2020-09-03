@@ -18,6 +18,7 @@ import Text from '../components/fragments/TextStyles/Text';
 import BgImage from '../components/fragments/BgImage';
 import Hr from '../components/fragments/TextStyles/Hr';
 
+
 const StyledPlatformImage = styled(Img)`
   width: 100%;
   margin-top: -30px;
@@ -171,11 +172,7 @@ const BlogIndex = ({ data, location }) => {
                   md: 'h1.lg',
                 }}
               >
-                Create a Decentralized App
-                {' '}
-                <span style={{ letterSpacing: '-0.04em', fontWeight: '300' }}>
-                  in&nbsp;10&nbsp;Minutes
-                </span>
+                {jsonContent.getStartedButtonSectionHeader}
               </Heading>
               <ButtonLink
                 to={jsonContent.getStartedButtonLink}

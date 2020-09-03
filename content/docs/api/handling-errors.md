@@ -1,7 +1,7 @@
 ---
 title: Handling Errors
 description: Handling errors from Kekker API requests
-next: API Documentation
+next: Versioning
 prev: Authorization
 ---
 

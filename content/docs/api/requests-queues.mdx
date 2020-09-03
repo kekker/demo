@@ -1,0 +1,227 @@
+---
+title: API Queue Requests
+description: API Queue Requests for Kekker platform
+sandboxPromo: true
+---
+
+import ResponseStatusTabs from '../../../src/components/blocks/ResponseStatusTabs';
+import TabItem from '../../../src/components/blocks/TabBar/TabItem';
+import TabBar from '../../../src/components/blocks/TabBar/TabBar';
+import CodeEditor from '../../../src/components/blocks/CodeEditor/CodeEditor';
+import HeaderRequestLink from '../../../src/components/fragments/HeaderRequestLink';
+
+
+<HeaderRequestLink title="GET /api/queue/{queueId}" />
+
+Check queue action
+
+### Query parameters:
+
+| Header       | Description          | Type          |
+|--------------|----------------------|---------------|
+| queueId      | Unique identifier of the deals queue action   | long          |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+```bash
+curl -X GET "http://qrm1.kekker.com/api/queue/1801"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+```
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'QueueState',
+      ref: '#'
+    }
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Deals action not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***
+
+<HeaderRequestLink title="DELETE /api/queue/{queueId}" />
+
+Delete error queue action
+
+### Query parameters:
+
+| Header       | Description          | Type          |
+|--------------|----------------------|---------------|
+| queueId      | Unique identifier of the deals queue action   | long          |
+
+### Headers
+
+| Header        | Value                    | Required |
+|---------------|--------------------------|----------|
+| Accept        | application/json         | true     |
+| Authorization | Your authorization token | true     |
+| Channel       | Your channel value       | true     |
+| x-api-version | 2.0                      | true     |
+
+
+## Request Example
+
+```bash
+curl -X DELETE "http://qrm1.kekker.com/api/queue/1801"
+-H "accept: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-H "channel: {CHANNEL}"
+-H "x-api-version: 2.0"
+```
+
+## Response
+
+<ResponseStatusTabs responseStatusArray={
+[
+  {
+    statusCode: 200,
+    description: 'Returned if the request is successful. Response body is empty.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ]
+  },
+  {
+    statusCode: 400,
+    description: 'Returned in case of request validation error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Deals action not found"
+}`
+  },
+  {
+    statusCode: 401,
+    description: 'Returned if the authentication credentials are incorrect or missing.',
+    scheme: {
+      contentType: 'any',
+      value: 'Depends on authentication proxy'
+    }
+  },
+  {
+    statusCode: 500,
+    description: 'Returned in case of unpredictable error.',
+    headers: [
+      {
+        header: 'content-type',
+        value: 'application/json; charset=utf-8'
+      },
+      {
+        header: 'api-supported-versions',
+        value: 'Supported versions. Example: 1.0, 2.0'
+      }
+    ],
+    scheme: {
+      contentType: 'application/json',
+      value: 'Error',
+      ref: '#'
+    },
+    example: `{
+    "errorMessage": "Internal error"
+}`
+  }
+]
+} />
+
+***

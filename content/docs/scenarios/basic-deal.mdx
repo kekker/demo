@@ -23,13 +23,15 @@ The second participant called Receiver detects deal initiating at the other node
 * Receiver
 
 ### The script consists of the following sequential steps:
-1. At **Sender** node create a Deal with the the parallel setting the *Created* state
-2. Make sure at **Receiver** node the Deal exists and status is equal to *Created*
+1. At **Sender** node (Sender - QRM1,HLF1, ETH1) create a Deal
+2. At **Sender** node change the Deal status to *Created*
+3. Get the Deal global identifier (Sender - QRM1,HLF1, ETH1)
+2. Make sure at **Receiver** node the Deal exists and status is *Created*  (Receiver - QRM2,HLF2, ETH2)
 
 ### Pre-adjustment
 > **Attention!** 
 >
-> In the call case the ID is replaced with (UID) word - you need to replace it with your obtained ID when creating the Deal at Step 1.
+> In the call case the ID is replaced with (LOCALDEALID) word - you need to replace it with your obtained ID when creating the Deal at Step 1.
 
 > **Attention!** 
 >
@@ -41,12 +43,16 @@ If you run into any error, visit [API: Errors Page ](/docs/api/handling-errors.h
 
 ## 1. Create a Deal
 
-Use `POST`-method call `/api/deals/`. The json specification of the transaction is indicated as the request data. In our case:
+#### Variables needed:
+* CHANNEL
+* AUTHORIZATION
+
+Use `POST`-method call `/api/deals/`. Sender node - QRM1,HLF1, ETH1.
+The json specification of the transaction is indicated as the request data. In our case:
 
 #### Body data
 ```json
 {
-  "dealUid": null,
   "kind": "FirstDeal",
   "parties": [
     {
@@ -57,8 +63,7 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
       "key": "QRM2",
       "role": "Receiver"
     }
-  ],
-  "status": "Created"
+  ]
 }
 ```
 
@@ -70,12 +75,12 @@ Use `POST`-method call `/api/deals/`. The json specification of the transaction 
        `
 curl -X POST "http://qrm1.kekker.com/api/deals"
 -H "Accept: application/json"
+-H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
 -H "Content-Type: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -d "
 {
- \\"dealUid\\": null,
  \\"kind\\": \\"FirstDeal\\",
  \\"parties\\": [
    {
@@ -86,8 +91,7 @@ curl -X POST "http://qrm1.kekker.com/api/deals"
      \\"key\\": \\"QRM2\\",
      \\"role\\": \\"Receiver\\"
    }
- ],
- \\"status\\": \\"Created\\"
+ ]
 }"
        `
         } />
@@ -97,12 +101,12 @@ curl -X POST "http://qrm1.kekker.com/api/deals"
            `
 curl -X POST "http://hlf1.kekker.com/api/deals"
 -H "Accept: application/json"
+-H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
 -H "Content-Type: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -d "
 {
- \\"dealUid\\": null,
  \\"kind\\": \\"FirstDeal\\",
  \\"parties\\": [
    {
@@ -113,8 +117,7 @@ curl -X POST "http://hlf1.kekker.com/api/deals"
      \\"key\\": \\"HLF2\\",
      \\"role\\": \\"Receiver\\"
    }
- ],
- \\"status\\": \\"Created\\"
+ ]
 }"
            `
             } />
@@ -124,12 +127,12 @@ curl -X POST "http://hlf1.kekker.com/api/deals"
        `
 curl -X POST "http://eth1.kekker.com/api/deals"
 -H "Accept: application/json"
+-H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
 -H "Content-Type: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -d "
 {
- \\"dealUid\\": null,
  \\"kind\\": \\"FirstDeal\\",
  \\"parties\\": [
    {
@@ -140,7 +143,88 @@ curl -X POST "http://eth1.kekker.com/api/deals"
      \\"key\\": \\"ETH2\\",
      \\"role\\": \\"Receiver\\"
    }
- ],
+ ]
+}"
+       `
+       } />
+    </TabItem>
+</TabBar>
+
+
+#### Response example
+
+If everything is fine you'll receive the Queue identifier *[QUEUID]* and the Local Deal Identifier *[LOCALDEALID]*
+in the response body. Save them and add to further requests.
+
+```json
+{
+  "queueId": "QUEUEID",
+  "localDealId": "LOCALDEALID"
+}
+```
+
+## 2. At **Sender** node change the Deal status to *Created*
+
+#### Variables needed:
+* CHANNEL
+* AUTHORIZATION
+* LOCALDEALID (from 1-st step)
+
+Use `POST`-method call `/api/deals/{LOCALDEALID}`  where `{LOCALDEALID}` is the Local Deal Identifier. Sender node - QRM1,HLF1, ETH1.
+
+#### Body data
+```json
+{
+  "status": "Created"
+}
+```
+
+#### Call example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X POST "http://qrm1.kekker.com/api/deals/{LOCALDEALID}"
+-H "Accept: application/json"
+-H "x-api-version: 2.0"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ \\"status\\": \\"Created\\"
+}"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+            <CodeEditor code={
+           `
+curl -X POST "http://hlf1.kekker.com/api/deals/{LOCALDEALID}"
+-H "Accept: application/json"
+-H "x-api-version: 2.0"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
+ \\"status\\": \\"Created\\"
+}"
+           `
+            } />
+        </TabItem>
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X POST "http://eth1.kekker.com/api/deals/{LOCALDEALID}"
+-H "Accept: application/json"
+-H "x-api-version: 2.0"
+-H "Channel: {CHANNEL}"
+-H "Content-Type: application/json"
+-H "Authorization: {AUTHORIZATION}"
+-d "
+{
  \\"status\\": \\"Created\\"
 }"
        `
@@ -151,10 +235,82 @@ curl -X POST "http://eth1.kekker.com/api/deals"
 
 #### Response example
 
-If everything is fine you'll receive the Deal identifier [UID] in the response body . Save it and add to further requests.
+If everything is fine you'll receive the Queue identifier [QUEUID] in the response body.
 
-## 2. Make sure at Receiver node the Deal status is Created
-Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
+```
+{QUEUEID}
+```
+
+## 3. Get the Global Deal Identifier
+
+#### Variables needed:
+* CHANNEL
+* AUTHORIZATION
+* QUEUEID (from the 2-nd step)
+
+Use `GET`-method call `/api/queue/{QUEUEID}`. Sender node - QRM1,HLF1, ETH1.
+
+#### Call example
+
+<TabBar>
+    <TabItem label="Quorum">
+        <CodeEditor code={
+       `
+curl -X GET "http://qrm1.kekker.com/api/queue/{QUEUEID}"
+-H "Accept: application/json"
+-H "x-api-version: 2.0"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+       `
+        } />
+    </TabItem>
+    <TabItem label="Hyperledger">
+            <CodeEditor code={
+           `
+curl -X GET "http://hlf1.kekker.com/api/queue/{QUEUEID}"
+-H "Accept: application/json"
+-H "x-api-version: 2.0"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+           `
+            } />
+        </TabItem>
+    <TabItem label="Ethereum">
+       <CodeEditor code={
+       `
+curl -X GET "http://eth1.kekker.com/api/queue/{QUEUEID}"
+-H "Accept: application/json"
+-H "x-api-version: 2.0"
+-H "Channel: {CHANNEL}"
+-H "Authorization: {AUTHORIZATION}"
+       `
+       } />
+    </TabItem>
+</TabBar>
+
+
+#### Response example
+
+If everything is fine you'll receive the Global Deal Identifier [DEALID] in the response body. Save it for later.
+
+```json
+{
+  "dealId": "DEALID",
+  "localDealId": "LOCALDEALID",
+  "queueId": "QUEUEID",
+  "status": "Success"
+}
+```
+
+## 4. Make sure at Receiver node the Deal status is Created
+
+#### Variables needed:
+* CHANNEL
+* AUTHORIZATION
+* DEALID (from the 3-rd step)
+
+Use `GET`-method call `/api/deals/{DEALID}` where `{DEALID}` is the Global Deal Identifier.
+Receiver node - QRM2,HLF2, ETH2.
 
 > **Attention!** 
 >
@@ -166,8 +322,9 @@ Use `GET`-method call `/api/deals/{UID}` where `{UID}` is the Deal identifier
     <TabItem label="Quorum">
             <CodeEditor code={
            `
-curl -X GET "http://qrm2.kekker.com/api/deals/{UID}"
+curl -X GET "http://qrm2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
+-H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
 -H "Authorization: {AUTHORIZATION}"
            `
@@ -176,8 +333,9 @@ curl -X GET "http://qrm2.kekker.com/api/deals/{UID}"
     <TabItem label="Hyperledger">
         <CodeEditor code={
        `
-curl -X GET "http://hlf2.kekker.com/api/deals/{UID}"
+curl -X GET "http://hlf2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
+-H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
 -H "Authorization: {AUTHORIZATION}"
        `
@@ -186,8 +344,9 @@ curl -X GET "http://hlf2.kekker.com/api/deals/{UID}"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
+curl -X GET "http://eth2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
+-H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
 -H "Authorization: {AUTHORIZATION}"
        `
@@ -199,34 +358,33 @@ curl -X GET "http://eth2.kekker.com/api/deals/{UID}"
 #### Response example (check status)
 ```json
 {
-    "uid": "6e4c83cc-874a-41c5-b416-a796ba7b95fb",
-    "kind": "FirstDeal",
-    "status": "Created",
-    "remark": "",
-    "parameters": [],
-    "parties": [
-        {
-            "key": "QRM1",
-            "role": "Sender"
-        },
-        {
-            "key": "QRM2",
-            "role": "Receiver"
-        }
-    ],
-    "files": [],
-    "history": [
-        {
-            "status": "Created",
-            "party": {
-                "key": "QRM1",
-                "role": "Sender"
-            },
-            "remark": "",
-            "version": 2
-        }
-    ],
-    "statusMap": []
+  "dealId": "DEALID",
+  "localDealId": "LOCALDEALID",
+  "kind": "FirstDeal",
+  "version": 2,
+  "status": "Created",
+  "parent": null,
+  "parameters": [],
+  "parties": [
+    {
+      "key": "QRM1",
+      "role": "Sender"
+    },
+    {
+      "key": "QRM2",
+      "role": "Receiver"
+    }
+  ],
+  "transitions": [],
+  "files": [],
+  "history": [
+    {
+      "status": "Created",
+      "version": 2,
+      "remark": "",
+      "executor": "QRM1"
+    }
+  ]
 }
 ```
 Check the Deal status equals `Created`

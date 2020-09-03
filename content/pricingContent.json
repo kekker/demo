@@ -3,13 +3,13 @@
     "title": "Sandbox Basic",
     "text": "Build your prototype and test your hypotheses",
     "price": "Free",
-    "limits": "25TRX/DAY INCLUDED"
+    "limits": "100TX/DAY INCLUDED"
   },
   {
     "title": "Sandbox Growth",
     "text": "Grow your app with unlimited transactions",
     "price": "$49/month",
-    "limits": "UNLIMITED TRX/DAY"
+    "limits": "UNLIMITED TX/DAY"
   },
   {
     "title": "Kekker Business",

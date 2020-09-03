@@ -7,7 +7,6 @@ import '../../../styles/swagger-ui-new.css';
 // Components
 import Layout from '../../../components/fragments/Layout';
 import MarkdownFooter from '../../../components/blocks/MarkdownFooter';
-import GridMenu from '../../../components/fragments/GridItem/GridMenu';
 import SideMenu from '../../../components/blocks/Menu/SideMenu';
 import { listDocsLinks } from '../../../utils/getLinkLists';
 import ResponsiveAside from '../../../components/fragments/ResponsiveAside';
@@ -38,8 +37,8 @@ class ApiPage extends React.Component {
     const { swaggerComponent } = this.state;
 
     const prev = {
-      to: '/docs/api/handling-errors.html',
-      title: 'Handling Errors'
+      to: '/docs/api/versioning.html',
+      title: 'Versioning'
     };
 
     return (
@@ -54,9 +53,7 @@ class ApiPage extends React.Component {
         </div>
 
         <ResponsiveAside>
-          <GridMenu>
-            <SideMenu location={location.pathname} links={listDocsLinks} />
-          </GridMenu>
+          <SideMenu location={location.pathname} links={listDocsLinks} />
         </ResponsiveAside>
       </Layout>
     );

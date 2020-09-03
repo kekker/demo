@@ -8,7 +8,6 @@ import Heading from '../../components/fragments/TextStyles/Heading';
 import Text from '../../components/fragments/TextStyles/Text';
 import SolutionsList from '../../components/blocks/SolutionsList/SolutionsList';
 import SideMenu from '../../components/blocks/Menu/SideMenu';
-import GridMenu from '../../components/fragments/GridItem/GridMenu';
 import ResponsiveAside from '../../components/fragments/ResponsiveAside';
 
 import { listAboutLinks } from '../../utils/getLinkLists';
@@ -27,7 +26,7 @@ const SolutionsPage = ({ location }) => {
       description="Decentralized solutions"
     >
       <div>
-        <Heading>Solutions</Heading>
+        <Heading>Decentralized projects worldwide</Heading>
         <Text tag="p">
           Companies from different industries seek operational efficiency in platform solutions.
           Distributed (blockchain-based) platforms are expected to deliver the greatest
@@ -45,9 +44,7 @@ const SolutionsPage = ({ location }) => {
       </div>
 
       <ResponsiveAside>
-        <GridMenu>
-          <SideMenu location={location.pathname} links={listAboutLinks} />
-        </GridMenu>
+        <SideMenu location={location.pathname} links={listAboutLinks} />
       </ResponsiveAside>
 
     </Layout>

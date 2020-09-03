@@ -9,6 +9,7 @@ import Flex from '../../fragments/Flex';
 
 const MarkdownSection = styled.section`
   height: 100%;
+  max-width: 650px;
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     max-width: 100%;

@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import TabNav from './TabNav';
 import { usePageState } from '../../../state/pageState';
 
+
 const StyledTabBar = styled.div`
-   margin-top: 1em;
-   margin-bottom: 2em;
    max-width: 55vw;
   
   @media (max-width: 700px) {
@@ -36,6 +35,12 @@ const TabBar = ({ children }) => {
 
   const { pageState, pageDispatch } = usePageState();
   const { ActiveTab } = pageState;
+
+  useEffect(() => {
+    if (!ActiveTab) {
+      pageDispatch({ type: 'SET_ACTIVE_TAB', value: getChildrenLabels(children)[0] });
+    }
+  }, []);
 
   const setActiveTabFunc = currentTab => {
     if (currentTab !== ActiveTab) {
