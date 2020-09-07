@@ -17,6 +17,7 @@ import ErrorDealActionsNF from './ErrorDealActionsNF';
 import ErrorDealNF from './ErrorDealNF';
 import ErrorFileNF from './ErrorFileNF';
 import ErrorEventNF from './ErrorEventNF';
+import EventBase from './EventBase';
 import Form from './Form';
 import PagedResponseClient from './PagedResponseClient';
 import PagedResponseDealKind from './PagedResponseDealKind';
@@ -47,6 +48,7 @@ export default {
   Error,
   ErrorCluster,
   ErrorEventNF,
+  EventBase,
   Form,
   PagedResponseEvent,
   PagedResponseDealState,

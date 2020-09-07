@@ -25,10 +25,10 @@ const StructureSchemeField = ({ field }) => (
     <Text fontWeight={{ _: 800, md: 300 }} mr={2} tag="div" style={{ flexBasis: '20%' }}>
       {field.name}
     </Text>
-    <Text mr={2} tag="div" style={{ flexBasis: '20%' }}>
+    <Text mr={2} tag="div" style={{ flexBasis: '35%' }}>
       {field.type}
     </Text>
-    <Text tag="div" style={{ flexBasis: '40%' }}>
+    <Text tag="div" style={{ flexBasis: '45%' }}>
       {field.description}
     </Text>
   </StyledFlex>

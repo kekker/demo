@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { instanceOf } from 'prop-types';
 import { TabList, TabPanels, TabPanel } from '@reach/tabs';
 
 import { AnimatedTab, AnimatedTabs } from '../../fragments/AnimatedTabs';
@@ -27,11 +27,7 @@ const SchemeNavigator = ({ elementName }) => {
 
         <TabPanels style={{ paddingTop: 20 }}>
           <TabPanel>
-            {element instanceof Array ? (
-              element.map(scheme => (
-                <StructureScheme scheme={scheme} />
-              )))
-              : <StructureScheme scheme={element} />}
+            <StructureScheme scheme={element} />
           </TabPanel>
           {element.children.map(childName => (
             <TabPanel key={`TabPanel${childName}`}>

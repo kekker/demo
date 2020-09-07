@@ -10,7 +10,7 @@ const CodeEditorContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bodyLightGrey};
   overflow-x: auto;
  
-  max-width: 688px;
+  max-width: 55vw;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
         max-width: 90vw;
