@@ -7,6 +7,10 @@ import {
 
 export const StyledTabs = styled(Tabs)`
   max-width: 55vw;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      max-width: 90vw;
+  }
 `;
 
 export const StyledTabList = styled(TabList)`

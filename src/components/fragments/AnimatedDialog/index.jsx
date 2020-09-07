@@ -38,7 +38,7 @@ export default function AnimatedDialog(props) {
   //     rootRef.current.style.overflow = props.isOpen ? 'hidden' : 'visible';
   //   }
   // };
-
+  //
   // const html = document.querySelector('html');
   //
   // useEffect(() => {

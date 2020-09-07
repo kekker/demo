@@ -12,8 +12,7 @@ const CodeEditorContainer = styled.div`
  
   max-width: 688px;
 
-
-  @media (max-width: 980px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
         max-width: 90vw;
     }
   }
@@ -23,10 +22,9 @@ const CodeEditorContainer = styled.div`
 `;
 
 const CodeBlock = ({ code, language }) => {
-
   useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  });
 
   return (
     <CodeEditorContainer>
