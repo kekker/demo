@@ -17,10 +17,10 @@ Get current cluster clients list
 
 ### Query parameters:
 
-| Header       | Description                  | Required |
-|--------------|------------------------------|----------|
-| pageNumber   | Paging: position             | false    |
-| pageSize     | Paging: returned items count | false    |
+| Key          | Type    | Description                  | Required |
+|--------------|---------|------------------------------|----------|
+| pageNumber   | integer | Paging: position             | false    |
+| pageSize     | integer | Paging: returned items count | false    |
 
 ### Headers
 
@@ -60,7 +60,7 @@ curl -X GET "http://qrm1.kekker.com/api/clients"
     scheme: {
       contentType: 'application/json',
       value: 'PagedResponse<Client>',
-      ref: '#'
+      ref: 'PagedResponseClient'
     },
     example: `{
   "pageNumber": 1,
@@ -112,7 +112,7 @@ curl -X GET "http://qrm1.kekker.com/api/clients"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -168,7 +168,7 @@ curl -X GET "http://qrm1.kekker.com/api/cluster"
     scheme: {
       contentType: 'application/json',
       value: 'ClusterInfo',
-      ref: '#'
+      ref: 'ClusterInfo'
     },
     example: `{
   "clusterId": "QRM",
@@ -195,7 +195,7 @@ curl -X GET "http://qrm1.kekker.com/api/cluster"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorCluster'
     },
     example: `{
     "errorMessage": "Cluster not found"
@@ -225,7 +225,7 @@ curl -X GET "http://qrm1.kekker.com/api/cluster"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -242,10 +242,10 @@ Get clusters list
 
 ### Query parameters:
 
-| Header       | Description                  | Required |
-|--------------|------------------------------|----------|
-| pageNumber   | Paging: position             | false    |
-| pageSize     | Paging: returned items count | false    |
+| Key          | Type    | Description                  | Required |
+|--------------|---------|------------------------------|----------|
+| pageNumber   | integer | Paging: position             | false    |
+| pageSize     | integer | Paging: returned items count | false    |
 
 ### Headers
 
@@ -285,7 +285,7 @@ curl -X GET "http://qrm1.kekker.com/api/clusters"
     scheme: {
       contentType: 'application/json',
       value: 'Array<ClusterTech>',
-      ref: '#'
+      ref: 'ClusterTech'
     },
     example: `[
   {
@@ -329,7 +329,7 @@ curl -X GET "http://qrm1.kekker.com/api/clusters"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -346,9 +346,9 @@ Get cluster information
 
 ### Query parameters:
 
-| Header       | Description                       | Type     |
-|--------------|-----------------------------------|----------|
-| clusterId    | Unique identifier for the cluster | string   |
+| Header       | Type   | Description                       | Type     |
+|--------------|--------|-----------------------------------|----------|
+| clusterId    | string |Unique identifier for the cluster | string   |
 
 ### Headers
 
@@ -389,7 +389,7 @@ curl -X GET "http://qrm1.kekker.com/cluster/QRM"
     scheme: {
       contentType: 'application/json',
       value: 'ClusterInfo',
-      ref: '#'
+      ref: 'ClusterInfo'
     },
     example: `{
   "clusterId": "QRM",
@@ -416,7 +416,7 @@ curl -X GET "http://qrm1.kekker.com/cluster/QRM"
       scheme: {
         contentType: 'application/json',
         value: 'Error',
-        ref: '#'
+        ref: 'ErrorCluster'
       },
       example: `{
   "errorMessage": "Cluster not found"
@@ -446,7 +446,7 @@ curl -X GET "http://qrm1.kekker.com/cluster/QRM"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -463,11 +463,11 @@ Get cluster clients
 
 ### Query parameters:
 
-| Header       | Description                       | Required |
-|--------------|-----------------------------------|----------|
-| clusterId    | Unique identifier for the cluster | true     |
-| pageNumber   | Paging: position                  | false    |
-| pageSize     | Paging: returned items count      | false    |
+| Header       | Type    |Description                       | Required |
+|--------------|---------|----------------------------------|----------|
+| clusterId    | string  |Unique identifier for the cluster | true     |
+| pageNumber   | integer |Paging: position                  | false    |
+| pageSize     | integer |Paging: returned items count      | false    |
 
 ### Headers
 
@@ -508,7 +508,7 @@ curl -X GET "http://qrm1.kekker.com/cluster/QRM/clients"
     scheme: {
       contentType: 'application/json',
       value: 'PagedResponse<Client>',
-      ref: '#'
+      ref: 'PagedResponseClient'
     },
     example: `{
   "pageNumber": 1,
@@ -552,7 +552,7 @@ curl -X GET "http://qrm1.kekker.com/cluster/QRM/clients"
       scheme: {
         contentType: 'application/json',
         value: 'Error',
-        ref: '#'
+        ref: 'ErrorCluster'
       },
       example: `{
   "errorMessage": "Cluster not found"
@@ -582,7 +582,7 @@ curl -X GET "http://qrm1.kekker.com/cluster/QRM/clients"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"

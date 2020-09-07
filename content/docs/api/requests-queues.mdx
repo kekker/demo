@@ -17,9 +17,9 @@ Check queue action
 
 ### Query parameters:
 
-| Header       | Description          | Type          |
-|--------------|----------------------|---------------|
-| queueId      | Unique identifier of the deals queue action   | long          |
+| Key     | Type | Description         | Required      |
+|---------|------|---------------------|---------------|
+| queueId | long | Unique identifier of the deals queue action   | true  |
 
 ### Headers
 
@@ -61,7 +61,7 @@ curl -X GET "http://qrm1.kekker.com/api/queue/1801"
     scheme: {
       contentType: 'application/json',
       value: 'QueueState',
-      ref: '#'
+      ref: 'QueueState'
     }
   },
   {
@@ -80,7 +80,7 @@ curl -X GET "http://qrm1.kekker.com/api/queue/1801"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorDealActionsNF'
     },
     example: `{
     "errorMessage": "Deals action not found"
@@ -110,7 +110,7 @@ curl -X GET "http://qrm1.kekker.com/api/queue/1801"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -127,9 +127,9 @@ Delete error queue action
 
 ### Query parameters:
 
-| Header       | Description          | Type          |
-|--------------|----------------------|---------------|
-| queueId      | Unique identifier of the deals queue action   | long          |
+| Key     | Type | Description         | Required      |
+|---------|------|---------------------|---------------|
+| queueId | long | Unique identifier of the deals queue action | true |
 
 ### Headers
 
@@ -185,7 +185,7 @@ curl -X DELETE "http://qrm1.kekker.com/api/queue/1801"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorDealActionsNF'
     },
     example: `{
     "errorMessage": "Deals action not found"
@@ -215,7 +215,7 @@ curl -X DELETE "http://qrm1.kekker.com/api/queue/1801"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
