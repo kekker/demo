@@ -21,11 +21,11 @@ Get events
 
 ### Query parameters:
 
-| Header       | Description                  | Required |
-|--------------|------------------------------|----------|
-| category     | Events category filter. Available values: System, Clients, Queue, Deals | false |
-| pageNumber   | Paging: position             | false    |
-| pageSize     | Paging: returned items count | false    |
+| Header       | Type    | Description                  | Required |
+|--------------|---------|-----------------------------|----------|
+| category     | Available values: System, Clients, Queue, Deals |  Events category filter | false |
+| pageNumber   | integer | Paging: position             | false    |
+| pageSize     | integer | Paging: returned items count | false    |
 
 ### Headers
 
@@ -67,7 +67,7 @@ curl -X GET "http://qrm1.kekker.com/api/events"
     scheme: {
       contentType: 'application/json',
       value: 'PagedResponse<Event>',
-      ref: '#'
+      ref: 'PagedResponseEvent',
     },
     example: `{
   "pageNumber": 1,
@@ -141,7 +141,7 @@ curl -X GET "http://qrm1.kekker.com/api/events"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
   "errorMessage": "Internal error"
@@ -158,9 +158,9 @@ Ack event
 
 ### Query parameters:
 
-| Header       | Description                    | Type          |
-|--------------|--------------------------------|---------------|
-| eventUid     | Unique identifier of the event | string($uuid) |
+| Header       | Type          | Description                    | Required  |
+|--------------|---------------|--------------------------------|-----------|
+| eventUid     | string($uuid) | Unique identifier of the event | true      |
 
 ### Headers
 
@@ -221,7 +221,7 @@ curl -X GET "http://qrm1.kekker.com/api/events/56d5b7a2-2b5f-4f53-b790-d7448efc0
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorEventNF'
     },
     example: `{
   "errorMessage": "Event not found"
@@ -251,7 +251,7 @@ curl -X GET "http://qrm1.kekker.com/api/events/56d5b7a2-2b5f-4f53-b790-d7448efc0
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
   "errorMessage": "Internal error"
@@ -268,9 +268,9 @@ Reinitialise events
 
 ### Query parameters:
 
-| Header       | Description                    | Type          |
-|--------------|--------------------------------|---------------|
-| dateTimeUTC  | The lower time limit for reinitialization ISO8601 | string("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffzzz") |
+| Header       | Type | Description                    | Required      |
+|--------------|------| -------------------------------|---------------|
+| dateTimeUTC  | string (ISO8601) | The lower time limit for reinitialization | true |
 
 ### Headers
 
@@ -326,7 +326,7 @@ curl -X GET  "http://qrm1.kekker.com/api/events/reset/2020-08-04T06:38:39.2"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
   "errorMessage": "Error description"
@@ -356,7 +356,7 @@ curl -X GET  "http://qrm1.kekker.com/api/events/reset/2020-08-04T06:38:39.2"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
   "errorMessage": "Internal error"

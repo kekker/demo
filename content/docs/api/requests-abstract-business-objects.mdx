@@ -14,6 +14,7 @@ import TabBar from '../../../src/components/blocks/TabBar/TabBar';
 import CodeBlock from '../../../src/components/blocks/CodeEditor/CodeBlock';
 import HeaderRequestLink from '../../../src/components/fragments/HeaderRequestLink';
 import { StyledTab, StyledTabPanel, StyledTabs, StyledTabList } from '../../../src/components/fragments/StyledTabs';
+import SchemeModal from '../../../src/components/blocks/StructureScheme';
 
 <HeaderRequestLink title="POST /api/deals" />
 
@@ -23,7 +24,7 @@ Create deal
 
 | Content Type       | Value            |
 |--------------------|------------------|
-| application/json   | CreateDeal       |
+| application/json   | <SchemeModal elementName="CreateDeal" /> |
 
 
 ### Headers
@@ -110,34 +111,6 @@ Create deal
   ],
   "transitions": [
     {
-      "status": "CargoSent",
-      "statusNext": "CargoGot",
-      "roles": [
-         "Buyer"
-       ]
-    },
-    {
-      "status": "LcOk",
-      "statusNext": "CargoSent",
-      "roles": [
-         "Seller"
-       ]
-    },
-    {
-      "status": "LcReq",
-      "statusNext": "LcOk",
-      "roles": [
-         "Bank"
-       ]
-    },
-    {
-      "status": "LcReq",
-      "statusNext": "LcFail",
-      "roles": [
-         "Bank"
-       ]
-    },
-    {
       "status": "NEW",
       "statusNext": "OfferReq",
       "roles": [
@@ -149,20 +122,6 @@ Create deal
       "statusNext": "LcReq",
       "roles": [
          "Buyer"
-       ]
-    },
-    {
-      "status": "OfferReq",
-      "statusNext": "OfferOk",
-      "roles": [
-         "Buyer"
-       ]
-    },
-    {
-      "status": "CargoGot",
-      "statusNext": "Payment",
-      "roles": [
-         "Bank"
        ]
     },
     {
@@ -225,7 +184,7 @@ Create deal
     scheme: {
       contentType: 'application/json',
       value: 'CreateDealResponse',
-      ref: '#'
+      ref: 'CreateDealResponse'
     },
     example: `{
   "queueId": 15897,
@@ -248,7 +207,7 @@ Create deal
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorCreateDealNF'
     },
     example: `{
   "errorMessage": "DealKind LcDeal not found"
@@ -278,7 +237,7 @@ Create deal
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorCreateDeal'
     },
     example: `{
   "errorMessage": "Transitions must have single start state \"NEW\""
@@ -295,10 +254,10 @@ Get deals list
 
 ### Query parameters:
 
-| Header       | Description                  | Required |
-|--------------|------------------------------|----------|
-| pageNumber   | Paging: position             | false    |
-| pageSize     | Paging: returned items count | false    |
+| Key          | Type    | Description                  | Required |
+|--------------|---------|------------------------------|----------|
+| pageNumber   | integer | Paging: position             | false    |
+| pageSize     | integer | Paging: returned items count | false    |
 
 ### Headers
 
@@ -340,7 +299,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals"
     scheme: {
       contentType: 'application/json',
       value: 'PagedResponse<DealState>',
-      ref: '#'
+      ref: 'PagedResponseDealState'
     },
     example: `
  {
@@ -396,7 +355,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
   "errorMessage": "Internal error"
@@ -413,15 +372,15 @@ Change deal state
 
 ### Query parameters:
 
-| Header       | Description                               | Type     |
-|--------------|-------------------------------------------|----------|
-| id           | Identifier for the deal (local or global) | string   |
+| Key       | Type   | Description                               | Type     |
+|-----------|--------|-------------------------------------------|----------|
+| id        | string | Identifier for the deal (local or global) | string   |
 
 ### Body:
 
 | Content Type       | Value            |
 |--------------------|------------------|
-| application/json   | ChangeState      |
+| application/json   | <SchemeModal elementName="ChangeState" />   |
 
 ### Headers
 
@@ -500,7 +459,7 @@ Change deal state
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorDealNF'
     },
     example: `{
   "errorMessage": "Deal not found"
@@ -530,7 +489,7 @@ Change deal state
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -547,9 +506,9 @@ Get extended deal information
 
 ### Query parameters:
 
-| Header       | Description                               | Type     |
-|--------------|-------------------------------------------|----------|
-| id           | Identifier for the deal (local or global) | string   |
+| Key       | Type   | Description                               | Type     |
+|-----------|--------|-------------------------------------------|----------|
+| id        | string | Identifier for the deal (local or global) | string   |
 
 ### Headers
 
@@ -601,6 +560,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/30501"
     scheme: {
       contentType: 'application/json',
       value: 'Deal',
+      ref: 'Deal'
     },
     example: `{
   "dealId": "ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff",
@@ -693,7 +653,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/30501"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorDealNF'
     },
     example: `{
   "errorMessage": "Deal not found"
@@ -723,7 +683,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/30501"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -740,10 +700,10 @@ Get deal templates list
 
 ### Query parameters:
 
-| Header       | Description                  | Required |
-|--------------|------------------------------|----------|
-| pageNumber   | Paging: position             | false    |
-| pageSize     | Paging: returned items count | false    |
+| Key          | Type    | Description                  | Required |
+|--------------|---------|------------------------------|----------|
+| pageNumber   | integer | Paging: position             | false    |
+| pageSize     | integer | Paging: returned items count | false    |
 
 ### Headers
 
@@ -783,6 +743,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/template"
     scheme: {
       contentType: 'application/json',
       value: 'PagedResponse<DealTemplate>',
+      ref: 'PagedResponseDealKind'
     },
     example: `{
   "pageNumber": 1,
@@ -852,7 +813,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/template"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -869,9 +830,9 @@ Get deals blockchain contract
 
 ### Query parameters:
 
-| Header       | Description                               | Type     |
-|--------------|-------------------------------------------|----------|
-| id           | Identifier for the deal (local or global) | string   |
+| Key       | Type   | Description                               | Type     |
+|-----------|--------|-------------------------------------------|----------|
+| id        | string | Identifier for the deal (local or global) | string   |
 
 ### Headers
 
@@ -932,7 +893,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/3501/tech"
       scheme: {
         contentType: 'application/json',
         value: 'Error',
-        ref: '#'
+        ref: 'ErrorDealNF'
       },
       example: `{
   "errorMessage": "Deal not found"
@@ -962,7 +923,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/3501/tech"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"

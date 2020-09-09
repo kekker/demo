@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
@@ -17,6 +17,8 @@ import Heading from '../components/fragments/TextStyles/Heading';
 import Text from '../components/fragments/TextStyles/Text';
 import BgImage from '../components/fragments/BgImage';
 import Hr from '../components/fragments/TextStyles/Hr';
+
+import kekkerArrowWhite from '../../static/assets/kekker_arrow_white.svg';
 
 
 const StyledPlatformImage = styled(Img)`
@@ -39,6 +41,18 @@ const StyledSandboxContentWrapper = styled.div`
   & p:last-child {
     margin-bottom: 0;
   }
+`;
+
+const StyledYellowArrow = styled.img`
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.primaryBrand};
+  height: 30px;
+  width: 30px;
+  
+  margin-bottom: 0;
+  margin-left: 20px;
+  
+  padding: 5px;
 `;
 
 // Content
@@ -65,7 +79,7 @@ const BlogIndex = ({ data, location }) => {
             flexDirection={{ _: 'column', sm: 'row' }}
             flexWrap="wrap"
             justifyContent="space-between"
-            mb={{ _: 0, sm: 6 }}
+            mb={{ _: 0, sm: 5 }}
           >
             { jsonContent.benefits.map(item => (
               <GridItem
@@ -89,6 +103,15 @@ const BlogIndex = ({ data, location }) => {
               </GridItem>
             ))}
           </Flex>
+
+          <Link to="/about/benefits.html">
+            <Flex mb={{ _: 3, sm: 6 }} flexDirection="row" alignItems="center">
+              <Text tag="div" fontSize="extralarge">
+                More facts: comparable economics and other details
+              </Text>
+              <StyledYellowArrow alt="" src={kekkerArrowWhite} />
+            </Flex>
+          </Link>
 
           <Hr />
         </ContainerContent>
@@ -146,7 +169,7 @@ const BlogIndex = ({ data, location }) => {
             title="Sandbox Background Image"
             bg="#000000"
           >
-            <ContainerContent pt='20px'>
+            <ContainerContent pt="20px">
               <StyledImage
                 fluid={sandboxImage.childImageSharp.fluid}
                 title="Kekker Sandbox overview"

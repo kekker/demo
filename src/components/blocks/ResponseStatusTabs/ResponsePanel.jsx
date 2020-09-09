@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Prism from 'prismjs';
 
 import Text from '../../fragments/TextStyles/Text';
+import SchemeModal from '../StructureScheme';
 
 
 const PanelWrapper = styled.div`
@@ -54,9 +55,7 @@ const ResponsePanel = ({ responseStatus }) => {
               <td>
                 {responseStatus.scheme.ref
                   ? (
-                    <a href={responseStatus.scheme.ref}>
-                      {responseStatus.scheme.value}
-                    </a>
+                    <SchemeModal elementName={responseStatus.scheme.ref} />
                   ) : (
                     <>
                       {responseStatus.scheme.value}

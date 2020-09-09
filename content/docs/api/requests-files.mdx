@@ -9,6 +9,7 @@ import TabItem from '../../../src/components/blocks/TabBar/TabItem';
 import TabBar from '../../../src/components/blocks/TabBar/TabBar';
 import CodeEditor from '../../../src/components/blocks/CodeEditor/CodeEditor';
 import HeaderRequestLink from '../../../src/components/fragments/HeaderRequestLink';
+import SchemeModal from '../../../src/components/blocks/StructureScheme';
 
 
 <HeaderRequestLink title="POST /api/files" />
@@ -22,7 +23,7 @@ none
 
 | Content Type        | Value            |
 |---------------------|------------------|
-| multipart/form-data | Form             |
+| multipart/form-data | <SchemeModal elementName="Form" />            |
 
 ### Headers
 
@@ -80,7 +81,7 @@ curl -X POST "http://qrm1.kekker.com/api/files"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorFileNF'
     },
     example: `{
   "errorMessage": "File not found"
@@ -110,7 +111,7 @@ curl -X POST "http://qrm1.kekker.com/api/files"
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"
@@ -127,9 +128,9 @@ Download file
 
 ### Query parameters:
 
-| Header       | Description                          | Type          |
-|--------------|--------------------------------------|---------------|
-| fileUid      | Unique local identifier for the file | string($uuid) |
+| Header       | Type          | Description                          | Type          |
+|--------------|---------------|--------------------------------------|---------------|
+| fileUid      | string($uuid) | Unique local identifier for the file | string($uuid) |
 
 ### Headers
 
@@ -193,7 +194,7 @@ curl -X GET"http://qrm1.kekker.com/api/files/c19131e4-b9c1-4dce-8cae-b8d00f50fc6
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'ErrorFileNF'
     },
     example: `{
   "errorMessage": "File not found"
@@ -223,7 +224,7 @@ curl -X GET"http://qrm1.kekker.com/api/files/c19131e4-b9c1-4dce-8cae-b8d00f50fc6
     scheme: {
       contentType: 'application/json',
       value: 'Error',
-      ref: '#'
+      ref: 'Error'
     },
     example: `{
     "errorMessage": "Internal error"

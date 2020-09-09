@@ -37,7 +37,7 @@ const MainHeader = ({ location, theme }) => (
           height={theme.layout.menuHeight}
           bg="#000000"
           style={{
-            position: 'fixed', top: '0', left: '0', zIndex: 1
+            position: 'fixed', top: '0', left: '0', zIndex: 10
           }}
         >
           <ContainerContent pt="0" pb="0">

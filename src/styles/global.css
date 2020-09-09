@@ -158,12 +158,17 @@ td, th {
 }
 
 thead th:nth-child(1) {
-  width: 30%;
-}
-
-thead th:nth-child(3) {
   width: 20%;
 }
+
+thead th:last-child {
+  width: 10%;
+}
+
+thead th:nth-child(2) {
+  width: 25%;
+}
+
 
 /* ***********************************
 MEDIA QUERIES

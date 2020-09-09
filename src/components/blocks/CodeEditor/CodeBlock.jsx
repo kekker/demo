@@ -10,10 +10,9 @@ const CodeEditorContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bodyLightGrey};
   overflow-x: auto;
  
-  max-width: 688px;
+  max-width: 55vw;
 
-
-  @media (max-width: 980px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
         max-width: 90vw;
     }
   }
@@ -23,10 +22,9 @@ const CodeEditorContainer = styled.div`
 `;
 
 const CodeBlock = ({ code, language }) => {
-
   useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  });
 
   return (
     <CodeEditorContainer>

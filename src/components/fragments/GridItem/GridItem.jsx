@@ -13,7 +13,7 @@ const StyledGrid = styled(Flex)`
 `;
 
 const GridItem = ({
-  cols, linkTo, children, ...props
+  cols, linkTo, hasOffsets, children, ...props
 }) => {
   const ifLink = linkTo ? (
     <Link to={linkTo} title="read more">
@@ -26,12 +26,16 @@ const GridItem = ({
   );
   const multiply = `${cols - 1}/${cols}`;
 
+  const flexBasis = hasOffsets
+    ? `calc(100% / ${cols} - 2em*${multiply})`
+    : `calc(100% / ${cols})`;
+
   return (
     <StyledGrid
       flexDirection="column"
       flexGrow="0"
       flexShrink="1"
-      flexBasis={`calc(100% / ${cols} - 2em*${multiply})`}
+      flexBasis={flexBasis}
       flexWrap="wrap"
       {...props}
     >
@@ -44,11 +48,12 @@ const GridItem = ({
 GridItem.propTypes = {
   cols: PropTypes.number.isRequired,
   linkTo: PropTypes.string,
+  hasOffsets: PropTypes.bool,
   children: PropTypes.node,
 };
 
-GridItem.defaultTypes = {
-  cols: 2,
+GridItem.defaultProps = {
+  hasOffsets: true
 };
 
 export default GridItem;

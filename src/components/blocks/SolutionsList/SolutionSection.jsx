@@ -18,10 +18,6 @@ const StyledSolutionList = styled.ul`
     : '0')
 }; 
   
-  -moz-transition: height .5s;
-  -ms-transition: height .5s;
-  -o-transition: height .5s;
-  -webkit-transition: height .5s;
   transition: height .5s;
   overflow: hidden;
 `;
