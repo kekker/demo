@@ -55,14 +55,6 @@ const StyledYellowArrow = styled.img`
   padding: 5px;
 `;
 
-const StyledText = styled(Text)`
-  text-decoration: none;
-  
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 // Content
 const jsonContent = require('../../content/home');
 
@@ -114,9 +106,9 @@ const BlogIndex = ({ data, location }) => {
 
           <Link to="/about/benefits.html">
             <Flex mb={{ _: 3, sm: 6 }} flexDirection="row" alignItems="center">
-              <StyledText tag="div" fontSize="extralarge">
+              <Text tag="div" fontSize="extralarge">
                 More facts: comparable economics and other details
-              </StyledText>
+              </Text>
               <StyledYellowArrow alt="" src={kekkerArrowWhite} />
             </Flex>
           </Link>
