@@ -63,8 +63,8 @@ const BenefitsProblemsBlock = () => (
         </Text>
       </Flex>
 
-      <BenefitsProgressBar fill="100%" icon={clockIcon} price="$180k" />
-      <BenefitsProgressBar fill="100%" icon={moneyIcon} price="$180k" />
+      <BenefitsProgressBar fill="100%" icon={clockIcon} price="$220k" />
+      <BenefitsProgressBar fill="100%" icon={moneyIcon} price="10 months" />
 
     </GridItem>
 
