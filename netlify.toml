@@ -6,4 +6,10 @@
   to = "/docs/getting-started/get-started.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/sample-app"
+  to = "http://46.101.168.163/"
+  status = 301
+  force = true
   
