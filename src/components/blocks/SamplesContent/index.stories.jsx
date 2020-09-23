@@ -7,7 +7,7 @@ export default {
   title: 'Samples Block',
 };
 
-export const BenefitsProgressBarStory = () => (
+export const SamplesButtonsStory = () => (
   <Story>
     <StoryRow heading="Samples Buttons">
       <SamplesButtons />
