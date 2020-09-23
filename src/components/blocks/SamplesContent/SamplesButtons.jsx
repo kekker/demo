@@ -26,7 +26,7 @@ const SamplesButtons = () => (
       fontSize="20px"
       isPrimary
       isUppercase={false}
-      to="/sample-app"
+      to="/samples/lc-dashboard"
       disabled={false}
       title="Get Started"
     />

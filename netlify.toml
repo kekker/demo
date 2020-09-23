@@ -8,8 +8,13 @@
   force = true
 
 [[redirects]]
-  from = "/sample-app"
+  from = "/samples/lc-dashboard"
   to = "http://46.101.168.163/"
   status = 301
   force = true
+
+[[headers]]
+  for = /samples
+  Basic-Auth = "API_SAMPLES_TOKEN"
+
   
