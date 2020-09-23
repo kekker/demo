@@ -66,7 +66,17 @@ const StyledIcon = styled(FontAwesomeIcon)`
 const ButtonLink = ({
   size, iconSize, fontSize, title, isPrimary, isShrinking, isUppercase, isBlack, to, icon, wrapperStyles,
 }) => (
-  <Link to={to} style={{ flexShrink: 0, textDecoration: 'none', ...wrapperStyles }}>
+  <a
+    href={to}
+    rel="noopener noreferrer"
+    target="_blank"
+    style={{
+      flexShrink: 0,
+      outLine: 'none',
+      textDecoration: 'none',
+      ...wrapperStyles
+    }}
+  >
     <StyledButton
       size={size}
       isShrinking={isShrinking}
@@ -86,7 +96,7 @@ const ButtonLink = ({
         {title}
       </Text>
     </StyledButton>
-  </Link>
+  </a>
 );
 
 ButtonLink.propTypes = {
