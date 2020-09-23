@@ -13,16 +13,4 @@
   status = 301
   force = true
 
-[[headers]]
-  for = "/samples/*"
-
-  [headers.values]
-    Basic-Auth = "API_SAMPLES_TOKEN"
-
-[[headers]]
-  for = "http://46.101.168.163/"
-
-  [headers.values]
-    Basic-Auth = "API_SAMPLES_TOKEN"
-
   
