@@ -8,6 +8,7 @@ import {
   faSkype,
   faTwitter,
   faInstagram,
+  faGithub
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 // import {
@@ -26,6 +27,7 @@ const FontAwesomeIcon = styled(Base)`
   ${props => (props.color ? `color: ${props.color}` : '')};
 `;
 
+const Github = props => <FontAwesomeIcon {...props} icon={faGithub} />;
 const Facebook = props => <FontAwesomeIcon {...props} icon={faFacebookF} />;
 const GooglePlus = props => <FontAwesomeIcon {...props} icon={faGooglePlus} />;
 const Linkedin = props => <FontAwesomeIcon {...props} icon={faLinkedin} />;
@@ -55,7 +57,8 @@ export {
   AngleUp,
   Bars,
   Close,
-  Copy
+  Copy,
+  Github
   // Envelope,
   // Heart,
   // FaLink,

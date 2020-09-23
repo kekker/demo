@@ -81,26 +81,21 @@ const MainHeader = ({ location, theme }) => (
                     fontSize={{
                       xs: 'h1.sm',
                       sm: 'h1.md',
-                      md: 'h1.lg',
+                      md: 'h1.extralg',
                     }}
                   >
-                    A
-                    {' '}
-                    <span style={{ color: theme.colors.primaryBrand }}>
-                      platform
+                    <span style={{ color: theme.colors.primaryBrand, fontSize: '1.2em', }}>
+                      Build, Run and Scale
                     </span>
-                    {' '}
-                    for building
                     {' '}
                     <br />
                     <span
                       style={{
-                        fontSize: '1.4em',
                         letterSpacing: '-0.04em',
                         fontWeight: '600',
                       }}
                     >
-                      decentralized apps
+                      Blockchain Powered Products
                     </span>
                   </Heading>
                   <ButtonLink
