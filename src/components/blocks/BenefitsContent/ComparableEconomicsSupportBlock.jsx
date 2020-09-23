@@ -13,11 +13,11 @@ const ComparableEconomicsSupportBlock = () => (
       flexDirection="row"
       pb={3}
     >
-      <GridItem hasOffsets={false} cols={4} />
+      <GridItem hasOffsets={false} pr={1} cols={4} />
 
       <GridItem hasOffsets={false} pr={1} cols={4}>
         <Text tag="span" textTransform="uppercase" fontSize="12px">
-          In-house development
+          In-house dedvelopment
         </Text>
       </GridItem>
 
