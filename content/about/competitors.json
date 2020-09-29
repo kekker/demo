@@ -1,0 +1,79 @@
+{
+  "columns": ["Kekker", "Multi-DLT protocols BaaS providers", "Mono-DLT protocol BaaS providers", "Basic BaaS providers", "Free / open source tools"],
+  "rows": [
+    "Providers",
+    "DLT hosting",
+    "Support to guarantee functioning DLT network",
+    "Multi-DLT support",
+    "API in business terms (vs low-level DLT programming)",
+    "No single DLT protocol lock-in (ease of migration between blockchain protocols)",
+    "Cross-DLT networks interaction",
+    "Cross-DLT protocols interaction",
+    "Business App Samples and Templates"
+  ],
+  "data": {
+    "Providers": {
+      "Kekker": "Kekker",
+      "Multi-DLT protocols BaaS providers": "Blockdaemon, Chainstack, SettleMint",
+      "Mono-DLT protocol BaaS providers": "Kaleido, PegaSys, Infura, QuickNode, Factom, Rockside",
+      "Basic BaaS providers": "Amazon Managed Blockchain, IBM Blockchain Platform, Azure Blockchain Workbench, Corda HPE R3",
+      "Free / open source tools": "?"
+    },
+    "DLT hosting": {
+      "Kekker": "+",
+      "Multi-DLT protocols BaaS providers": "+",
+      "Mono-DLT protocol BaaS providers": "+",
+      "Basic BaaS providers": "+",
+      "Free / open source tools": "-"
+    },
+    "Support to guarantee functioning DLT network": {
+      "Kekker": "+",
+      "Multi-DLT protocols BaaS providers": "+",
+      "Mono-DLT protocol BaaS providers": "+",
+      "Basic BaaS providers": "-",
+      "Free / open source tools": "-"
+    },
+    "Multi-DLT support": {
+      "Kekker": "+",
+      "Multi-DLT protocols BaaS providers": "+",
+      "Mono-DLT protocol BaaS providers": "-",
+      "Basic BaaS providers": "-",
+      "Free / open source tools": "-"
+    },
+    "API in business terms (vs low-level DLT programming)": {
+      "Kekker": "+",
+      "Multi-DLT protocols BaaS providers": "-",
+      "Mono-DLT protocol BaaS providers": "-",
+      "Basic BaaS providers": "-",
+      "Free / open source tools": "-"
+    },
+    "No single DLT protocol lock-in (ease of migration between blockchain protocols)": {
+      "Kekker": "+",
+      "Multi-DLT protocols BaaS providers": "-",
+      "Mono-DLT protocol BaaS providers": "-",
+      "Basic BaaS providers": "-",
+      "Free / open source tools": "-"
+    },
+    "Cross-DLT networks interaction": {
+      "Kekker": "+",
+      "Multi-DLT protocols BaaS providers": "-",
+      "Mono-DLT protocol BaaS providers": "-",
+      "Basic BaaS providers": "-",
+      "Free / open source tools": "-"
+    },
+    "Cross-DLT protocols interaction": {
+      "Kekker": "+",
+      "Multi-DLT protocols BaaS providers": "-",
+      "Mono-DLT protocol BaaS providers": "-",
+      "Basic BaaS providers": "-",
+      "Free / open source tools": "-"
+    },
+    "Business App Samples and Templates": {
+      "Kekker": "+",
+      "Multi-DLT protocols BaaS providers": "-",
+      "Mono-DLT protocol BaaS providers": "-",
+      "Basic BaaS providers": "-",
+      "Free / open source tools": "-"
+    }
+  }
+}

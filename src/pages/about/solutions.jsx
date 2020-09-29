@@ -15,8 +15,8 @@ import { listAboutLinks } from '../../utils/getLinkLists';
 
 const SolutionsPage = ({ location }) => {
   const prev = {
-    to: '/about/benefits.html',
-    title: 'Benefits'
+    to: '/about/competitors.html',
+    title: 'Competitors'
   };
 
   return (
