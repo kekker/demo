@@ -9,5 +9,8 @@
     - title: Samples
       to: /about/samples.html
 
+    - title: Competitors
+      to: /about/competitors.html
+
     - title: Solutions
       to: /about/solutions
