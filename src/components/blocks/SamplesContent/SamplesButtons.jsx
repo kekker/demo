@@ -8,19 +8,19 @@ import ButtonLink from '../../fragments/Button';
 
 
 const SamplesButtons = () => (
-  <Flex mt={{ _: '20px', sm: '30px' }} mb={{ _: '50px', sm: '150px' }} flexDirection='row'>
-    <ButtonLink
-      wrapperStyles={{ marginRight: '10px' }}
-      icon={faGithub}
-      iconSize="extralarge"
-      size="extralarge"
-      fontSize="20px"
-      isBlack
-      isUppercase={false}
-      to="#"
-      disabled={false}
-      title="Get Source Code"
-    />
+  <Flex mt={{ _: '20px', sm: '30px' }} mb={{ _: '50px', sm: '150px' }} flexDirection="row">
+    {/* <ButtonLink */}
+    {/*  wrapperStyles={{ marginRight: '10px' }} */}
+    {/*  icon={faGithub} */}
+    {/*  iconSize="extralarge" */}
+    {/*  size="extralarge" */}
+    {/*  fontSize="20px" */}
+    {/*  isBlack */}
+    {/*  isUppercase={false} */}
+    {/*  to="#" */}
+    {/*  disabled={false} */}
+    {/*  title="Get Source Code" */}
+    {/* /> */}
     <ButtonLink
       size="extralarge"
       fontSize="20px"
@@ -28,7 +28,7 @@ const SamplesButtons = () => (
       isUppercase={false}
       to="/samples/lc-dashboard"
       disabled={false}
-      title="Get Started"
+      title="Check It Out"
     />
   </Flex>
 );

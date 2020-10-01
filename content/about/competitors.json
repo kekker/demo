@@ -17,7 +17,7 @@
       "Multi-DLT protocols BaaS providers": "Blockdaemon, Chainstack, SettleMint",
       "Mono-DLT protocol BaaS providers": "Kaleido, PegaSys, Infura, QuickNode, Factom, Rockside",
       "Basic BaaS providers": "Amazon Managed Blockchain, IBM Blockchain Platform, Azure Blockchain Workbench, Corda HPE R3",
-      "Free / open source tools": "?"
+      "Free / open source tools": "Ethereum, Hyperledger"
     },
     "DLT hosting": {
       "Kekker": "+",

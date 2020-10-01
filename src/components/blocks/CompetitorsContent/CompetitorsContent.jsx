@@ -18,6 +18,13 @@ const TableWrapper = styled.div`
   }
 `;
 
+const ScrollContent = styled.div`
+  user-select: none;
+  overflow-x: auto;
+  cursor: isScroll ? 'pointer' : 'default' }}
+        
+`;
+
 const Table = styled.table`
   display: grid;
   border-collapse: collapse;
@@ -87,8 +94,7 @@ const CompetitorsContent = () => {
 
   return (
     <TableWrapper>
-      <div
-        style={{ userSelect: 'none', overflowX: 'auto', cursor: isScroll ? 'pointer' : 'default' }}
+      <ScrollContent
         ref={scrollWrapperRef}
       >
         <Table>
@@ -113,7 +119,7 @@ const CompetitorsContent = () => {
             ))}
           </Tbody>
         </Table>
-      </div>
+      </ScrollContent>
     </TableWrapper>
   );
 };
