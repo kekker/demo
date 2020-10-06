@@ -272,7 +272,7 @@ Get deals list
 ## Request Example
 
 ```bash
-curl -X GET "http://qrm1.kekker.com/api/deals"
+curl -X GET "https://qrm1.kekker.com/api/deals"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
@@ -366,7 +366,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals"
 
 ***
 
-<HeaderRequestLink title="POST /api/deals/{dealId}" />
+<HeaderRequestLink title="POST /api/deals/{id}" />
 
 Change deal state
 
@@ -523,7 +523,7 @@ Get extended deal information
 ## Request Example with global identifier
 
 ```bash
-curl -X GET "http://qrm1.kekker.com/api/deals/ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff"
+curl -X GET "https://qrm1.kekker.com/api/deals/ad04c39314184ac0847304fc22eaac75:57af8d5e2cde483b84f761038bd902ff"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
@@ -533,7 +533,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/ad04c39314184ac0847304fc22eaac75:5
 ## Request Example with local identifier
 
 ```bash
-curl -X GET "http://qrm1.kekker.com/api/deals/30501"
+curl -X GET "https://qrm1.kekker.com/api/deals/30501"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"
@@ -717,7 +717,7 @@ Get deal templates list
 ## Request Example
 
 ```bash
-curl -X GET "http://qrm1.kekker.com/api/deals/template"
+curl -X GET "https://qrm1.kekker.com/api/deals/template"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "x-api-version: 2.0"
@@ -847,7 +847,7 @@ Get deals blockchain contract
 ## Request Example
 
 ```bash
-curl -X GET "http://qrm1.kekker.com/api/deals/3501/tech"
+curl -X GET "https://qrm1.kekker.com/api/deals/3501/tech"
 -H "accept: application/json"
 -H "Authorization: {AUTHORIZATION}"
 -H "channel: {CHANNEL}"

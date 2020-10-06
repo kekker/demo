@@ -119,7 +119,7 @@ The json specification of the transaction is indicated as the request data. In o
     <TabItem label="Quorum">
         <CodeEditor code={
            `
-curl -X POST "http://qrm1.kekker.com/api/deals"
+curl -X POST "https://qrm1.kekker.com/api/deals"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -163,7 +163,7 @@ curl -X POST "http://qrm1.kekker.com/api/deals"
     <TabItem label="Hyperledger">
          <CodeEditor code={
            `
-curl -X POST "http://hlf1.kekker.com/api/deals"
+curl -X POST "https://hlf1.kekker.com/api/deals"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -207,7 +207,7 @@ curl -X POST "http://hlf1.kekker.com/api/deals"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X POST "http://eth1.kekker.com/api/deals"
+curl -X POST "https://eth1.kekker.com/api/deals"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -285,7 +285,7 @@ The JSON specification of the new Deal status is indicated as the request data. 
     <TabItem label="Quorum">
         <CodeEditor code={
        `
-curl -X POST "http://qrm1.kekker.com/api/deals/{LOCALDEALID}"
+curl -X POST "https://qrm1.kekker.com/api/deals/{LOCALDEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -301,7 +301,7 @@ curl -X POST "http://qrm1.kekker.com/api/deals/{LOCALDEALID}"
     <TabItem label="Hyperledger">
             <CodeEditor code={
            `
-curl -X POST "http://hlf1.kekker.com/api/deals/{LOCALDEALID}"
+curl -X POST "https://hlf1.kekker.com/api/deals/{LOCALDEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -317,7 +317,7 @@ curl -X POST "http://hlf1.kekker.com/api/deals/{LOCALDEALID}"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X POST "http://eth1.kekker.com/api/deals/{LOCALDEALID}"
+curl -X POST "https://eth1.kekker.com/api/deals/{LOCALDEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -354,7 +354,7 @@ Use `GET`-method call `/api/queue/{QUEUEID}`. Buyer node - QRM1,HLF1, ETH1
     <TabItem label="Quorum">
         <CodeEditor code={
        `
-curl -X GET "http://qrm1.kekker.com/api/queue/{QUEUEID}"
+curl -X GET "https://qrm1.kekker.com/api/queue/{QUEUEID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -365,7 +365,7 @@ curl -X GET "http://qrm1.kekker.com/api/queue/{QUEUEID}"
     <TabItem label="Hyperledger">
             <CodeEditor code={
            `
-curl -X GET "http://hlf1.kekker.com/api/queue/{QUEUEID}"
+curl -X GET "https://hlf1.kekker.com/api/queue/{QUEUEID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -376,7 +376,7 @@ curl -X GET "http://hlf1.kekker.com/api/queue/{QUEUEID}"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X GET "http://eth1.kekker.com/api/queue/{QUEUEID}"
+curl -X GET "https://eth1.kekker.com/api/queue/{QUEUEID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -420,7 +420,7 @@ Seller node - QRM2,HLF2, ETH2.
     <TabItem label="Quorum">
             <CodeEditor code={
            `
-curl -X GET "http://qrm2.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://qrm2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -431,7 +431,7 @@ curl -X GET "http://qrm2.kekker.com/api/deals/{DEALID}"
     <TabItem label="Hyperledger">
         <CodeEditor code={
        `
-curl -X GET "http://hlf2.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://hlf2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -442,7 +442,7 @@ curl -X GET "http://hlf2.kekker.com/api/deals/{DEALID}"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X GET "http://eth2.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://eth2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -536,7 +536,7 @@ Seller node - QRM2,HLF2, ETH2.
     <TabItem label="Quorum">
         <CodeEditor code={
            `
-curl -X POST "http://qrm2.kekker.com/api/deals/{DEALID}"
+curl -X POST "https://qrm2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -563,7 +563,7 @@ curl -X POST "http://qrm2.kekker.com/api/deals/{DEALID}"
     <TabItem label="Hyperledger">
         <CodeEditor code={
        `
-curl -X POST "http://hlf2.kekker.com/api/deals/{DEALID}"
+curl -X POST "https://hlf2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -590,7 +590,7 @@ curl -X POST "http://hlf2.kekker.com/api/deals/{DEALID}"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X POST "http://eth2.kekker.com/api/deals/{DEALID}"
+curl -X POST "https://eth2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -643,7 +643,7 @@ Buyer node - QRM1,HLF1, ETH1.
     <TabItem label="Quorum">
             <CodeEditor code={
            `
-curl -X GET "http://qrm1.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://qrm1.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -654,7 +654,7 @@ curl -X GET "http://qrm1.kekker.com/api/deals/{DEALID}"
     <TabItem label="Hyperledger">
         <CodeEditor code={
        `
-curl -X GET "http://hlf1.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://hlf1.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -665,7 +665,7 @@ curl -X GET "http://hlf1.kekker.com/api/deals/{DEALID}"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X GET "http://eth1.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://eth1.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -757,7 +757,7 @@ Buyer node - QRM1,HLF1, ETH1.
     <TabItem label="Quorum">
         <CodeEditor code={
        `
-curl -X POST "http://qrm1.kekker.com/api/deals/{DEALID}"
+curl -X POST "https://qrm1.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -773,7 +773,7 @@ curl -X POST "http://qrm1.kekker.com/api/deals/{DEALID}"
     <TabItem label="Hyperledger">
             <CodeEditor code={
            `
-curl -X POST "http://hlf1.kekker.com/api/deals/{DEALID}"
+curl -X POST "https://hlf1.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -789,7 +789,7 @@ curl -X POST "http://hlf1.kekker.com/api/deals/{DEALID}"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X POST "http://eth1.kekker.com/api/deals/{DEALID}"
+curl -X POST "https://eth1.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -831,7 +831,7 @@ Seller node - QRM2,HLF2, ETH2.
     <TabItem label="Quorum">
             <CodeEditor code={
            `
-curl -X GET "http://qrm2.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://qrm2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -842,7 +842,7 @@ curl -X GET "http://qrm2.kekker.com/api/deals/{DEALID}"
     <TabItem label="Hyperledger">
         <CodeEditor code={
        `
-curl -X GET "http://hlf2.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://hlf2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
@@ -853,7 +853,7 @@ curl -X GET "http://hlf2.kekker.com/api/deals/{DEALID}"
     <TabItem label="Ethereum">
        <CodeEditor code={
        `
-curl -X GET "http://eth2.kekker.com/api/deals/{DEALID}"
+curl -X GET "https://eth2.kekker.com/api/deals/{DEALID}"
 -H "Accept: application/json"
 -H "x-api-version: 2.0"
 -H "Channel: {CHANNEL}"
