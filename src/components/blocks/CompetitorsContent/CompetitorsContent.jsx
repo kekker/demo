@@ -30,12 +30,12 @@ const Table = styled.table`
   border-collapse: collapse;
   min-width: 100%;
   grid-template-columns: 
-    minmax(150px, 2fr)
-    minmax(120px, 1.67fr)
-    minmax(120px, 1.67fr)
-    minmax(120px, 1.67fr)
-    minmax(120px, 1.67fr)
-    minmax(120px, 1.67fr)
+    minmax(140px, 2fr)
+    minmax(100px, 1.67fr)
+    minmax(100px, 1.67fr)
+    minmax(100px, 1.67fr)
+    minmax(100px, 1.67fr)
+    minmax(100px, 1.67fr)
 `;
 
 const Thead = styled.thead`

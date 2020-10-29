@@ -8,7 +8,13 @@ import MarkdownContent from '../components/blocks/MarkdownContent';
 import ResponsiveAside from '../components/fragments/ResponsiveAside';
 import SideMenu from '../components/blocks/Menu/SideMenu';
 
-import { listDocsLinks, listAboutLinks } from '../utils/getLinkLists';
+import { listDocsLinks, listAboutLinks, listBenefitsLinks } from '../utils/getLinkLists';
+
+const linkMap = {
+  docs: listDocsLinks,
+  about: listAboutLinks,
+  benefits: listBenefitsLinks
+};
 
 
 const Docs = ({ data, pageContext, location }) => {
@@ -17,7 +23,7 @@ const Docs = ({ data, pageContext, location }) => {
   const content = data.markdownRemark.html;
   const { slug } = pageContext;
 
-  const listItems = slug.includes('docs') ? listDocsLinks : listAboutLinks;
+  const listItems = linkMap[slug.split('/')[1]] || listDocsLinks;
 
   return (
     <Layout

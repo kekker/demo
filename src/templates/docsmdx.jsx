@@ -5,9 +5,15 @@ import PropTypes from 'prop-types';
 // Components
 import Layout from '../components/fragments/Layout/Layout';
 import RenderRawContent from '../components/blocks/MarkdownContent';
-import { listAboutLinks, listDocsLinks } from '../utils/getLinkLists';
+import { listAboutLinks, listDocsLinks, listBenefitsLinks } from '../utils/getLinkLists';
 import SideMenu from '../components/blocks/Menu/SideMenu';
 import ResponsiveAside from '../components/fragments/ResponsiveAside';
+
+const linkMap = {
+  'docs': listDocsLinks,
+  about: listAboutLinks,
+  benefits: listBenefitsLinks
+};
 
 
 const DocsMdx = ({ data, pageContext, location }) => {
@@ -16,7 +22,7 @@ const DocsMdx = ({ data, pageContext, location }) => {
   const content = data.mdx.body;
   const { slug } = pageContext;
 
-  const listItems = slug.includes('docs') ? listDocsLinks : listAboutLinks;
+  const listItems = linkMap[slug.split('/')[1]] || listDocsLinks;
 
   return (
     <Layout
