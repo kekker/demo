@@ -11,6 +11,10 @@ items:
     to: /pricing
     activeSelector: /pricing
 
+  - title: Benefits
+    to: /benefits/overview.html
+    activeSelector: /benefits
+
   - title: About
     to: /about/platform.html
     activeSelector: /about/

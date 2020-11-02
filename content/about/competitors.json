@@ -1,7 +1,6 @@
 {
   "columns": ["Kekker", "Multi-DLT protocols BaaS providers", "Mono-DLT protocol BaaS providers", "Basic BaaS providers", "Free / open source tools"],
   "rows": [
-    "Providers",
     "DLT hosting",
     "Support to guarantee functioning DLT network",
     "Multi-DLT support",
@@ -12,13 +11,6 @@
     "Business App Samples and Templates"
   ],
   "data": {
-    "Providers": {
-      "Kekker": "Kekker",
-      "Multi-DLT protocols BaaS providers": "Blockdaemon, Chainstack, SettleMint",
-      "Mono-DLT protocol BaaS providers": "Kaleido, PegaSys, Infura, QuickNode, Factom, Rockside",
-      "Basic BaaS providers": "Amazon Managed Blockchain, IBM Blockchain Platform, Azure Blockchain Workbench, Corda HPE R3",
-      "Free / open source tools": "Ethereum, Hyperledger"
-    },
     "DLT hosting": {
       "Kekker": "+",
       "Multi-DLT protocols BaaS providers": "+",

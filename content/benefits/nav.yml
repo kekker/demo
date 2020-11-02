@@ -1,0 +1,10 @@
+- header: Benefits
+  items:
+    - title: Overview
+      to: /benefits/overview.html
+
+    - title: Compare Setup Economics
+      to: /benefits/compare-setup-economics.html
+
+    - title: Compare Support and Maintenance Economics
+      to: /benefits/compare-support-and-maintenance-economics.html
