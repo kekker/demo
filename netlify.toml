@@ -9,7 +9,7 @@
 
 [[redirects]]
   from = "/samples/lc-dashboard"
-  to = "http://46.101.168.163/"
+  to = " https://trade-finance-dashboard.kekker.com/"
   status = 301
   force = true
 
