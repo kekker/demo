@@ -9,7 +9,7 @@
 
 [[redirects]]
   from = "/samples/lc-dashboard"
-  to = " https://trade-finance-dashboard.kekker.com/"
+  to = "https://trade-finance-dashboard.kekker.com/"
   status = 301
   force = true
 
