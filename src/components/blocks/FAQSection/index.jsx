@@ -24,8 +24,8 @@ class FAQSection extends React.Component {
   }
 
   componentDidMount() {
-    const allQuestions = this.props.list;
-    this.setState({ allQuestions });
+    const { list } = this.props;
+    this.setState({ allQuestions: list });
   }
 
   onPageChanged = data => {

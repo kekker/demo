@@ -31,5 +31,30 @@
     "title": "What are controlled and uncontrolled Deals?",
     "content": "Controlled Deals are the main type of transactions in the system. It's kind and the transition map is set up and published by the cluster administrator. If a member who is not a cluster administrator needs a new Deal type with with specific transition map he should request the cluster administrator for publication of such transition map template. Uncontrolled Deals are used when the state transition map is not known in advance.",
     "tag": "API"
+  },
+  {
+    "title": "Are there any differences between the sandbox and production environments?",
+    "content": "No, except there is no authentication in the production environment as it is assumed it is a safe environment and the authentification is not required. If necessary, you can use any proxy with authentication.",
+    "tag": "Sandbox"
+  },
+  {
+    "title": "Is it possible to transfer a deal from one channel (Channel header in requests) to another?",
+    "content": "Yes, in the production environment it is possible to use one common channel for all transactions and differentiation at the \"business application\" level. This is not possible in the Sandbox as the channel is designed to differentiate transactions by \"business applications\" and is not used by the platform.",
+    "tag": "API"
+  },
+  {
+    "title": "POST/API/DEALS: \"Parent\" - how to use it in more detail? I tried dealId and localDealId and it didn't work out.",
+    "content": "\"Parent\" - the global or local identifier of the linked deal.",
+    "tag": "API"
+  },
+  {
+    "title": "POST/API/DEALS: \"AppRef\" - no matter whether I specify it when creating it or not, in the created deal it is filled with UUID.",
+    "content": "\"AppRef\" is a custom unique identifier for the deal. If not specified by \"business application\" when creating a deal, it is filled in with the GUID [work in progress]",
+    "tag": "API"
+  },
+  {
+    "title": "POST/API/DEALS: \"History\" - is it possible to display the history of parameters and files changes?",
+    "content": "Yes, this is technically possible. So far there were no requirements for this functionality, however we will look into this if there is a demand.",
+    "tag": "API"
   }
 ]
