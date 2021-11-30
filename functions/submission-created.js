@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 const { API_MESSAGING_AUTH_BASIC_KEY, BASE_BACKEND_URL } = process.env;
-const http = require('http');
+const https = require('https');
 
 const messageRoute = '/api/messages';
 const questionRoute = '/api/feedbacks';
@@ -60,7 +60,7 @@ exports.handler = async (event, context, callback) => {
     const [dataForSending, options] = dispatchForm({ form_name, data });
     logNewSubmission(dataForSending);
 
-    const req = http.request(options, (res) => {
+    const req = https.request(options, (res) => {
       console.log(`statusCode: ${res.statusCode}`);
       res.setEncoding('utf8');
       res.on('end', () => {
